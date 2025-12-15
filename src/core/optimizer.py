@@ -8,10 +8,10 @@ from src.model.base_client import BaseModelClient
 logger = logging.getLogger("OPRO")
 
 class Optimizer:
-    def __init__(self, model_client: BaseModelClient, config):
+    def __init__(self, model_client, config):
         self.client = model_client
         self.config = config
-        self.template_content = self._load_prompt_template()
+        self.instructions_before_exemplars = getattr(config, 'meta_prompt_instructions_before_exemplars', True)
 
     def _load_prompt_template(self) -> str:
         # 讀取 config 設定的路徑
@@ -82,18 +82,47 @@ class Optimizer:
         return ex_str
 
     def _build_meta_prompt(self, history: list, dataset: list, wrong_questions_counter: dict = None) -> str:
+        # 1. 準備內容元件
+        # Instructions History
         history_str = self._format_history_string(history)
-        # [新增] 只有當 dataset 存在時才生成範例
-        examples_str = self._format_few_shot_examples(dataset, wrong_questions_counter) if dataset else ""
         
-        prompt = self.template_content
-        # 替換佔位符
-        if "{few_shot_examples}" in prompt:
-            prompt = prompt.replace("{few_shot_examples}", examples_str)
-        if "{history}" in prompt:
-            prompt = prompt.replace("{history}", history_str)
+        # Exemplars (Few-shot questions)
+        # 這裡會使用 _format_few_shot_examples (您原有的邏輯，包含 Error-driven)
+        examples_str = self._format_few_shot_examples(dataset, wrong_questions_counter)
+        
+        # 2. 定義固定文本 (可移至外部或 config，這裡為示範直接寫入)
+        intro = "Your task is to generate the instruction <INS> for solving the following type of problems."
+        
+        range_desc = "The score ranges from 0 to 100."
+        
+        footer = (
+            "Generate an instruction that is different from all the instructions <INS> above, "
+            "and has a higher score than all the instructions <INS> above.\n"
+            "The instruction should begin with <INS> and end with </INS>.\n"
+            "The instruction should be concise, effective, and generally applicable to all problems above.\n"
+            "New Instruction:"
+        )
+
+        # 3. 動態組合
+        parts = [intro]
+        
+        # 區塊 A: 題目範例
+        block_examples = f"Here are some examples of the problems:\n{examples_str}"
+        # 區塊 B: 歷史指令
+        block_history = f"Below are some previous instructions with their scores.\n{range_desc}\n{history_str}"
+        
+        if self.instructions_before_exemplars:
+            # 順序: Intro -> History -> Examples -> Footer
+            parts.append(block_history)
+            parts.append(block_examples)
+        else:
+            # 順序: Intro -> Examples -> History -> Footer
+            parts.append(block_examples)
+            parts.append(block_history)
             
-        return prompt
+        parts.append(footer)
+        
+        return "\n\n".join(parts)
 
     def generate_new_instructions(self, history: list, dataset: list = None, wrong_questions_counter: dict = None) -> list:
         # [修正] 接收 dataset 和 counter

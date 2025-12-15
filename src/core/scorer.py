@@ -3,7 +3,7 @@ import re
 import string
 import logging
 import pandas as pd
-# [修正] Import 路徑
+#
 from src.model.base_client import BaseModelClient
 
 logger = logging.getLogger("OPRO")
@@ -15,49 +15,111 @@ class Scorer:
         self.is_instruction_tuned = getattr(config, 'is_instruction_tuned', False)
         
         task_name = getattr(config, 'task_name', '').lower()
+        dataset_name = getattr(config, 'dataset_name', '').lower()
+        
+        # 判斷任務類型
+        self.is_gsm8k = 'gsm8k' in dataset_name or 'gsm8k' in task_name
         self.treat_as_bool = any(k in task_name for k in ['boolean', 'causal', 'web_of_lies'])
-        self.treat_as_number = any(k in task_name for k in ['gsm8k', 'arithmetic', 'counting'])
+        self.treat_as_multiple_choice = 'multiple_choice' in task_name # 可根據需求擴充
 
     def _format_prompt(self, instruction: str, question: str) -> str:
+        # 維持原有的 prompt 格式化邏輯
         pos = self.instruction_pos
-        # Instruction-tuned 模式 (無 QA 標籤)
         if self.is_instruction_tuned:
             if pos == 'Q_begin': return f"{instruction}\n{question}"
             elif pos == 'Q_end': return f"{question}\n{instruction}"
         
-        # 一般 QA 模式
         if pos == 'before_Q': return f"{instruction}\n\nQ: {question}\nA:"
         elif pos == 'Q_begin': return f"Q: {instruction}\n{question}\nA:"
         elif pos == 'Q_end': return f"Q: {question}\n{instruction}\nA:"
         return f"Q: {question}\nA: {instruction}"
 
+    def _normalize_answer(self, s):
+        """參考官方 metrics.py 的標準化邏輯"""
+        def remove_articles(text):
+            return re.sub(r'\b(a|an|the)\b', ' ', text)
+
+        def white_space_fix(text):
+            return ' '.join(text.split())
+
+        def remove_punc(text):
+            exclude = set(string.punctuation)
+            return ''.join(ch for ch in text if ch not in exclude)
+
+        def lower(text):
+            return text.lower()
+
+        return white_space_fix(remove_articles(remove_punc(lower(str(s)))))
+
+    def _extract_gsm8k_answer(self, prediction: str) -> str:
+        """針對 GSM8K 提取數值"""
+        # 1. 嘗試尋找官方格式 "#### 答案"
+        if "####" in prediction:
+            return prediction.split("####")[-1].strip()
+        
+        # 2. 如果沒有，嘗試提取最後一個數字
+        # 移除逗號 (1,000 -> 1000)
+        clean_pred = prediction.replace(',', '')
+        # 尋找所有數字 (包含浮點數與負號)
+        numbers = re.findall(r'-?\d+\.?\d*', clean_pred)
+        if numbers:
+            return numbers[-1]
+        return ""
+
     def _check_answer(self, prediction: str, target: str) -> float:
-        # 這裡保留簡化版的檢查邏輯，可視需要替換為更強的正規化版本
-        pred_clean = prediction.strip().lower()
-        target_clean = str(target).strip().lower()
-        
-        # 1. 包含匹配
-        if target_clean in pred_clean: return 1.0
-        
-        # 2. 布林值簡單匹配
+        """強化的評分邏輯"""
+        prediction = str(prediction)
+        target = str(target)
+
+        # --- GSM8K 專用邏輯 ---
+        if self.is_gsm8k:
+            pred_val = self._extract_gsm8k_answer(prediction)
+            target_val = self._extract_gsm8k_answer(target) # Target 通常已經是純數字，但也防呆一下
+            
+            # 數值比對 (允許小數點誤差)
+            try:
+                if abs(float(pred_val) - float(target_val)) < 1e-6:
+                    return 1.0
+            except:
+                pass # 轉換失敗或無法提取
+            
+            # 若數值提取失敗，退回嚴格字串比對
+            return 1.0 if target_val == pred_val and target_val != "" else 0.0
+
+        # --- 通用邏輯 (Normalization) ---
+        pred_norm = self._normalize_answer(prediction)
+        target_norm = self._normalize_answer(target)
+
+        # 1. 精確匹配 (Normalized)
+        if pred_norm == target_norm:
+            return 1.0
+            
+        # 2. 包含匹配 (加上邊界檢查，防止 "1" match "100")
+        # 檢查 target 是否作為一個獨立的詞存在於 prediction 中
+        pattern = r'\b{}\b'.format(re.escape(target_norm))
+        if re.search(pattern, pred_norm):
+            return 1.0
+
+        # 3. 布林值特殊處理
         if self.treat_as_bool:
             bool_map = {'yes': 'true', 'no': 'false', 'valid': 'true', 'invalid': 'false'}
-            pred_bool = bool_map.get(pred_clean, pred_clean)
-            target_bool = bool_map.get(target_clean, target_clean)
-            if pred_bool == target_bool: return 1.0
+            p_bool = bool_map.get(pred_norm, pred_norm)
+            t_bool = bool_map.get(target_norm, target_norm)
+            if p_bool == t_bool: return 1.0
 
         return 0.0
 
-    def score_instruction(self, instruction: str, dataset: list, num_samples: int = 50) -> dict:
+    def score_instruction(self, instruction: str, dataset: list, num_samples: int = None) -> dict:
         """評估單一指令"""
         import random
-        # [新增] 固定 Seed，確保每次評估抽到的題目一致
-        # 如果不固定，Step 1 抽到簡單題，Step 2 抽到難題，會導致優化方向錯誤
-        random.seed(0) 
+        # 使用傳入的 dataset，不再次 sample (因為外部已經控制了 train/eval split)
+        # 如果 num_samples 設了，則進行抽樣 (用於大資料集快速預覽)
         
-        # 防呆：如果資料少於採樣數，全取
-        actual_samples = min(len(dataset), num_samples)
-        eval_data = random.sample(dataset, actual_samples)
+        eval_data = dataset
+        if num_samples and num_samples < len(dataset):
+            random.seed(0) # 確保同一指令在同一批數據上評分
+            eval_data = random.sample(dataset, num_samples)
+
         scores = []
         results_list = []
         

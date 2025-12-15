@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 import logging
-import random # [新增]
+import random
 from collections import Counter
 from src.core.scorer import Scorer
 from src.core.optimizer import Optimizer
@@ -16,129 +16,129 @@ def run_opro_optimization(
     config
 ):
     logger.info(f"開始 OPRO 優化任務: {config.task_name} on {config.dataset_name}")
-
-    cache_dir = os.path.join(config.log_dir, "result_by_instruction")
-    if not os.path.exists(cache_dir):
-        os.makedirs(cache_dir)
-
+    
+    # 讀取設定
     is_gsm8k = 'gsm8k' in str(config.dataset_name).lower()
+    # 預設訓練比例：GSM8K 用 3.5%，BBH 用 20% (參考論文)
+    default_train_ratio = 0.035 if is_gsm8k else 0.2
+    train_ratio = getattr(config, 'train_ratio', default_train_ratio)
+    eval_interval = getattr(config, 'eval_interval', 3) # 每 3 步做一次驗證
 
-    # 1. 載入資料並切分 (Train/Validation Split)
+    # 1. 載入並分割資料
     data_root = './data'
-    try:
-        full_dataset = load_dataset(config.dataset_name, config.task_name, data_root)
-        
-        # [修正] 隨機打亂並切分，防止 Overfitting
-        random.seed(42) # 固定種子以重現實驗
-        random.shuffle(full_dataset)
-        
-        # 假設 80% 訓練 (用於優化)，20% 測試 (用於最終驗證)
-        split_idx = int(len(full_dataset) * 0.8)
-        train_dataset = full_dataset[:split_idx]
-        test_dataset = full_dataset[split_idx:]
-        
-        logger.info(f"資料集載入完成: 總數 {len(full_dataset)}, 訓練集 {len(train_dataset)}, 測試集 {len(test_dataset)}")
-        
-        if len(train_dataset) == 0:
-            raise ValueError("訓練集為空，請檢查資料載入邏輯。")
+    full_dataset = load_dataset(config.dataset_name, config.task_name, data_root)
+    random.seed(42)
+    random.shuffle(full_dataset)
+    
+    # 計算分割點
+    n_total = len(full_dataset)
+    n_train = int(n_total * train_ratio)
+    # 限制最大訓練樣本數 (例如不超過 200 題，避免太慢)
+    n_train = min(n_train, 200) 
+    n_eval = int(n_total * 0.1) # 10% 做驗證
+    
+    train_dataset = full_dataset[:n_train]
+    eval_dataset = full_dataset[n_train:n_train+n_eval] # 驗證集 (監控泛化)
+    test_dataset = full_dataset[n_train+n_eval:]        # 測試集 (最終分數)
 
-    except Exception as e:
-        logger.error(f"資料載入失敗: {e}")
-        raise e
+    logger.info(f"資料分割: Train={len(train_dataset)}, Eval={len(eval_dataset)}, Test={len(test_dataset)}")
 
-    # 2. 初始化
+    # 2. 初始化模組
     scorer = Scorer(scorer_client, config)
     optimizer = Optimizer(optimizer_client, config)
     wrong_questions_counter = Counter()
     
-    # [修正] 從 config 讀取多樣化的初始指令
+    # 初始指令
     initial_texts = getattr(config, 'initial_instructions', ["Let's think step by step."])
     instruction_pool = [{'instruction': txt, 'score': 0.0, 'step': 0} for txt in initial_texts]
+    cache_dir = os.path.join(config.log_dir, "result_by_instruction")
+    os.makedirs(cache_dir, exist_ok=True)
 
-    # --- 評分輔助函式 ---
-    def get_score_and_details(inst_text, step_num, dataset_split):
+    def evaluate_instruction(inst_text, dataset, step_num, file_suffix="train"):
+        """通用評分函式"""
         filename = instruction_to_filename(inst_text)
-        # 注意：快取檔名不區分 dataset，實際應用中最好加上 dataset 標籤以免混用
-        # 這裡為了簡單先維持原樣，但要小心
-        filepath = os.path.join(cache_dir, f"{filename}.csv")
+        # 這裡檔案名稱加上 suffix 以區分 train/eval 結果
+        filepath = os.path.join(cache_dir, f"{filename}_{file_suffix}.csv")
         
-        # 評估 (使用傳入的 dataset_split)
-        # [注意] 這裡不再依賴快取來直接回傳分數，因為我們可能換了 dataset (train vs test)
-        # 如果要用快取，需要更複雜的 key。這裡建議優化時一律重跑 (或只對相同 dataset 的結果做快取)
+        # 這裡簡化邏輯：如果是 train，總是重算 (因為有隨機性或我們希望 error-driven 更新)
+        # 如果是 eval/test，可考慮 cache
         
-        res = scorer.score_instruction(inst_text, dataset_split, config.num_evals_per_prompt)
+        res = scorer.score_instruction(inst_text, dataset) # 不再傳 num_samples，直接用全量 dataset
+        
+        # 儲存詳細結果
         df = res['detailed_dataframe']
-        df['instruction_content'] = inst_text 
-        df['step_generated'] = step_num
+        df['instruction'] = inst_text
+        df['step'] = step_num
+        df.to_csv(filepath, index=False)
         
         return res['score'], df
 
-    # 4. 評估初始指令 (使用訓練集)
+    # 3. 評估初始指令 (Train Set)
     logger.info("評估初始指令...")
     for item in instruction_pool:
-        s, _ = get_score_and_details(item['instruction'], 0, train_dataset)
+        s, df = evaluate_instruction(item['instruction'], train_dataset, 0, "train")
         item['score'] = s
-        logger.info(f"Initial: '{item['instruction'][:30]}...' -> {s:.4f}")
+        # 更新錯誤計數
+        if df is not None:
+            for _, row in df[df['accuracy'] == 0.0].iterrows():
+                wrong_questions_counter[row['input']] += 1
 
-    # 5. 優化迴圈
+    # 4. 優化迴圈
     for step in range(config.num_iterations):
-        logger.info(f"=== Step {step+1} ===")
+        current_step = step + 1
+        logger.info(f"=== Step {current_step} ===")
         
-        # 生成 (傳入訓練集與錯誤計數)
-        # 這裡的 dataset 參數是用來選 few-shot examples 的
+        # 生成新指令
+        # 這裡傳入 train_dataset 供 few-shot 選擇 (Error-driven)
         raw_insts = optimizer.generate_new_instructions(instruction_pool, train_dataset, wrong_questions_counter)
         
-        valid_instructions = []
+        valid_insts = []
         for raw in raw_insts:
             polished = polish_instruction(raw)
-            
-            if len(polished) > 500 or len(polished) == 0: continue
-            if "<INS>" in polished or "text:" in polished: continue
-            if is_gsm8k and any(char.isdigit() for char in polished): continue
+            # ... (過濾邏輯同前: 長度、標籤、GSM8K 數字檢查) ...
+            if "<INS>" in polished or not polished: continue
+            if is_gsm8k and any(c.isdigit() for c in polished): continue
             if any(i['instruction'] == polished for i in instruction_pool): continue
-                
-            valid_instructions.append(polished)
             
-        unique_insts = list(set(valid_instructions))
-        logger.info(f"生成 {len(raw_insts)} -> 有效 {len(unique_insts)}")
+            # [新增] Few-shot Pre-filtering (預過濾)
+            # 在跑整個訓練集前，先用 5 題測一下，如果全錯就丟掉
+            pre_screen_score, _ = evaluate_instruction(polished, train_dataset[:5], current_step, "pre_screen")
+            if pre_screen_score == 0.0:
+                logger.info(f"預過濾淘汰: {polished[:30]}... (Score: 0.0)")
+                continue
 
-        # 評估 (使用訓練集)
+            valid_insts.append(polished)
+        
+        unique_insts = list(set(valid_insts))
+        
+        # 評估新指令 (Train Set)
         step_results = []
         for inst in unique_insts:
-            s, df = get_score_and_details(inst, step+1, train_dataset)
+            s, df = evaluate_instruction(inst, train_dataset, current_step, "train")
+            step_results.append({'instruction': inst, 'score': s, 'step': current_step})
             
-            # 更新錯誤計數 (只用訓練集的錯誤來驅動)
-            if df is not None and 'accuracy' in df.columns:
+            # 更新錯誤計數
+            if df is not None:
                 for _, row in df[df['accuracy'] == 0.0].iterrows():
                     wrong_questions_counter[row['input']] += 1
-            
-            logger.info(f"評估: '{inst[:30]}...' -> {s:.4f}")
-            step_results.append({'instruction': inst, 'score': s, 'step': step+1})
-        
+            logger.info(f"Train Score: {s:.4f} | {inst[:40]}...")
+
         instruction_pool.extend(step_results)
-        
-        _save_checkpoint(instruction_pool, config)
-        best = max(instruction_pool, key=lambda x: x['score'])
-        logger.info(f"目前訓練集最佳: {best['score']:.4f}")
+        instruction_pool.sort(key=lambda x: x['score'], reverse=True)
+        # 截斷 Pool 大小，保留最好的前 N 個 (參考論文)
+        instruction_pool = instruction_pool[:20] 
 
-    # 6. 最終測試 (使用測試集)
-    logger.info("=== 優化結束，執行最終測試 ===")
-    sorted_pool = sorted(instruction_pool, key=lambda x: x['score'], reverse=True)
-    best_train_inst = sorted_pool[0]
-    
-    # 在測試集上驗證最佳指令
-    test_score, _ = get_score_and_details(best_train_inst['instruction'], -1, test_dataset)
-    
-    # 回傳結果結構更新
-    return {
-        'instruction': best_train_inst['instruction'],
-        'score': test_score, # 回傳測試集分數
-        'train_score': best_train_inst['score'],
-        'step': best_train_inst['step']
-    }
+        # [新增] Eval Interval Check (定期驗證)
+        if current_step % eval_interval == 0:
+            best_inst = instruction_pool[0]['instruction']
+            eval_score, _ = evaluate_instruction(best_inst, eval_dataset, current_step, "eval")
+            logger.info(f"★ Eval Check (Step {current_step}): {eval_score:.4f} | Best: {best_inst[:30]}...")
 
-def _save_checkpoint(pool, config):
-    try:
-        path = os.path.join(config.log_dir, f"{config.task_name}_checkpoint.csv")
-        pd.DataFrame(pool).sort_values('score', ascending=False).to_csv(path, index=False)
-    except: pass
+    # 5. 最終測試 (Test Set)
+    best_instruction = instruction_pool[0]
+    logger.info(f"優化結束。最佳指令 (Train: {best_instruction['score']:.4f}): {best_instruction['instruction']}")
+    
+    test_score, _ = evaluate_instruction(best_instruction['instruction'], test_dataset, -1, "test")
+    logger.info(f"最終測試分數 (Test Score): {test_score:.4f}")
+    
+    return best_instruction

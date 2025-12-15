@@ -29,8 +29,9 @@ optimizer_model:
 # OPRO 優化參數
 # ----------------------------------------------------
 optimization:
+  train_ratio: 0.2
+  eval_interval: 3  ## 每幾步執行一次驗證集檢查
   num_iterations: 20           # 測試時建議先設小一點 (例如 20)
-  num_evals_per_prompt: 3
   num_prompts_to_generate: 4
   max_num_instructions_in_prompt: 20
   
@@ -43,7 +44,7 @@ optimization:
   
   # [新增] 支援 Optimizer 的錯誤驅動策略
   num_few_shot_questions: 3
-  few_shot_selection_criteria: 'accumulative_most_frequent'
+  few_shot_selection_criteria: 'random'
   old_instruction_score_threshold: 0.1
 
   initial_instructions:
