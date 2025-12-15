@@ -1,11 +1,11 @@
 import yaml
-import os          # [新增] 修正 load_config 中的 os.path.exists 錯誤
-import argparse    # [新增] 修正 main 中的 argparse 錯誤
+import os
+import argparse
+import re  # [新增] 用於處理檔名
 from dataclasses import dataclass, field 
 from typing import Type, List            
-import logging # 加入 logging
+import logging
 
-# [修正 1] Import 路徑改為單數 'model'
 from src.utils import setup_logger
 from src.model.base_client import BaseModelClient
 from src.model.ollama_client import OllamaModelClient
@@ -39,7 +39,7 @@ def load_config(config_path: str):
     if not os.path.exists(config_path):
         raise FileNotFoundError(f"找不到設定檔: {config_path}")
         
-    print(f"正在載入設定檔: {config_path}")  # 提示當前使用的設定
+    print(f"正在載入設定檔: {config_path}")
     
     with open(config_path, 'r', encoding='utf-8') as f:
         config = yaml.safe_load(f)
@@ -60,21 +60,45 @@ def load_config(config_path: str):
 
 
 def main():
-    # [新增] 解析命令行參數
     parser = argparse.ArgumentParser(description="OPRO Optimization Runner")
     parser.add_argument('--config', type=str, default='config/config.yaml', help='Path to the configuration YAML file.')
     args = parser.parse_args()
 
-    # 1. 加載配置 (使用 args.config)
+    # 1. 加載配置
     scorer_cfg, optimizer_cfg, opt_cfg, raw_config = load_config(args.config)
     
     project_config = raw_config.get('project', {})
     task_name = project_config.get('task_name', 'default_task')
     log_dir = project_config.get('log_dir', './logs')
 
-    # 2. 設定 Logger
-    logger, _ = setup_logger(log_dir, task_name)
-    logger.info(f"程式啟動，使用設定檔: {args.config}")
+    # --- [修改] 自定義 Log 檔名 ---
+    # 格式: <target_model>_<task_model>_<dataset>
+    # 例如: qwen2.5-7b_qwen2.5-32b_mmlu.log
+    
+    def clean_name(name):
+        # 將冒號、斜線等不適合檔名的字元替換掉
+        return name.replace(':', '-').replace('/', '_').replace(' ', '_')
+
+    target_model_name = clean_name(scorer_cfg.model_name)   # Scorer (Target)
+    optimizer_model_name = clean_name(optimizer_cfg.model_name) # Optimizer (Task)
+    dataset_name = clean_name(opt_cfg.dataset_name)
+
+    # 組合新檔名
+    log_filename_base = f"{target_model_name}_{optimizer_model_name}_{dataset_name}"
+    
+    # 2. 設定 Logger (傳入自定義的檔名 base)
+    logger, log_file_path = setup_logger(log_dir, log_filename_base)
+    
+    # --- [新增] 在 Log 開頭記錄所有參數 ---
+    logger.info("="*50)
+    logger.info(f"Experiment Start: {log_filename_base}")
+    logger.info(f"Config File: {args.config}")
+    logger.info("-" * 20)
+    logger.info(f"[Scorer Model] (Target): {scorer_cfg}")
+    logger.info(f"[Optimizer Model]: {optimizer_cfg}")
+    logger.info(f"[Optimization Params]: {opt_cfg}")
+    logger.info("="*50)
+    # --------------------------------------
 
     # 3. 實例化模型
     scorer_client = OllamaModelClient(**scorer_cfg.__dict__)
@@ -101,6 +125,7 @@ def main():
         print(f"Instruction: {best_result['instruction']}")
         print(f"Final Score: {best_result['score']}")
         print(f"Step Generated: {best_result.get('step', 'N/A')}")
+        print(f"Log saved to: {log_file_path}")
         print(f"==========================================")
         
     except Exception as e:
