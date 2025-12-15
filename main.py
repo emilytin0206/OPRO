@@ -20,7 +20,6 @@ class ModelConfig:
 @dataclass
 class OptimizationConfig:
     num_iterations: int
-    num_evals_per_prompt: int
     num_prompts_to_generate: int
     max_num_instructions_in_prompt: int 
     meta_prompt_path: str
