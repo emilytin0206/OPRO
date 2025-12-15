@@ -1,27 +1,32 @@
 # ----------------------------------------------------
-# 專案設定
+# 專案設定 (Server Mode)
 # ----------------------------------------------------
 project:
-  task_name: 'all_specified'
-  log_dir: './logs'
+  task_name: 'all_specified' # 跑 MMLU 全部指定子集
+  log_dir: './logs_server'   # [選用] 區分 log 資料夾，避免混淆
 
 # ----------------------------------------------------
-# Scorer Model
+# Scorer Model (Target Model: 負責做題)
 # ----------------------------------------------------
 scorer_model:
   client_type: 'Ollama'
+  # 您的設定: Target 用 qwen2.5:7b
   model_name: 'qwen2.5:7b'
-  api_url: 'http://localhost:11434/api/generate'
+  # 您的設定: 做題需要 Chat 模式
+  api_url: 'http://140.113.86.14:11434/api/chat'
   temperature: 0.0
   max_output_tokens: 1024
 
 # ----------------------------------------------------
-# Optimizer Model
+# Optimizer Model (負責寫 Prompt)
 # ----------------------------------------------------
 optimizer_model:
   client_type: 'Ollama'
+  # 您的設定: Optimizer 用更強的 qwen2.5:32b
   model_name: 'qwen2.5:32b'
-  api_url: 'http://localhost:11434/api/generate'
+  # 注意: Optimizer 使用 meta-prompt 補全，通常建議用 generate 接口
+  # 但如果不支援，Client 程式碼會自動幫您轉
+  api_url: 'http://140.113.86.14:11434/api/generate'
   temperature: 0.7
   max_output_tokens: 2048
 
@@ -31,19 +36,16 @@ optimizer_model:
 optimization:
   dataset_name: 'mmlu'
   train_ratio: 0.8
-  eval_interval: 3  ## 每幾步執行一次驗證集檢查
-  num_iterations: 3           # 測試時建議先設小一點 (例如 20)
+  eval_interval: 3
+  num_iterations: 3
   num_prompts_to_generate: 8
   max_num_instructions_in_prompt: 20
   
-  # [修正] 路徑改為 prompt (單數) 以匹配您的資料夾結構
   meta_prompt_path: 'prompt/meta_prompt.txt'
   
-  # [新增] 支援 Scorer 的格式調整
   instruction_pos: 'Q_begin'
   is_instruction_tuned: true
   
-  # [新增] 支援 Optimizer 的錯誤驅動策略
   num_few_shot_questions: 3
   few_shot_selection_criteria: 'random'
   old_instruction_score_threshold: 0.1

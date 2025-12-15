@@ -9,30 +9,25 @@ from src.model.base_client import BaseModelClient
 logger = logging.getLogger("OPRO")
 
 class Scorer:
+    
     def __init__(self, model_client: BaseModelClient, config=None):
         self.client = model_client
-        self.instruction_pos = getattr(config, 'instruction_pos', 'A_begin')
-        self.is_instruction_tuned = getattr(config, 'is_instruction_tuned', False)
-        
+        self.config = config
+        self.instruction_pos = getattr(config, 'instruction_pos', 'Q_begin') # 預設 Q_begin
+        # ... (其他初始化維持不變) ...
         task_name = getattr(config, 'task_name', '').lower()
         dataset_name = getattr(config, 'dataset_name', '').lower()
-        
-        # 判斷任務類型
         self.is_gsm8k = 'gsm8k' in dataset_name or 'gsm8k' in task_name
         self.treat_as_bool = any(k in task_name for k in ['boolean', 'causal', 'web_of_lies'])
-        self.treat_as_multiple_choice = 'multiple_choice' in task_name # 可根據需求擴充
 
     def _format_prompt(self, instruction: str, question: str) -> str:
-        # 維持原有的 prompt 格式化邏輯
+        # 這裡僅負責組合 User Message 的內容
         pos = self.instruction_pos
-        if self.is_instruction_tuned:
-            if pos == 'Q_begin': return f"{instruction}\n{question}"
-            elif pos == 'Q_end': return f"{question}\n{instruction}"
-        
-        if pos == 'before_Q': return f"{instruction}\n\nQ: {question}\nA:"
-        elif pos == 'Q_begin': return f"Q: {instruction}\n{question}\nA:"
-        elif pos == 'Q_end': return f"Q: {question}\n{instruction}\nA:"
-        return f"Q: {question}\nA: {instruction}"
+        # Q_begin: Instruction 在問題前面
+        if pos == 'Q_begin': return f"{instruction}\n\nQ: {question}\nA:"
+        elif pos == 'Q_end': return f"Q: {question}\n\n{instruction}\nA:"
+        # Fallback
+        return f"{instruction}\n{question}"
 
     def _normalize_answer(self, s):
         """參考官方 metrics.py 的標準化邏輯"""

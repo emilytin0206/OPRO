@@ -87,42 +87,47 @@ class Optimizer:
         history_str = self._format_history_string(history)
         
         # Exemplars (Few-shot questions)
-        # 這裡會使用 _format_few_shot_examples (您原有的邏輯，包含 Error-driven)
         examples_str = self._format_few_shot_examples(dataset, wrong_questions_counter)
         
-        # 2. 定義固定文本 (可移至外部或 config，這裡為示範直接寫入)
-        intro = "Your task is to generate the instruction <INS> for solving the following type of problems."
-        
-        range_desc = "The score ranges from 0 to 100."
-        
-        footer = (
-            "Generate an instruction that is different from all the instructions <INS> above, "
-            "and has a higher score than all the instructions <INS> above.\n"
-            "The instruction should begin with <INS> and end with </INS>.\n"
-            "The instruction should be concise, effective, and generally applicable to all problems above.\n"
-            "New Instruction:"
-        )
-
-        # 3. 動態組合
-        parts = [intro]
-        
-        # 區塊 A: 題目範例
-        block_examples = f"Here are some examples of the problems:\n{examples_str}"
-        # 區塊 B: 歷史指令
-        block_history = f"Below are some previous instructions with their scores.\n{range_desc}\n{history_str}"
-        
-        if self.instructions_before_exemplars:
-            # 順序: Intro -> History -> Examples -> Footer
-            parts.append(block_history)
-            parts.append(block_examples)
-        else:
-            # 順序: Intro -> Examples -> History -> Footer
-            parts.append(block_examples)
-            parts.append(block_history)
+        # 2. 載入並填充模板
+        # [修正] 改為使用 _load_prompt_template() 讀取檔案，而非硬編碼
+        try:
+            template = self._load_prompt_template()
             
-        parts.append(footer)
-        
-        return "\n\n".join(parts)
+            # 檢查模板中是否包含必要的佔位符
+            if "{history}" not in template or "{few_shot_examples}" not in template:
+                logger.warning("Meta-prompt 模板缺少 {history} 或 {few_shot_examples} 佔位符，將回退至預設邏輯。")
+                raise ValueError("Invalid Template")
+
+            # 填充內容
+            meta_prompt = template.format(
+                history=history_str,
+                few_shot_examples=examples_str
+            )
+            return meta_prompt
+
+        except Exception as e:
+            # [Fallback] 如果讀取失敗或模板格式錯誤，使用原本的硬編碼邏輯 (但建議修正以符合論文)
+            logger.warning(f"使用模板生成 Prompt 失敗 ({e})，使用預設硬編碼格式。")
+            
+            intro = "Your task is to generate the instruction <INS> for solving the following type of problems."
+            range_desc = "The score ranges from 0 to 100."
+            footer = (
+                "Generate an instruction that is different from all the instructions <INS> above, "
+                "and has a higher score than all the instructions <INS> above.\n"
+                "The instruction should begin with <INS> and end with </INS>.\n"
+                "The instruction should be concise, effective, and generally applicable to all problems above.\n"
+                "New Instruction:"
+            )
+            
+            block_history = f"Below are some previous instructions with their scores.\n{range_desc}\n{history_str}"
+            block_examples = f"Here are some examples of the problems:\n{examples_str}"
+            
+            # 根據 config 決定順序 (若使用模板，順序由模板內的 {history} 位置決定)
+            if self.instructions_before_exemplars:
+                return f"{intro}\n\n{block_history}\n\n{block_examples}\n\n{footer}"
+            else:
+                return f"{intro}\n\n{block_examples}\n\n{block_history}\n\n{footer}"
 
     def generate_new_instructions(self, history: list, dataset: list = None, wrong_questions_counter: dict = None) -> list:
         # [修正] 接收 dataset 和 counter

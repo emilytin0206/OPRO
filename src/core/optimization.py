@@ -10,39 +10,41 @@ from src.model.base_client import BaseModelClient
 
 logger = logging.getLogger("OPRO")
 
-def run_opro_optimization(
-    scorer_client: BaseModelClient,
-    optimizer_client: BaseModelClient,
-    config
-):
+def run_opro_optimization(scorer_client: BaseModelClient, optimizer_client: BaseModelClient, config):
     logger.info(f"開始 OPRO 優化任務: {config.task_name} on {config.dataset_name}")
     
     # 讀取設定
     is_gsm8k = 'gsm8k' in str(config.dataset_name).lower()
-    # 預設訓練比例：GSM8K 用 3.5%，BBH 用 20% (參考論文)
-    default_train_ratio = 0.035 if is_gsm8k else 0.2
-    train_ratio = getattr(config, 'train_ratio', default_train_ratio)
-    eval_interval = getattr(config, 'eval_interval', 3) # 每 3 步做一次驗證
+    train_ratio = getattr(config, 'train_ratio', 0.8) # 預設 80%
+    eval_interval = getattr(config, 'eval_interval', 3)
 
     # 1. 載入並分割資料
     data_root = './data'
+    # load_dataset 已經處理了 "不足 300 筆就全拿" 的邏輯
     full_dataset = load_dataset(config.dataset_name, config.task_name, data_root)
+    
+    if not full_dataset:
+        raise ValueError("沒有載入任何資料，請檢查路徑或檔案名稱。")
+
+    # 隨機打亂：混合所有子集的題目
     random.seed(42)
     random.shuffle(full_dataset)
     
-    # 計算分割點
+    # 動態計算分割點 (基於實際載入的總筆數)
     n_total = len(full_dataset)
     n_train = int(n_total * train_ratio)
-    # 限制最大訓練樣本數 (例如不超過 200 題，避免太慢)
-    n_train = min(n_train, 200) 
-    n_eval = int(n_total * 0.1) # 10% 做驗證
+    
+    # 限制訓練集上限 (避免因為全部載入導致太慢，如果有需要可解開註解)
+    # n_train = min(n_train, 500) 
     
     train_dataset = full_dataset[:n_train]
-    eval_dataset = full_dataset[n_train:n_train+n_eval] # 驗證集 (監控泛化)
-    test_dataset = full_dataset[n_train+n_eval:]        # 測試集 (最終分數)
+    eval_dataset = full_dataset[n_train:] # 剩下的做驗證
+    
+    # 在本框架中，我們暫時用 Eval Set 當作每輪檢查進步的基準，也可以當作最終 Test Set
+    test_dataset = eval_dataset 
 
-    logger.info(f"資料分割: Train={len(train_dataset)}, Eval={len(eval_dataset)}, Test={len(test_dataset)}")
-
+    logger.info(f"資料統計: 總筆數={n_total}")
+    logger.info(f"分割結果: Train={len(train_dataset)}, Eval/Test={len(eval_dataset)}")
     # 2. 初始化模組
     scorer = Scorer(scorer_client, config)
     optimizer = Optimizer(optimizer_client, config)

@@ -30,19 +30,25 @@ class OptimizationConfig:
     is_instruction_tuned: bool = False
     num_few_shot_questions: int = 3
     few_shot_selection_criteria: str = "random"
-    # [新增] 初始指令列表與其他參數
     initial_instructions: List[str] = field(default_factory=lambda: ["Let's think step by step."])
     old_instruction_score_threshold: float = 0.1
 
-def load_config(config_path: str = 'config/config.yaml'):
-    # ... (前段邏輯保持不變)
+def load_config(config_path: str):
+    if not os.path.exists(config_path):
+        raise FileNotFoundError(f"找不到設定檔: {config_path}")
+        
+    print(f"正在載入設定檔: {config_path}")  # 提示當前使用的設定
     
-    # 使用解包並過濾掉 dataclass 不支援的 key
+    with open(config_path, 'r', encoding='utf-8') as f:
+        config = yaml.safe_load(f)
+        
+    scorer_cfg = ModelConfig(**config['scorer_model'])
+    optimizer_cfg = ModelConfig(**config['optimizer_model'])
+    
     opt_dict = config['optimization']
     known_keys = OptimizationConfig.__annotations__.keys()
     filtered_opt_dict = {k: v for k, v in opt_dict.items() if k in known_keys}
     
-    # 確保 initial_instructions 是 list
     if 'initial_instructions' in filtered_opt_dict and not isinstance(filtered_opt_dict['initial_instructions'], list):
          filtered_opt_dict['initial_instructions'] = [str(filtered_opt_dict['initial_instructions'])]
 
@@ -50,9 +56,15 @@ def load_config(config_path: str = 'config/config.yaml'):
     
     return scorer_cfg, optimizer_cfg, opt_cfg, config
 
+
 def main():
-    # 1. 加載配置
-    scorer_cfg, optimizer_cfg, opt_cfg, raw_config = load_config()
+    # [新增] 解析命令行參數
+    parser = argparse.ArgumentParser(description="OPRO Optimization Runner")
+    parser.add_argument('--config', type=str, default='config/config.yaml', help='Path to the configuration YAML file.')
+    args = parser.parse_args()
+
+    # 1. 加載配置 (使用 args.config)
+    scorer_cfg, optimizer_cfg, opt_cfg, raw_config = load_config(args.config)
     
     project_config = raw_config.get('project', {})
     task_name = project_config.get('task_name', 'default_task')
@@ -60,19 +72,16 @@ def main():
 
     # 2. 設定 Logger
     logger, _ = setup_logger(log_dir, task_name)
-    logger.info("程式啟動，配置載入完成。")
+    logger.info(f"程式啟動，使用設定檔: {args.config}")
 
     # 3. 實例化模型
-    # 這裡假設兩個都用 Ollama，如果 scorer 用別的需加判斷
     scorer_client = OllamaModelClient(**scorer_cfg.__dict__)
     optimizer_client = OllamaModelClient(**optimizer_cfg.__dict__)
     
-    # 4. 補充 opt_cfg 的額外資訊
-    opt_cfg.dataset_name = 'bbh' # 暫定，建議從 config 讀取 dataset_name
+    # 4. 補充 opt_cfg
+    opt_cfg.dataset_name = raw_config['optimization'].get('dataset_name', 'mmlu')
     opt_cfg.task_name = task_name
     opt_cfg.log_dir = log_dir
-    
-    # 讀取額外參數 (如果 YAML 有寫)
     opt_cfg.instruction_pos = raw_config['optimization'].get('instruction_pos', 'A_begin')
     opt_cfg.is_instruction_tuned = raw_config['optimization'].get('is_instruction_tuned', False)
 
@@ -85,7 +94,6 @@ def main():
         )
         logger.info("主程式執行完畢。")
         
-        # [修正 2 & 3] 將結果列印移入 try 區塊，並使用正確的變數 best_result
         print(f"\n==========================================")
         print(f"優化完成! 最佳指令如下:")
         print(f"Instruction: {best_result['instruction']}")
