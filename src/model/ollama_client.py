@@ -1,7 +1,10 @@
 import requests
 import json
-# [修正] Import 路徑
+import time # [新增]
+import logging
 from src.model.base_client import BaseModelClient
+
+logger = logging.getLogger("OPRO")
 
 class OllamaModelClient(BaseModelClient):
     """使用 Ollama API 進行互動的客戶端"""
@@ -13,8 +16,6 @@ class OllamaModelClient(BaseModelClient):
         self.max_output_tokens = max_output_tokens
 
     def _call_ollama_api(self, prompt: str, num_generations: int = 1) -> list[str]:
-        # 這裡的 payload 結構視您的 Ollama 版本而定
-        # 如果是較新版 Ollama，建議使用 /api/generate
         payload = {
             "model": self.model_name,
             "prompt": prompt,
@@ -25,24 +26,33 @@ class OllamaModelClient(BaseModelClient):
             }
         }
         
-        try:
-            # 發送請求
-            response = requests.post(self.api_url, json=payload)
-            response.raise_for_status()
+        # [新增] 重試機制設定
+        max_retries = 3
+        base_delay = 1
+        
+        results = []
+        for _ in range(num_generations):
+            result = ""
+            for attempt in range(max_retries):
+                try:
+                    response = requests.post(self.api_url, json=payload, timeout=60) # 加入 timeout
+                    response.raise_for_status()
+                    
+                    data = response.json()
+                    result = data.get('response', '').strip()
+                    break # 成功則跳出重試迴圈
+                    
+                except requests.exceptions.RequestException as e:
+                    logger.warning(f"Ollama API 呼叫失敗 (嘗試 {attempt+1}/{max_retries}): {e}")
+                    if attempt < max_retries - 1:
+                        sleep_time = base_delay * (2 ** attempt) # 指數退避
+                        time.sleep(sleep_time)
+                    else:
+                        logger.error("API 重試次數已達上限，回傳空字串。")
             
-            data = response.json()
-            generated_text = data.get('response', '').strip()
+            results.append(result)
             
-            # 因為 Ollama API 一次只回傳一個，若需要多個生成，需在外部迴圈呼叫
-            # 這裡簡單處理：若 num_generations > 1，遞迴呼叫 (效率較低但邏輯正確)
-            if num_generations > 1:
-                return [generated_text] + self._call_ollama_api(prompt, num_generations - 1)
-            
-            return [generated_text]
-
-        except requests.exceptions.RequestException as e:
-            print(f"Ollama API 呼叫失敗: {e}")
-            return [""] * num_generations
+        return results
 
     def generate_text(self, prompt: str) -> str:
         results = self._call_ollama_api(prompt, num_generations=1)

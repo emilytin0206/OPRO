@@ -22,10 +22,8 @@ class OptimizationConfig:
     num_iterations: int
     num_evals_per_prompt: int
     num_prompts_to_generate: int
-    # [修正] 移除 config 中不存在的 top_k_prompts，改用 max_num_instructions_in_prompt
     max_num_instructions_in_prompt: int 
     meta_prompt_path: str
-    # [新增] 支援更多參數的動態屬性
     task_name: str = ""
     dataset_name: str = ""
     log_dir: str = ""
@@ -33,25 +31,26 @@ class OptimizationConfig:
     is_instruction_tuned: bool = False
     num_few_shot_questions: int = 3
     few_shot_selection_criteria: str = "random"
+    # [新增] 初始指令列表與其他參數
+    initial_instructions: List[str] = field(default_factory=lambda: ["Let's think step by step."])
+    old_instruction_score_threshold: float = 0.1
 
 def load_config(config_path: str = 'config/config.yaml'):
-    """讀取 YAML 配置檔"""
-    with open(config_path, 'r', encoding='utf-8') as f:
-        config = yaml.safe_load(f)
+    # ... (前段邏輯保持不變)
     
-    scorer_cfg = ModelConfig(**config['scorer_model'])
-    optimizer_cfg = ModelConfig(**config['optimizer_model'])
-    
-    # 使用解包並過濾掉 dataclass 不支援的 key (如果 yaml 有多寫的話)
+    # 使用解包並過濾掉 dataclass 不支援的 key
     opt_dict = config['optimization']
-    # 這裡簡單處理：只取 dataclass 定義的欄位，或者直接傳遞字典
-    # 為了嚴謹，我們先用字典初始化部分，後續動態賦值
     known_keys = OptimizationConfig.__annotations__.keys()
     filtered_opt_dict = {k: v for k, v in opt_dict.items() if k in known_keys}
+    
+    # 確保 initial_instructions 是 list
+    if 'initial_instructions' in filtered_opt_dict and not isinstance(filtered_opt_dict['initial_instructions'], list):
+         filtered_opt_dict['initial_instructions'] = [str(filtered_opt_dict['initial_instructions'])]
+
     opt_cfg = OptimizationConfig(**filtered_opt_dict)
     
-    return scorer_cfg, optimizer_cfg, opt_cfg, config # 回傳原始 config 以便讀取 project 設定
-
+    return scorer_cfg, optimizer_cfg, opt_cfg, config
+    
 def main():
     # 1. 加載配置
     scorer_cfg, optimizer_cfg, opt_cfg, raw_config = load_config()
