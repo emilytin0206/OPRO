@@ -12,6 +12,14 @@ class OllamaModelClient(BaseModelClient):
         self.temperature = temperature
         self.max_output_tokens = max_output_tokens
         
+        # [新增] 用於統計 Token
+        self.usage_stats = {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "call_count": 0
+        }
+        
         # 解析 Base URL
         if "/api/" in api_url:
             self.base_url = api_url.split("/api/")[0]
@@ -61,13 +69,17 @@ class OllamaModelClient(BaseModelClient):
                 response.raise_for_status()
                 data = response.json()
                 
-                # --- [新增] Token Cost 紀錄 ---
+                # --- [修改] Token Cost 累積統計 ---
                 input_tokens = data.get('prompt_eval_count', 0)
                 output_tokens = data.get('eval_count', 0)
-                total_tokens = input_tokens + output_tokens
                 
-                # 記錄到 Log (會出現在新檔名的 log 檔案中)
-                logger.info(f"[Token Usage] {self.model_name} | In: {input_tokens}, Out: {output_tokens}, Total: {total_tokens}")
+                self.usage_stats["prompt_tokens"] += input_tokens
+                self.usage_stats["completion_tokens"] += output_tokens
+                self.usage_stats["total_tokens"] += (input_tokens + output_tokens)
+                self.usage_stats["call_count"] += 1
+                
+                # 可選：保留單次 Log，或依靠最後總結
+                # logger.info(f"[Token] {self.model_name} | In: {input_tokens}, Out: {output_tokens}")
                 # -----------------------------
 
                 if response_key == 'message':

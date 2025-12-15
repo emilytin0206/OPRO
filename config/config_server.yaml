@@ -26,7 +26,7 @@ optimizer_model:
   model_name: 'qwen2.5:32b'
   # 注意: Optimizer 使用 meta-prompt 補全，通常建議用 generate 接口
   # 但如果不支援，Client 程式碼會自動幫您轉
-  api_url: 'http://140.113.86.14:11434/api/generate'
+  api_url: 'http://140.113.86.14:11434/api/chat'
   temperature: 0.7
   max_output_tokens: 2048
 
