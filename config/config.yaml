@@ -31,5 +31,6 @@ optimizer_model:
 optimization:
   num_iterations: 100       # 總迭代次數
   num_evals_per_prompt: 3   # 每個提示詞評估次數 (用於計算平均分數)
-  num_prompts_to_generate: 4# 每次迭代生成的新提示詞數量
-  top_k_prompts: 1          # 選取 Top K 最佳提示詞進行優化
+  num_prompts_to_generate: 4 # 每次迭代生成的新提示詞數量
+  max_num_instructions_in_prompt: 20         # 選取 Top K 最佳提示詞進行優化
+  meta_prompt_path: 'prompts/meta_prompt.txt'
