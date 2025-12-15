@@ -77,6 +77,7 @@ def run_opro_optimization(scorer_client: BaseModelClient, optimizer_client: Base
 
     # 3. 評估初始指令 (Train Set)
     logger.info("評估初始指令...")
+    total_initial = len(instruction_pool)
     for item in instruction_pool:
         s, df = evaluate_instruction(item['instruction'], train_dataset, 0, "train")
         item['score'] = s
@@ -112,10 +113,13 @@ def run_opro_optimization(scorer_client: BaseModelClient, optimizer_client: Base
             valid_insts.append(polished)
         
         unique_insts = list(set(valid_insts))
-        
+        total_insts = len(unique_insts)
+        logger.info(f"本輪共有 {total_insts} 個新指令需要評估。")
+
         # 評估新指令 (Train Set)
         step_results = []
-        for inst in unique_insts:
+        for i, inst in enumerate(unique_insts,1):
+            logger.info(f"Evaluating ({i}/{total_insts}): {inst[:50]}...")
             s, df = evaluate_instruction(inst, train_dataset, current_step, "train")
             step_results.append({'instruction': inst, 'score': s, 'step': current_step})
             
@@ -142,5 +146,9 @@ def run_opro_optimization(scorer_client: BaseModelClient, optimizer_client: Base
     
     test_score, _ = evaluate_instruction(best_instruction['instruction'], test_dataset, -1, "test")
     logger.info(f"最終測試分數 (Test Score): {test_score:.4f}")
+    
+    top_n_path = os.path.join(config.log_dir, "top_prompts.csv")
+    pd.DataFrame(instruction_pool).to_csv(top_n_path, index=False)
+    logger.info(f"已將前 {len(instruction_pool)} 名指令存檔至: {top_n_path}")
     
     return best_instruction

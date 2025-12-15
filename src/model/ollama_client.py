@@ -12,19 +12,16 @@ class OllamaModelClient(BaseModelClient):
         self.temperature = temperature
         self.max_output_tokens = max_output_tokens
         
-        # [核心邏輯] 解析 Base URL，以便動態組裝 /api/chat 或 /api/generate
-        # 假設傳入 http://140.113.86.14:11434/api/chat 或 .../generate，我們先取出 http://...:11434
+        # [核心邏輯] 解析 Base URL
         if "/api/" in api_url:
             self.base_url = api_url.split("/api/")[0]
         else:
             self.base_url = api_url.rstrip("/")
 
     def _get_endpoint(self, endpoint_type: str) -> str:
-        """根據需求動態取得 URL"""
         return f"{self.base_url}/api/{endpoint_type}"
 
     def generate_text(self, prompt: str) -> str:
-        """Optimizer 使用: 呼叫 /api/generate"""
         url = self._get_endpoint("generate")
         payload = {
             "model": self.model_name,
@@ -38,7 +35,6 @@ class OllamaModelClient(BaseModelClient):
         return self._post_request(url, payload, response_key='response')
 
     def chat(self, system_prompt: str, user_prompt: str) -> str:
-        """Scorer 使用: 呼叫 /api/chat"""
         url = self._get_endpoint("chat")
         payload = {
             "model": self.model_name,
@@ -63,6 +59,19 @@ class OllamaModelClient(BaseModelClient):
                 response.raise_for_status()
                 data = response.json()
                 
+                # --- [新增] Token 統計邏輯 ---
+                # Ollama 回傳的 JSON 包含統計資訊：
+                # prompt_eval_count: 提示詞(Input) token 數
+                # eval_count: 生成(Output) token 數
+                input_tokens = data.get('prompt_eval_count', 0)
+                output_tokens = data.get('eval_count', 0)
+                total_tokens = input_tokens + output_tokens
+
+                # 將花費記錄到 Log
+                # 這裡會印出例如: [Ollama Usage] qwen2.5:7b | In: 150, Out: 45, Total: 195
+                logger.info(f"[Ollama Usage] {self.model_name} | In: {input_tokens}, Out: {output_tokens}, Total: {total_tokens}")
+                # ---------------------------
+
                 if response_key == 'message':
                     return data.get('message', {}).get('content', '').strip()
                 else:

@@ -3,13 +3,14 @@ import re
 import string
 import logging
 import pandas as pd
+from tqdm import tqdm
 #
 from src.model.base_client import BaseModelClient
 
 logger = logging.getLogger("OPRO")
 
 class Scorer:
-    
+
     def __init__(self, model_client: BaseModelClient, config=None):
         self.client = model_client
         self.config = config
@@ -107,18 +108,16 @@ class Scorer:
     def score_instruction(self, instruction: str, dataset: list, num_samples: int = None) -> dict:
         """評估單一指令"""
         import random
-        # 使用傳入的 dataset，不再次 sample (因為外部已經控制了 train/eval split)
-        # 如果 num_samples 設了，則進行抽樣 (用於大資料集快速預覽)
         
         eval_data = dataset
         if num_samples and num_samples < len(dataset):
-            random.seed(0) # 確保同一指令在同一批數據上評分
+            random.seed(0)
             eval_data = random.sample(dataset, num_samples)
 
         scores = []
         results_list = []
         
-        for example in eval_data:
+        for example in tqdm(eval_data, desc="    Scoring", unit="sample", leave=False):
             prompt = self._format_prompt(instruction, example['input'])
             prediction = ""
             acc = 0.0
@@ -135,6 +134,9 @@ class Scorer:
                 'prediction': prediction,
                 'accuracy': acc
             })
+            
+            # [注意] 請移除之前建議的 "if i % 10 == 0: logger.info..." 
+            # 因為 tqdm 已經接管了進度顯示，印 log 會打斷進度條的顯示
         
         avg_score = np.mean(scores) if scores else 0.0
         return {

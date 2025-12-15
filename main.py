@@ -1,4 +1,6 @@
 import yaml
+import os          # [新增] 修正 load_config 中的 os.path.exists 錯誤
+import argparse    # [新增] 修正 main 中的 argparse 錯誤
 from dataclasses import dataclass, field 
 from typing import Type, List            
 import logging # 加入 logging
