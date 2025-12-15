@@ -1,6 +1,6 @@
 import yaml
-from dataclasses import dataclass
-from typing import Type
+from dataclasses import dataclass, field 
+from typing import Type, List            
 import logging # 加入 logging
 
 # [修正 1] Import 路徑改為單數 'model'
@@ -50,7 +50,7 @@ def load_config(config_path: str = 'config/config.yaml'):
     opt_cfg = OptimizationConfig(**filtered_opt_dict)
     
     return scorer_cfg, optimizer_cfg, opt_cfg, config
-    
+
 def main():
     # 1. 加載配置
     scorer_cfg, optimizer_cfg, opt_cfg, raw_config = load_config()

@@ -59,3 +59,27 @@ def polish_instruction(instruction: str) -> str:
     if instruction and instruction[-1] not in ".?!":
         instruction += "."
     return instruction
+
+def setup_logger(log_dir: str, task_name: str):
+    """設定 Logger"""
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
+        
+    logger = logging.getLogger("OPRO")
+    logger.setLevel(logging.INFO)
+    logger.handlers = [] # 清除舊 handler 避免重複打印
+    
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    
+    # File Handler
+    log_file = os.path.join(log_dir, f"{task_name}.log")
+    fh = logging.FileHandler(log_file, encoding='utf-8')
+    fh.setFormatter(formatter)
+    logger.addHandler(fh)
+    
+    # Console Handler
+    ch = logging.StreamHandler()
+    ch.setFormatter(formatter)
+    logger.addHandler(ch)
+    
+    return logger, log_file
