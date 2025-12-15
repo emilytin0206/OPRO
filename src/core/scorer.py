@@ -49,14 +49,15 @@ class Scorer:
         return 0.0
 
     def score_instruction(self, instruction: str, dataset: list, num_samples: int = 50) -> dict:
+        """評估單一指令"""
         import random
-        # [新增] 固定 Seed 以確保評分公平性 (針對 Caching 機制)
+        # [新增] 固定 Seed，確保每次評估抽到的題目一致
+        # 如果不固定，Step 1 抽到簡單題，Step 2 抽到難題，會導致優化方向錯誤
         random.seed(0) 
         
         # 防呆：如果資料少於採樣數，全取
         actual_samples = min(len(dataset), num_samples)
         eval_data = random.sample(dataset, actual_samples)
-        
         scores = []
         results_list = []
         

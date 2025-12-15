@@ -32,17 +32,24 @@ class Optimizer:
         return round(score * num_buckets)
 
     def _format_history_string(self, history: list) -> str:
-        """將歷史記錄格式化"""
-        # 按分數升序排列 (低 -> 高)
-        sorted_history = sorted(history, key=lambda x: x['score'])
+        """將歷史記錄格式化為字串"""
+        # [新增] 讀取分數門檻，預設 0.1 (可於 config 設定 old_instruction_score_threshold)
+        score_threshold = getattr(self.config, 'old_instruction_score_threshold', 0.1)
+        
+        # 1. 過濾低分指令
+        valid_history = [h for h in history if h['score'] >= score_threshold]
+        # 2. 排序：按分數由低到高
+        sorted_history = sorted(valid_history, key=lambda x: x['score'])
+        # 3. 取最近 N 筆
         max_num = getattr(self.config, 'max_num_instructions_in_prompt', 20)
         selected_history = sorted_history[-max_num:]
-        
+        # 4. 組合字串
         history_str = ""
         for item in selected_history:
             score_val = self._bucketize_score(item['score'])
             inst_text = item['instruction']
             history_str += f"text:\n{inst_text}\nscore:\n{score_val}\n\n"
+            
         return history_str.strip()
 
     # [新增] 錯誤驅動選題邏輯

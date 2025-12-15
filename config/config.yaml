@@ -44,3 +44,4 @@ optimization:
   # [新增] 支援 Optimizer 的錯誤驅動策略
   num_few_shot_questions: 3
   few_shot_selection_criteria: 'accumulative_most_frequent'
+  old_instruction_score_threshold: 0.1
