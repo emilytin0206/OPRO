@@ -2,39 +2,45 @@
 # 專案設定
 # ----------------------------------------------------
 project:
-  task_name: 'BBH-boolean_expressions' # 任務名稱
-  log_dir: './logs'                    # 日誌輸出路徑
+  task_name: 'BBH-boolean_expressions'
+  log_dir: './logs'
 
 # ----------------------------------------------------
-# Scorer Model (用於評估指令效果)
+# Scorer Model
 # ----------------------------------------------------
 scorer_model:
-  client_type: 'Ollama' # 或 'PaLM'
-  model_name: 'llama2'  # Ollama 的模型名稱, 例如 'llama2', 'mistral'
-  api_url: 'http://localhost:11434/api/generate' # Ollama API 服務網址
-  temperature: 0.0      # 較低溫度以確保確定性評估
+  client_type: 'Ollama'
+  model_name: 'llama2'
+  api_url: 'http://localhost:11434/api/generate'
+  temperature: 0.0
   max_output_tokens: 1024
 
 # ----------------------------------------------------
-# Optimizer Model (用於生成新指令)
+# Optimizer Model
 # ----------------------------------------------------
 optimizer_model:
-  client_type: 'Ollama' # 或 'PaLM'
-  model_name: 'codellama' # Ollama 的模型名稱, 例如 'codellama', 'mixtral'
-  api_url: 'http://localhost:11434/api/generate' # Ollama API 服務網址
-  temperature: 0.5      # 適度溫度以產生多樣化的新指令
+  client_type: 'Ollama'
+  model_name: 'codellama'
+  api_url: 'http://localhost:11434/api/generate'
+  temperature: 0.5
   max_output_tokens: 2048
 
 # ----------------------------------------------------
 # OPRO 優化參數
 # ----------------------------------------------------
 optimization:
-  num_iterations: 100       # 總迭代次數
-  num_evals_per_prompt: 3   # 每個提示詞評估次數 (用於計算平均分數)
-  num_prompts_to_generate: 4 # 每次迭代生成的新提示詞數量
-  num_few_shot_questions: 3  # 新增：每次 Meta-Prompt 要放幾題範例
-  few_shot_selection_criteria: 'accumulative_most_frequent' # or random
-  max_num_instructions_in_prompt: 20         # 選取 Top K 最佳提示詞進行優化
-  meta_prompt_path: 'prompts/meta_prompt.txt'
+  num_iterations: 20           # 測試時建議先設小一點 (例如 20)
+  num_evals_per_prompt: 3
+  num_prompts_to_generate: 4
+  max_num_instructions_in_prompt: 20
+  
+  # [修正] 路徑改為 prompt (單數) 以匹配您的資料夾結構
+  meta_prompt_path: 'prompt/meta_prompt.txt'
+  
+  # [新增] 支援 Scorer 的格式調整
   instruction_pos: 'Q_begin'
   is_instruction_tuned: true
+  
+  # [新增] 支援 Optimizer 的錯誤驅動策略
+  num_few_shot_questions: 3
+  few_shot_selection_criteria: 'accumulative_most_frequent'
