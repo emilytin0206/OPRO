@@ -37,6 +37,51 @@ class Optimizer:
     def _bucketize_score(self, score: float, num_buckets: int = 100) -> int:
         return round(score * num_buckets)
 
+    def _format_few_shot_examples(self, dataset: list, wrong_questions_counter: dict = None) -> str:
+        """
+        根據策略 (Random vs Error-Driven) 選擇 Few-Shot 範例
+        """
+        num_shots = getattr(self.config, 'num_few_shot_questions', 3)
+        selection_criteria = getattr(self.config, 'few_shot_selection_criteria', 'random')
+        
+        selected_data = []
+        
+        # 策略：累積最常錯 (Accumulative Most Frequent)
+        if selection_criteria == 'accumulative_most_frequent' and wrong_questions_counter:
+            # 1. 取出錯誤次數最多的題目 (由高到低排序)
+            most_common_errors = wrong_questions_counter.most_common()
+            
+            # 2. 建立 lookup table (Input -> Example Dict) 加速查找
+            # (若 dataset 很大，建議在 init 時就建好這張表)
+            input_to_example = {item['input']: item for item in dataset}
+            
+            # 3. 依序挑選
+            for input_text, count in most_common_errors:
+                if len(selected_data) >= num_shots:
+                    break
+                
+                if input_text in input_to_example:
+                    selected_data.append(input_to_example[input_text])
+            
+            # 4. 如果「錯題」不夠湊滿 num_shots (例如剛開始跑，大家都還沒錯)，用隨機補滿
+            if len(selected_data) < num_shots:
+                remaining_count = num_shots - len(selected_data)
+                candidates = [d for d in dataset if d not in selected_data]
+                if candidates:
+                    padding = random.sample(candidates, min(len(candidates), remaining_count))
+                    selected_data.extend(padding)
+                    
+        else:
+            # 策略：完全隨機 (Random)
+            selected_data = random.sample(dataset, min(len(dataset), num_shots))
+            
+        # 格式化輸出字串
+        examples_str = ""
+        for i, item in enumerate(selected_data):
+            examples_str += f"Problem {i+1}:\nQ: {item['input']}\nA: {item['target']}\n\n"
+            
+        return examples_str.strip()
+
     def _format_history_string(self, history: list) -> str:
         """將歷史記錄格式化為字串，準備填入模板"""
         # 1. 排序：按分數由低到高
@@ -55,29 +100,36 @@ class Optimizer:
             
         return history_str.strip()
 
-    def _build_meta_prompt(self, history: list) -> str:
-        """使用模板構建最終 Prompt"""
-        # 取得格式化後的歷史記錄字串
+    def _build_meta_prompt(self, history: list, dataset: list, wrong_questions_counter: dict = None) -> str:
+        # 傳入 counter
         history_string = self._format_history_string(history)
+        examples_string = self._format_few_shot_examples(dataset, wrong_questions_counter)
         
-        # 將歷史記錄填入模板中的 {history} 佔位符
-        # 使用 replace 而非 format，避免 Prompt 本身包含 {} 導致錯誤
-        meta_prompt = self.template_content.replace("{history}", history_string)
+        meta_prompt = self.template_content
+        if "{few_shot_examples}" in meta_prompt:
+            meta_prompt = meta_prompt.replace("{few_shot_examples}", examples_string)
+        meta_prompt = meta_prompt.replace("{history}", history_string)
         
         return meta_prompt
 
-    def generate_new_instructions(self, history: list) -> list:
+    # 修改函式簽名，加入 dataset 參數
+    def generate_new_instructions(self, history: list, dataset: list, wrong_questions_counter: dict = None) -> list:
         """
-        生成新指令的主函式。
+        生成新指令
+        Args:
+            history: 歷史指令列表
+            dataset: 原始資料集 (用於動態採樣)
         """
-        meta_prompt = self._build_meta_prompt(history)
-        
-        # logger.debug(f"Current Meta-Prompt:\n{meta_prompt}") # 除錯用
+        # 傳入 dataset 進行構建
+        meta_prompt = self._build_meta_prompt(history, dataset, wrong_questions_counter)
+        # logger.debug(f"Meta-Prompt with Examples:\n{meta_prompt[:500]}...") 
         
         num_prompts = getattr(self.config, 'num_prompts_to_generate', 4)
         new_instructions = []
         
         for _ in range(num_prompts):
+            # 注意：如果希望每次生成的範例都不同，應該把 _build_meta_prompt 移到迴圈內
+            # 但通常同一批次使用相同範例即可，這裡維持在迴圈外
             raw_output = self.client.generate_text(meta_prompt)
             parsed_inst = self._extract_instruction(raw_output)
             if parsed_inst:

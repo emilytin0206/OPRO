@@ -32,5 +32,9 @@ optimization:
   num_iterations: 100       # 總迭代次數
   num_evals_per_prompt: 3   # 每個提示詞評估次數 (用於計算平均分數)
   num_prompts_to_generate: 4 # 每次迭代生成的新提示詞數量
+  num_few_shot_questions: 3  # 新增：每次 Meta-Prompt 要放幾題範例
+  few_shot_selection_criteria: 'accumulative_most_frequent' # or random
   max_num_instructions_in_prompt: 20         # 選取 Top K 最佳提示詞進行優化
   meta_prompt_path: 'prompts/meta_prompt.txt'
+  instruction_pos: 'Q_begin'
+  is_instruction_tuned: true

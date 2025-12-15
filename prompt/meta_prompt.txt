@@ -1,4 +1,8 @@
-Your task is to generate the instruction <INS>.
+Your task is to generate the instruction <INS> for solving the following type of problems.
+
+Here are some examples of the problems:
+{few_shot_examples}
+
 Below are some previous instructions with their scores.
 The score ranges from 0 to 100.
 
