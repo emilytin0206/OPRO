@@ -1,0 +1,33 @@
+optimization:
+  dataset_name: mmlu
+  eval_interval: 3
+  few_shot_selection_criteria: random
+  initial_instructions:
+  - Let's think step by step.
+  - Solve this problem carefully.
+  - Provide a detailed answer.
+  - Answer the question directly.
+  instruction_pos: Q_begin
+  is_instruction_tuned: true
+  max_num_instructions_in_prompt: 20
+  meta_prompt_path: prompt/meta_prompt.txt
+  num_few_shot_questions: 3
+  num_iterations: 3
+  num_prompts_to_generate: 8
+  old_instruction_score_threshold: 0.1
+  train_ratio: 0.8
+optimizer_model:
+  api_url: http://localhost:11434/api/generate
+  client_type: Ollama
+  max_output_tokens: 2048
+  model_name: qwen2.5:32b
+  temperature: 0.7
+project:
+  log_dir: ./logs
+  task_name: all_specified
+scorer_model:
+  api_url: http://localhost:11434/api/generate
+  client_type: Ollama
+  max_output_tokens: 1024
+  model_name: qwen2.5:7b
+  temperature: 0.0
