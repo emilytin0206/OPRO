@@ -73,7 +73,7 @@ class OllamaModelClient(BaseModelClient):
     def _post_request(self, url, payload, response_key) -> str:
         max_retries = 3
         base_delay = 1
-        timeout_seconds = 300 
+        timeout_seconds = 400 
         
         for attempt in range(max_retries):
             try:

@@ -50,7 +50,7 @@ class Scorer:
         elif pos == 'Q_end': return f"Q: {question}\n\n{instruction}\nA:"
         return f"{instruction}\n{question}"
 
-    # --- 以下為移植自 Google metrics.py 的核心邏輯 ---
+    # --- 以下為移植自 Google metrics.py 的核心邏輯 (含修改 B: 加強 Choice 提取) ---
 
     def _is_float(self, s):
         try:
@@ -59,17 +59,31 @@ class Scorer:
         except ValueError:
             return False
 
-    def _extract_bracketed_choice_from_string(self, prediction):
-        """處理 (A) -> A 的轉換，這對 MMLU 至關重要"""
-        prediction = prediction.lower()
-        all_letters = string.ascii_lowercase
-        bracketed_letters_list = set([f'({l})' for l in all_letters])
-        
-        choice_in_pred_all = [item in prediction for item in bracketed_letters_list]
-        if sum(choice_in_pred_all) == 1:
-            # 如果只出現一個括號選項，提取它
-            prediction = re.findall(r'\(.*?\)', prediction)[0]
-        return prediction
+    def _extract_choice_letter(self, text: str) -> str | None:
+        """
+        修法 B (加強版): Robust 選項提取
+        優先順序:
+        1. \boxed{x} (Latex 格式，最強訊號)
+        2. (x)       (括號格式)
+        3. x         (獨立字母，例如 'Answer: C' 切割後的 C)
+        """
+        t = text.lower()
+
+        # 1. \boxed{c}
+        # 允許 \boxed{ c } 裡面有空白
+        m = re.search(r'\\boxed\{\s*([a-e])\s*\}', t)
+        if m: return m.group(1)
+
+        # 2. (c)
+        m = re.search(r'\(([a-e])\)', t)
+        if m: return m.group(1)
+
+        # 3. "answer is c" / "final answer: c" -> 假設傳進來的 text 已經經過初步清理
+        # 使用 \b 確保是完整單字 (避免抓到 apple 的 a)
+        m = re.search(r'\b([a-e])\b', t)
+        if m: return m.group(1)
+
+        return None
 
     def _parse_with_treating_as_number(self, prediction_parsed):
         """強化的數值解析邏輯 (GSM8K)"""
@@ -103,7 +117,6 @@ class Scorer:
 
         # 嘗試標準化為浮點數格式
         if self._is_float(prediction_parsed):
-            # GSM8K 預設整數比對，這裡可保留小數位以防萬一
             pass 
         else:
             # Regex 提取
@@ -139,8 +152,13 @@ class Scorer:
         while prediction_parsed and prediction_parsed.endswith('.'):
             prediction_parsed = prediction_parsed[:-1]
 
-        # 2. 處理 MMLU 的括號選項 (A) -> (a)
-        prediction_parsed = self._extract_bracketed_choice_from_string(prediction_parsed)
+        # 2. [修改點] 針對選擇題 (MMLU) 使用新的 robust 提取邏輯
+        # 如果不是數值題也不是布林題，就假設是選擇題
+        if not treat_as_number and not treat_as_bool:
+            choice = self._extract_choice_letter(prediction_parsed)
+            if choice:
+                prediction_parsed = choice
+            # 如果回傳 None，則保留原字串 (可能是模型輸出了非預期格式，保留讓後續邏輯或空值處理)
 
         # 3. 根據類型解析
         if treat_as_bool:
@@ -153,23 +171,20 @@ class Scorer:
         if treat_as_number:
             return self._parse_with_treating_as_number(prediction_parsed)
         
-        # 一般文字 (MMLU)
+        # 一般文字 (MMLU 已經在上方處理過 choice，這裡做最後確保)
         prediction_parsed = prediction_parsed.split('.')[0] # 取第一句或句號前
         return prediction_parsed
 
     def _normalize_target(self, target: str) -> str:
         """標準化正確答案 (Target)"""
         target = target.lower().strip()
-        # 簡單清理，通常 Dataset 裡的 target 已經很乾淨 (如 'A', '20')
-        # 但如果是 GSM8K，target 可能包含 ####
+        
         if GSM8K_ANSWER_DELIMITER in target:
             target = target.split(GSM8K_ANSWER_DELIMITER)[-1]
         
-        # 移除句號
         if target.endswith('.'): target = target[:-1]
         
         if self.treat_as_number:
-            # 處理 target 中的逗號 (1,000 -> 1000)
              target = target.replace(',', '')
              
         return target
@@ -190,20 +205,16 @@ class Scorer:
 
         # 3. 比對邏輯
         if self.treat_as_number:
-            # 數值比對 (允許誤差)
             try:
                 if abs(float(pred_norm) - float(target_norm)) < 1e-6:
                     return 1.0
             except:
-                pass # 轉換失敗，退回字串比對
+                pass 
         
-        # 字串精確比對 (MMLU / Boolean / 數值Fallback)
-        # 注意：這裡不再使用 Regex Search，而是相等比對，避免 False Positive
         if pred_norm == target_norm:
             return 1.0
 
-        # Google 原版針對 MMLU 還有一個括號處理: '(a)' vs 'a'
-        # 如果 target 是 'a' 但 pred 是 '(a)' (或反之)，也算對
+        # 處理括號殘留 (MMLU): 如果 pred 還是 '(a)' 而 target 是 'a'
         if pred_norm.replace('(', '').replace(')', '') == target_norm.replace('(', '').replace(')', ''):
             return 1.0
             
@@ -220,11 +231,9 @@ class Scorer:
         scores = []
         results_list = []
         
-        # 定義單個樣本的處理函式
         def process_sample(example):
             prompt = self._format_prompt(instruction, example['input'])
             try:
-                # 這裡會並發呼叫，讓 Ollama 同時處理多個
                 prediction = self.client.generate_text(prompt)
                 acc = self._check_answer(prediction, example['target'])
                 return {
@@ -237,13 +246,10 @@ class Scorer:
                 logger.error(f"Scoring error: {e}")
                 return None
 
-        # [關鍵修改] 使用 ThreadPoolExecutor 開啟並發
-        # max_workers 建議設為 4 ~ 16，取決於您的顯存大小 (7B 模型通常可以開 8 或 16)
+        # 使用 ThreadPoolExecutor 開啟並發
         with ThreadPoolExecutor(max_workers=4) as executor:
-            # 提交所有任務
             future_to_sample = {executor.submit(process_sample, ex): ex for ex in eval_data}
             
-            # 使用 tqdm 顯示並發進度
             for future in tqdm(as_completed(future_to_sample), total=len(eval_data), desc="    Scoring (Parallel)", unit="sample", leave=False):
                 res = future.result()
                 if res:

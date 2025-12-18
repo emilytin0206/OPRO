@@ -35,11 +35,11 @@ def run_opro_optimization(scorer_client: BaseModelClient, optimizer_client: Base
     n_train = int(n_total * train_ratio)
     
     # 限制訓練集上限 (避免因為全部載入導致太慢，如果有需要可解開註解)
-    n_train = min(n_train, 2)
+    # n_train = min(n_train, 2)
     
     train_dataset = full_dataset[:n_train]
-    eval_dataset = full_dataset[n_train:n_train + 1]
-    # eval_dataset = full_dataset[n_train:] # 剩下的做驗證
+    # eval_dataset = full_dataset[n_train:n_train + 1]
+    eval_dataset = full_dataset[n_train:] # 剩下的做驗證
     
     # 在本框架中，我們暫時用 Eval Set 當作每輪檢查進步的基準，也可以當作最終 Test Set
     test_dataset = eval_dataset 
