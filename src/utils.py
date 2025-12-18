@@ -5,13 +5,6 @@ import re
 import string
 import hashlib # [新增] 用於雜湊檔名
 
-def load_dataset(dataset_name: str, task_name: str, data_root: str):
-    """
-    載入指定資料集。
-    對於 MMLU，task_name 若為 'all_specified'，則載入程式碼中定義的特定子集。
-    """
-    dataset_name = dataset_name.lower()
-    raw_data = []
 
 def load_dataset(dataset_name: str, task_name: str, data_root: str):
     """
@@ -55,7 +48,7 @@ def load_dataset(dataset_name: str, task_name: str, data_root: str):
                     else:
                         print(f"  [正常] 子集 '{subset}' 資料充足 ({total_rows} 筆)，取前 300 筆。")
                         df_subset = df.head(300)
-                    # ----------------------------
+             # ----------------------------
 
                     for _, row in df_subset.iterrows():
                         # MMLU CSV 格式通常為: Question, A, B, C, D, Answer

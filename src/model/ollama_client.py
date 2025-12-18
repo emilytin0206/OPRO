@@ -69,37 +69,51 @@ class OllamaModelClient(BaseModelClient):
         }
         return self._post_request(url, payload, response_key='message')
 
+    
     def _post_request(self, url, payload, response_key) -> str:
         max_retries = 3
         base_delay = 1
-        
-        # [關鍵修正] 將 Timeout 從 60 增加到 300 秒 (5分鐘)
-        # 對於 MMLU 長思考或較慢的 GPU，60秒通常不夠。
         timeout_seconds = 300 
         
         for attempt in range(max_retries):
             try:
-                # 這裡加入 timeout 參數
+                # --- [DEBUG 開始] ---
+                import time
+                start_ts = time.time()
+                # 印出請求當下的時間戳，觀察是否有「並發」 (若時間戳幾乎相同就是並發)
+                print(f"[DEBUG] >>> 發送請求 ({start_ts:.2f})", flush=True) 
+                
                 response = requests.post(url, json=payload, timeout=timeout_seconds)
+                
+                end_ts = time.time()
+                duration = end_ts - start_ts
+                # -------------------
+
                 response.raise_for_status()
                 data = response.json()
                 
-                # Token Cost 統計
+                # 統計 Token
                 input_tokens = data.get('prompt_eval_count', 0)
                 output_tokens = data.get('eval_count', 0)
-                
                 self.usage_stats["prompt_tokens"] += input_tokens
                 self.usage_stats["completion_tokens"] += output_tokens
                 self.usage_stats["total_tokens"] += (input_tokens + output_tokens)
                 self.usage_stats["call_count"] += 1
 
-                # 解析回傳值
+                # 解析內容
+                content = ""
                 if response_key == 'message':
-                    # Chat 介面回傳結構: data['message']['content']
-                    return data.get('message', {}).get('content', '').strip()
+                    content = data.get('message', {}).get('content', '').strip()
                 else:
-                    # Generate 介面回傳結構: data['response']
-                    return data.get('response', '').strip()
+                    content = data.get('response', '').strip()
+
+                # --- [DEBUG 結束與診斷] ---
+                # 1. 檢查耗時：如果這裡顯示 0.1秒，那瓶頸在 Python；如果顯示 10秒，那瓶頸在 GPU
+                # 2. 檢查內容：如果回覆了幾千字廢話，那瓶頸在 Max Tokens 設定
+                print(f"[DEBUG] <<< 收到回覆! 耗時: {duration:.4f}秒 | 產出Token: {output_tokens} | 內容片段: {content[:30].replace(chr(10), ' ')}...", flush=True)
+                # ------------------------
+
+                return content
                     
             except requests.exceptions.RequestException as e:
                 logger.warning(f"Ollama API 失敗 ({url}) - 嘗試 {attempt+1}: {e}")

@@ -5,6 +5,7 @@ import logging
 import pandas as pd
 from tqdm import tqdm
 from src.model.base_client import BaseModelClient
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 logger = logging.getLogger("OPRO")
 
@@ -219,23 +220,35 @@ class Scorer:
         scores = []
         results_list = []
         
-        for example in tqdm(eval_data, desc="    Scoring", unit="sample", leave=False):
+        # 定義單個樣本的處理函式
+        def process_sample(example):
             prompt = self._format_prompt(instruction, example['input'])
-            prediction = ""
-            acc = 0.0
             try:
+                # 這裡會並發呼叫，讓 Ollama 同時處理多個
                 prediction = self.client.generate_text(prompt)
                 acc = self._check_answer(prediction, example['target'])
+                return {
+                    'input': example['input'],
+                    'target': example['target'],
+                    'prediction': prediction,
+                    'accuracy': acc
+                }
             except Exception as e:
                 logger.error(f"Scoring error: {e}")
-                
-            scores.append(acc)
-            results_list.append({
-                'input': example['input'],
-                'target': example['target'],
-                'prediction': prediction,
-                'accuracy': acc
-            })
+                return None
+
+        # [關鍵修改] 使用 ThreadPoolExecutor 開啟並發
+        # max_workers 建議設為 4 ~ 16，取決於您的顯存大小 (7B 模型通常可以開 8 或 16)
+        with ThreadPoolExecutor(max_workers=4) as executor:
+            # 提交所有任務
+            future_to_sample = {executor.submit(process_sample, ex): ex for ex in eval_data}
+            
+            # 使用 tqdm 顯示並發進度
+            for future in tqdm(as_completed(future_to_sample), total=len(eval_data), desc="    Scoring (Parallel)", unit="sample", leave=False):
+                res = future.result()
+                if res:
+                    scores.append(res['accuracy'])
+                    results_list.append(res)
         
         avg_score = np.mean(scores) if scores else 0.0
         return {

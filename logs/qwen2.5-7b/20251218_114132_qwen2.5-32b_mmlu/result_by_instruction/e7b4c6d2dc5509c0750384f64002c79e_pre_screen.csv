@@ -1,0 +1,82 @@
+input,target,prediction,accuracy,instruction,step
+"John divided his souvenir hat pins into two piles. The two piles had an equal number of pins. He gave his brother one-half of one-third of one pile. John had 66 pins left. How many pins did John originally have?
+(A) 396
+(B) 72
+(C) 66
+(D) 36",B,"To solve this problem, let's break it down step by step.
+
+1. **Define the Variables and Understand the Problem:**
+   - Let \( x \) be the number of pins in one pile.
+   - Since John divided his souvenir hat pins into two equal piles, he originally had \( 2x \) pins.
+   - He gave his brother one-half of one-third of one pile. This means he gave away \(\frac{1}{2} \times \frac{1}{3} \times x = \frac{x}{6}\).
+
+2. **Set Up the Equation:**
+   - After giving away \(\frac{x}{6}\) pins, John had \( 2x - \frac{x}{6} \) pins left.
+   - According to the problem, he had 66 pins left after giving some away.
+
+3. **Formulate and Solve the Equation:**
+   \[
+   2x - \frac{x}{6} = 66
+   \]
+   To solve for \( x \), first combine like terms by finding a common denominator:
+   \[
+   2x - \frac{x}{6} = \frac{12x}{6} - \frac{x}{6} = \frac{11x}{6}
+   \]
+   So the equation becomes:
+   \[
+   \frac{11x}{6} = 66
+   \]
+
+4. **Solve for \( x \):**
+   Multiply both sides by 6 to clear the fraction:
+   \[
+   11x = 396
+   \]
+   Divide both sides by 11:
+   \[
+   x = 36
+   \]
+
+5. **Find the Original Number of Pins:**
+   Since \( x \) is the number of pins in one pile, and John originally had two piles, he originally had:
+   \[
+   2x = 2 \times 36 = 72
+   \]
+
+Therefore, the correct answer is (B) 72.",1.0,"Analyze the problem thoroughly, then solve step by step to ensure accuracy.",1
+"Grady rides his bike $60\%$ faster than his little brother Noah. If Grady rides $12$ miles further than Noah in two hours, how fast in miles per hour does Noah ride?
+(A) 32
+(B) 20
+(C) 10
+(D) 7.2",C,"To solve this problem step by step, let's define the variables and set up an equation based on the given information.
+
+Let \( N \) be Noah's speed in miles per hour (mph).
+
+Since Grady rides his bike 60% faster than Noah, Grady's speed can be expressed as:
+\[ G = N + 0.6N = 1.6N \]
+
+Next, we know that both ride for 2 hours. Therefore, the distance each of them covers in those 2 hours is given by their respective speeds multiplied by time.
+
+The distance Noah rides in 2 hours is:
+\[ D_N = N \times 2 = 2N \]
+
+The distance Grady rides in 2 hours is:
+\[ D_G = G \times 2 = 1.6N \times 2 = 3.2N \]
+
+According to the problem, Grady rides 12 miles further than Noah in these two hours. Therefore, we can set up the following equation:
+\[ D_G = D_N + 12 \]
+Substituting the expressions for \( D_G \) and \( D_N \):
+\[ 3.2N = 2N + 12 \]
+
+Now, solve for \( N \):
+\[ 3.2N - 2N = 12 \]
+\[ 1.2N = 12 \]
+\[ N = \frac{12}{1.2} \]
+\[ N = 10 \]
+
+Thus, Noah rides at a speed of:
+\[
+\boxed{10}
+\] mph.
+
+The correct answer is (C) 10.",1.0,"Analyze the problem thoroughly, then solve step by step to ensure accuracy.",1

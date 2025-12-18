@@ -1,0 +1,21 @@
+instruction,score,step
+Let's think step by step.,1.0,0
+Solve this problem carefully.,1.0,0
+Answer the question directly.,1.0,0
+Analyze the problem thoroughly and derive the solution methodically.,1.0,1
+Analyze the problem thoroughly and provide a step-by-step solution.,1.0,1
+"Analyze the problem thoroughly, then solve step by step to ensure accuracy.",1.0,1
+"Analyze the problem thoroughly and provide a clear, step-by-step solution.",1.0,1
+"Analyze the problem carefully, break it down into manageable parts, and solve each part step by step to ensure accuracy and clarity in your final answer.",1.0,2
+"Analyze the question thoroughly, identify key elements, break down the problem into smaller steps, solve each step methodically, and provide a clear final answer.",1.0,3
+"Analyze the problem critically, decompose it into simpler components, solve each component systematically, and compile the results for a clear and accurate final answer.",1.0,3
+"Analyze the problem carefully, identify key components, and solve systematically to ensure precision in your final answer.",1.0,3
+Provide a detailed answer.,0.5,0
+Analyze the problem methodically and compute the solution accurately.,0.5,1
+"Analyze the problem carefully, break it down into manageable parts, and solve each part step by step to ensure accuracy.",0.5,2
+"Analyze the problem carefully, break it down into manageable parts, and solve each part step by step to find the accurate solution.",0.5,2
+"Analyze the problem carefully, break it down into manageable parts, and solve each part step by step to derive an accurate solution.",0.5,2
+"Analyze the problem carefully, break it down into manageable steps, and solve each step methodically to find the accurate solution.",0.5,2
+"Analyze the problem carefully, break it down into manageable steps, and solve methodically for an accurate answer.",0.5,2
+"Analyze the problem carefully, break it down into manageable parts, and solve each part step by step to ensure accuracy and clarity in your final solution.",0.5,2
+"Analyze the problem critically, decompose it into simpler components, solve each component systematically, and compile the results for an accurate and clear solution.",0.5,3

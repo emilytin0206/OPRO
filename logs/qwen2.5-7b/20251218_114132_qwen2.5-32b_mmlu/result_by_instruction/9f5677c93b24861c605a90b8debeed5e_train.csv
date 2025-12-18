@@ -1,0 +1,93 @@
+input,target,prediction,accuracy,instruction,step
+"John divided his souvenir hat pins into two piles. The two piles had an equal number of pins. He gave his brother one-half of one-third of one pile. John had 66 pins left. How many pins did John originally have?
+(A) 396
+(B) 72
+(C) 66
+(D) 36",B,"To solve this problem, let's break it down step by step.
+
+1. **Identify the key components of the problem**:
+   - John divided his souvenir hat pins into two equal piles.
+   - He gave his brother one-half of one-third of one pile.
+   - After giving some pins to his brother, John had 66 pins left.
+
+2. **Define variables and set up equations**:
+   Let \( x \) be the number of pins in each pile before any were given away. Since there are two equal piles, the total number of pins John originally had is \( 2x \).
+
+3. **Calculate how many pins John gave to his brother**:
+   - One-third of one pile: \(\frac{x}{3}\)
+   - Half of that amount: \(\frac{1}{2} \times \frac{x}{3} = \frac{x}{6}\)
+
+4. **Determine the number of pins left after giving some to his brother**:
+   - Pins given away: \( \frac{x}{6} \)
+   - Pins remaining: \( 2x - \frac{x}{6} \)
+
+5. **Set up an equation based on the information that John had 66 pins left**:
+   \[
+   2x - \frac{x}{6} = 66
+   \]
+
+6. **Solve for \( x \)**:
+   To solve this equation, first find a common denominator to combine the terms on the left side:
+   \[
+   2x - \frac{x}{6} = \frac{12x}{6} - \frac{x}{6} = \frac{11x}{6}
+   \]
+   So the equation becomes:
+   \[
+   \frac{11x}{6} = 66
+   \]
+
+7. **Isolate \( x \)** by multiplying both sides of the equation by 6:
+   \[
+   11x = 396
+   \]
+
+8. **Solve for \( x \) by dividing both sides by 11**:
+   \[
+   x = \frac{396}{11} = 36
+   \]
+
+9. **Calculate the total number of pins John originally had**:
+   Since each pile has \( x \) pins and there are two piles, the total number of pins is:
+   \[
+   2x = 2 \times 36 = 72
+   \]
+
+Therefore, the correct answer is (B) 72.",1.0,"Analyze the problem carefully, identify key components, and solve systematically to ensure precision in your final answer.",3
+"Grady rides his bike $60\%$ faster than his little brother Noah. If Grady rides $12$ miles further than Noah in two hours, how fast in miles per hour does Noah ride?
+(A) 32
+(B) 20
+(C) 10
+(D) 7.2",C,"To solve this problem systematically, let's break it down into steps:
+
+### Step 1: Define Variables
+Let \( N \) be the speed of Noah in miles per hour.
+
+Since Grady rides his bike \(60\%\) faster than Noah:
+\[ G = N + 0.6N = 1.6N \]
+
+### Step 2: Set Up Distance Equations
+Both Grady and Noah ride for 2 hours. The distance each covers can be calculated using the formula:
+\[ \text{Distance} = \text{Speed} \times \text{Time} \]
+
+For Noah:
+\[ D_N = N \times 2 \]
+For Grady:
+\[ D_G = G \times 2 = 1.6N \times 2 = 3.2N \]
+
+### Step 3: Use the Given Information
+According to the problem, Grady rides \(12\) miles further than Noah in two hours:
+\[ D_G = D_N + 12 \]
+Substitute the expressions for \(D_G\) and \(D_N\):
+\[ 3.2N = 2N + 12 \]
+
+### Step 4: Solve for \( N \)
+Rearrange the equation to isolate \( N \):
+\[ 3.2N - 2N = 12 \]
+\[ 1.2N = 12 \]
+Divide both sides by 1.2:
+\[ N = \frac{12}{1.2} = 10 \]
+
+### Conclusion
+Noah rides at a speed of \(10\) miles per hour.
+
+Thus, the correct answer is (C) 10.",1.0,"Analyze the problem carefully, identify key components, and solve systematically to ensure precision in your final answer.",3

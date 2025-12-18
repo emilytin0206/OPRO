@@ -1,0 +1,77 @@
+input,target,prediction,accuracy,instruction,step
+"Grady rides his bike $60\%$ faster than his little brother Noah. If Grady rides $12$ miles further than Noah in two hours, how fast in miles per hour does Noah ride?
+(A) 32
+(B) 20
+(C) 10
+(D) 7.2",C,"Let's break down the problem step by step.
+
+First, let's define the variables:
+- Let \( N \) be the speed of Noah in miles per hour.
+- Since Grady rides his bike 60% faster than Noah, Grady's speed is \( 1.6N \) miles per hour.
+
+Next, we know that both ride for 2 hours. Therefore, the distance each covers can be calculated as:
+- Distance covered by Noah in 2 hours: \( 2N \)
+- Distance covered by Grady in 2 hours: \( 2 \times 1.6N = 3.2N \)
+
+According to the problem, Grady rides 12 miles further than Noah in two hours. So we can set up the following equation:
+\[ 3.2N - 2N = 12 \]
+
+Simplify the left side of the equation:
+\[ 1.2N = 12 \]
+
+Now, solve for \( N \):
+\[ N = \frac{12}{1.2} = 10 \]
+
+So, Noah rides at a speed of 10 miles per hour.
+
+Therefore, the correct answer is (C) 10.",1.0,Let's think step by step.,0
+"John divided his souvenir hat pins into two piles. The two piles had an equal number of pins. He gave his brother one-half of one-third of one pile. John had 66 pins left. How many pins did John originally have?
+(A) 396
+(B) 72
+(C) 66
+(D) 36",B,"Let's break down the problem step by step to find out how many pins John originally had.
+
+1. **Define Variables and Understand the Problem:**
+   - Let \( x \) be the number of pins in one pile.
+   - Since John divided his souvenir hat pins into two equal piles, he initially has \( 2x \) pins in total.
+   - He gave his brother one-half of one-third of one pile. This means he gave away \(\frac{1}{2} \times \frac{1}{3} \times x = \frac{x}{6}\).
+
+2. **Set Up the Equation:**
+   - After giving away \(\frac{x}{6}\) pins, John had 66 pins left.
+   - Therefore, the equation representing this situation is:
+     \[
+     2x - \frac{x}{6} = 66
+     \]
+
+3. **Solve for \( x \):**
+   - First, find a common denominator to combine the terms on the left side of the equation. The common denominator for 2 and 6 is 6.
+     \[
+     2x = \frac{12x}{6}
+     \]
+   - Substitute this into the equation:
+     \[
+     \frac{12x}{6} - \frac{x}{6} = 66
+     \]
+   - Combine the fractions:
+     \[
+     \frac{12x - x}{6} = 66
+     \]
+     \[
+     \frac{11x}{6} = 66
+     \]
+   - Multiply both sides by 6 to clear the fraction:
+     \[
+     11x = 396
+     \]
+   - Divide both sides by 11:
+     \[
+     x = 36
+     \]
+
+4. **Find the Total Number of Pins:**
+   - Since \( x \) is the number of pins in one pile, and John had two piles initially, he originally had:
+     \[
+     2x = 2 \times 36 = 72
+     \]
+
+Therefore, the correct answer is (B) 72.",1.0,Let's think step by step.,0

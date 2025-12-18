@@ -1,0 +1,59 @@
+input,target,prediction,accuracy,instruction,step
+"John divided his souvenir hat pins into two piles. The two piles had an equal number of pins. He gave his brother one-half of one-third of one pile. John had 66 pins left. How many pins did John originally have?
+(A) 396
+(B) 72
+(C) 66
+(D) 36",B,"Let's solve the problem step by step.
+
+1. Let \( x \) be the number of pins in one pile.
+2. Since John divided his souvenir hat pins into two equal piles, he originally had \( 2x \) pins.
+3. He gave his brother one-half of one-third of one pile. One-third of one pile is \( \frac{x}{3} \), and half of that is \( \frac{1}{2} \times \frac{x}{3} = \frac{x}{6} \).
+4. After giving away \( \frac{x}{6} \) pins, John had 66 pins left.
+5. The number of pins he originally had minus the number of pins he gave away equals the number of pins he has left:
+   \[
+   2x - \frac{x}{6} = 66
+   \]
+6. To solve for \( x \), first combine like terms by finding a common denominator:
+   \[
+   2x - \frac{x}{6} = \frac{12x}{6} - \frac{x}{6} = \frac{11x}{6}
+   \]
+7. Set the equation equal to 66 and solve for \( x \):
+   \[
+   \frac{11x}{6} = 66
+   \]
+8. Multiply both sides by 6:
+   \[
+   11x = 396
+   \]
+9. Divide both sides by 11:
+   \[
+   x = 36
+   \]
+
+Since \( x \) is the number of pins in one pile, and John originally had two piles, he originally had \( 2x = 2 \times 36 = 72 \) pins.
+
+Therefore, the correct answer is (B) 72.",1.0,Answer the question directly.,0
+"Grady rides his bike $60\%$ faster than his little brother Noah. If Grady rides $12$ miles further than Noah in two hours, how fast in miles per hour does Noah ride?
+(A) 32
+(B) 20
+(C) 10
+(D) 7.2",C,"Let's denote Noah's speed as \(N\) miles per hour.
+
+Since Grady rides his bike \(60\%\) faster than Noah, Grady's speed is \(N + 0.6N = 1.6N\) miles per hour.
+
+In two hours:
+- Noah travels a distance of \(2N\) miles.
+- Grady travels a distance of \(2 \times 1.6N = 3.2N\) miles.
+
+According to the problem, Grady rides \(12\) miles further than Noah in these two hours. Therefore, we can set up the equation:
+\[3.2N - 2N = 12\]
+
+Simplifying this gives us:
+\[1.2N = 12\]
+
+Dividing both sides by \(1.2\):
+\[N = \frac{12}{1.2} = 10\]
+
+So, Noah rides at a speed of \(10\) miles per hour.
+
+The correct answer is (C) 10.",1.0,Answer the question directly.,0

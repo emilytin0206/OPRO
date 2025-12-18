@@ -1,0 +1,83 @@
+input,target,prediction,accuracy,instruction,step
+"Grady rides his bike $60\%$ faster than his little brother Noah. If Grady rides $12$ miles further than Noah in two hours, how fast in miles per hour does Noah ride?
+(A) 32
+(B) 20
+(C) 10
+(D) 7.2",C,"To solve this problem, we need to set up an equation based on the information given and then solve for Noah's speed.
+
+Let's denote:
+- \( N \) as Noah's speed in miles per hour.
+- Since Grady rides \(60\%\) faster than Noah, Grady's speed is \(1.6N\) (because \(60\% = 0.6\), and adding this to Noah's speed gives us \(N + 0.6N = 1.6N\)).
+
+Given that both ride for two hours:
+- The distance Noah rides in two hours is \(2N\).
+- The distance Grady rides in two hours is \(2 \times 1.6N = 3.2N\).
+
+According to the problem, Grady rides 12 miles further than Noah in these two hours. Therefore, we can set up the following equation:
+\[ 3.2N - 2N = 12 \]
+
+Simplifying this equation:
+\[ 1.2N = 12 \]
+
+To find \( N \), divide both sides by 1.2:
+\[ N = \frac{12}{1.2} = 10 \]
+
+So, Noah rides at a speed of \(10\) miles per hour.
+
+Therefore, the correct answer is (C) 10.",1.0,Provide a detailed answer.,0
+"John divided his souvenir hat pins into two piles. The two piles had an equal number of pins. He gave his brother one-half of one-third of one pile. John had 66 pins left. How many pins did John originally have?
+(A) 396
+(B) 72
+(C) 66
+(D) 36",B,"To solve this problem, let's break it down step by step.
+
+1. **Define the Variables and Initial Setup**:
+   - Let \( x \) be the number of pins in one pile.
+   - Since John divided his souvenir hat pins into two equal piles, he originally had \( 2x \) pins.
+
+2. **Determine How Many Pins Were Given Away**:
+   - John gave his brother one-half of one-third of one pile.
+   - One-third of one pile is \( \frac{x}{3} \).
+   - Half of that amount is \( \frac{1}{2} \times \frac{x}{3} = \frac{x}{6} \).
+
+3. **Calculate the Remaining Pins**:
+   - John had 66 pins left after giving away some.
+   - The number of pins given away plus the remaining pins equals the original total: \( x + x = 2x \).
+   - Therefore, the equation for the remaining pins is: 
+     \[
+     2x - \frac{x}{6} = 66
+     \]
+
+4. **Solve the Equation**:
+   - To solve for \( x \), first combine like terms by finding a common denominator:
+     \[
+     2x - \frac{x}{6} = 66
+     \]
+     Convert \( 2x \) to have a denominator of 6:
+     \[
+     \frac{12x}{6} - \frac{x}{6} = 66
+     \]
+   - Combine the fractions:
+     \[
+     \frac{12x - x}{6} = 66
+     \]
+     Simplify the numerator:
+     \[
+     \frac{11x}{6} = 66
+     \]
+   - Multiply both sides by 6 to clear the fraction:
+     \[
+     11x = 396
+     \]
+   - Divide both sides by 11:
+     \[
+     x = 36
+     \]
+
+5. **Determine the Original Number of Pins**:
+   - Since \( x \) is the number of pins in one pile, and John originally had two piles:
+     \[
+     2x = 2 \times 36 = 72
+     \]
+
+Therefore, the original number of pins John had was **(B) 72**.",0.0,Provide a detailed answer.,0

@@ -1,0 +1,115 @@
+input,target,prediction,accuracy,instruction,step
+"Grady rides his bike $60\%$ faster than his little brother Noah. If Grady rides $12$ miles further than Noah in two hours, how fast in miles per hour does Noah ride?
+(A) 32
+(B) 20
+(C) 10
+(D) 7.2",C,"To solve this problem systematically, we will follow these steps:
+
+### Step 1: Define Variables and Understand the Problem
+
+Let \( N \) be Noah's speed in miles per hour.
+
+Since Grady rides his bike \(60\%\) faster than Noah:
+- Grady's speed = \( N + 0.6N = 1.6N \)
+
+We know that in two hours, Grady rides 12 miles further than Noah.
+
+### Step 2: Set Up the Equation
+
+In two hours:
+- Distance traveled by Noah = \( 2N \)
+- Distance traveled by Grady = \( 2 \times 1.6N = 3.2N \)
+
+According to the problem, Grady rides 12 miles further than Noah in these two hours:
+\[ 3.2N - 2N = 12 \]
+
+### Step 3: Solve for \( N \)
+
+Simplify the equation:
+\[ 1.2N = 12 \]
+
+Divide both sides by 1.2 to solve for \( N \):
+\[ N = \frac{12}{1.2} = 10 \]
+
+So, Noah rides at a speed of \( 10 \) miles per hour.
+
+### Step 4: Verify the Solution
+
+- Noah's speed: \( N = 10 \) mph
+- Grady's speed: \( 1.6N = 1.6 \times 10 = 16 \) mph
+
+In two hours:
+- Distance traveled by Noah: \( 2 \times 10 = 20 \) miles
+- Distance traveled by Grady: \( 2 \times 16 = 32 \) miles
+
+Difference in distance:
+\[ 32 - 20 = 12 \] miles, which matches the problem statement.
+
+Thus, the solution is verified to be correct.
+
+### Final Answer:
+
+Noah rides at a speed of \(\boxed{10}\) miles per hour.",0.0,"Analyze the question thoroughly, identify key components, solve systematically in steps, and verify the solution for accuracy.",3
+"John divided his souvenir hat pins into two piles. The two piles had an equal number of pins. He gave his brother one-half of one-third of one pile. John had 66 pins left. How many pins did John originally have?
+(A) 396
+(B) 72
+(C) 66
+(D) 36",B,"To solve this problem, let's break it down step by step.
+
+1. **Identify the key components of the question**:
+   - John divided his souvenir hat pins into two equal piles.
+   - He gave his brother one-half of one-third of one pile.
+   - After giving some pins to his brother, John had 66 pins left.
+
+2. **Define variables and set up equations**:
+   Let \( x \) be the number of pins in each pile before any were given away. Since there are two equal piles, the total number of pins John originally had is \( 2x \).
+
+3. **Calculate how many pins John gave to his brother**:
+   - One-third of one pile: \(\frac{x}{3}\)
+   - Half of that amount: \(\frac{1}{2} \times \frac{x}{3} = \frac{x}{6}\)
+
+4. **Set up the equation for the remaining pins**:
+   John had \( 2x \) pins initially and gave away \(\frac{x}{6}\) pins, so he has \( 2x - \frac{x}{6} \) pins left.
+   
+5. **Simplify the expression for the remaining pins**:
+   To simplify \( 2x - \frac{x}{6} \), we need a common denominator:
+   \[
+   2x = \frac{12x}{6}
+   \]
+   So,
+   \[
+   2x - \frac{x}{6} = \frac{12x}{6} - \frac{x}{6} = \frac{11x}{6}
+   \]
+
+6. **Set the remaining pins equal to 66 and solve for \( x \)**:
+   According to the problem, John had 66 pins left after giving some away.
+   \[
+   \frac{11x}{6} = 66
+   \]
+   To find \( x \), multiply both sides by 6:
+   \[
+   11x = 396
+   \]
+   Then divide by 11:
+   \[
+   x = 36
+   \]
+
+7. **Calculate the total number of pins John originally had**:
+   Since \( x \) is the number of pins in each pile, and there are two piles,
+   \[
+   2x = 2 \times 36 = 72
+   \]
+
+8. **Verify the solution**:
+   - Each pile initially has 36 pins.
+   - John gives his brother one-half of one-third of one pile: 
+     \[
+     \frac{1}{2} \times \frac{36}{3} = \frac{1}{2} \times 12 = 6
+     \]
+   - After giving away 6 pins, he has:
+     \[
+     72 - 6 = 66
+     \]
+
+The solution is verified to be correct. Therefore, the number of pins John originally had is \( \boxed{72} \).",0.0,"Analyze the question thoroughly, identify key components, solve systematically in steps, and verify the solution for accuracy.",3
