@@ -1,0 +1,21 @@
+{
+    "scorer_model": {
+        "name": "qwen2.5:7b",
+        "usage": {
+            "prompt_tokens": 5622848,
+            "completion_tokens": 8809891,
+            "total_tokens": 14432739,
+            "call_count": 23386
+        }
+    },
+    "optimizer_model": {
+        "name": "qwen2.5:32b",
+        "usage": {
+            "prompt_tokens": 19424,
+            "completion_tokens": 708,
+            "total_tokens": 20132,
+            "call_count": 24
+        }
+    },
+    "total_calls": 23410
+}
