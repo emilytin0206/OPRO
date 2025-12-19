@@ -1,0 +1,196 @@
+input,target,prediction,accuracy,instruction,step
+"Grady rides his bike $60\%$ faster than his little brother Noah. If Grady rides $12$ miles further than Noah in two hours, how fast in miles per hour does Noah ride?
+(A) 32
+(B) 20
+(C) 10
+(D) 7.2",C,"To solve this problem, let's denote the speed of Noah as \( N \) miles per hour. Since Grady rides his bike \(60\%\) faster than Noah, Grady's speed can be expressed as \( N + 0.6N = 1.6N \) miles per hour.
+
+Given that both ride for two hours and Grady covers an additional 12 miles compared to Noah over this period, we can set up the following equations based on their distances traveled:
+
+- Distance covered by Noah in 2 hours: \( 2N \)
+- Distance covered by Grady in 2 hours: \( 2 \times 1.6N = 3.2N \)
+
+According to the problem, Grady rides 12 miles further than Noah:
+\[ 3.2N - 2N = 12 \]
+
+Simplifying this equation:
+\[ 1.2N = 12 \]
+\[ N = \frac{12}{1.2} \]
+\[ N = 10 \]
+
+Thus, Noah rides at a speed of \( 10 \) miles per hour.
+
+Therefore, the correct answer is (C) 10.",1.0,"Analyze the question in depth, critically assess each option against the provided information or principles, and select the response that most precisely aligns with and answers the query.",3
+"At noon, an experimenter has 50 grams of a radioactive isotope. At noon 9 days later only 45 grams remain. To the nearest day, how many days after the experiment started will there be only 20 grams?
+(A) 54
+(B) 59
+(C) 60
+(D) 78",D,"To solve this problem, we need to understand radioactive decay and use the given information to determine the half-life of the isotope. Radioactive decay follows an exponential decay model, which can be described by the formula:
+
+\[ N(t) = N_0 \cdot e^{-\lambda t} \]
+
+where:
+- \(N(t)\) is the amount of the substance at time \(t\),
+- \(N_0\) is the initial amount,
+- \(\lambda\) is the decay constant, and
+- \(t\) is the time elapsed.
+
+However, for simplicity in this problem, we can use a simpler form that relates to half-life:
+
+\[ N(t) = N_0 \cdot 2^{-\frac{t}{T}} \]
+
+where:
+- \(N(t)\) is the amount of substance at time \(t\),
+- \(N_0\) is the initial amount,
+- \(T\) is the half-life, and
+- \(t\) is the time elapsed.
+
+Given that we have 50 grams initially and after 9 days, only 45 grams remain, we can set up the equation:
+
+\[ 45 = 50 \cdot 2^{-\frac{9}{T}} \]
+
+Solving for \(T\):
+
+\[ \frac{45}{50} = 2^{-\frac{9}{T}} \]
+\[ 0.9 = 2^{-\frac{9}{T}} \]
+
+Taking the natural logarithm on both sides:
+
+\[ \ln(0.9) = -\frac{9}{T} \cdot \ln(2) \]
+\[ T = -\frac{9 \cdot \ln(2)}{\ln(0.9)} \]
+
+Using approximate values:
+- \(\ln(2) \approx 0.693\)
+- \(\ln(0.9) \approx -0.105\)
+
+So,
+
+\[ T = -\frac{9 \cdot 0.693}{-0.105} \approx 60 \text{ days} \]
+
+This means the half-life of the isotope is approximately 60 days.
+
+Now, we need to find out how many days it will take for only 20 grams to remain from the initial 50 grams:
+
+\[ 20 = 50 \cdot 2^{-\frac{t}{60}} \]
+
+Solving for \(t\):
+
+\[ \frac{20}{50} = 2^{-\frac{t}{60}} \]
+\[ 0.4 = 2^{-\frac{t}{60}} \]
+
+Taking the natural logarithm on both sides:
+
+\[ \ln(0.4) = -\frac{t}{60} \cdot \ln(2) \]
+\[ t = -60 \cdot \frac{\ln(0.4)}{\ln(2)} \]
+
+Using approximate values:
+- \(\ln(0.4) \approx -0.916\)
+
+So,
+
+\[ t = -60 \cdot \frac{-0.916}{0.693} \approx 78 \text{ days} \]
+
+Therefore, the correct answer is (D) 78 days.",1.0,"Analyze the question in depth, critically assess each option against the provided information or principles, and select the response that most precisely aligns with and answers the query.",3
+"John divided his souvenir hat pins into two piles. The two piles had an equal number of pins. He gave his brother one-half of one-third of one pile. John had 66 pins left. How many pins did John originally have?
+(A) 396
+(B) 72
+(C) 66
+(D) 36",B,"To solve this problem, let's break it down step by step.
+
+1. **Define the Variables and Understand the Problem**:
+   - Let \( x \) be the number of pins in one pile.
+   - Since John divided his souvenir hat pins into two equal piles, he originally had \( 2x \) pins.
+   - He gave his brother one-half of one-third of one pile. This means he gave away \(\frac{1}{2} \times \frac{1}{3} \times x = \frac{x}{6}\).
+
+2. **Set Up the Equation**:
+   - After giving away \(\frac{x}{6}\) pins, John had \( 2x - \frac{x}{6} \) pins left.
+   - According to the problem, he had 66 pins left after giving some away.
+
+3. **Formulate and Solve the Equation**:
+   \[
+   2x - \frac{x}{6} = 66
+   \]
+   To solve for \( x \), first combine like terms by finding a common denominator:
+   \[
+   2x - \frac{x}{6} = \frac{12x}{6} - \frac{x}{6} = \frac{11x}{6}
+   \]
+   So the equation becomes:
+   \[
+   \frac{11x}{6} = 66
+   \]
+   Multiply both sides by 6 to clear the fraction:
+   \[
+   11x = 396
+   \]
+   Divide both sides by 11:
+   \[
+   x = 36
+   \]
+
+4. **Determine the Original Number of Pins**:
+   - Since \( x \) is the number of pins in one pile, and John originally had two piles, he originally had \( 2x = 2 \times 36 = 72 \) pins.
+
+Therefore, the correct answer is (B) 72.",1.0,"Analyze the question in depth, critically assess each option against the provided information or principles, and select the response that most precisely aligns with and answers the query.",3
+"This question refers to the following information.
+""To slacken the tempo would mean falling behind. And those who fall behind get beaten. But we do not want to be beaten. No, we refuse to be beaten! One feature of the history of old Russia was the continual beatings she suffered because of her backwardness. She was beaten by the Mongol khans. She was beaten by the Turkish beys. She was beaten by the Swedish feudal lords. She was beaten by the Polish and Lithuanian gentry. She was beaten by the British and French capitalists. She was beaten by the Japanese barons. All beat her––because of her backwardness, because of her military backwardness, cultural backwardness, political backwardness, industrial backwardness, agricultural backwardness. They beat her because it was profitable and could be done with impunity. You remember the words of the pre-revolutionary poet: ""You are poor and abundant, mighty and impotent, Mother Russia."" Those gentlemen were quite familiar with the verses of the old poet. They beat her, saying: ""You are abundant,"" so one can enrich oneself at your expense. They beat her, saying: ""You are poor and impotent,"" so you can be beaten and plundered with impunity. Such is the law of the exploiters––to beat the backward and the weak. It is the jungle law of capitalism. You are backward, you are weak––therefore you are wrong; hence you can be beaten and enslaved. You are mighty––therefore you are right; hence we must be wary of you.
+That is why we must no longer lag behind.""
+Joseph Stalin, speech delivered at the first All-Union Conference of Leading Personnel of Socialist Industry, February 4, 1931
+The reference to the ""continual beatings"" most directly supports which of the following decisions in later Soviet foreign policy?
+(A) The invasion of Afghanistan
+(B) The creation of the Warsaw Pact
+(C) The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe
+(D) The declaration of war against Japan at the end of World War II",B,"To analyze this question, we need to understand the context provided by Joseph Stalin's speech and how it relates to later Soviet foreign policy decisions. The passage emphasizes the historical vulnerability of Russia due to its backwardness, which led to constant beatings from various powers throughout history.
+
+Let's critically assess each option:
+
+(A) **The invasion of Afghanistan**: This occurred in 1979 under the leadership of Leonid Brezhnev and later under Yuri Andropov. The speech by Stalin does not directly support this decision as it was made decades after his time, and the context of ""continual beatings"" is more about historical vulnerability rather than a specific military action.
+
+(B) **The creation of the Warsaw Pact**: This alliance was established in 1955 primarily to counter NATO. The speech by Stalin highlights the need for Russia not to fall behind, which aligns with the idea of creating a defensive and supportive bloc against perceived threats from capitalist powers. This option seems more directly related to the historical context provided.
+
+(C) **The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe**: The Brezhnev Doctrine was articulated in 1968 during the Prague Spring, which aimed at preventing any form of political change that could lead to a shift away from Soviet control. While it reflects a desire not to fall behind or be beaten, it is more specific and reactive rather than a foundational policy derived directly from Stalin's speech.
+
+(D) **The declaration of war against Japan at the end of World War II**: This occurred in 1945 when the Soviet Union entered the war against Japan. The historical context provided by Stalin does not support this decision as it was made during his lifetime, but more importantly, it is a specific military action rather than a policy based on the broader principle of avoiding backwardness and beatings.
+
+Given these analyses, the option that most directly aligns with the idea of ""continual beatings"" leading to the need for Russia not to fall behind is:
+
+(B) The creation of the Warsaw Pact
+
+This decision reflects Stalin's warning about the dangers of falling behind and being beaten by other powers.",0.0,"Analyze the question in depth, critically assess each option against the provided information or principles, and select the response that most precisely aligns with and answers the query.",3
+"A corporation is ________ from its managers, employees, investors and customers. It therefore has _______ succession and also ________.
+(A) Indistinguishable, Perpetual, Does not own its own assets
+(B) Independent, Limited, Owns its own assets
+(C) Independent, Perpetual, Owns its own assets
+(D) Indistinguishable, Perpetual, Owns its own assets",C,"To answer this question accurately, let's break down the sentence and analyze each part:
+
+1. **""A corporation is ________ from its managers, employees, investors and customers.""**
+   - This suggests that a corporation has a distinct identity or separation from these groups.
+   
+2. **""It therefore has _______ succession and also ________.""**
+   - The first blank should indicate the nature of corporate succession (how leadership changes over time).
+   - The second blank could refer to ownership or other characteristics.
+
+Now, let's evaluate each option:
+
+(A) Indistinguishable, Perpetual, Does not own its own assets
+- ""Indistinguishable"" means it cannot be distinguished from others, which contradicts the idea of a distinct identity.
+- ""Perpetual succession"" suggests that leadership changes but the corporation continues to exist, which is accurate for corporations.
+- ""Does not own its own assets"" is incorrect because corporations do indeed own their assets.
+
+(B) Independent, Limited, Owns its own assets
+- ""Independent"" fits well as a corporation has its own legal identity separate from individuals.
+- ""Limited"" succession means that the corporation can continue to exist even if key personnel change, which aligns with corporate structure.
+- ""Owns its own assets"" is correct; corporations are entities that can hold and manage property.
+
+(C) Independent, Perpetual, Owns its own assets
+- ""Independent"" fits well as a corporation has its own legal identity separate from individuals.
+- ""Perpetual succession"" suggests the corporation will continue to exist even if key personnel change, which is accurate for corporations.
+- ""Owns its own assets"" is correct; corporations are entities that can hold and manage property.
+
+(D) Indistinguishable, Perpetual, Owns its own assets
+- ""Indistinguishable"" means it cannot be distinguished from others, which contradicts the idea of a distinct identity.
+- ""Perpetual succession"" suggests the corporation will continue to exist even if key personnel change, which is accurate for corporations.
+- ""Owns its own assets"" is correct; corporations are entities that can hold and manage property.
+
+After careful analysis:
+
+The most precise answer is (C) Independent, Perpetual, Owns its own assets. This option correctly describes the nature of a corporation's independence from individuals, its ability to continue indefinitely through succession changes, and its ownership of assets.",1.0,"Analyze the question in depth, critically assess each option against the provided information or principles, and select the response that most precisely aligns with and answers the query.",3

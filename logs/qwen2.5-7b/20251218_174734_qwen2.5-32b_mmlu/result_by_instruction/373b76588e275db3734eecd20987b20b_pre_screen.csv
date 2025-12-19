@@ -1,0 +1,185 @@
+input,target,prediction,accuracy,instruction,step
+"This question refers to the following information.
+""To slacken the tempo would mean falling behind. And those who fall behind get beaten. But we do not want to be beaten. No, we refuse to be beaten! One feature of the history of old Russia was the continual beatings she suffered because of her backwardness. She was beaten by the Mongol khans. She was beaten by the Turkish beys. She was beaten by the Swedish feudal lords. She was beaten by the Polish and Lithuanian gentry. She was beaten by the British and French capitalists. She was beaten by the Japanese barons. All beat her––because of her backwardness, because of her military backwardness, cultural backwardness, political backwardness, industrial backwardness, agricultural backwardness. They beat her because it was profitable and could be done with impunity. You remember the words of the pre-revolutionary poet: ""You are poor and abundant, mighty and impotent, Mother Russia."" Those gentlemen were quite familiar with the verses of the old poet. They beat her, saying: ""You are abundant,"" so one can enrich oneself at your expense. They beat her, saying: ""You are poor and impotent,"" so you can be beaten and plundered with impunity. Such is the law of the exploiters––to beat the backward and the weak. It is the jungle law of capitalism. You are backward, you are weak––therefore you are wrong; hence you can be beaten and enslaved. You are mighty––therefore you are right; hence we must be wary of you.
+That is why we must no longer lag behind.""
+Joseph Stalin, speech delivered at the first All-Union Conference of Leading Personnel of Socialist Industry, February 4, 1931
+The reference to the ""continual beatings"" most directly supports which of the following decisions in later Soviet foreign policy?
+(A) The invasion of Afghanistan
+(B) The creation of the Warsaw Pact
+(C) The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe
+(D) The declaration of war against Japan at the end of World War II",B,"The reference to ""continual beatings"" in Joseph Stalin's speech most directly supports the decision made under the premise that the Soviet Union must not fall behind and be subjected to external pressures or exploitation. This idea aligns closely with the creation of the Warsaw Pact, which was established as a counterbalance to NATO and aimed at ensuring mutual defense among socialist states against potential Western aggression.
+
+Therefore, the correct answer is:
+
+(B) The creation of the Warsaw Pact
+
+This option reflects the Soviet Union's strategy to avoid being in a position where it could be exploited or attacked by other nations, aligning with Stalin’s warning about falling behind and facing beatings.",1.0,"Analyze the question thoroughly, consider each option critically, and choose the response that most accurately and directly addresses the query based on the given information.",2
+"At noon, an experimenter has 50 grams of a radioactive isotope. At noon 9 days later only 45 grams remain. To the nearest day, how many days after the experiment started will there be only 20 grams?
+(A) 54
+(B) 59
+(C) 60
+(D) 78",D,"To solve this problem, we need to understand that radioactive decay follows an exponential decay model. The general formula for the amount of a substance remaining after time \( t \) is given by:
+
+\[ N(t) = N_0 e^{-\lambda t} \]
+
+where:
+- \( N(t) \) is the quantity at time \( t \),
+- \( N_0 \) is the initial quantity,
+- \( \lambda \) is the decay constant, and
+- \( t \) is the time elapsed.
+
+Given that 50 grams of a radioactive isotope remain as 45 grams after 9 days, we can use this information to find the half-life or directly calculate the decay constant. However, for simplicity in this context, let's assume the exponential decay model and solve it step by step.
+
+First, determine the decay factor over 9 days:
+\[ \frac{N(9)}{N_0} = \frac{45}{50} = 0.9 \]
+
+This means that after 9 days, 90% of the original amount remains. To find out how many days it takes for the isotope to decay from 50 grams to 20 grams, we need to determine the time \( t \) such that:
+
+\[ N(t) = 20 \text{ grams} \]
+
+Using the exponential decay formula:
+\[ 20 = 50 e^{-\lambda \cdot 9} \]
+\[ \frac{20}{50} = e^{-9\lambda} \]
+\[ 0.4 = e^{-9\lambda} \]
+
+Taking the natural logarithm on both sides:
+\[ \ln(0.4) = -9\lambda \]
+\[ \lambda = -\frac{\ln(0.4)}{9} \approx 0.158 \text{ per day} \]
+
+Now, we need to find \( t \) when the amount is 20 grams:
+\[ 20 = 50 e^{-0.158t} \]
+\[ \frac{20}{50} = e^{-0.158t} \]
+\[ 0.4 = e^{-0.158t} \]
+
+Again, taking the natural logarithm on both sides:
+\[ \ln(0.4) = -0.158t \]
+\[ t = -\frac{\ln(0.4)}{0.158} \approx 9 \times \left(\frac{\ln(0.4)}{-0.158}\right) \]
+
+Since \( \ln(0.4) \approx -0.9163 \):
+\[ t = 9 \times \left(\frac{0.9163}{0.158}\right) \approx 9 \times 5.792 \approx 52.128 \]
+
+Since we need the answer to the nearest day, \( t \approx 52 \).
+
+However, this does not match any of the given options directly. Let's consider the exponential nature and recheck with simpler steps:
+
+Given that after 9 days, 45 grams remain, and we want to find when it will be 20 grams:
+\[ \frac{20}{45} = \left(\frac{1}{0.9}\right)^n \]
+Where \( n \) is the number of 9-day periods.
+
+Solving for \( n \):
+\[ \left(\frac{1}{0.9}\right)^n = \frac{20}{45} \approx 0.444 \]
+
+Using logarithms:
+\[ n \log(1/0.9) = \log(0.444) \]
+\[ n \approx \frac{\log(0.444)}{\log(1/0.9)} \approx \frac{-0.352}{-0.105} \approx 3.36 \]
+
+So, \( n \approx 3.36 \) periods of 9 days:
+\[ t = 3.36 \times 9 \approx 30.24 \text{ days} \]
+
+Since we need the total time from the start:
+\[ t_{total} = 9 + 30.24 \approx 39.24 \text{ days} \]
+
+Given options, the closest is not directly matching but considering exponential nature and rounding, option (B) 59 seems to be a plausible answer if we consider cumulative decay over multiple periods.
+
+Thus, the most accurate response based on given options would be:
+(B) 59",0.0,"Analyze the question thoroughly, consider each option critically, and choose the response that most accurately and directly addresses the query based on the given information.",2
+"John divided his souvenir hat pins into two piles. The two piles had an equal number of pins. He gave his brother one-half of one-third of one pile. John had 66 pins left. How many pins did John originally have?
+(A) 396
+(B) 72
+(C) 66
+(D) 36",B,"Let's break down the problem step by step to find out how many pins John originally had.
+
+1. **Define Variables and Understand the Problem**:
+   - Let \( x \) be the number of pins in one pile.
+   - Since John divided his souvenir hat pins into two equal piles, he initially has \( 2x \) pins in total.
+
+2. **Determine How Many Pins Were Given Away**:
+   - John gave his brother one-half of one-third of one pile.
+   - One-third of one pile is \( \frac{x}{3} \).
+   - Half of that amount is \( \frac{1}{2} \times \frac{x}{3} = \frac{x}{6} \).
+
+3. **Calculate the Remaining Pins**:
+   - After giving away \( \frac{x}{6} \) pins, John had 66 pins left.
+   - Therefore, the remaining number of pins can be expressed as: 
+     \[
+     2x - \frac{x}{6} = 66
+     \]
+
+4. **Solve for \( x \)**:
+   - Combine like terms by finding a common denominator:
+     \[
+     2x - \frac{x}{6} = \frac{12x}{6} - \frac{x}{6} = \frac{11x}{6}
+     \]
+   - Set the equation equal to 66 and solve for \( x \):
+     \[
+     \frac{11x}{6} = 66
+     \]
+     \[
+     11x = 66 \times 6
+     \]
+     \[
+     11x = 396
+     \]
+     \[
+     x = \frac{396}{11}
+     \]
+     \[
+     x = 36
+     \]
+
+5. **Calculate the Total Number of Pins**:
+   - Since \( x = 36 \), and John originally had two piles, he initially had:
+     \[
+     2x = 2 \times 36 = 72
+     \]
+
+Therefore, the correct answer is (B) 72.",1.0,"Analyze the question thoroughly, consider each option critically, and choose the response that most accurately and directly addresses the query based on the given information.",2
+"Grady rides his bike $60\%$ faster than his little brother Noah. If Grady rides $12$ miles further than Noah in two hours, how fast in miles per hour does Noah ride?
+(A) 32
+(B) 20
+(C) 10
+(D) 7.2",C,"To solve this problem, let's denote Noah's speed as \( N \) miles per hour.
+
+Since Grady rides his bike \(60\%\) faster than Noah, Grady's speed can be expressed as:
+\[ G = N + 0.6N = 1.6N \]
+
+Given that both ride for two hours and Grady covers \(12\) miles more than Noah in this time, we can set up the following equations based on distance traveled:
+
+- Distance covered by Noah: 
+\[ D_N = N \times 2 \]
+- Distance covered by Grady:
+\[ D_G = G \times 2 = 1.6N \times 2 = 3.2N \]
+
+According to the problem, Grady rides \(12\) miles more than Noah in two hours:
+\[ D_G - D_N = 12 \]
+Substituting the expressions for \(D_G\) and \(D_N\):
+\[ 3.2N - 2N = 12 \]
+Simplifying this equation:
+\[ 1.2N = 12 \]
+
+To find Noah's speed, we solve for \( N \):
+\[ N = \frac{12}{1.2} = 10 \]
+
+Thus, Noah rides at a speed of \(10\) miles per hour.
+
+The correct answer is (C) 10.",1.0,"Analyze the question thoroughly, consider each option critically, and choose the response that most accurately and directly addresses the query based on the given information.",2
+"A corporation is ________ from its managers, employees, investors and customers. It therefore has _______ succession and also ________.
+(A) Indistinguishable, Perpetual, Does not own its own assets
+(B) Independent, Limited, Owns its own assets
+(C) Independent, Perpetual, Owns its own assets
+(D) Indistinguishable, Perpetual, Owns its own assets",C,"The correct answer is (C) Independent, Perpetual, Owns its own assets.
+
+Let's break down the question and analyze each option:
+
+1. **Independent**: A corporation operates independently of its managers, employees, investors, and customers. This means that these groups can change or leave without affecting the ongoing operations of the corporation itself.
+2. **Perpetual**: Corporations are typically structured in a way that allows them to continue indefinitely unless they dissolve voluntarily or through legal proceedings. This is different from partnerships or sole proprietorships which may end with the death or withdrawal of their owners.
+3. **Owns its own assets**: A corporation can acquire, own, and dispose of property and other assets as part of its business operations.
+
+Now let's look at each option:
+
+(A) Indistinguishable, Perpetual, Does not own its own assets - This is incorrect because a corporation is distinguishable from its managers, employees, investors, and customers. It also owns its own assets.
+(B) Independent, Limited, Owns its own assets - While this option correctly states that the corporation is independent and owns its own assets, it incorrectly uses ""Limited"" to describe the nature of ownership, which should be ""Perpetual.""
+(C) Independent, Perpetual, Owns its own assets - This accurately describes a corporation.
+(D) Indistinguishable, Perpetual, Owns its own assets - Similar to option (B), this is incorrect because a corporation is distinguishable from its managers, employees, investors, and customers.
+
+Therefore, the most accurate answer is (C).",1.0,"Analyze the question thoroughly, consider each option critically, and choose the response that most accurately and directly addresses the query based on the given information.",2

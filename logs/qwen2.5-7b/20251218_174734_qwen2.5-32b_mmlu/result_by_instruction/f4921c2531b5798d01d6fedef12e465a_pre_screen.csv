@@ -1,0 +1,167 @@
+input,target,prediction,accuracy,instruction,step
+"This question refers to the following information.
+""To slacken the tempo would mean falling behind. And those who fall behind get beaten. But we do not want to be beaten. No, we refuse to be beaten! One feature of the history of old Russia was the continual beatings she suffered because of her backwardness. She was beaten by the Mongol khans. She was beaten by the Turkish beys. She was beaten by the Swedish feudal lords. She was beaten by the Polish and Lithuanian gentry. She was beaten by the British and French capitalists. She was beaten by the Japanese barons. All beat her––because of her backwardness, because of her military backwardness, cultural backwardness, political backwardness, industrial backwardness, agricultural backwardness. They beat her because it was profitable and could be done with impunity. You remember the words of the pre-revolutionary poet: ""You are poor and abundant, mighty and impotent, Mother Russia."" Those gentlemen were quite familiar with the verses of the old poet. They beat her, saying: ""You are abundant,"" so one can enrich oneself at your expense. They beat her, saying: ""You are poor and impotent,"" so you can be beaten and plundered with impunity. Such is the law of the exploiters––to beat the backward and the weak. It is the jungle law of capitalism. You are backward, you are weak––therefore you are wrong; hence you can be beaten and enslaved. You are mighty––therefore you are right; hence we must be wary of you.
+That is why we must no longer lag behind.""
+Joseph Stalin, speech delivered at the first All-Union Conference of Leading Personnel of Socialist Industry, February 4, 1931
+The reference to the ""continual beatings"" most directly supports which of the following decisions in later Soviet foreign policy?
+(A) The invasion of Afghanistan
+(B) The creation of the Warsaw Pact
+(C) The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe
+(D) The declaration of war against Japan at the end of World War II",B,"The reference to ""continual beatings"" in Joseph Stalin's speech most directly supports the decision made under the Brezhnev Doctrine, which was a policy that asserted the right of the Soviet Union to intervene in the internal affairs of any Eastern Bloc country that the Soviets believed was threatening to leave the socialist bloc. This doctrine was used as a justification for military intervention and was seen as a way to prevent the spread of anti-communist sentiment or movements within the Eastern Bloc countries.
+
+Therefore, the most appropriate answer is:
+
+(C) The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe
+
+This option aligns with the historical context provided by Stalin's speech, which emphasizes the fear and necessity of not falling behind or being beaten, a sentiment that would underpin later Soviet policies aimed at maintaining control over its satellite states.",0.0,Analyze each option carefully and select the most appropriate answer based on the information provided.,1
+"John divided his souvenir hat pins into two piles. The two piles had an equal number of pins. He gave his brother one-half of one-third of one pile. John had 66 pins left. How many pins did John originally have?
+(A) 396
+(B) 72
+(C) 66
+(D) 36",B,"Let's break down the problem step by step to find out how many pins John originally had.
+
+1. **Define Variables and Understand the Problem**:
+   - Let \( x \) be the number of pins in one pile.
+   - Since John divided his souvenir hat pins into two equal piles, he initially has \( 2x \) pins in total.
+   
+2. **Determine How Many Pins Were Given Away**:
+   - John gave his brother one-half of one-third of one pile.
+   - One-third of one pile is \( \frac{x}{3} \).
+   - Half of that amount is \( \frac{1}{2} \times \frac{x}{3} = \frac{x}{6} \).
+
+3. **Calculate the Remaining Pins**:
+   - After giving away \( \frac{x}{6} \) pins, John had 66 pins left.
+   - Therefore, the remaining number of pins can be expressed as: 
+     \[
+     2x - \frac{x}{6} = 66
+     \]
+
+4. **Solve for \( x \)**:
+   - Combine like terms by finding a common denominator:
+     \[
+     2x - \frac{x}{6} = \frac{12x}{6} - \frac{x}{6} = \frac{11x}{6}
+     \]
+   - Set the equation equal to 66 and solve for \( x \):
+     \[
+     \frac{11x}{6} = 66
+     \]
+     \[
+     11x = 66 \times 6
+     \]
+     \[
+     11x = 396
+     \]
+     \[
+     x = \frac{396}{11}
+     \]
+     \[
+     x = 36
+     \]
+
+5. **Calculate the Total Number of Pins**:
+   - Since \( x = 36 \), and John originally had two piles, he initially had:
+     \[
+     2x = 2 \times 36 = 72
+     \]
+
+Therefore, the correct answer is (B) 72.",1.0,Analyze each option carefully and select the most appropriate answer based on the information provided.,1
+"Grady rides his bike $60\%$ faster than his little brother Noah. If Grady rides $12$ miles further than Noah in two hours, how fast in miles per hour does Noah ride?
+(A) 32
+(B) 20
+(C) 10
+(D) 7.2",C,"To solve this problem, let's denote Noah's speed as \( N \) miles per hour.
+
+Since Grady rides his bike \(60\%\) faster than Noah, Grady's speed can be expressed as:
+\[ G = N + 0.6N = 1.6N \]
+
+Given that both ride for two hours and Grady covers \(12\) miles more than Noah in this time, we can set up the following equations based on distance traveled:
+
+- Distance covered by Noah: 
+\[ D_N = N \times 2 \]
+- Distance covered by Grady:
+\[ D_G = G \times 2 = 1.6N \times 2 = 3.2N \]
+
+According to the problem, Grady covers \(12\) miles more than Noah in two hours:
+\[ D_G = D_N + 12 \]
+Substituting the expressions for \(D_G\) and \(D_N\):
+\[ 3.2N = 2N + 12 \]
+
+Now, solve for \( N \):
+\[ 3.2N - 2N = 12 \]
+\[ 1.2N = 12 \]
+\[ N = \frac{12}{1.2} \]
+\[ N = 10 \]
+
+Thus, Noah rides at a speed of \(10\) miles per hour.
+
+The correct answer is (C) 10.",1.0,Analyze each option carefully and select the most appropriate answer based on the information provided.,1
+"At noon, an experimenter has 50 grams of a radioactive isotope. At noon 9 days later only 45 grams remain. To the nearest day, how many days after the experiment started will there be only 20 grams?
+(A) 54
+(B) 59
+(C) 60
+(D) 78",D,"To solve this problem, we need to understand that radioactive decay follows an exponential decay model. The general formula for the amount of a substance remaining after time \( t \) is given by:
+
+\[ N(t) = N_0 e^{-\lambda t} \]
+
+where:
+- \( N(t) \) is the quantity at time \( t \),
+- \( N_0 \) is the initial quantity,
+- \( \lambda \) is the decay constant, and
+- \( t \) is the time elapsed.
+
+Given that 50 grams of a radioactive isotope decays to 45 grams in 9 days, we can use this information to find the decay constant. Let's denote the initial amount as \( N_0 = 50 \) grams, and after 9 days, the remaining amount is \( N(9) = 45 \) grams.
+
+\[ 45 = 50 e^{-\lambda \cdot 9} \]
+
+Solving for \( \lambda \):
+
+\[ \frac{45}{50} = e^{-9\lambda} \]
+\[ 0.9 = e^{-9\lambda} \]
+\[ \ln(0.9) = -9\lambda \]
+\[ \lambda = -\frac{\ln(0.9)}{9} \]
+
+Now, we need to find the time \( t \) when only 20 grams remain:
+
+\[ 20 = 50 e^{-\lambda t} \]
+
+Substituting the value of \( \lambda \):
+
+\[ 20 = 50 e^{\left(\frac{\ln(0.9)}{9}\right)t} \]
+\[ \frac{20}{50} = e^{\left(\frac{\ln(0.9)}{9}\right)t} \]
+\[ 0.4 = e^{\left(\frac{\ln(0.9)}{9}\right)t} \]
+
+Taking the natural logarithm of both sides:
+
+\[ \ln(0.4) = \left(\frac{\ln(0.9)}{9}\right)t \]
+\[ t = \frac{9 \ln(0.4)}{\ln(0.9)} \]
+
+Using a calculator to find the numerical value:
+
+\[ t \approx \frac{9 \times (-0.9163)}{-0.1054} \approx 82.7 \text{ days} \]
+
+Since we need the answer to the nearest day, and considering that the options provided are (A) 54, (B) 59, (C) 60, and (D) 78, it seems there might be a discrepancy or simplification in the problem setup. However, based on the closest value:
+
+The most appropriate answer is (D) 78 days.
+
+Therefore, the correct answer is **(D) 78**.",1.0,Analyze each option carefully and select the most appropriate answer based on the information provided.,1
+"A corporation is ________ from its managers, employees, investors and customers. It therefore has _______ succession and also ________.
+(A) Indistinguishable, Perpetual, Does not own its own assets
+(B) Independent, Limited, Owns its own assets
+(C) Independent, Perpetual, Owns its own assets
+(D) Indistinguishable, Perpetual, Owns its own assets",C,"The correct answer is (C) Independent, Perpetual, Owns its own assets.
+
+Let's break down the options:
+
+- **Independent**: A corporation operates independently of its managers, employees, investors, and customers. It can make decisions and conduct business without direct dependence on these groups.
+  
+- **Perpetual**: Corporations are typically structured in a way that allows them to continue indefinitely unless they dissolve or are liquidated.
+
+- **Owns its own assets**: A corporation is an entity that owns the assets it uses for business operations, distinct from those of its owners (shareholders).
+
+Option (A) is incorrect because ""indistinguishable"" does not accurately describe a corporation's relationship with its stakeholders. 
+
+Option (B) is partially correct but misleading in stating that a corporation has limited succession; while corporations can have limited liability, they do not inherently limit their own succession.
+
+Option (D) incorrectly states that the corporation is indistinguishable from its managers and employees, which contradicts the independence of a corporation.
+
+Therefore, option (C) accurately describes the nature of a corporation.",1.0,Analyze each option carefully and select the most appropriate answer based on the information provided.,1

@@ -1,0 +1,192 @@
+input,target,prediction,accuracy,instruction,step
+"John divided his souvenir hat pins into two piles. The two piles had an equal number of pins. He gave his brother one-half of one-third of one pile. John had 66 pins left. How many pins did John originally have?
+(A) 396
+(B) 72
+(C) 66
+(D) 36",B,"Let's break down the problem step by step to find out how many pins John originally had.
+
+1. **Define Variables and Understand the Problem**:
+   - Let \( x \) be the number of pins in one pile.
+   - Since John divided his souvenir hat pins into two equal piles, he initially has \( 2x \) pins in total.
+   
+2. **Determine How Many Pins Were Given Away**:
+   - John gave his brother one-half of one-third of one pile.
+   - One-third of one pile is \( \frac{x}{3} \).
+   - Half of that amount is \( \frac{1}{2} \times \frac{x}{3} = \frac{x}{6} \).
+
+3. **Calculate the Remaining Pins**:
+   - After giving away \( \frac{x}{6} \) pins, John had 66 pins left.
+   - Therefore, the remaining number of pins can be expressed as: 
+     \[
+     2x - \frac{x}{6} = 66
+     \]
+
+4. **Solve for \( x \)**:
+   - Combine like terms by finding a common denominator:
+     \[
+     2x - \frac{x}{6} = \frac{12x}{6} - \frac{x}{6} = \frac{11x}{6}
+     \]
+   - Set the equation equal to 66 and solve for \( x \):
+     \[
+     \frac{11x}{6} = 66
+     \]
+     \[
+     11x = 66 \times 6
+     \]
+     \[
+     11x = 396
+     \]
+     \[
+     x = \frac{396}{11}
+     \]
+     \[
+     x = 36
+     \]
+
+5. **Calculate the Total Number of Pins**:
+   - Since \( x = 36 \), and John originally had two piles, he initially had:
+     \[
+     2x = 2 \times 36 = 72
+     \]
+
+Therefore, the correct answer is (B) 72.",1.0,"Analyze the problem carefully, align each option with the given information or principles, and select the response that most precisely answers the question based on logical reasoning and provided data.",3
+"Grady rides his bike $60\%$ faster than his little brother Noah. If Grady rides $12$ miles further than Noah in two hours, how fast in miles per hour does Noah ride?
+(A) 32
+(B) 20
+(C) 10
+(D) 7.2",C,"To solve this problem, let's denote the speed of Noah as \( N \) miles per hour.
+
+Since Grady rides his bike \(60\%\) faster than Noah, we can express Grady's speed as:
+\[ G = N + 0.6N = 1.6N \]
+
+Next, we know that in two hours, Grady rides 12 miles further than Noah. We can set up the following equation based on their speeds and the time they ride:
+
+For Noah: Distance covered by Noah in 2 hours is \( 2N \).
+
+For Grady: Distance covered by Grady in 2 hours is \( 2G = 2(1.6N) = 3.2N \).
+
+According to the problem, Grady rides 12 miles more than Noah:
+\[ 3.2N - 2N = 12 \]
+
+Simplifying this equation:
+\[ 1.2N = 12 \]
+\[ N = \frac{12}{1.2} \]
+\[ N = 10 \]
+
+Thus, Noah rides at a speed of \( 10 \) miles per hour.
+
+Therefore, the correct answer is (C) 10.",1.0,"Analyze the problem carefully, align each option with the given information or principles, and select the response that most precisely answers the question based on logical reasoning and provided data.",3
+"This question refers to the following information.
+""To slacken the tempo would mean falling behind. And those who fall behind get beaten. But we do not want to be beaten. No, we refuse to be beaten! One feature of the history of old Russia was the continual beatings she suffered because of her backwardness. She was beaten by the Mongol khans. She was beaten by the Turkish beys. She was beaten by the Swedish feudal lords. She was beaten by the Polish and Lithuanian gentry. She was beaten by the British and French capitalists. She was beaten by the Japanese barons. All beat her––because of her backwardness, because of her military backwardness, cultural backwardness, political backwardness, industrial backwardness, agricultural backwardness. They beat her because it was profitable and could be done with impunity. You remember the words of the pre-revolutionary poet: ""You are poor and abundant, mighty and impotent, Mother Russia."" Those gentlemen were quite familiar with the verses of the old poet. They beat her, saying: ""You are abundant,"" so one can enrich oneself at your expense. They beat her, saying: ""You are poor and impotent,"" so you can be beaten and plundered with impunity. Such is the law of the exploiters––to beat the backward and the weak. It is the jungle law of capitalism. You are backward, you are weak––therefore you are wrong; hence you can be beaten and enslaved. You are mighty––therefore you are right; hence we must be wary of you.
+That is why we must no longer lag behind.""
+Joseph Stalin, speech delivered at the first All-Union Conference of Leading Personnel of Socialist Industry, February 4, 1931
+The reference to the ""continual beatings"" most directly supports which of the following decisions in later Soviet foreign policy?
+(A) The invasion of Afghanistan
+(B) The creation of the Warsaw Pact
+(C) The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe
+(D) The declaration of war against Japan at the end of World War II",B,"To answer this question, we need to analyze how Stalin's reference to ""continual beatings"" due to backwardness might have influenced later Soviet foreign policy decisions. Let’s break down each option in light of the provided information:
+
+(A) The invasion of Afghanistan: This was a significant military action that occurred much later, in 1979, under the leadership of Leonid Brezhnev and not directly related to Stalin's speech or the concept of backwardness.
+
+(B) The creation of the Warsaw Pact: This alliance was established on May 14, 1955, primarily as a response to NATO’s formation. It aligns with the idea that the Soviet Union needed to strengthen its position against perceived threats and maintain control over Eastern Europe, which could be seen as an effort to avoid being ""beaten"" by Western powers.
+
+(C) The imposition of the Brezhnev Doctrine: This doctrine was articulated in 1968 during the Czechoslovakian crisis. It asserted that the Soviet Union had a right to intervene in any country where socialism was threatened, essentially to prevent the spread of anti-Soviet sentiments and maintain control over its sphere of influence.
+
+(D) The declaration of war against Japan at the end of World War II: This occurred on August 8, 1945. While it was a significant military action, it was more about fulfilling strategic objectives during WWII rather than an ongoing policy decision related to avoiding being ""beaten"" due to backwardness.
+
+Given Stalin's emphasis on not falling behind and the historical context of Russia’s past suffering due to its backwardness, the most direct application would be in policies that aimed at maintaining or increasing Soviet power and influence. The creation of the Warsaw Pact (Option B) and the imposition of the Brezhnev Doctrine (Option C) both reflect a strategy to prevent being ""beaten"" by ensuring control over allied states.
+
+However, considering Stalin's speech was delivered earlier and focused more broadly on the need for industrial and military strength, the most direct application would be:
+
+(B) The creation of the Warsaw Pact
+
+This decision aligns with the principle that the Soviet Union needed to maintain a strong position in Europe to avoid being ""beaten"" by Western powers.",0.0,"Analyze the problem carefully, align each option with the given information or principles, and select the response that most precisely answers the question based on logical reasoning and provided data.",3
+"At noon, an experimenter has 50 grams of a radioactive isotope. At noon 9 days later only 45 grams remain. To the nearest day, how many days after the experiment started will there be only 20 grams?
+(A) 54
+(B) 59
+(C) 60
+(D) 78",D,"To solve this problem, we need to understand radioactive decay and use the given information to determine the half-life of the isotope. Radioactive decay follows an exponential decay model.
+
+Given:
+- Initial amount at noon (Day 0): \( A_0 = 50 \) grams.
+- Amount remaining after 9 days: \( A(9) = 45 \) grams.
+
+The formula for radioactive decay is given by:
+
+\[ A(t) = A_0 e^{-\lambda t} \]
+
+where:
+- \( A(t) \) is the amount of substance at time \( t \),
+- \( A_0 \) is the initial amount,
+- \( \lambda \) is the decay constant,
+- \( t \) is the time elapsed.
+
+First, we need to find the decay constant \(\lambda\). Using the information that 45 grams remain after 9 days:
+
+\[ 45 = 50 e^{-\lambda \cdot 9} \]
+
+Solving for \(\lambda\):
+
+\[ \frac{45}{50} = e^{-9\lambda} \]
+\[ 0.9 = e^{-9\lambda} \]
+\[ \ln(0.9) = -9\lambda \]
+\[ \lambda = -\frac{\ln(0.9)}{9} \]
+
+Using the natural logarithm:
+
+\[ \lambda \approx -\frac{-0.10536}{9} \approx 0.0117 \text{ per day} \]
+
+Now, we need to find the time \( t \) when only 20 grams remain:
+
+\[ 20 = 50 e^{-0.0117t} \]
+
+Solving for \( t \):
+
+\[ \frac{20}{50} = e^{-0.0117t} \]
+\[ 0.4 = e^{-0.0117t} \]
+\[ \ln(0.4) = -0.0117t \]
+\[ t = -\frac{\ln(0.4)}{0.0117} \]
+
+Using the natural logarithm:
+
+\[ t \approx -\frac{-0.9163}{0.0117} \approx 78 \text{ days} \]
+
+Therefore, to the nearest day, it will take approximately 78 days for only 20 grams of the isotope to remain.
+
+The correct answer is (D) 78.",1.0,"Analyze the problem carefully, align each option with the given information or principles, and select the response that most precisely answers the question based on logical reasoning and provided data.",3
+"A corporation is ________ from its managers, employees, investors and customers. It therefore has _______ succession and also ________.
+(A) Indistinguishable, Perpetual, Does not own its own assets
+(B) Independent, Limited, Owns its own assets
+(C) Independent, Perpetual, Owns its own assets
+(D) Indistinguishable, Perpetual, Owns its own assets",C,"To answer this question accurately, let's break down the sentence and analyze each part:
+
+1. **""A corporation is ________ from its managers, employees, investors and customers.""**
+   - This suggests that a corporation has a distinct identity or separation from these groups.
+   
+2. **""It therefore has _______ succession and also ________.""**
+   - The first blank should indicate the nature of corporate succession (how leadership changes over time).
+   - The second blank could refer to characteristics of the corporation.
+
+Now, let's evaluate each option:
+
+(A) Indistinguishable, Perpetual, Does not own its own assets
+- ""Indistinguishable"" means it cannot be distinguished from others, which contradicts the idea that a corporation has an independent identity.
+- ""Perpetual succession"" is correct as corporations can continue to exist even if leadership changes.
+- ""Does not own its own assets"" is incorrect because corporations do indeed own their assets.
+
+(B) Independent, Perpetual, Owns its own assets
+- ""Independent"" fits well with the idea of a corporation having its own identity separate from managers, employees, investors, and customers.
+- ""Perpetual succession"" correctly describes how corporate leadership can change while the entity continues to exist.
+- ""Owns its own assets"" is accurate as corporations do indeed own their assets.
+
+(C) Independent, Perpetual, Owns its own assets
+- This option is identical to (B), so it also fits well with all parts of the sentence.
+
+(D) Indistinguishable, Perpetual, Owns its own assets
+- ""Indistinguishable"" contradicts the idea that a corporation has an independent identity.
+- The other two parts are correct but this initial contradiction makes it incorrect.
+
+Given the analysis, both (B) and (C) fit well. However, since option (C) is identical to (B), we can conclude:
+
+The most precise answer based on logical reasoning and provided data is:
+(C) Independent, Perpetual, Owns its own assets",0.0,"Analyze the problem carefully, align each option with the given information or principles, and select the response that most precisely answers the question based on logical reasoning and provided data.",3

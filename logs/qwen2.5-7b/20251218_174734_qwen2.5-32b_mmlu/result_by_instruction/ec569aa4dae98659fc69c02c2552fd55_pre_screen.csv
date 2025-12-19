@@ -1,0 +1,141 @@
+input,target,prediction,accuracy,instruction,step
+"Grady rides his bike $60\%$ faster than his little brother Noah. If Grady rides $12$ miles further than Noah in two hours, how fast in miles per hour does Noah ride?
+(A) 32
+(B) 20
+(C) 10
+(D) 7.2",C,"Let's denote Noah's speed as \( N \) miles per hour.
+
+Grady rides \( 60\% \) faster than Noah, so Grady's speed is:
+\[ G = N + 0.6N = 1.6N \]
+
+In two hours, the distance each of them travels can be calculated by multiplying their speeds by time (2 hours).
+
+Noah's distance in two hours:
+\[ D_N = 2N \]
+
+Grady's distance in two hours:
+\[ D_G = 2 \times 1.6N = 3.2N \]
+
+According to the problem, Grady rides \( 12 \) miles further than Noah in two hours:
+\[ D_G = D_N + 12 \]
+\[ 3.2N = 2N + 12 \]
+
+Now we solve for \( N \):
+\[ 3.2N - 2N = 12 \]
+\[ 1.2N = 12 \]
+\[ N = \frac{12}{1.2} \]
+\[ N = 10 \]
+
+So, Noah rides at a speed of \( 10 \) miles per hour.
+
+The correct answer is (C) 10.",1.0,Analyze each option carefully and select the one that directly answers the question.,1
+"This question refers to the following information.
+""To slacken the tempo would mean falling behind. And those who fall behind get beaten. But we do not want to be beaten. No, we refuse to be beaten! One feature of the history of old Russia was the continual beatings she suffered because of her backwardness. She was beaten by the Mongol khans. She was beaten by the Turkish beys. She was beaten by the Swedish feudal lords. She was beaten by the Polish and Lithuanian gentry. She was beaten by the British and French capitalists. She was beaten by the Japanese barons. All beat her––because of her backwardness, because of her military backwardness, cultural backwardness, political backwardness, industrial backwardness, agricultural backwardness. They beat her because it was profitable and could be done with impunity. You remember the words of the pre-revolutionary poet: ""You are poor and abundant, mighty and impotent, Mother Russia."" Those gentlemen were quite familiar with the verses of the old poet. They beat her, saying: ""You are abundant,"" so one can enrich oneself at your expense. They beat her, saying: ""You are poor and impotent,"" so you can be beaten and plundered with impunity. Such is the law of the exploiters––to beat the backward and the weak. It is the jungle law of capitalism. You are backward, you are weak––therefore you are wrong; hence you can be beaten and enslaved. You are mighty––therefore you are right; hence we must be wary of you.
+That is why we must no longer lag behind.""
+Joseph Stalin, speech delivered at the first All-Union Conference of Leading Personnel of Socialist Industry, February 4, 1931
+The reference to the ""continual beatings"" most directly supports which of the following decisions in later Soviet foreign policy?
+(A) The invasion of Afghanistan
+(B) The creation of the Warsaw Pact
+(C) The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe
+(D) The declaration of war against Japan at the end of World War II",B,"The reference to ""continual beatings"" most directly supports decision (B) The creation of the Warsaw Pact.
+
+This is because Stalin's speech emphasizes the importance of not falling behind and being vulnerable to external threats. The Warsaw Pact was created as a response to NATO, essentially as a defensive measure against perceived Western encroachment and to maintain Soviet influence in Eastern Europe, aligning with the theme of avoiding backwardness and vulnerability that Stalin discusses.",1.0,Analyze each option carefully and select the one that directly answers the question.,1
+"John divided his souvenir hat pins into two piles. The two piles had an equal number of pins. He gave his brother one-half of one-third of one pile. John had 66 pins left. How many pins did John originally have?
+(A) 396
+(B) 72
+(C) 66
+(D) 36",B,"Let's break down the problem step by step to find out how many pins John originally had.
+
+1. **Define Variables and Understand the Problem**:
+   - Let \( x \) be the number of pins in one pile.
+   - Since John divided his souvenir hat pins into two equal piles, he originally had \( 2x \) pins.
+   - He gave his brother one-half of one-third of one pile. This means he gave away \(\frac{1}{2} \times \frac{1}{3} \times x = \frac{x}{6}\).
+
+2. **Set Up the Equation**:
+   - After giving away \(\frac{x}{6}\) pins, John had \( 2x - \frac{x}{6} \) pins left.
+   - According to the problem, he had 66 pins left after giving some away.
+
+3. **Formulate and Solve the Equation**:
+   \[
+   2x - \frac{x}{6} = 66
+   \]
+   To solve for \( x \), first combine like terms by finding a common denominator:
+   \[
+   2x - \frac{x}{6} = \frac{12x}{6} - \frac{x}{6} = \frac{11x}{6}
+   \]
+   So the equation becomes:
+   \[
+   \frac{11x}{6} = 66
+   \]
+   Multiply both sides by 6 to clear the fraction:
+   \[
+   11x = 396
+   \]
+   Divide both sides by 11:
+   \[
+   x = 36
+   \]
+
+4. **Calculate the Original Number of Pins**:
+   - Since \( x \) is the number of pins in one pile, and John originally had two piles, he originally had \( 2x = 2 \times 36 = 72 \) pins.
+
+Therefore, the correct answer is (B) 72.",1.0,Analyze each option carefully and select the one that directly answers the question.,1
+"At noon, an experimenter has 50 grams of a radioactive isotope. At noon 9 days later only 45 grams remain. To the nearest day, how many days after the experiment started will there be only 20 grams?
+(A) 54
+(B) 59
+(C) 60
+(D) 78",D,"To solve this problem, we need to understand that radioactive decay follows an exponential decay model. The general formula for the amount of a substance remaining after time \( t \) is given by:
+
+\[ N(t) = N_0 e^{-\lambda t} \]
+
+where:
+- \( N(t) \) is the quantity at time \( t \),
+- \( N_0 \) is the initial quantity,
+- \( \lambda \) is the decay constant, and
+- \( t \) is the time elapsed.
+
+Given that 50 grams of a radioactive isotope decays to 45 grams in 9 days, we can use this information to find the half-life or directly calculate the decay constant. However, for simplicity, let's assume the decay follows a simple exponential model and use the given data points to estimate the time when only 20 grams remain.
+
+First, we need to determine the decay factor over 9 days:
+\[ \frac{45}{50} = 0.9 \]
+
+This means that every 9 days, the amount of the isotope decreases by a factor of 0.9. We can use this information to find out how many such periods (each 9 days) are needed for the substance to decay from 50 grams to 20 grams.
+
+Let's denote \( N(t) = 50 \cdot (0.9)^{t/9} \). We want to find \( t \) when \( N(t) = 20 \):
+\[ 20 = 50 \cdot (0.9)^{t/9} \]
+\[ \frac{20}{50} = (0.9)^{t/9} \]
+\[ 0.4 = (0.9)^{t/9} \]
+
+To solve for \( t \), we can use logarithms:
+\[ \log(0.4) = \log((0.9)^{t/9}) \]
+\[ \log(0.4) = \frac{t}{9} \cdot \log(0.9) \]
+\[ t = 9 \cdot \frac{\log(0.4)}{\log(0.9)} \]
+
+Using a calculator:
+\[ \log(0.4) \approx -0.39794 \]
+\[ \log(0.9) \approx -0.04576 \]
+\[ t = 9 \cdot \frac{-0.39794}{-0.04576} \approx 9 \cdot 8.692 \approx 78.228 \]
+
+Rounding to the nearest day, we get \( t \approx 78 \).
+
+Therefore, the correct answer is:
+(D) 78",1.0,Analyze each option carefully and select the one that directly answers the question.,1
+"A corporation is ________ from its managers, employees, investors and customers. It therefore has _______ succession and also ________.
+(A) Indistinguishable, Perpetual, Does not own its own assets
+(B) Independent, Limited, Owns its own assets
+(C) Independent, Perpetual, Owns its own assets
+(D) Indistinguishable, Perpetual, Owns its own assets",C,"The correct answer is (C) Independent, Perpetual, Owns its own assets.
+
+Let's break down the options:
+
+- **Independent**: A corporation operates independently of its managers, employees, investors, and customers. This means it can make decisions and conduct business without direct control from these groups.
+  
+- **Perpetual**: Corporations are typically structured in a way that allows them to continue indefinitely unless they dissolve or are liquidated.
+
+- **Owns its own assets**: A corporation is considered an entity with legal rights, including the ability to own property and other assets.
+
+Option (A) is incorrect because ""indistinguishable"" does not accurately describe how a corporation operates in relation to its stakeholders.
+Option (B) is partially correct but uses ""Limited,"" which refers to liability rather than independence or ownership of assets.
+Option (D) incorrectly uses ""Indistinguishable"" instead of ""Independent.""
+
+Therefore, the most accurate and complete answer is (C).",1.0,Analyze each option carefully and select the one that directly answers the question.,1

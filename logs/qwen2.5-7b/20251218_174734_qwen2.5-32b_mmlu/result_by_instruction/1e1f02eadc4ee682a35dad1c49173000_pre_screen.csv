@@ -1,0 +1,183 @@
+input,target,prediction,accuracy,instruction,step
+"This question refers to the following information.
+""To slacken the tempo would mean falling behind. And those who fall behind get beaten. But we do not want to be beaten. No, we refuse to be beaten! One feature of the history of old Russia was the continual beatings she suffered because of her backwardness. She was beaten by the Mongol khans. She was beaten by the Turkish beys. She was beaten by the Swedish feudal lords. She was beaten by the Polish and Lithuanian gentry. She was beaten by the British and French capitalists. She was beaten by the Japanese barons. All beat her––because of her backwardness, because of her military backwardness, cultural backwardness, political backwardness, industrial backwardness, agricultural backwardness. They beat her because it was profitable and could be done with impunity. You remember the words of the pre-revolutionary poet: ""You are poor and abundant, mighty and impotent, Mother Russia."" Those gentlemen were quite familiar with the verses of the old poet. They beat her, saying: ""You are abundant,"" so one can enrich oneself at your expense. They beat her, saying: ""You are poor and impotent,"" so you can be beaten and plundered with impunity. Such is the law of the exploiters––to beat the backward and the weak. It is the jungle law of capitalism. You are backward, you are weak––therefore you are wrong; hence you can be beaten and enslaved. You are mighty––therefore you are right; hence we must be wary of you.
+That is why we must no longer lag behind.""
+Joseph Stalin, speech delivered at the first All-Union Conference of Leading Personnel of Socialist Industry, February 4, 1931
+The reference to the ""continual beatings"" most directly supports which of the following decisions in later Soviet foreign policy?
+(A) The invasion of Afghanistan
+(B) The creation of the Warsaw Pact
+(C) The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe
+(D) The declaration of war against Japan at the end of World War II",B,"To analyze this question, we need to understand the context provided by Joseph Stalin's speech. He emphasizes the historical pattern where backwardness leads to being beaten and exploited by more powerful nations. This theme is central to his argument for not falling behind in any aspect.
+
+Let's consider each option:
+
+(A) The invasion of Afghanistan: While this was a significant event in Soviet history, it occurred much later (1979), after Stalin’s time. It does not directly align with the historical context provided by Stalin about backwardness leading to being beaten.
+
+(B) The creation of the Warsaw Pact: This was established in 1955 as a direct response to NATO's formation and aimed at countering Western influence, particularly from the United States. Given that it was created shortly after Stalin’s death but still within the context of his ideology, this could be seen as an effort to avoid being beaten by forming alliances.
+
+(C) The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe: This doctrine was articulated during Brezhnev's rule (1964-1982), emphasizing that the Soviet Union would intervene if a socialist state threatened to move away from its communist path. While it aligns with Stalin’s idea of not wanting to be beaten, it came later and is more about internal control rather than external alliances.
+
+(D) The declaration of war against Japan at the end of World War II: This occurred in 1945, during World War II, which was before Stalin's speech. It does not fit within the context provided by his argument for avoiding backwardness leading to being beaten.
+
+Given this analysis, the option that best aligns with the idea of not wanting to be beaten and forming alliances to avoid such a fate is:
+
+(B) The creation of the Warsaw Pact
+
+This decision was made in response to perceived threats from Western powers and aimed at maintaining Soviet influence and security through collective defense.",0.0,"Analyze the question thoroughly, consider each option critically, and choose the answer that best aligns with the provided information.",2
+"Grady rides his bike $60\%$ faster than his little brother Noah. If Grady rides $12$ miles further than Noah in two hours, how fast in miles per hour does Noah ride?
+(A) 32
+(B) 20
+(C) 10
+(D) 7.2",C,"To solve this problem, let's denote the speed of Noah as \( N \) miles per hour. Since Grady rides his bike 60% faster than Noah, Grady's speed can be expressed as \( 1.6N \) miles per hour.
+
+Given that both ride for two hours and Grady covers 12 miles more than Noah in this time, we can set up the following equations based on their distances traveled:
+
+- Distance covered by Noah: \( N \times 2 = 2N \)
+- Distance covered by Grady: \( 1.6N \times 2 = 3.2N \)
+
+According to the problem, Grady rides 12 miles more than Noah:
+\[ 3.2N - 2N = 12 \]
+
+Simplifying this equation:
+\[ 1.2N = 12 \]
+\[ N = \frac{12}{1.2} \]
+\[ N = 10 \]
+
+Thus, Noah rides at a speed of \( 10 \) miles per hour.
+
+The correct answer is (C) 10.",1.0,"Analyze the question thoroughly, consider each option critically, and choose the answer that best aligns with the provided information.",2
+"John divided his souvenir hat pins into two piles. The two piles had an equal number of pins. He gave his brother one-half of one-third of one pile. John had 66 pins left. How many pins did John originally have?
+(A) 396
+(B) 72
+(C) 66
+(D) 36",B,"Let's break down the problem step by step to find out how many pins John originally had.
+
+1. **Define Variables and Understand the Problem**:
+   - Let \( x \) be the number of pins in one pile.
+   - Since John divided his souvenir hat pins into two equal piles, he initially has \( 2x \) pins in total.
+   - He gave his brother one-half of one-third of one pile. This means he gave away \(\frac{1}{2} \times \frac{1}{3} \times x = \frac{x}{6}\).
+
+2. **Set Up the Equation**:
+   - After giving away \(\frac{x}{6}\) pins, John had \( 2x - \frac{x}{6} \) pins left.
+   - According to the problem, after giving some pins to his brother, he had 66 pins left. So we can write the equation: 
+     \[
+     2x - \frac{x}{6} = 66
+     \]
+
+3. **Solve for \( x \)**:
+   - To solve this equation, first combine like terms by finding a common denominator:
+     \[
+     2x - \frac{x}{6} = \frac{12x}{6} - \frac{x}{6} = \frac{11x}{6}
+     \]
+   - So the equation becomes:
+     \[
+     \frac{11x}{6} = 66
+     \]
+   - Multiply both sides by 6 to clear the fraction:
+     \[
+     11x = 396
+     \]
+   - Divide both sides by 11:
+     \[
+     x = 36
+     \]
+
+4. **Find the Total Number of Pins**:
+   - Since \( x \) is the number of pins in one pile, and John originally had two piles, he initially had:
+     \[
+     2x = 2 \times 36 = 72
+     \]
+
+Therefore, the correct answer is (B) 72.",1.0,"Analyze the question thoroughly, consider each option critically, and choose the answer that best aligns with the provided information.",2
+"At noon, an experimenter has 50 grams of a radioactive isotope. At noon 9 days later only 45 grams remain. To the nearest day, how many days after the experiment started will there be only 20 grams?
+(A) 54
+(B) 59
+(C) 60
+(D) 78",D,"To solve this problem, we need to understand that radioactive decay follows an exponential decay model. The general formula for the amount of a substance remaining after time \( t \) is given by:
+
+\[ N(t) = N_0 e^{-\lambda t} \]
+
+where:
+- \( N(t) \) is the quantity at time \( t \),
+- \( N_0 \) is the initial quantity,
+- \( \lambda \) is the decay constant, and
+- \( t \) is the time elapsed.
+
+Given that 50 grams of a radioactive isotope remain as 45 grams after 9 days, we can use this information to find the half-life or the decay constant. However, for simplicity in this problem, let's assume the decay follows a simple exponential model where the amount halves every certain period (though not necessarily the half-life).
+
+First, calculate the decay factor over 9 days:
+\[ \frac{45}{50} = 0.9 \]
+
+This means that after 9 days, 90% of the original quantity remains.
+
+To find out how many days it will take for only 20 grams to remain from the initial 50 grams, we need to determine when the remaining amount is \( \frac{20}{50} = 0.4 \) (or 40%).
+
+Let's denote the number of 9-day periods required to reach 40% as \( n \). Each period reduces the quantity by a factor of 0.9, so after \( n \) periods:
+
+\[ 0.9^n = 0.4 \]
+
+We need to solve for \( n \):
+
+Taking the natural logarithm on both sides:
+\[ \ln(0.9^n) = \ln(0.4) \]
+\[ n \ln(0.9) = \ln(0.4) \]
+\[ n = \frac{\ln(0.4)}{\ln(0.9)} \]
+
+Using a calculator to find the values:
+\[ \ln(0.4) \approx -0.9163 \]
+\[ \ln(0.9) \approx -0.1054 \]
+\[ n = \frac{-0.9163}{-0.1054} \approx 8.72 \]
+
+Since \( n \) is the number of 9-day periods, we round up to the nearest whole number because partial periods don't make sense in this context:
+\[ n \approx 9 \]
+
+Therefore, it will take approximately 9 more 9-day periods for the quantity to reduce from 45 grams to 20 grams. Since each period is 9 days:
+
+\[ 9 \times 9 = 81 \text{ days} \]
+
+However, we need to consider that after 72 days (8 full 9-day periods), only 45 grams remain, and it takes an additional 9 days to reach the point where only 20 grams are left. Therefore:
+
+\[ 72 + 9 = 81 - 3 \approx 78 \text{ days} \]
+
+Thus, the correct answer is:
+(D) 78",1.0,"Analyze the question thoroughly, consider each option critically, and choose the answer that best aligns with the provided information.",2
+"A corporation is ________ from its managers, employees, investors and customers. It therefore has _______ succession and also ________.
+(A) Indistinguishable, Perpetual, Does not own its own assets
+(B) Independent, Limited, Owns its own assets
+(C) Independent, Perpetual, Owns its own assets
+(D) Indistinguishable, Perpetual, Owns its own assets",C,"To answer this question accurately, let's break down the sentence and analyze each part:
+
+1. **""A corporation is ________ from its managers, employees, investors and customers.""**
+   - This suggests that a corporation has a distinct identity or separation from these groups.
+   
+2. **""It therefore has _______ succession and also ________.""**
+   - The first blank should indicate the nature of corporate succession (how leadership changes over time).
+   - The second blank could refer to ownership or other characteristics.
+
+Now, let's evaluate each option:
+
+(A) Indistinguishable, Perpetual, Does not own its own assets
+- ""Indistinguishable"" means it cannot be distinguished from others, which contradicts the idea of a distinct identity.
+- ""Perpetual succession"" suggests that leadership changes but the corporation continues to exist, which is accurate for corporations.
+- ""Does not own its own assets"" is incorrect because corporations do indeed own their assets.
+
+(B) Independent, Limited, Owns its own assets
+- ""Independent"" fits well as a corporation has its own legal identity separate from individuals.
+- ""Limited"" succession means that the corporation can continue to exist even if key individuals leave, which aligns with corporate structure.
+- ""Owns its own assets"" is correct.
+
+(C) Independent, Perpetual, Owns its own assets
+- ""Independent"" fits well as a corporation has its own legal identity separate from individuals.
+- ""Perpetual succession"" suggests that the corporation can continue to exist even if key individuals leave, which aligns with corporate structure.
+- ""Owns its own assets"" is correct.
+
+(D) Indistinguishable, Perpetual, Owns its own assets
+- ""Indistinguishable"" means it cannot be distinguished from others, which contradicts the idea of a distinct identity.
+- ""Perpetual succession"" suggests that leadership changes but the corporation continues to exist, which is accurate for corporations.
+- ""Owns its own assets"" is correct.
+
+After careful analysis, options (B) and (C) are very similar and both fit well. However, option (C) uses ""perpetual"" in a way that aligns more directly with corporate succession without the contradiction of ""indistinguishable.""
+
+Therefore, the best answer is:
+
+(C) Independent, Perpetual, Owns its own assets",0.0,"Analyze the question thoroughly, consider each option critically, and choose the answer that best aligns with the provided information.",2

@@ -1,0 +1,194 @@
+input,target,prediction,accuracy,instruction,step
+"John divided his souvenir hat pins into two piles. The two piles had an equal number of pins. He gave his brother one-half of one-third of one pile. John had 66 pins left. How many pins did John originally have?
+(A) 396
+(B) 72
+(C) 66
+(D) 36",B,"To solve this problem, let's break it down step by step.
+
+1. **Define Variables and Understand the Problem**:
+   - Let \( x \) be the number of pins in one pile.
+   - Since John divided his souvenir hat pins into two equal piles, he originally had \( 2x \) pins.
+   - He gave his brother one-half of one-third of one pile. This means he gave away \(\frac{1}{2} \times \frac{1}{3} \times x = \frac{x}{6}\).
+
+2. **Set Up the Equation**:
+   - After giving away \(\frac{x}{6}\) pins, John had \( 2x - \frac{x}{6} \) pins left.
+   - According to the problem, he had 66 pins left after this transaction.
+
+3. **Formulate and Solve the Equation**:
+   \[
+   2x - \frac{x}{6} = 66
+   \]
+   To solve for \( x \), first combine like terms by finding a common denominator:
+   \[
+   2x - \frac{x}{6} = \frac{12x}{6} - \frac{x}{6} = \frac{11x}{6}
+   \]
+   So the equation becomes:
+   \[
+   \frac{11x}{6} = 66
+   \]
+   Multiply both sides by 6 to clear the fraction:
+   \[
+   11x = 396
+   \]
+   Divide both sides by 11:
+   \[
+   x = 36
+   \]
+
+4. **Determine the Original Number of Pins**:
+   - Since \( x \) is the number of pins in one pile, and John originally had two piles, he started with \( 2x \):
+   \[
+   2x = 2 \times 36 = 72
+   \]
+
+5. **Conclusion**:
+   The original number of pins John had was 72.
+
+Therefore, the correct answer is (B) 72.",1.0,"Analyze the question in depth, critically assess each option for consistency with the given information or principles, and select the response that most accurately and comprehensively answers the query.",3
+"This question refers to the following information.
+""To slacken the tempo would mean falling behind. And those who fall behind get beaten. But we do not want to be beaten. No, we refuse to be beaten! One feature of the history of old Russia was the continual beatings she suffered because of her backwardness. She was beaten by the Mongol khans. She was beaten by the Turkish beys. She was beaten by the Swedish feudal lords. She was beaten by the Polish and Lithuanian gentry. She was beaten by the British and French capitalists. She was beaten by the Japanese barons. All beat her––because of her backwardness, because of her military backwardness, cultural backwardness, political backwardness, industrial backwardness, agricultural backwardness. They beat her because it was profitable and could be done with impunity. You remember the words of the pre-revolutionary poet: ""You are poor and abundant, mighty and impotent, Mother Russia."" Those gentlemen were quite familiar with the verses of the old poet. They beat her, saying: ""You are abundant,"" so one can enrich oneself at your expense. They beat her, saying: ""You are poor and impotent,"" so you can be beaten and plundered with impunity. Such is the law of the exploiters––to beat the backward and the weak. It is the jungle law of capitalism. You are backward, you are weak––therefore you are wrong; hence you can be beaten and enslaved. You are mighty––therefore you are right; hence we must be wary of you.
+That is why we must no longer lag behind.""
+Joseph Stalin, speech delivered at the first All-Union Conference of Leading Personnel of Socialist Industry, February 4, 1931
+The reference to the ""continual beatings"" most directly supports which of the following decisions in later Soviet foreign policy?
+(A) The invasion of Afghanistan
+(B) The creation of the Warsaw Pact
+(C) The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe
+(D) The declaration of war against Japan at the end of World War II",B,"To analyze this question, we need to understand the context provided by Joseph Stalin's speech and how it relates to later Soviet foreign policy decisions. The key points from the passage are:
+
+1. **Backwardness leads to being beaten**: This is a recurring theme in the text, emphasizing that countries or entities that fall behind face exploitation and aggression.
+2. **History of Russia as an example**: Stalin uses historical examples of Russia's past beatings due to its backwardness to illustrate this point.
+
+Now let’s examine each option:
+
+(A) **The invasion of Afghanistan**:
+- This occurred in 1979, well after the speech by Stalin (1931).
+- The justification for the invasion was partly based on perceived threats from capitalist powers and internal instability. However, it is not directly linked to the idea of backwardness leading to being beaten.
+
+(B) **The creation of the Warsaw Pact**:
+- This happened in 1955.
+- It was a response to NATO's formation and aimed at countering Western influence. While it reflects Soviet concerns about encirclement, it does not directly align with the theme of backwardness leading to beatings.
+
+(C) **The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe**:
+- This doctrine was articulated by Leonid Brezhnev in 1968 during the Prague Spring.
+- It justified Soviet intervention in Eastern European countries to suppress internal dissent and maintain control. The idea here is that if a country deviates from socialist principles, it risks being ""beaten"" or controlled by capitalist forces.
+
+(D) **The declaration of war against Japan at the end of World War II**:
+- This occurred in 1945.
+- It was part of broader strategic and military decisions during WWII rather than a response to internal backwardness leading to external aggression.
+
+Given these analyses, option (C) most directly aligns with Stalin's theme. The Brezhnev Doctrine reflects the idea that countries deviating from socialist principles are seen as weak or backward and thus vulnerable to exploitation by capitalist powers, justifying Soviet intervention.
+
+**Final Answer: (C) The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe.**",0.0,"Analyze the question in depth, critically assess each option for consistency with the given information or principles, and select the response that most accurately and comprehensively answers the query.",3
+"Grady rides his bike $60\%$ faster than his little brother Noah. If Grady rides $12$ miles further than Noah in two hours, how fast in miles per hour does Noah ride?
+(A) 32
+(B) 20
+(C) 10
+(D) 7.2",C,"To solve this problem, let's denote the speed of Noah as \( N \) miles per hour. Since Grady rides his bike \(60\%\) faster than Noah, Grady's speed can be expressed as \( N + 0.6N = 1.6N \).
+
+Given that both ride for two hours and Grady covers an additional 12 miles compared to Noah over this period, we can set up the following equations based on their distances traveled:
+
+- Distance covered by Noah in 2 hours: \( 2N \)
+- Distance covered by Grady in 2 hours: \( 2 \times 1.6N = 3.2N \)
+
+According to the problem, Grady rides 12 miles further than Noah:
+\[ 3.2N - 2N = 12 \]
+
+Simplifying this equation:
+\[ 1.2N = 12 \]
+\[ N = \frac{12}{1.2} \]
+\[ N = 10 \]
+
+Thus, Noah rides at a speed of \( 10 \) miles per hour.
+
+Therefore, the correct answer is (C) 10.",1.0,"Analyze the question in depth, critically assess each option for consistency with the given information or principles, and select the response that most accurately and comprehensively answers the query.",3
+"At noon, an experimenter has 50 grams of a radioactive isotope. At noon 9 days later only 45 grams remain. To the nearest day, how many days after the experiment started will there be only 20 grams?
+(A) 54
+(B) 59
+(C) 60
+(D) 78",D,"To solve this problem, we need to understand radioactive decay and apply it to the given scenario. Radioactive decay follows an exponential decay model, which can be described by the formula:
+
+\[ N(t) = N_0 \cdot e^{-\lambda t} \]
+
+where:
+- \(N(t)\) is the amount of the substance at time \(t\),
+- \(N_0\) is the initial amount,
+- \(\lambda\) is the decay constant, and
+- \(t\) is the time elapsed.
+
+However, for this problem, we can use a simpler approach by recognizing that radioactive decay follows a half-life pattern. The key information given is:
+
+1. At noon on day 9 (which means 9 days after the experiment started), there are 45 grams remaining from an initial 50 grams.
+2. We need to find out how many days it will take for the amount of the radioactive isotope to decay to 20 grams.
+
+First, let's determine the half-life of the isotope:
+- If we start with 50 grams and after 9 days there are 45 grams remaining, this means that approximately \( \frac{50}{2} = 25 \) grams would have been lost in a full half-life. Since only 5 grams out of 50 were lost (which is less than the typical loss in one half-life), we can infer that the decay process might not be exactly following a simple half-life pattern but still follows exponential decay.
+
+To find the time it takes for the substance to decay from 45 grams to 20 grams, we need to use the concept of exponential decay. The formula for exponential decay is:
+
+\[ N(t) = N_0 \cdot e^{-\lambda t} \]
+
+Given:
+- \(N(9) = 45\) grams,
+- Initial amount \(N_0 = 50\) grams.
+
+We can find the decay constant \(\lambda\) using the information that after 9 days, there are 45 grams remaining:
+
+\[ 45 = 50 \cdot e^{-\lambda \cdot 9} \]
+
+Solving for \(\lambda\):
+
+\[ \frac{45}{50} = e^{-9\lambda} \]
+\[ 0.9 = e^{-9\lambda} \]
+\[ \ln(0.9) = -9\lambda \]
+\[ \lambda = -\frac{\ln(0.9)}{9} \]
+
+Now, we need to find the time \(t\) when the amount of the isotope will be 20 grams:
+
+\[ 20 = 50 \cdot e^{-\lambda t} \]
+
+Substitute \(\lambda\) into the equation:
+
+\[ 20 = 50 \cdot e^{\frac{\ln(0.9)}{9} t} \]
+\[ \frac{20}{50} = e^{\frac{\ln(0.9)}{9} t} \]
+\[ 0.4 = e^{\frac{\ln(0.9)}{9} t} \]
+
+Taking the natural logarithm of both sides:
+
+\[ \ln(0.4) = \frac{\ln(0.9)}{9} t \]
+\[ t = \frac{9 \cdot \ln(0.4)}{\ln(0.9)} \]
+
+Using a calculator to find the numerical value:
+
+\[ t \approx 58.6 \text{ days} \]
+
+Rounding to the nearest day, we get \(t \approx 59\) days.
+
+Therefore, the correct answer is (B) 59.",0.0,"Analyze the question in depth, critically assess each option for consistency with the given information or principles, and select the response that most accurately and comprehensively answers the query.",3
+"A corporation is ________ from its managers, employees, investors and customers. It therefore has _______ succession and also ________.
+(A) Indistinguishable, Perpetual, Does not own its own assets
+(B) Independent, Limited, Owns its own assets
+(C) Independent, Perpetual, Owns its own assets
+(D) Indistinguishable, Perpetual, Owns its own assets",C,"To answer this question accurately, let's break down the components of each option and compare them with principles related to corporate law and business structures.
+
+1. **Independent vs. Indistinguishable**: 
+   - A corporation is typically considered independent from its managers, employees, investors, and customers in terms of legal personality. This means that a corporation can enter into contracts, own property, and be sued or sue others as an entity separate from the individuals involved.
+   - ""Indistinguishable"" would imply that there's no clear separation between the corporation and these other entities, which is not accurate.
+
+2. **Perpetual**:
+   - Corporations are generally considered to have a perpetual existence unless they are dissolved by law or voluntarily liquidated. This means they can continue operating indefinitely as long as they comply with legal requirements.
+   - ""Perpetual"" aligns well with the nature of corporations, making this part consistent.
+
+3. **Owns its own assets**:
+   - Corporations do indeed own their assets and are legally recognized as having ownership over them. This is a fundamental principle in corporate law.
+   - The statement that it ""does not own its own assets"" would be incorrect.
+
+Given the analysis, we can now evaluate each option:
+
+- **(A) Indistinguishable, Perpetual, Does not own its own assets**: Incorrect because corporations are distinguishable from their managers and employees.
+- **(B) Independent, Limited, Owns its own assets**: Correct in terms of independence and perpetual nature but incorrect regarding the ownership of assets as it states ""Limited"" instead of ""Perpetual.""
+- **(C) Independent, Perpetual, Owns its own assets**: This option correctly identifies the corporation's independence, perpetual existence, and asset ownership.
+- **(D) Indistinguishable, Perpetual, Owns its own assets**: Incorrect because corporations are not indistinguishable from their managers and employees.
+
+Therefore, the most accurate and comprehensive answer is:
+
+**(C) Independent, Perpetual, Owns its own assets**.",0.0,"Analyze the question in depth, critically assess each option for consistency with the given information or principles, and select the response that most accurately and comprehensively answers the query.",3

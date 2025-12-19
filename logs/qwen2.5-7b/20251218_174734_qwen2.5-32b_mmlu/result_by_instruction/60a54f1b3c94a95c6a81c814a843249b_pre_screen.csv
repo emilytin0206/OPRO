@@ -1,0 +1,162 @@
+input,target,prediction,accuracy,instruction,step
+"This question refers to the following information.
+""To slacken the tempo would mean falling behind. And those who fall behind get beaten. But we do not want to be beaten. No, we refuse to be beaten! One feature of the history of old Russia was the continual beatings she suffered because of her backwardness. She was beaten by the Mongol khans. She was beaten by the Turkish beys. She was beaten by the Swedish feudal lords. She was beaten by the Polish and Lithuanian gentry. She was beaten by the British and French capitalists. She was beaten by the Japanese barons. All beat her––because of her backwardness, because of her military backwardness, cultural backwardness, political backwardness, industrial backwardness, agricultural backwardness. They beat her because it was profitable and could be done with impunity. You remember the words of the pre-revolutionary poet: ""You are poor and abundant, mighty and impotent, Mother Russia."" Those gentlemen were quite familiar with the verses of the old poet. They beat her, saying: ""You are abundant,"" so one can enrich oneself at your expense. They beat her, saying: ""You are poor and impotent,"" so you can be beaten and plundered with impunity. Such is the law of the exploiters––to beat the backward and the weak. It is the jungle law of capitalism. You are backward, you are weak––therefore you are wrong; hence you can be beaten and enslaved. You are mighty––therefore you are right; hence we must be wary of you.
+That is why we must no longer lag behind.""
+Joseph Stalin, speech delivered at the first All-Union Conference of Leading Personnel of Socialist Industry, February 4, 1931
+The reference to the ""continual beatings"" most directly supports which of the following decisions in later Soviet foreign policy?
+(A) The invasion of Afghanistan
+(B) The creation of the Warsaw Pact
+(C) The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe
+(D) The declaration of war against Japan at the end of World War II",B,"To answer this question, we need to carefully analyze how the reference to ""continual beatings"" in Joseph Stalin's speech relates to later Soviet foreign policy decisions. Let’s break down each option:
+
+(A) **The invasion of Afghanistan**: This occurred much later, in 1979, under the leadership of Leonid Brezhnev and not directly related to the sentiment expressed by Stalin about falling behind and being beaten.
+
+(B) **The creation of the Warsaw Pact**: This was established in 1955 as a direct response to NATO's formation. It can be seen as an effort to counter Western influence, which aligns with the idea that the Soviet Union did not want to fall behind or be beaten by other nations.
+
+(C) **The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe**: This doctrine was articulated during Brezhnev's leadership and aimed at preventing the spread of capitalism within Eastern Bloc countries. It reflects a desire to maintain control over satellite states, which can also be seen as an effort not to fall behind or be beaten.
+
+(D) **The declaration of war against Japan at the end of World War II**: This occurred in 1945 and was part of the broader Allied strategy during WWII. While it involved Soviet military action, it does not directly relate to the sentiment about falling behind or being beaten as expressed by Stalin.
+
+Given that both (B) and (C) reflect a desire to prevent the Soviet Union from falling behind or being beaten, but considering the context of the speech which was delivered in 1931, the most direct support for later actions would be:
+
+(B) **The creation of the Warsaw Pact**
+
+This option aligns best with the historical context and the sentiment expressed by Stalin about not wanting to fall behind or be beaten. The Warsaw Pact was a clear response to perceived threats from Western powers.
+
+Therefore, the correct answer is (B).",1.0,Analyze each option carefully before selecting the best answer.,1
+"Grady rides his bike $60\%$ faster than his little brother Noah. If Grady rides $12$ miles further than Noah in two hours, how fast in miles per hour does Noah ride?
+(A) 32
+(B) 20
+(C) 10
+(D) 7.2",C,"To solve this problem, let's denote Noah's speed as \( N \) miles per hour.
+
+Since Grady rides his bike \(60\%\) faster than Noah, Grady's speed can be expressed as:
+\[ G = N + 0.6N = 1.6N \]
+
+In two hours, the distance each of them travels is given by their speed multiplied by time (2 hours).
+
+For Noah, the distance traveled in two hours is:
+\[ D_N = N \times 2 = 2N \]
+
+For Grady, the distance traveled in two hours is:
+\[ D_G = G \times 2 = 1.6N \times 2 = 3.2N \]
+
+According to the problem, Grady rides \(12\) miles further than Noah in these two hours. Therefore, we can set up the following equation:
+\[ D_G - D_N = 12 \]
+\[ 3.2N - 2N = 12 \]
+\[ 1.2N = 12 \]
+
+Solving for \( N \):
+\[ N = \frac{12}{1.2} = 10 \]
+
+So, Noah rides at a speed of \( 10 \) miles per hour.
+
+The correct answer is (C) 10.",1.0,Analyze each option carefully before selecting the best answer.,1
+"John divided his souvenir hat pins into two piles. The two piles had an equal number of pins. He gave his brother one-half of one-third of one pile. John had 66 pins left. How many pins did John originally have?
+(A) 396
+(B) 72
+(C) 66
+(D) 36",B,"Let's break down the problem step by step to find out how many pins John originally had.
+
+1. **Define Variables and Understand the Problem**:
+   - Let \( x \) be the number of pins in one pile.
+   - Since John divided his souvenir hat pins into two equal piles, he originally had \( 2x \) pins.
+   - He gave his brother one-half of one-third of one pile. This means he gave away \(\frac{1}{2} \times \frac{1}{3} \times x = \frac{x}{6}\).
+
+2. **Set Up the Equation**:
+   - After giving away \(\frac{x}{6}\) pins, John had \( 2x - \frac{x}{6} \) pins left.
+   - According to the problem, he had 66 pins left after giving some away.
+
+3. **Formulate and Solve the Equation**:
+   \[
+   2x - \frac{x}{6} = 66
+   \]
+   To solve for \( x \), first combine like terms by finding a common denominator:
+   \[
+   2x - \frac{x}{6} = \frac{12x}{6} - \frac{x}{6} = \frac{11x}{6}
+   \]
+   So the equation becomes:
+   \[
+   \frac{11x}{6} = 66
+   \]
+   Multiply both sides by 6 to clear the fraction:
+   \[
+   11x = 396
+   \]
+   Divide both sides by 11:
+   \[
+   x = 36
+   \]
+
+4. **Calculate the Original Number of Pins**:
+   - Since \( x \) is the number of pins in one pile, and John originally had two piles, he originally had \( 2x = 2 \times 36 = 72 \).
+
+Therefore, the correct answer is (B) 72.",1.0,Analyze each option carefully before selecting the best answer.,1
+"At noon, an experimenter has 50 grams of a radioactive isotope. At noon 9 days later only 45 grams remain. To the nearest day, how many days after the experiment started will there be only 20 grams?
+(A) 54
+(B) 59
+(C) 60
+(D) 78",D,"To solve this problem, we need to understand radioactive decay and use the information given to determine the half-life of the isotope. Radioactive decay follows an exponential decay model.
+
+Given:
+- Initial amount \( A_0 = 50 \) grams.
+- Amount after 9 days \( A(9) = 45 \) grams.
+
+The formula for radioactive decay is:
+
+\[ A(t) = A_0 e^{-\lambda t} \]
+
+where:
+- \( A(t) \) is the amount of substance at time \( t \),
+- \( A_0 \) is the initial amount,
+- \( \lambda \) is the decay constant,
+- \( t \) is the time elapsed.
+
+First, we need to find the decay constant \(\lambda\). Using the information that 50 grams decay to 45 grams in 9 days:
+
+\[ 45 = 50 e^{-\lambda \cdot 9} \]
+
+Solving for \(\lambda\):
+
+\[ \frac{45}{50} = e^{-9\lambda} \]
+\[ 0.9 = e^{-9\lambda} \]
+\[ \ln(0.9) = -9\lambda \]
+\[ \lambda = -\frac{\ln(0.9)}{9} \]
+
+Using the natural logarithm:
+
+\[ \lambda \approx -\frac{-0.10536}{9} \approx 0.0117 \text{ per day} \]
+
+Now, we need to find the time \( t \) when only 20 grams remain:
+
+\[ 20 = 50 e^{-0.0117t} \]
+
+Solving for \( t \):
+
+\[ \frac{20}{50} = e^{-0.0117t} \]
+\[ 0.4 = e^{-0.0117t} \]
+\[ \ln(0.4) = -0.0117t \]
+\[ t = -\frac{\ln(0.4)}{0.0117} \]
+
+Using the natural logarithm:
+
+\[ t \approx -\frac{-0.9163}{0.0117} \approx 78 \text{ days} \]
+
+Therefore, to the nearest day, it will take approximately 78 days for only 20 grams of the isotope to remain.
+
+The correct answer is (D) 78.",1.0,Analyze each option carefully before selecting the best answer.,1
+"A corporation is ________ from its managers, employees, investors and customers. It therefore has _______ succession and also ________.
+(A) Indistinguishable, Perpetual, Does not own its own assets
+(B) Independent, Limited, Owns its own assets
+(C) Independent, Perpetual, Owns its own assets
+(D) Indistinguishable, Perpetual, Owns its own assets",C,"The correct answer is (C) Independent, Perpetual, Owns its own assets.
+
+Let's break down each part of the sentence:
+
+1. **Independent**: A corporation operates independently from its managers, employees, investors, and customers. While these groups can influence the corporation, the corporation itself has a separate legal identity that allows it to operate autonomously.
+
+2. **Perpetual**: Corporations are typically structured in such a way that they can continue indefinitely unless dissolved by law or through some other means. This is known as perpetual succession, meaning the corporation can exist beyond the lives of its founders and shareholders.
+
+3. **Owns its own assets**: A key characteristic of a corporation is that it owns its assets independently from its owners (shareholders). The corporation itself is considered an entity with legal rights and responsibilities distinct from those of its individual members.
+
+Therefore, option (C) correctly describes the nature of a corporation in relation to its managers, employees, investors, and customers.",1.0,Analyze each option carefully before selecting the best answer.,1

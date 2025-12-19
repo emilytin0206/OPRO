@@ -1,0 +1,186 @@
+input,target,prediction,accuracy,instruction,step
+"Grady rides his bike $60\%$ faster than his little brother Noah. If Grady rides $12$ miles further than Noah in two hours, how fast in miles per hour does Noah ride?
+(A) 32
+(B) 20
+(C) 10
+(D) 7.2",C,"To solve this problem, let's denote Noah's speed as \( N \) miles per hour.
+
+Since Grady rides his bike \(60\%\) faster than Noah, Grady's speed can be expressed as:
+\[ G = N + 0.6N = 1.6N \]
+
+Given that both ride for two hours and Grady covers 12 miles more than Noah in this time, we can set up the following equations based on their distances traveled:
+
+- Distance covered by Noah: \( D_N = N \times 2 \)
+- Distance covered by Grady: \( D_G = G \times 2 = 1.6N \times 2 = 3.2N \)
+
+According to the problem, Grady rides 12 miles more than Noah:
+\[ D_G - D_N = 12 \]
+Substituting the expressions for \( D_G \) and \( D_N \):
+\[ 3.2N - 2N = 12 \]
+Simplifying this equation:
+\[ 1.2N = 12 \]
+
+To find Noah's speed, we solve for \( N \):
+\[ N = \frac{12}{1.2} = 10 \]
+
+Thus, Noah rides at a speed of \( 10 \) miles per hour.
+
+The correct answer is (C) 10.",1.0,"Analyze the question thoroughly, evaluate each option against the given information, and select the answer that most accurately and directly responds to the question.",2
+"This question refers to the following information.
+""To slacken the tempo would mean falling behind. And those who fall behind get beaten. But we do not want to be beaten. No, we refuse to be beaten! One feature of the history of old Russia was the continual beatings she suffered because of her backwardness. She was beaten by the Mongol khans. She was beaten by the Turkish beys. She was beaten by the Swedish feudal lords. She was beaten by the Polish and Lithuanian gentry. She was beaten by the British and French capitalists. She was beaten by the Japanese barons. All beat her––because of her backwardness, because of her military backwardness, cultural backwardness, political backwardness, industrial backwardness, agricultural backwardness. They beat her because it was profitable and could be done with impunity. You remember the words of the pre-revolutionary poet: ""You are poor and abundant, mighty and impotent, Mother Russia."" Those gentlemen were quite familiar with the verses of the old poet. They beat her, saying: ""You are abundant,"" so one can enrich oneself at your expense. They beat her, saying: ""You are poor and impotent,"" so you can be beaten and plundered with impunity. Such is the law of the exploiters––to beat the backward and the weak. It is the jungle law of capitalism. You are backward, you are weak––therefore you are wrong; hence you can be beaten and enslaved. You are mighty––therefore you are right; hence we must be wary of you.
+That is why we must no longer lag behind.""
+Joseph Stalin, speech delivered at the first All-Union Conference of Leading Personnel of Socialist Industry, February 4, 1931
+The reference to the ""continual beatings"" most directly supports which of the following decisions in later Soviet foreign policy?
+(A) The invasion of Afghanistan
+(B) The creation of the Warsaw Pact
+(C) The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe
+(D) The declaration of war against Japan at the end of World War II",B,"To analyze this question, we need to understand the context provided by Joseph Stalin's speech. He emphasizes the historical pattern where backwardness leads to being beaten and exploited by more powerful nations. This theme is central to his argument for not falling behind.
+
+Now let's evaluate each option:
+
+(A) The invasion of Afghanistan: While this was a significant event in Soviet history, it occurred much later (1979), after Stalin’s time. It does not directly align with the historical context provided by Stalin about backwardness leading to being beaten.
+
+(B) The creation of the Warsaw Pact: This was established in 1955 as a direct response to NATO's formation and aimed at deterring Western expansionism. While it reflects Soviet concerns, it is more about countering perceived threats rather than directly addressing the issue of backwardness leading to exploitation.
+
+(C) The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe: This doctrine was articulated by Leonid Brezhnev in 1968 during the Prague Spring. It emphasized that the Soviet Union had a right and duty to intervene in any country where socialism was threatened. This aligns closely with Stalin’s warning about not falling behind, as it reflects a proactive stance against perceived threats to socialist states.
+
+(D) The declaration of war against Japan at the end of World War II: This occurred in 1945, well before Stalin's speech and does not directly relate to the theme of backwardness leading to being beaten.
+
+Given this analysis, the option that most directly supports the decision based on the historical context provided by Stalin is:
+
+(C) The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe.",0.0,"Analyze the question thoroughly, evaluate each option against the given information, and select the answer that most accurately and directly responds to the question.",2
+"John divided his souvenir hat pins into two piles. The two piles had an equal number of pins. He gave his brother one-half of one-third of one pile. John had 66 pins left. How many pins did John originally have?
+(A) 396
+(B) 72
+(C) 66
+(D) 36",B,"Let's break down the problem step by step.
+
+1. **Define Variables and Understand the Problem**:
+   - Let \( x \) be the number of pins in one pile.
+   - Since John divided his souvenir hat pins into two equal piles, he originally had \( 2x \) pins.
+   - He gave his brother one-half of one-third of one pile. This means he gave away \(\frac{1}{2} \times \frac{1}{3} \times x = \frac{x}{6}\).
+
+2. **Set Up the Equation**:
+   - After giving away \(\frac{x}{6}\) pins, John had \( 2x - \frac{x}{6} \) pins left.
+   - According to the problem, he had 66 pins left after giving some away.
+
+3. **Formulate and Solve the Equation**:
+   \[
+   2x - \frac{x}{6} = 66
+   \]
+   To solve for \( x \), first combine like terms by finding a common denominator:
+   \[
+   2x - \frac{x}{6} = \frac{12x}{6} - \frac{x}{6} = \frac{11x}{6}
+   \]
+   So the equation becomes:
+   \[
+   \frac{11x}{6} = 66
+   \]
+   Multiply both sides by 6 to clear the fraction:
+   \[
+   11x = 396
+   \]
+   Divide both sides by 11:
+   \[
+   x = 36
+   \]
+
+4. **Calculate the Original Number of Pins**:
+   - Since \( x \) is the number of pins in one pile, and John originally had two piles, he originally had \( 2x = 2 \times 36 = 72 \).
+
+Therefore, the correct answer is (B) 72.",1.0,"Analyze the question thoroughly, evaluate each option against the given information, and select the answer that most accurately and directly responds to the question.",2
+"At noon, an experimenter has 50 grams of a radioactive isotope. At noon 9 days later only 45 grams remain. To the nearest day, how many days after the experiment started will there be only 20 grams?
+(A) 54
+(B) 59
+(C) 60
+(D) 78",D,"To solve this problem, we need to understand that radioactive decay follows an exponential decay model. The general formula for the amount of a substance remaining after time \( t \) is given by:
+
+\[ N(t) = N_0 e^{-\lambda t} \]
+
+where:
+- \( N(t) \) is the quantity at time \( t \),
+- \( N_0 \) is the initial quantity,
+- \( \lambda \) is the decay constant, and
+- \( t \) is the time elapsed.
+
+Given that 50 grams of a radioactive isotope remain as 45 grams after 9 days, we can use this information to find the half-life or directly calculate the decay constant. However, for simplicity in this context, let's assume the exponential decay model and solve it step by step.
+
+First, determine the decay factor over 9 days:
+\[ \frac{N(9)}{N_0} = \frac{45}{50} = 0.9 \]
+
+This means that after 9 days, 90% of the original amount remains. To find out how many days it takes for the isotope to decay from 50 grams to 20 grams, we need to determine the time \( t \) such that:
+
+\[ N(t) = 20 \text{ grams} \]
+
+Using the exponential decay formula:
+\[ 20 = 50 e^{-\lambda \cdot 9} \]
+\[ \frac{20}{50} = e^{-9\lambda} \]
+\[ 0.4 = e^{-9\lambda} \]
+
+Taking the natural logarithm on both sides to solve for \( \lambda \):
+\[ \ln(0.4) = -9\lambda \]
+\[ \lambda = -\frac{\ln(0.4)}{9} \approx 0.158 \text{ per day} \]
+
+Now, we need to find the time \( t \) when only 20 grams remain:
+\[ 20 = 50 e^{-0.158t} \]
+\[ \frac{20}{50} = e^{-0.158t} \]
+\[ 0.4 = e^{-0.158t} \]
+
+Again, taking the natural logarithm on both sides:
+\[ \ln(0.4) = -0.158t \]
+\[ t = -\frac{\ln(0.4)}{0.158} \approx 9 \times \left(\frac{\ln(0.4)}{-0.158}\right) \]
+
+Since \( \ln(0.4) \approx -0.9163 \):
+\[ t = 9 \times \left(\frac{0.9163}{0.158}\right) \approx 9 \times 5.792 \approx 52.128 \]
+
+Since we need the answer to the nearest day, \( t \approx 52 \).
+
+However, this does not match any of the given options directly. Let's re-evaluate by considering the exponential nature and the provided options:
+
+Given that after 9 days, there is a reduction from 50 grams to 45 grams (a 10% loss), we can approximate the time for further reductions using the same decay factor.
+
+If \( t = 60 \) days:
+\[ N(60) = 50 e^{-\lambda \cdot 60} \]
+Using the earlier derived \( \lambda \approx 0.158 \):
+\[ N(60) = 50 e^{-9 \times (60/9)} = 50 e^{-60/9} \approx 50 e^{-6.67} \approx 20 \text{ grams} \]
+
+Thus, the correct answer is:
+(C) 60",0.0,"Analyze the question thoroughly, evaluate each option against the given information, and select the answer that most accurately and directly responds to the question.",2
+"A corporation is ________ from its managers, employees, investors and customers. It therefore has _______ succession and also ________.
+(A) Indistinguishable, Perpetual, Does not own its own assets
+(B) Independent, Limited, Owns its own assets
+(C) Independent, Perpetual, Owns its own assets
+(D) Indistinguishable, Perpetual, Owns its own assets",C,"To answer this question accurately, let's break down the sentence and analyze each part:
+
+1. **""A corporation is ________ from its managers, employees, investors and customers.""**
+   - This suggests that a corporation has some level of separation or distinction from these groups.
+   
+2. **""It therefore has _______ succession and also ________.""**
+   - The first blank should indicate the nature of corporate succession (how leadership changes).
+   - The second blank could refer to any characteristic of the corporation.
+
+Now, let's evaluate each option:
+
+(A) Indistinguishable, Perpetual, Does not own its own assets
+- ""Indistinguishable"" suggests no separation from managers, employees, investors, and customers. This does not fit well with the first part.
+- ""Perpetual succession"" means that a corporation can continue indefinitely without needing to dissolve or change form due to leadership changes.
+- ""Does not own its own assets"" is incorrect because corporations do indeed own their assets.
+
+(B) Independent, Limited, Owns its own assets
+- ""Independent"" fits well as it suggests the corporation has separation from managers, employees, investors, and customers.
+- ""Limited succession"" means that a corporation can continue after key individuals leave. This is correct for most corporations.
+- ""Owns its own assets"" is accurate.
+
+(C) Independent, Perpetual, Owns its own assets
+- ""Independent"" fits well as it suggests the corporation has separation from managers, employees, investors, and customers.
+- ""Perpetual succession"" means that a corporation can continue indefinitely without needing to dissolve or change form due to leadership changes. This is correct for most corporations.
+- ""Owns its own assets"" is accurate.
+
+(D) Indistinguishable, Perpetual, Owns its own assets
+- ""Indistinguishable"" suggests no separation from managers, employees, investors, and customers. This does not fit well with the first part of the sentence.
+
+Given this analysis, options (B) and (C) are very similar and both seem to fit the context well. However, option (C) uses ""Perpetual succession,"" which is more commonly used in legal contexts regarding corporations, making it a slightly better fit.
+
+Therefore, the most accurate answer is:
+
+**Option C: Independent, Perpetual, Owns its own assets.**",0.0,"Analyze the question thoroughly, evaluate each option against the given information, and select the answer that most accurately and directly responds to the question.",2

@@ -1,0 +1,164 @@
+input,target,prediction,accuracy,instruction,step
+"This question refers to the following information.
+""To slacken the tempo would mean falling behind. And those who fall behind get beaten. But we do not want to be beaten. No, we refuse to be beaten! One feature of the history of old Russia was the continual beatings she suffered because of her backwardness. She was beaten by the Mongol khans. She was beaten by the Turkish beys. She was beaten by the Swedish feudal lords. She was beaten by the Polish and Lithuanian gentry. She was beaten by the British and French capitalists. She was beaten by the Japanese barons. All beat her––because of her backwardness, because of her military backwardness, cultural backwardness, political backwardness, industrial backwardness, agricultural backwardness. They beat her because it was profitable and could be done with impunity. You remember the words of the pre-revolutionary poet: ""You are poor and abundant, mighty and impotent, Mother Russia."" Those gentlemen were quite familiar with the verses of the old poet. They beat her, saying: ""You are abundant,"" so one can enrich oneself at your expense. They beat her, saying: ""You are poor and impotent,"" so you can be beaten and plundered with impunity. Such is the law of the exploiters––to beat the backward and the weak. It is the jungle law of capitalism. You are backward, you are weak––therefore you are wrong; hence you can be beaten and enslaved. You are mighty––therefore you are right; hence we must be wary of you.
+That is why we must no longer lag behind.""
+Joseph Stalin, speech delivered at the first All-Union Conference of Leading Personnel of Socialist Industry, February 4, 1931
+The reference to the ""continual beatings"" most directly supports which of the following decisions in later Soviet foreign policy?
+(A) The invasion of Afghanistan
+(B) The creation of the Warsaw Pact
+(C) The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe
+(D) The declaration of war against Japan at the end of World War II",B,"To analyze this question, we need to understand the context provided by Joseph Stalin's speech and how it relates to later Soviet foreign policy decisions. The passage emphasizes the historical vulnerability of Russia due to its backwardness, which led to repeated beatings from various powers throughout history.
+
+Let's critically assess each option:
+
+(A) **The invasion of Afghanistan**: This occurred in 1979 under the leadership of Leonid Brezhnev and later under Yuri Andropov. The speech by Stalin does not directly support this decision as it was made decades after his time, and the context of ""continual beatings"" is more about historical vulnerability rather than a specific military action.
+
+(B) **The creation of the Warsaw Pact**: This alliance was established in 1955 primarily to counter NATO. The speech by Stalin highlights the need for Russia not to fall behind, which aligns with the idea of forming alliances and strengthening its position against potential threats. This option seems more directly related to the historical context provided.
+
+(C) **The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe**: This doctrine was used by the Soviet Union to justify military intervention in Eastern European countries, such as Czechoslovakia in 1968. While it reflects a desire not to fall behind and maintain control over satellite states, the speech does not specifically mention this type of direct intervention.
+
+(D) **The declaration of war against Japan at the end of World War II**: This occurred in August 1945 under Joseph Stalin's leadership during World War II. The passage by Stalin is about historical vulnerability and not directly related to a specific military action taken after his time.
+
+Given this analysis, option (B) ""The creation of the Warsaw Pact"" most directly supports the decision made based on the historical context provided in Stalin’s speech. It reflects the need for Russia to strengthen its position against potential threats by forming alliances, which aligns with the idea that falling behind leads to being beaten.
+
+Therefore, the correct answer is (B) The creation of the Warsaw Pact.",1.0,"Analyze the question in depth, critically assess each option against the given information or principles, and select the response that most precisely aligns with the requirements of the query.",3
+"Grady rides his bike $60\%$ faster than his little brother Noah. If Grady rides $12$ miles further than Noah in two hours, how fast in miles per hour does Noah ride?
+(A) 32
+(B) 20
+(C) 10
+(D) 7.2",C,"To solve this problem, let's denote the speed of Noah as \( N \) miles per hour (mph). Since Grady rides his bike 60% faster than Noah, Grady's speed can be expressed as \( 1.6N \) mph.
+
+Given that both ride for two hours and Grady covers 12 miles more than Noah in this time, we can set up the following equations based on distance = speed × time:
+
+- Distance covered by Noah: \( N \times 2 \)
+- Distance covered by Grady: \( 1.6N \times 2 \)
+
+According to the problem, Grady rides 12 miles more than Noah in two hours:
+\[ 1.6N \times 2 = N \times 2 + 12 \]
+
+Simplifying this equation:
+\[ 3.2N = 2N + 12 \]
+Subtract \( 2N \) from both sides:
+\[ 1.2N = 12 \]
+Divide both sides by 1.2:
+\[ N = \frac{12}{1.2} = 10 \]
+
+Thus, Noah rides at a speed of 10 miles per hour.
+
+The correct answer is (C) 10.",1.0,"Analyze the question in depth, critically assess each option against the given information or principles, and select the response that most precisely aligns with the requirements of the query.",3
+"John divided his souvenir hat pins into two piles. The two piles had an equal number of pins. He gave his brother one-half of one-third of one pile. John had 66 pins left. How many pins did John originally have?
+(A) 396
+(B) 72
+(C) 66
+(D) 36",B,"To solve this problem, let's break it down step by step.
+
+1. **Define the Variables and Understand the Problem**:
+   - Let \( x \) be the number of pins in one pile.
+   - Since John divided his souvenir hat pins into two equal piles, he originally had \( 2x \) pins.
+   - He gave his brother one-half of one-third of one pile. This means he gave away \(\frac{1}{2} \times \frac{1}{3} \times x = \frac{x}{6}\).
+
+2. **Set Up the Equation**:
+   - After giving away \(\frac{x}{6}\) pins, John had \( 2x - \frac{x}{6} \) pins left.
+   - According to the problem, he had 66 pins left after giving some away.
+
+3. **Formulate and Solve the Equation**:
+   \[
+   2x - \frac{x}{6} = 66
+   \]
+   To solve for \( x \), first combine like terms by finding a common denominator:
+   \[
+   2x - \frac{x}{6} = \frac{12x}{6} - \frac{x}{6} = \frac{11x}{6}
+   \]
+   So the equation becomes:
+   \[
+   \frac{11x}{6} = 66
+   \]
+   Multiply both sides by 6 to clear the fraction:
+   \[
+   11x = 396
+   \]
+   Divide both sides by 11:
+   \[
+   x = 36
+   \]
+
+4. **Determine the Original Number of Pins**:
+   - Since \( x \) is the number of pins in one pile, and John originally had two piles, he originally had \( 2x = 2 \times 36 = 72 \) pins.
+
+Therefore, the correct answer is (B) 72.",1.0,"Analyze the question in depth, critically assess each option against the given information or principles, and select the response that most precisely aligns with the requirements of the query.",3
+"At noon, an experimenter has 50 grams of a radioactive isotope. At noon 9 days later only 45 grams remain. To the nearest day, how many days after the experiment started will there be only 20 grams?
+(A) 54
+(B) 59
+(C) 60
+(D) 78",D,"To solve this problem, we need to understand radioactive decay and apply it to the given scenario. Radioactive decay follows an exponential decay model, which can be described by the formula:
+
+\[ N(t) = N_0 \cdot e^{-\lambda t} \]
+
+where:
+- \(N(t)\) is the amount of the substance at time \(t\),
+- \(N_0\) is the initial amount,
+- \(\lambda\) is the decay constant, and
+- \(t\) is the time elapsed.
+
+However, for this problem, we can use a simpler approach by recognizing that radioactive decay follows a half-life pattern. The key information given is:
+
+1. At noon on day 9 (which means 9 days after the experiment started), there are 45 grams remaining from an initial 50 grams.
+2. We need to find out how many days it will take for the amount of the radioactive isotope to decay to 20 grams.
+
+First, let's determine the half-life of the isotope:
+- If we start with 50 grams and after 9 days there are 45 grams remaining, this means that approximately \( \frac{50}{2} = 25 \) grams would have been lost if it were a perfect half-life. However, since only 5 grams out of the initial 50 grams is missing (which is less than half), we can infer that the decay is not exactly following a full half-life but still close to one.
+
+To simplify our calculations and find an approximate solution, let's assume the decay follows a pattern similar to a half-life. We know:
+- After 9 days, there are \( \frac{50}{2} + 5 = 45 \) grams remaining.
+- This suggests that after another 9 days (total of 18 days), we might expect about 22.5 grams to remain.
+
+Now, let's calculate the time required for the amount to decay from 45 grams to 20 grams:
+- If 45 grams is approximately \( \frac{50}{2} + 5 \) (which means it has gone through a bit more than half), we can estimate that another significant fraction of its remaining mass will be lost.
+- To go from 45 grams to 20 grams, which is about \( \frac{45 - 20}{45} = \frac{25}{45} \approx \frac{1}{2} \) of the current amount, we can assume it will take a similar time period as the initial half-life.
+
+Given that 9 days are required for about \( \frac{1}{2} + \text{a bit more} \), and to go from 45 grams to 20 grams is approximately another significant fraction of its remaining mass, we can estimate it will take around 9 more days. Therefore:
+
+- Total time = 9 (initial) + 9 (next significant decay period) + 9 (another significant decay period) ≈ 27 days.
+- Since the initial condition was at noon on day 0 and we are looking for when there will be only 20 grams, we need to add these 27 days to the initial 9 days.
+
+Thus, the total time from the start of the experiment is approximately \( 9 + 27 = 36 \) days. However, since this does not match any of the given options directly and considering the exponential nature might require a bit more precise calculation or an approximation closer to half-life intervals:
+
+- Given the choices (A) 54, (B) 59, (C) 60, (D) 78, we can see that option (C) 60 days is the closest and most reasonable estimate based on our simplified exponential decay model.
+
+Therefore, the correct answer is:
+(C) 60",0.0,"Analyze the question in depth, critically assess each option against the given information or principles, and select the response that most precisely aligns with the requirements of the query.",3
+"A corporation is ________ from its managers, employees, investors and customers. It therefore has _______ succession and also ________.
+(A) Indistinguishable, Perpetual, Does not own its own assets
+(B) Independent, Limited, Owns its own assets
+(C) Independent, Perpetual, Owns its own assets
+(D) Indistinguishable, Perpetual, Owns its own assets",C,"To answer this question accurately, let's break down the components and analyze each option in detail:
+
+1. **Independent vs. Indistinguishable**:
+   - ""Independent"" suggests that the corporation operates as a separate entity from those it serves (managers, employees, investors, customers).
+   - ""Indistinguishable"" would imply that there is no clear separation or distinction between the corporation and its stakeholders.
+
+2. **Perpetual**:
+   - This term refers to the ongoing nature of the corporation's existence, implying that a corporation can continue indefinitely unless it is dissolved by law or other means.
+   
+3. **Owns its own assets vs. Does not own its own assets**:
+   - A key characteristic of a corporation is that it owns its assets and has legal rights over them.
+
+Now let’s evaluate each option:
+
+(A) Indistinguishable, Perpetual, Does not own its own assets
+- This option suggests the corporation cannot be distinguished from its stakeholders but does not own its assets. This contradicts the fundamental nature of a corporation as an independent entity that owns its assets.
+
+(B) Independent, Limited, Owns its own assets
+- Here, ""Limited"" is used instead of ""Perpetual,"" which doesn't fit well with the context since we are discussing the ongoing nature of the corporation's existence. This option also suggests limited liability for shareholders, but it does not directly address the perpetual aspect.
+
+(C) Independent, Perpetual, Owns its own assets
+- This option correctly identifies that a corporation is independent from its stakeholders and has a perpetual existence. It also accurately states that a corporation owns its own assets, which aligns with corporate law principles.
+
+(D) Indistinguishable, Perpetual, Owns its own assets
+- Similar to (C), this option incorrectly uses ""Indistinguishable"" instead of ""Independent,"" making it less precise in describing the nature of the corporation.
+
+Given the analysis, the most accurate and precise answer is:
+
+**Option C: Independent, Perpetual, Owns its own assets.**
+
+This correctly captures the essence of a corporation as an independent entity with perpetual existence that owns its own assets.",0.0,"Analyze the question in depth, critically assess each option against the given information or principles, and select the response that most precisely aligns with the requirements of the query.",3

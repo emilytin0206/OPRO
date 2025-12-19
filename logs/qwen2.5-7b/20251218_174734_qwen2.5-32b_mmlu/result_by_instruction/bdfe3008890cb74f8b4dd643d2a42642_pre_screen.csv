@@ -1,0 +1,197 @@
+input,target,prediction,accuracy,instruction,step
+"At noon, an experimenter has 50 grams of a radioactive isotope. At noon 9 days later only 45 grams remain. To the nearest day, how many days after the experiment started will there be only 20 grams?
+(A) 54
+(B) 59
+(C) 60
+(D) 78",D,"To solve this problem, we need to understand that radioactive decay follows an exponential decay model. The general formula for the amount of a substance remaining after time \( t \) is given by:
+
+\[ N(t) = N_0 e^{-\lambda t} \]
+
+where:
+- \( N(t) \) is the quantity at time \( t \),
+- \( N_0 \) is the initial quantity,
+- \( \lambda \) is the decay constant, and
+- \( t \) is the time elapsed.
+
+Given that 50 grams of a radioactive isotope remain as 45 grams after 9 days, we can use this information to find the half-life or the decay constant. However, for simplicity in this problem, let's assume the decay follows a simple exponential model where the amount halves every certain period (though not necessarily the half-life).
+
+First, calculate the decay factor over 9 days:
+\[ \frac{45}{50} = 0.9 \]
+
+This means that after 9 days, 90% of the original quantity remains.
+
+To find out how many days it will take for only 20 grams to remain from the initial 50 grams, we need to determine when the remaining amount is \( \frac{20}{50} = 0.4 \) (or 40%).
+
+Let's denote the number of 9-day periods required to reach 40% as \( n \). Each period reduces the quantity by a factor of 0.9, so after \( n \) periods:
+
+\[ 0.9^n = \frac{20}{50} = 0.4 \]
+
+We need to solve for \( n \):
+
+\[ 0.9^n = 0.4 \]
+
+Taking the natural logarithm on both sides:
+
+\[ \ln(0.9^n) = \ln(0.4) \]
+\[ n \ln(0.9) = \ln(0.4) \]
+\[ n = \frac{\ln(0.4)}{\ln(0.9)} \]
+
+Using a calculator to find the values of the logarithms:
+
+\[ \ln(0.4) \approx -0.9163 \]
+\[ \ln(0.9) \approx -0.1054 \]
+
+So,
+
+\[ n = \frac{-0.9163}{-0.1054} \approx 8.72 \]
+
+Since \( n \) represents the number of 9-day periods, we round up to the nearest whole number because partial periods don't make sense in this context:
+
+\[ n \approx 9 \]
+
+Therefore, it will take approximately 9 more 9-day periods for the quantity to reduce from 45 grams to 20 grams. Since each period is 9 days:
+
+\[ 9 \times 9 = 81 \text{ days} \]
+
+However, we need to account for the initial 9 days that have already passed:
+
+\[ 81 + 9 = 90 \text{ days} \]
+
+Since none of the provided options match exactly 90 days, and considering the nearest day in the given choices, the closest answer is:
+
+(C) 60
+
+This choice might be due to an approximation or simplification in the problem's context. However, based on the calculations, the most accurate answer would be closer to 90 days, but since it must fit within the provided options, (C) 60 grams remaining after a certain number of days is the closest logical deduction from the given choices.",0.0,Analyze the question thoroughly and use the provided information to logically deduce the most correct answer.,2
+"Grady rides his bike $60\%$ faster than his little brother Noah. If Grady rides $12$ miles further than Noah in two hours, how fast in miles per hour does Noah ride?
+(A) 32
+(B) 20
+(C) 10
+(D) 7.2",C,"To solve this problem, let's denote the speed of Noah as \( N \) miles per hour.
+
+Since Grady rides his bike \(60\%\) faster than Noah, we can express Grady's speed in terms of Noah's speed:
+\[ G = N + 0.6N = 1.6N \]
+
+Next, let's calculate the distance each brother travels in two hours.
+- Distance traveled by Noah in two hours: \( D_N = N \times 2 \)
+- Distance traveled by Grady in two hours: \( D_G = G \times 2 = 1.6N \times 2 = 3.2N \)
+
+According to the problem, Grady rides \(12\) miles further than Noah in two hours:
+\[ D_G - D_N = 12 \]
+Substituting the expressions for \(D_G\) and \(D_N\):
+\[ 3.2N - 2N = 12 \]
+Simplify the equation:
+\[ 1.2N = 12 \]
+
+Now, solve for \( N \):
+\[ N = \frac{12}{1.2} = 10 \]
+
+Thus, Noah rides at a speed of \( 10 \) miles per hour.
+
+The correct answer is (C) 10.",1.0,Analyze the question thoroughly and use the provided information to logically deduce the most correct answer.,2
+"This question refers to the following information.
+""To slacken the tempo would mean falling behind. And those who fall behind get beaten. But we do not want to be beaten. No, we refuse to be beaten! One feature of the history of old Russia was the continual beatings she suffered because of her backwardness. She was beaten by the Mongol khans. She was beaten by the Turkish beys. She was beaten by the Swedish feudal lords. She was beaten by the Polish and Lithuanian gentry. She was beaten by the British and French capitalists. She was beaten by the Japanese barons. All beat her––because of her backwardness, because of her military backwardness, cultural backwardness, political backwardness, industrial backwardness, agricultural backwardness. They beat her because it was profitable and could be done with impunity. You remember the words of the pre-revolutionary poet: ""You are poor and abundant, mighty and impotent, Mother Russia."" Those gentlemen were quite familiar with the verses of the old poet. They beat her, saying: ""You are abundant,"" so one can enrich oneself at your expense. They beat her, saying: ""You are poor and impotent,"" so you can be beaten and plundered with impunity. Such is the law of the exploiters––to beat the backward and the weak. It is the jungle law of capitalism. You are backward, you are weak––therefore you are wrong; hence you can be beaten and enslaved. You are mighty––therefore you are right; hence we must be wary of you.
+That is why we must no longer lag behind.""
+Joseph Stalin, speech delivered at the first All-Union Conference of Leading Personnel of Socialist Industry, February 4, 1931
+The reference to the ""continual beatings"" most directly supports which of the following decisions in later Soviet foreign policy?
+(A) The invasion of Afghanistan
+(B) The creation of the Warsaw Pact
+(C) The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe
+(D) The declaration of war against Japan at the end of World War II",B,"To analyze this question, we need to understand the context provided by Joseph Stalin's speech. The reference to ""continual beatings"" is a metaphor for the historical and ongoing exploitation and oppression that Russia (and later the Soviet Union) faced due to its backwardness compared to more developed nations.
+
+Let's examine each option in light of this context:
+
+(A) **The invasion of Afghanistan**: This occurred much later, in 1979. The speech was delivered in 1931, and by that time, the primary concern for the Soviet Union would have been internal consolidation rather than external invasions.
+
+(B) **The creation of the Warsaw Pact**: This happened after Stalin's death, specifically in 1955. However, it aligns with the idea of preventing ""beatings"" from other nations and ensuring mutual support among socialist states to counteract potential exploitation by capitalist powers.
+
+(C) **The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe**: This doctrine was formulated during the 1960s under Nikita Khrushchev, not Stalin. It was a response to perceived threats from Western capitalism and aimed at maintaining control over satellite states within the Soviet sphere.
+
+(D) **The declaration of war against Japan at the end of World War II**: This occurred in August 1945, well after Stalin's speech in 1931. The primary focus during this period was on consolidating gains from World War II and establishing a post-war order rather than preventing ""beatings.""
+
+Given that Stalin’s speech emphasizes the need to avoid being beaten due to backwardness, the most relevant decision would be one that directly addresses the fear of external exploitation and seeks to prevent such ""beatings."" The creation of the Warsaw Pact in 1955 fits this context as it was a strategic move to ensure mutual support among socialist states against potential capitalist threats.
+
+Therefore, the correct answer is:
+
+(B) The creation of the Warsaw Pact.",0.0,Analyze the question thoroughly and use the provided information to logically deduce the most correct answer.,2
+"John divided his souvenir hat pins into two piles. The two piles had an equal number of pins. He gave his brother one-half of one-third of one pile. John had 66 pins left. How many pins did John originally have?
+(A) 396
+(B) 72
+(C) 66
+(D) 36",B,"To solve this problem, let's break it down step by step.
+
+1. **Define Variables and Understand the Problem**:
+   - Let \( x \) be the number of pins in one pile.
+   - Since John divided his souvenir hat pins into two equal piles, he originally had \( 2x \) pins.
+   
+2. **Determine How Many Pins Were Given Away**:
+   - John gave his brother one-half of one-third of one pile.
+   - One-third of one pile is \( \frac{x}{3} \).
+   - Half of that amount is \( \frac{1}{2} \times \frac{x}{3} = \frac{x}{6} \).
+
+3. **Calculate the Remaining Pins**:
+   - John had 66 pins left after giving away \( \frac{x}{6} \) pins.
+   - Therefore, the number of pins he originally had minus the number given away equals the remaining pins: 
+     \[
+     2x - \frac{x}{6} = 66
+     \]
+
+4. **Solve for \( x \)**:
+   - Combine like terms by finding a common denominator (which is 6):
+     \[
+     2x - \frac{x}{6} = 66 \implies \frac{12x}{6} - \frac{x}{6} = 66 \implies \frac{11x}{6} = 66
+     \]
+   - Multiply both sides by 6 to clear the fraction:
+     \[
+     11x = 396
+     \]
+   - Divide both sides by 11:
+     \[
+     x = 36
+     \]
+
+5. **Determine the Original Number of Pins**:
+   - Since \( x \) is the number of pins in one pile, and John originally had two piles:
+     \[
+     2x = 2 \times 36 = 72
+     \]
+
+Therefore, the correct answer is (B) 72.",1.0,Analyze the question thoroughly and use the provided information to logically deduce the most correct answer.,2
+"A corporation is ________ from its managers, employees, investors and customers. It therefore has _______ succession and also ________.
+(A) Indistinguishable, Perpetual, Does not own its own assets
+(B) Independent, Limited, Owns its own assets
+(C) Independent, Perpetual, Owns its own assets
+(D) Indistinguishable, Perpetual, Owns its own assets",C,"To analyze the question and deduce the correct answer, let's break down each part of the sentence:
+
+1. **""A corporation is ________ from its managers, employees, investors and customers.""**
+   - This suggests that a corporation has a distinct identity or separation from these groups.
+   
+2. **""It therefore has _______ succession and also ________.""**
+   - ""Succession"" in this context likely refers to the continuation of the corporation's existence beyond individual lives (like those of managers, employees, investors, and customers).
+   - The second blank could refer to a characteristic or attribute that is inherent to corporations.
+
+Now let's evaluate each option:
+
+(A) **Indistinguishable, Perpetual, Does not own its own assets**
+   - ""Indistinguishable"" means it cannot be distinguished from the others, which contradicts the idea of separation.
+   - ""Perpetual succession"" fits well as a corporation can continue to exist even if all current individuals leave.
+   - ""Does not own its own assets"" is incorrect because corporations do indeed own their assets.
+
+(B) **Independent, Perpetual, Owns its own assets**
+   - ""Independent"" means it has a separate existence from others, which fits the context.
+   - ""Perpetual succession"" again fits well as a corporation can continue to exist beyond individual lives.
+   - ""Owns its own assets"" is correct because corporations do indeed own their assets.
+
+(C) **Independent, Perpetual, Owns its own assets**
+   - This option is identical to (B), so it also correctly describes the situation.
+
+(D) **Indistinguishable, Perpetual, Owns its own assets**
+   - ""Indistinguishable"" means it cannot be distinguished from others, which contradicts the idea of separation.
+   - The other parts fit well.
+
+Given this analysis, options (B) and (C) are identical and correct. Therefore, the most accurate answer is:
+
+**(B) Independent, Perpetual, Owns its own assets**
+
+or equivalently,
+
+**(C) Independent, Perpetual, Owns its own assets**",0.0,Analyze the question thoroughly and use the provided information to logically deduce the most correct answer.,2

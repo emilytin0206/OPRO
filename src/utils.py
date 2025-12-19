@@ -1,93 +1,119 @@
+# src/utils.py
 import os
 import pandas as pd
 import json
 import re
-import string
-import hashlib # [新增] 用於雜湊檔名
+import hashlib
+import glob
 
-
-def load_dataset(dataset_name: str, task_name: str, data_root: str):
+def load_dataset(dataset_cfg):
     """
-    載入指定資料集。
-    針對 MMLU 支援多子集載入，並處理資料量不足 300 筆的情況。
+    根據 config.dataset 的設定載入資料。
     """
-    dataset_name = dataset_name.lower()
+    name = dataset_cfg.name.lower()
+    split = dataset_cfg.split.lower() # 'train' or 'test'
+    data_root = dataset_cfg.data_root
     raw_data = []
 
-    if dataset_name == "mmlu":
-        # 定義您需要的 5 個子集
-        target_subsets = [
-            "high_school_mathematics",
-            "high_school_world_history",
-            "high_school_physics",
-            "professional_law",
-            "business_ethics"
-        ]
-        
-        # 決定要載入哪些子集 (如果是 'all_specified' 或不在列表內，就載入全部指定的)
-        subsets_to_load = [task_name] if task_name in target_subsets else target_subsets
-        
-        print(f"準備載入 MMLU 子集: {subsets_to_load}")
+    print(f"正在載入資料集: {name} (Split: {split})")
 
-        for subset in subsets_to_load:
-            # 嘗試路徑：先找 test 資料夾，再找根目錄
-            # MMLU 通常結構: data/mmlu/test/high_school_mathematics_test.csv
-            file_path = os.path.join(data_root, "mmlu", "test", f"{subset}_test.csv")
-            if not os.path.exists(file_path):
-                 file_path = os.path.join(data_root, "mmlu", f"{subset}_test.csv")
+    if name == "mmlu":
+        # MMLU 處理邏輯
+        mmlu_root = os.path.join(data_root, "mmlu")
+        
+        # 決定要載入哪些檔案
+        target_subsets = dataset_cfg.subsets
+        
+        # 處理 'all' 的情況：自動搜尋目錄下所有該 split 的 csv
+        if not target_subsets or (isinstance(target_subsets, str) and target_subsets.lower() == 'all'):
+            print("  偵測到 subsets='all'，正在搜尋所有 CSV...")
+            # 搜尋模式: data/mmlu/*_test.csv 或 data/mmlu/test/*_test.csv
+            search_patterns = [
+                os.path.join(mmlu_root, f"*_{split}.csv"),
+                os.path.join(mmlu_root, split, f"*_{split}.csv")
+            ]
+            found_files = []
+            for p in search_patterns:
+                found_files.extend(glob.glob(p))
+            
+            # 從檔名解析出 subset 名稱 (用於顯示)
+            files_to_load = found_files
+            print(f"  共找到 {len(files_to_load)} 個 MMLU 子集檔案。")
+        else:
+            # 使用者指定列表
+            if isinstance(target_subsets, str): target_subsets = [target_subsets]
+            files_to_load = []
+            for sub in target_subsets:
+                # 嘗試多種路徑組合
+                paths = [
+                    os.path.join(mmlu_root, f"{sub}_{split}.csv"),
+                    os.path.join(mmlu_root, split, f"{sub}_{split}.csv")
+                ]
+                found = False
+                for p in paths:
+                    if os.path.exists(p):
+                        files_to_load.append(p)
+                        found = True
+                        break
+                if not found:
+                    print(f"  [警告] 找不到子集檔案: {sub} ({split})")
 
-            if os.path.exists(file_path):
-                try:
-                    df = pd.read_csv(file_path, header=None)
+        # 開始讀取
+        for file_path in files_to_load:
+            try:
+                # MMLU CSV 無 header: [Question, A, B, C, D, Answer]
+                df = pd.read_csv(file_path, header=None)
+                subset_name = os.path.basename(file_path).replace(f"_{split}.csv", "")
+                
+                for _, row in df.iterrows():
+                    question = str(row[0])
+                    options = f"(A) {str(row[1])}\n(B) {str(row[2])}\n(C) {str(row[3])}\n(D) {str(row[4])}"
+                    full_input = f"{question}\n{options}"
+                    target = str(row[5])
                     
-                    # --- [修正核心] 安全選取邏輯 ---
-                    total_rows = len(df)
-                    if total_rows < 300:
-                        print(f"  [警告] 子集 '{subset}' 只有 {total_rows} 筆資料 (不足 300)，將全數載入。")
-                        df_subset = df # 全部都要
-                    else:
-                        print(f"  [正常] 子集 '{subset}' 資料充足 ({total_rows} 筆)，取前 300 筆。")
-                        df_subset = df.head(300)
-             # ----------------------------
+                    raw_data.append({
+                        'input': full_input, 
+                        'target': target,
+                        'subset': subset_name,
+                        'source': 'mmlu'
+                    })
+            except Exception as e:
+                print(f"  [錯誤] 讀取檔案 {file_path} 失敗: {e}")
 
-                    for _, row in df_subset.iterrows():
-                        # MMLU CSV 格式通常為: Question, A, B, C, D, Answer
-                        question = str(row[0])
-                        options = f"(A) {str(row[1])}\n(B) {str(row[2])}\n(C) {str(row[3])}\n(D) {str(row[4])}"
-                        full_input = f"{question}\n{options}"
-                        target = str(row[5]) # 答案 (A, B, C, D)
-                        
-                        raw_data.append({
-                            'input': full_input, 
-                            'target': target,
-                            'subset': subset 
-                        })
-                except Exception as e:
-                    print(f"  [錯誤] 讀取 {subset} 失敗: {e}")
-            else:
-                print(f"  [缺失] 找不到檔案: {file_path}")
+    elif name == "gsm8k":
+        # GSM8K 處理邏輯
+        # 假設檔名為 gsm_train.tsv 或 gsm_test.tsv
+        file_name = f"gsm_{split}.tsv"
+        file_path = os.path.join(data_root, "gsm8k", file_name)
+        
+        if os.path.exists(file_path):
+            try:
+                # 假設 TSV 格式: [Question, Answer]
+                df = pd.read_csv(file_path, sep="\t", header=None)
+                print(f"  讀取 GSM8K 檔案: {file_path}")
+                for _, row in df.iterrows():
+                    raw_data.append({
+                        'input': str(row[0]),
+                        'target': str(row[1]),
+                        'source': 'gsm8k'
+                    })
+            except Exception as e:
+                print(f"  [錯誤] 讀取 GSM8K 失敗: {e}")
+        else:
+            print(f"  [錯誤] 找不到 GSM8K 檔案: {file_path}")
 
-    elif dataset_name == "bbh":
+    elif name == "bbh":
+        # BBH 保留原本邏輯 (略作調整以適應 new config 結構)
+        # 假設 subsets 列表的第一個當作 task name
+        task_name = dataset_cfg.subsets[0] if dataset_cfg.subsets else "unknown"
         file_path = os.path.join(data_root, "BIG-Bench-Hard-data", f"{task_name}.json")
         if os.path.exists(file_path):
             with open(file_path, "r", encoding='utf-8') as f:
                 data = json.load(f)["examples"]
                 for d in data:
-                     raw_data.append({'input': d['input'], 'target': d['target']})
-        else:
-            raise FileNotFoundError(f"找不到 BBH 數據: {file_path}")
+                     raw_data.append({'input': d['input'], 'target': d['target'], 'source': 'bbh'})
 
-    elif dataset_name == "gsm8k":
-        # 簡單示範保留
-        file_path = os.path.join(data_root, "gsm_data", f"gsm_{task_name}.tsv")
-        if os.path.exists(file_path):
-            df = pd.read_csv(file_path, sep="\t", header=None)
-            for _, row in df.iterrows():
-                raw_data.append({'input': row[0], 'target': row[1]})
-
-
-    # (可擴充 MMLU 等)
-    
+    print(f"資料載入完成，共 {len(raw_data)} 筆。")
     return raw_data
 
 def parse_tag_content(text, prefix="<INS>", suffix="</INS>"):
@@ -96,7 +122,6 @@ def parse_tag_content(text, prefix="<INS>", suffix="</INS>"):
     return [r.strip() for r in results]
 
 def instruction_to_filename(instruction):
-    """將指令轉為安全檔名 (MD5)"""
     m = hashlib.md5()
     m.update(instruction.encode('utf-8'))
     return m.hexdigest()
@@ -116,7 +141,7 @@ def setup_logger(log_dir: str, task_name: str):
     logger.setLevel(logging.INFO)
     logger.handlers = []
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    log_file = os.path.join(log_dir, f"{task_name}.log")
+    log_file = os.path.join(log_dir, "run.log") # 固定叫 run.log
     fh = logging.FileHandler(log_file, encoding='utf-8')
     fh.setFormatter(formatter)
     logger.addHandler(fh)

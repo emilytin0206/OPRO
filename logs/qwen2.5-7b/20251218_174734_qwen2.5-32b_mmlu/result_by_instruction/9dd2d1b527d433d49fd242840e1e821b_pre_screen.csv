@@ -1,0 +1,172 @@
+input,target,prediction,accuracy,instruction,step
+"At noon, an experimenter has 50 grams of a radioactive isotope. At noon 9 days later only 45 grams remain. To the nearest day, how many days after the experiment started will there be only 20 grams?
+(A) 54
+(B) 59
+(C) 60
+(D) 78",D,"To solve this problem, we need to understand radioactive decay and use the given information to determine the half-life of the isotope. Radioactive decay follows an exponential decay model.
+
+Given:
+- Initial amount at noon (Day 0): \( A_0 = 50 \) grams.
+- Amount after 9 days: \( A(9) = 45 \) grams.
+
+The formula for radioactive decay is given by:
+
+\[ A(t) = A_0 e^{-\lambda t} \]
+
+where:
+- \( A(t) \) is the amount of substance at time \( t \),
+- \( A_0 \) is the initial amount,
+- \( \lambda \) is the decay constant,
+- \( t \) is the time elapsed.
+
+First, we need to find the decay constant \(\lambda\). Using the information that 45 grams remain after 9 days:
+
+\[ 45 = 50 e^{-\lambda \cdot 9} \]
+
+Solving for \(\lambda\):
+
+\[ \frac{45}{50} = e^{-9\lambda} \]
+\[ 0.9 = e^{-9\lambda} \]
+\[ \ln(0.9) = -9\lambda \]
+\[ \lambda = -\frac{\ln(0.9)}{9} \]
+
+Using the natural logarithm:
+
+\[ \lambda \approx -\frac{-0.10536}{9} \approx 0.0117 \text{ per day} \]
+
+Now, we need to find the time \( t \) when only 20 grams remain:
+
+\[ 20 = 50 e^{-0.0117t} \]
+
+Solving for \( t \):
+
+\[ \frac{20}{50} = e^{-0.0117t} \]
+\[ 0.4 = e^{-0.0117t} \]
+\[ \ln(0.4) = -0.0117t \]
+\[ t = -\frac{\ln(0.4)}{0.0117} \]
+
+Using the natural logarithm:
+
+\[ t \approx -\frac{-0.9163}{0.0117} \approx 78 \text{ days} \]
+
+Therefore, to the nearest day, it will take approximately 78 days for only 20 grams of the isotope to remain.
+
+The correct answer is (D) 78.",1.0,"Analyze the question carefully, evaluate each option against the given data or principles, and choose the most precise answer that directly addresses the query.",3
+"This question refers to the following information.
+""To slacken the tempo would mean falling behind. And those who fall behind get beaten. But we do not want to be beaten. No, we refuse to be beaten! One feature of the history of old Russia was the continual beatings she suffered because of her backwardness. She was beaten by the Mongol khans. She was beaten by the Turkish beys. She was beaten by the Swedish feudal lords. She was beaten by the Polish and Lithuanian gentry. She was beaten by the British and French capitalists. She was beaten by the Japanese barons. All beat her––because of her backwardness, because of her military backwardness, cultural backwardness, political backwardness, industrial backwardness, agricultural backwardness. They beat her because it was profitable and could be done with impunity. You remember the words of the pre-revolutionary poet: ""You are poor and abundant, mighty and impotent, Mother Russia."" Those gentlemen were quite familiar with the verses of the old poet. They beat her, saying: ""You are abundant,"" so one can enrich oneself at your expense. They beat her, saying: ""You are poor and impotent,"" so you can be beaten and plundered with impunity. Such is the law of the exploiters––to beat the backward and the weak. It is the jungle law of capitalism. You are backward, you are weak––therefore you are wrong; hence you can be beaten and enslaved. You are mighty––therefore you are right; hence we must be wary of you.
+That is why we must no longer lag behind.""
+Joseph Stalin, speech delivered at the first All-Union Conference of Leading Personnel of Socialist Industry, February 4, 1931
+The reference to the ""continual beatings"" most directly supports which of the following decisions in later Soviet foreign policy?
+(A) The invasion of Afghanistan
+(B) The creation of the Warsaw Pact
+(C) The imposition of the Brezhnev Doctrine against anti-Soviet protesters in Europe
+(D) The declaration of war against Japan at the end of World War II",B,"To analyze this question, we need to understand the context provided by Joseph Stalin's speech. He emphasizes the historical pattern where backwardness leads to being beaten and exploited by more powerful nations. This theme is about the necessity for Russia (later Soviet Union) not to fall behind in order to avoid such exploitation.
+
+Now let's evaluate each option:
+
+(A) The invasion of Afghanistan: While this was a significant event, it occurred much later, in 1979, which is beyond the timeframe relevant to Stalin’s speech. It does not directly relate to the historical context of being beaten due to backwardness as discussed by Stalin.
+
+(B) The creation of the Warsaw Pact: This was established in 1955, shortly after World War II and during a period when the Soviet Union was concerned about Western influence and security. Given that it aimed at mutual defense against perceived threats from NATO, this aligns with the idea of not wanting to be beaten by more powerful nations.
+
+(C) The imposition of the Brezhnev Doctrine: This doctrine was formulated in 1968 during the Prague Spring, which is also after Stalin’s speech and does not directly relate to the historical context provided. It was about Soviet intervention in Eastern European countries but did not primarily focus on avoiding being beaten due to backwardness.
+
+(D) The declaration of war against Japan at the end of World War II: This occurred in 1945, which is before Stalin’s speech and does not fit the context of later foreign policy decisions based on the fear of falling behind.
+
+Given this analysis, the most precise answer that directly addresses the query about the historical context provided by Stalin's speech is:
+
+(B) The creation of the Warsaw Pact
+
+This decision was a response to perceived threats from Western powers and aimed at ensuring mutual defense, aligning with the theme of not wanting to be beaten due to backwardness.",0.0,"Analyze the question carefully, evaluate each option against the given data or principles, and choose the most precise answer that directly addresses the query.",3
+"John divided his souvenir hat pins into two piles. The two piles had an equal number of pins. He gave his brother one-half of one-third of one pile. John had 66 pins left. How many pins did John originally have?
+(A) 396
+(B) 72
+(C) 66
+(D) 36",B,"Let's break down the problem step by step.
+
+1. **Define Variables and Understand the Problem**:
+   - Let \( x \) be the number of pins in one pile.
+   - Since John divided his souvenir hat pins into two equal piles, he originally had \( 2x \) pins.
+   - He gave his brother one-half of one-third of one pile. This means he gave away \(\frac{1}{2} \times \frac{1}{3} \times x = \frac{x}{6}\).
+
+2. **Set Up the Equation**:
+   - After giving away \(\frac{x}{6}\) pins, John had \( 2x - \frac{x}{6} \) pins left.
+   - According to the problem, he had 66 pins left after giving some away.
+
+3. **Formulate and Solve the Equation**:
+   \[
+   2x - \frac{x}{6} = 66
+   \]
+   To solve for \( x \), first combine like terms by finding a common denominator:
+   \[
+   2x - \frac{x}{6} = \frac{12x}{6} - \frac{x}{6} = \frac{11x}{6}
+   \]
+   So the equation becomes:
+   \[
+   \frac{11x}{6} = 66
+   \]
+   Multiply both sides by 6 to clear the fraction:
+   \[
+   11x = 396
+   \]
+   Divide both sides by 11:
+   \[
+   x = 36
+   \]
+
+4. **Determine the Original Number of Pins**:
+   - Since \( x \) is the number of pins in one pile, and John originally had two piles, he originally had \( 2x = 2 \times 36 = 72 \).
+
+Therefore, the correct answer is (B) 72.",1.0,"Analyze the question carefully, evaluate each option against the given data or principles, and choose the most precise answer that directly addresses the query.",3
+"Grady rides his bike $60\%$ faster than his little brother Noah. If Grady rides $12$ miles further than Noah in two hours, how fast in miles per hour does Noah ride?
+(A) 32
+(B) 20
+(C) 10
+(D) 7.2",C,"To solve this problem, let's denote Noah's speed as \( N \) miles per hour.
+
+Since Grady rides his bike \(60\%\) faster than Noah, Grady's speed can be expressed as:
+\[ G = N + 0.6N = 1.6N \]
+
+Given that both ride for two hours and Grady covers \(12\) miles more than Noah in this time, we can set up the following equations based on their distances traveled:
+
+- Distance covered by Noah: 
+\[ D_N = N \times 2 \]
+- Distance covered by Grady:
+\[ D_G = G \times 2 = 1.6N \times 2 = 3.2N \]
+
+According to the problem, Grady rides \(12\) miles more than Noah in two hours:
+\[ D_G - D_N = 12 \]
+Substituting the expressions for \(D_G\) and \(D_N\):
+\[ 3.2N - 2N = 12 \]
+Simplifying this equation:
+\[ 1.2N = 12 \]
+
+To find Noah's speed, solve for \( N \):
+\[ N = \frac{12}{1.2} = 10 \]
+
+Thus, the correct answer is (C) 10 miles per hour.
+
+Therefore, the final answer is:
+\[
+\boxed{10}
+\]",1.0,"Analyze the question carefully, evaluate each option against the given data or principles, and choose the most precise answer that directly addresses the query.",3
+"A corporation is ________ from its managers, employees, investors and customers. It therefore has _______ succession and also ________.
+(A) Indistinguishable, Perpetual, Does not own its own assets
+(B) Independent, Limited, Owns its own assets
+(C) Independent, Perpetual, Owns its own assets
+(D) Indistinguishable, Perpetual, Owns its own assets",C,"The correct answer is (C) Independent, Perpetual, Owns its own assets.
+
+Let's break down the options:
+
+- **Independent**: A corporation operates independently of its managers, employees, investors, and customers. This means that these groups can change without affecting the ongoing operations of the corporation.
+  
+- **Perpetual**: Corporations are typically structured in a way that allows them to continue indefinitely unless they dissolve or are liquidated.
+
+- **Owns its own assets**: A corporation is considered an entity with legal rights and responsibilities, including owning property and other assets. This distinguishes it from individuals who might be the owners of those assets personally.
+
+Option (A) ""Indistinguishable, Perpetual, Does not own its own assets"" does not fit because a corporation is distinguishable from its stakeholders and typically owns its assets.
+
+Option (B) ""Independent, Limited, Owns its own assets"" has the correct ownership aspect but uses the term ""Limited,"" which refers to limited liability rather than independence or perpetuity.
+
+Option (D) ""Indistinguishable, Perpetual, Owns its own assets"" incorrectly uses ""Indistinguishable"" instead of ""Independent.""
+
+Therefore, option (C) accurately describes a corporation's relationship with its stakeholders and its legal status.",1.0,"Analyze the question carefully, evaluate each option against the given data or principles, and choose the most precise answer that directly addresses the query.",3
