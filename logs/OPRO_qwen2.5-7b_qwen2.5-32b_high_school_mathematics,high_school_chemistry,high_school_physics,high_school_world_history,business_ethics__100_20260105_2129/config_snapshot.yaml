@@ -1,0 +1,37 @@
+project:
+  log_dir: ./logs/OPRO_qwen2.5-7b_qwen2.5-32b_high_school_mathematics,high_school_chemistry,high_school_physics,high_school_world_history,business_ethics__100_20260105_2129
+dataset:
+  name: high_school_mathematics,high_school_chemistry,high_school_physics,high_school_world_history,business_ethics
+  split: test
+  subsets:
+  - ''
+  train_limit: 100
+  data_root: ./data
+scorer_model:
+  client_type: Ollama
+  model_name: qwen2.5:7b
+  api_url: http://localhost:11434/api/chat
+  temperature: 0.0
+  max_output_tokens: 1024
+optimizer_model:
+  client_type: Ollama
+  model_name: qwen2.5:32b
+  api_url: http://localhost:11434/api/chat
+  temperature: 0.7
+  max_output_tokens: 2048
+optimization:
+  num_iterations: 10
+  num_prompts_to_generate: 4
+  max_num_instructions_in_prompt: 10
+  meta_prompt_path: prompt/meta_prompt.txt
+  eval_interval: 3
+  task_name: ''
+  dataset_name: ''
+  instruction_pos: Q_begin
+  is_instruction_tuned: true
+  num_few_shot_questions: 3
+  few_shot_selection_criteria: random
+  initial_instructions:
+  - Let's think step by step.
+  - Answer the question directly.
+  old_instruction_score_threshold: 0.1

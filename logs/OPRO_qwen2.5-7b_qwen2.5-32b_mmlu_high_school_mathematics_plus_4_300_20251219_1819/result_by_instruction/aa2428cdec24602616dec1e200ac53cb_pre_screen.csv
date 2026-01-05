@@ -1,0 +1,173 @@
+input,target,prediction,accuracy,instruction,step
+"What is the domain of the function $f(x)=\frac{x+6}{\sqrt{x^2-3x-4}}$?
+(A) (-4,4)
+(B) [0,4]
+(C) (-inf, -1) U (4, inf)
+(D) (-inf, -1) U (-1, 4) U (4, inf)",C,"To determine the domain of the function \( f(x) = \frac{x+6}{\sqrt{x^2-3x-4}} \), we need to ensure that both the denominator and the expression under the square root are valid. Specifically:
+
+1. The expression inside the square root, \( x^2 - 3x - 4 \), must be greater than zero because the square root of a negative number is not defined in the real numbers.
+2. The denominator cannot be zero.
+
+Let's start by solving the inequality for the expression under the square root:
+
+\[ x^2 - 3x - 4 > 0 \]
+
+First, factorize the quadratic equation \( x^2 - 3x - 4 \):
+
+\[ x^2 - 3x - 4 = (x-4)(x+1) \]
+
+So, we need to solve:
+
+\[ (x-4)(x+1) > 0 \]
+
+To find where this inequality holds true, we determine the roots of the equation \( (x-4)(x+1) = 0 \), which are \( x = 4 \) and \( x = -1 \). These roots divide the real number line into three intervals: \( (-\infty, -1) \), \( (-1, 4) \), and \( (4, \infty) \).
+
+We test a point from each interval to determine where the inequality is satisfied:
+
+- For \( x < -1 \): Choose \( x = -2 \)
+  \[ (-2-4)(-2+1) = (-6)(-1) = 6 > 0 \]
+  
+- For \( -1 < x < 4 \): Choose \( x = 0 \)
+  \[ (0-4)(0+1) = (-4)(1) = -4 < 0 \]
+
+- For \( x > 4 \): Choose \( x = 5 \)
+  \[ (5-4)(5+1) = (1)(6) = 6 > 0 \]
+
+Thus, the inequality \( (x-4)(x+1) > 0 \) is satisfied in the intervals \( (-\infty, -1) \) and \( (4, \infty) \).
+
+Next, we need to ensure that the denominator is not zero. The expression under the square root must be strictly greater than zero, so there are no additional restrictions from this part.
+
+Therefore, combining these results, the domain of the function \( f(x) = \frac{x+6}{\sqrt{x^2-3x-4}} \) is:
+
+\[ (-\infty, -1) \cup (4, \infty) \]
+
+Thus, the correct answer is:
+(C) (-inf, -1) U (4, inf)",1.0,"Analyze the question and provided information thoroughly, apply relevant concepts or calculations as needed, eliminate incorrect options logically, and select the most accurate answer from those available.",6
+"How much work is required to charge a 10 µF capacitor to a potential difference of 100 V ?
+(A) 0.005 J
+(B) 0.01 J
+(C) 0.05 J
+(D) 0.1 J",C,"To determine the work required to charge a capacitor, we can use the formula for the energy stored in a capacitor:
+
+\[ U = \frac{1}{2} C V^2 \]
+
+where:
+- \( U \) is the energy (or work done),
+- \( C \) is the capacitance,
+- \( V \) is the potential difference.
+
+Given:
+- Capacitance, \( C = 10 \mu F = 10 \times 10^{-6} F \)
+- Potential difference, \( V = 100 V \)
+
+Substitute these values into the formula:
+
+\[ U = \frac{1}{2} \times (10 \times 10^{-6} F) \times (100 V)^2 \]
+
+Calculate step by step:
+\[ U = \frac{1}{2} \times 10 \times 10^{-6} \times 10000 \]
+\[ U = \frac{1}{2} \times 10 \times 10^{-2} \]
+\[ U = 5 \times 10^{-2} J \]
+\[ U = 0.05 J \]
+
+Therefore, the correct answer is:
+
+(C) 0.05 J",1.0,"Analyze the question and provided information thoroughly, apply relevant concepts or calculations as needed, eliminate incorrect options logically, and select the most accurate answer from those available.",6
+"A nonconducting sphere is given a nonzero net electric charge, +Q, and then brought close to a neutral conducting sphere of the same radius. Which of the following will be true?
+(A) An electric field will be induced within the conducting sphere.
+(B) The conducting sphere will develop a net electric charge of –Q.
+(C) The spheres will experience an electrostatic attraction.
+(D) The spheres will experience an electrostatic repulsion.",C,"To analyze this question, let's consider the principles involved in electrostatics and how they apply to the given scenario.
+
+1. **Induced Electric Field (Option A):**
+   - When a nonconducting sphere with a net positive charge +Q is brought close to a neutral conducting sphere, an electric field will indeed be induced within the conducting sphere. This is because the presence of the charged nonconducting sphere will cause charges in the conducting sphere to rearrange themselves due to electrostatic induction.
+
+2. **Net Electric Charge on the Conducting Sphere (Option B):**
+   - The conducting sphere initially has no net charge, but when brought close to a positively charged object, it will develop an induced negative charge on its side facing the nonconducting sphere and a corresponding positive charge on the opposite side. However, these charges are distributed such that the overall net charge of the conducting sphere remains zero because it is electrically neutral.
+
+3. **Electrostatic Forces (Options C & D):**
+   - The electrostatic force between two objects depends on their charges and the distance between them. Since the conducting sphere initially has no net charge, there will be an attractive force due to the induced negative charge on its side facing the nonconducting sphere. This is because opposite charges attract each other.
+
+Given this analysis:
+
+- Option (A) is correct as an electric field will indeed be induced within the conducting sphere.
+- Option (B) is incorrect since a neutral conductor cannot develop a net charge of -Q; it can only rearrange its charges to induce fields and redistribute them.
+- Options (C) and (D) are related but need clarification. The spheres will experience an electrostatic attraction due to the induced negative charge on the side of the conducting sphere facing the nonconducting sphere, which is a form of attractive force.
+
+Therefore, the most accurate answer based on the principles of electrostatics is:
+
+**The correct option is (C) The spheres will experience an electrostatic attraction.**
+
+This is because the induced charges in the conducting sphere create an electric field that attracts the nonconducting sphere due to opposite charges attracting each other.",0.0,"Analyze the question and provided information thoroughly, apply relevant concepts or calculations as needed, eliminate incorrect options logically, and select the most accurate answer from those available.",6
+"A law student and two friends were at a mall peacefully handing out fliers in protest of U.S. Middle East policy. The mall owner called the police, who warned them to stop or they would be arrested. They returned the next day and continued to leaflet. The police came again and issued another warning. The law student left to avoid arrest, but the police arrested his companions for criminal trespass and loitering. The law student, in an attempt to get an advance ruling on the constitutionality of the criminal statutes, filed a declaratory judgment action in federal court asking for declaratory relief. Based on Supreme Court precedent will the federal district court dismiss the declaratory judgment action?
+(A) Yes, the declaratory relief would interfere with existing state prosecutions and would therefore be disallowed for reasons of equity and comity.
+(B) No, because a federal plaintiff may seek a declaratory judgment even if he is not threatened with a state prosecution on the state statute.
+(C) No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.
+(D) Yes, the declaratory relief would be premature because the law student's fears of a future arrest are entirely speculative on his part.",C,"To answer this question accurately, we need to consider the legal principles surrounding declaratory judgment actions, particularly in light of Supreme Court precedent and the specific circumstances presented.
+
+1. **Understanding Declaratory Judgment Actions**: A declaratory judgment is a court order that clarifies or declares the rights of parties without ordering any action or awarding damages. The primary purpose is to resolve legal uncertainties before they lead to actual disputes.
+
+2. **Supreme Court Precedent and Equitable Considerations**:
+   - In *California Fish & Game Comm'n v. Sierra Club* (1976), the Supreme Court held that a declaratory judgment action can be dismissed if it would interfere with ongoing state prosecutions, as this could disrupt the orderly administration of justice.
+   - The principle of comity and equity also plays a role in such decisions, ensuring that federal courts do not unnecessarily interfere with state judicial processes.
+
+3. **Analysis of Options**:
+   - (A) This option aligns well with the principles from *California Fish & Game Comm'n v. Sierra Club*. It suggests that the declaratory relief would interfere with existing state prosecutions and thus be disallowed for reasons of equity and comity.
+   - (B) This is incorrect because it disregards the principle that a federal plaintiff must show a genuine threat of enforcement, which is not required in all circumstances.
+   - (C) While this option acknowledges the arrest of companions as evidence of a potential future threat, it does not address the broader principles of equity and comity that might lead to dismissal.
+   - (D) This option suggests premature relief based on speculative fears. However, the Supreme Court has recognized that declaratory judgments can be granted even if the fear is not entirely speculative, especially when there are concrete threats.
+
+4. **Conclusion**:
+Given the principles from *California Fish & Game Comm'n v. Sierra Club* and the need to respect state judicial processes, the most accurate answer is:
+
+**(A) Yes, the declaratory relief would interfere with existing state prosecutions and would therefore be disallowed for reasons of equity and comity.**
+
+This option correctly identifies that the federal district court might dismiss the action due to concerns about interfering with ongoing state proceedings.",0.0,"Analyze the question and provided information thoroughly, apply relevant concepts or calculations as needed, eliminate incorrect options logically, and select the most accurate answer from those available.",6
+"Planets X, Y and Z take 360, 450 and 540 days, respectively, to rotate around the same sun. If the three planets are lined up in a ray having the sun as its endpoint, what is the minimum positive number of days before they are all in the exact same locations again?
+(A) 360
+(B) 5400
+(C) 900
+(D) 1200",B,"To solve this problem, we need to find the least common multiple (LCM) of the orbital periods of planets X, Y, and Z. The LCM is the smallest positive integer that is divisible by each of the given numbers.
+
+The orbital periods are:
+- Planet X: 360 days
+- Planet Y: 450 days
+- Planet Z: 540 days
+
+First, we find the prime factorization of each number:
+
+1. **Prime Factorization**:
+   - \(360 = 2^3 \times 3^2 \times 5\)
+   - \(450 = 2 \times 3^2 \times 5^2\)
+   - \(540 = 2^2 \times 3^3 \times 5\)
+
+Next, we determine the LCM by taking the highest power of each prime factor that appears in any of the factorizations:
+
+- For \(2\), the highest power is \(2^3\) (from 360).
+- For \(3\), the highest power is \(3^3\) (from 540).
+- For \(5\), the highest power is \(5^2\) (from 450).
+
+Thus, the LCM is:
+\[ \text{LCM} = 2^3 \times 3^3 \times 5^2 \]
+
+Now we calculate this product:
+
+1. Calculate \(2^3\):
+   \[ 2^3 = 8 \]
+
+2. Calculate \(3^3\):
+   \[ 3^3 = 27 \]
+
+3. Calculate \(5^2\):
+   \[ 5^2 = 25 \]
+
+4. Multiply these together:
+   \[ 8 \times 27 = 216 \]
+   \[ 216 \times 25 = 5400 \]
+
+Therefore, the minimum positive number of days before planets X, Y, and Z are all in the exact same locations again is \(5400\) days.
+
+The correct answer is:
+\[
+\boxed{B}
+\]",1.0,"Analyze the question and provided information thoroughly, apply relevant concepts or calculations as needed, eliminate incorrect options logically, and select the most accurate answer from those available.",6

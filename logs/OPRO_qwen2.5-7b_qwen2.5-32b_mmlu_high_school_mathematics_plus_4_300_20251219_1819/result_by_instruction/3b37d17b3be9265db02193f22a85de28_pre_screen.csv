@@ -1,0 +1,200 @@
+input,target,prediction,accuracy,instruction,step
+"A nonconducting sphere is given a nonzero net electric charge, +Q, and then brought close to a neutral conducting sphere of the same radius. Which of the following will be true?
+(A) An electric field will be induced within the conducting sphere.
+(B) The conducting sphere will develop a net electric charge of –Q.
+(C) The spheres will experience an electrostatic attraction.
+(D) The spheres will experience an electrostatic repulsion.",C,"To analyze this question, let's consider the principles involved in electrostatics and how they apply to the given scenario.
+
+1. **Nonconducting Sphere with +Q Charge**: This sphere has a net positive charge of +Q. When brought close to another object (in this case, a neutral conducting sphere), it will induce charges on the surface of the conducting sphere due to the electric field created by the nonconducting sphere.
+
+2. **Conducting Sphere Initially Neutral**: A conducting sphere initially has no net charge. However, when placed in an electric field, free electrons within the conductor can move and rearrange themselves to counteract the external field as much as possible.
+
+3. **Induced Charges on Conducting Sphere**:
+   - When a positive charge is brought close to one side of a neutral conducting sphere, the electrons in the conductor will be repelled by the positive charge and move towards the opposite side.
+   - This movement of charges results in an induced negative charge on the side closest to the nonconducting sphere with +Q and an induced positive charge on the far side.
+
+4. **Electrostatic Forces**:
+   - The induced negative charge on the side of the conducting sphere nearest to the nonconducting sphere will experience a repulsive force from the +Q charge.
+   - The induced positive charge on the opposite side of the conducting sphere will experience an attractive force towards the +Q charge.
+
+5. **Net Electrostatic Force Between Spheres**:
+   - Due to the induced charges, there is both attraction and repulsion between the spheres. However, the overall effect is that the neutral conducting sphere will be attracted to the nonconducting sphere with a net positive charge because the attractive force due to the induced negative charge on its side is stronger than the repulsive force from the induced positive charge.
+
+Now let's evaluate each option:
+
+(A) **An electric field will be induced within the conducting sphere.**
+   - This statement is true, but it does not directly answer what happens between the two spheres.
+   
+(B) **The conducting sphere will develop a net electric charge of –Q.**
+   - The conducting sphere will have an induced negative charge on one side and a positive charge on the other, but these charges are not equal in magnitude to +Q; they are just induced due to proximity.
+
+(C) **The spheres will experience an electrostatic attraction.**
+   - This is correct because the net force between them is attractive due to the induced charges.
+
+(D) **The spheres will experience an electrostatic repulsion.**
+   - This is incorrect as explained above, there is a net attractive force.
+
+Therefore, the most precise answer based on the analysis and principles of electrostatics is:
+
+(C) The spheres will experience an electrostatic attraction.",0.0,"Analyze the question deeply, use relevant concepts or calculations as needed, eliminate incorrect options based on provided information, and select the most precise answer.",14
+"A law student and two friends were at a mall peacefully handing out fliers in protest of U.S. Middle East policy. The mall owner called the police, who warned them to stop or they would be arrested. They returned the next day and continued to leaflet. The police came again and issued another warning. The law student left to avoid arrest, but the police arrested his companions for criminal trespass and loitering. The law student, in an attempt to get an advance ruling on the constitutionality of the criminal statutes, filed a declaratory judgment action in federal court asking for declaratory relief. Based on Supreme Court precedent will the federal district court dismiss the declaratory judgment action?
+(A) Yes, the declaratory relief would interfere with existing state prosecutions and would therefore be disallowed for reasons of equity and comity.
+(B) No, because a federal plaintiff may seek a declaratory judgment even if he is not threatened with a state prosecution on the state statute.
+(C) No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.
+(D) Yes, the declaratory relief would be premature because the law student's fears of a future arrest are entirely speculative on his part.",C,"To answer this question accurately, we need to consider relevant legal principles, particularly those established by the U.S. Supreme Court regarding declaratory judgment actions and their application in cases involving potential criminal statutes.
+
+### Analysis:
+
+1. **Nature of Declaratory Judgment Action**: A declaratory judgment is a lawsuit brought to resolve an actual controversy between parties without waiting for a violation or enforcement action. The purpose is to clarify legal rights, status, or obligations.
+
+2. **Supreme Court Precedent**:
+   - **Blue Chip Stamps v. Manor Drug Co., 421 U.S. 723 (1975)**: This case established that a declaratory judgment action may be dismissed if it would interfere with pending or impending state criminal proceedings.
+   - **Warth v. Seldin, 422 U.S. 490 (1975)**: This case outlined the criteria for justiciability in declaratory judgments, emphasizing that there must be a real and immediate threat of enforcement.
+
+3. **Applying the Precedents**:
+   - The law student's companions were arrested, indicating an actual enforcement action by the state.
+   - The warnings given to the group suggest a genuine threat of future enforcement against them for violating criminal trespass and loitering laws.
+   - The fact that the law student left voluntarily to avoid arrest further supports the existence of a real and immediate threat.
+
+### Evaluating Each Option:
+
+- **(A) Yes, the declaratory relief would interfere with existing state prosecutions and would therefore be disallowed for reasons of equity and comity.**
+  - This option aligns with Blue Chip Stamps v. Manor Drug Co., which suggests that declaratory judgments can be dismissed if they interfere with ongoing or impending criminal proceedings.
+
+- **(B) No, because a federal plaintiff may seek a declaratory judgment even if he is not threatened with a state prosecution on the state statute.**
+  - This option does not consider the specific circumstances of the case and the potential interference with existing prosecutions.
+
+- **(C) No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.**
+  - While this statement is true, it does not address whether the declaratory judgment would interfere with ongoing or impending state criminal proceedings, which is a key factor in dismissing such actions.
+
+- **(D) Yes, the declaratory relief would be premature because the law student's fears of a future arrest are entirely speculative on his part.**
+  - This option suggests that the action is premature due to speculation, but it does not consider the actual enforcement actions and warnings against the group.
+
+### Conclusion:
+
+Given the Supreme Court precedent in Blue Chip Stamps v. Manor Drug Co., which emphasizes the need for avoiding interference with existing state prosecutions, the most precise answer is:
+
+**(A) Yes, the declaratory relief would interfere with existing state prosecutions and would therefore be disallowed for reasons of equity and comity.**",0.0,"Analyze the question deeply, use relevant concepts or calculations as needed, eliminate incorrect options based on provided information, and select the most precise answer.",14
+"How much work is required to charge a 10 µF capacitor to a potential difference of 100 V ?
+(A) 0.005 J
+(B) 0.01 J
+(C) 0.05 J
+(D) 0.1 J",C,"To determine the work required to charge a 10 µF capacitor to a potential difference of 100 V, we can use the formula for the energy stored in a capacitor:
+
+\[ U = \frac{1}{2} C V^2 \]
+
+where:
+- \( U \) is the energy (or work done),
+- \( C \) is the capacitance,
+- \( V \) is the potential difference.
+
+Given:
+- Capacitance, \( C = 10 \mu F = 10 \times 10^{-6} F \)
+- Potential difference, \( V = 100 V \)
+
+Substitute these values into the formula:
+
+\[ U = \frac{1}{2} \times (10 \times 10^{-6} F) \times (100 V)^2 \]
+
+Calculate step by step:
+\[ U = \frac{1}{2} \times 10 \times 10^{-6} \times 10000 \]
+\[ U = \frac{1}{2} \times 10 \times 10^{-2} \]
+\[ U = 5 \times 10^{-2} J \]
+\[ U = 0.05 J \]
+
+Therefore, the correct answer is:
+
+(C) 0.05 J",1.0,"Analyze the question deeply, use relevant concepts or calculations as needed, eliminate incorrect options based on provided information, and select the most precise answer.",14
+"What is the domain of the function $f(x)=\frac{x+6}{\sqrt{x^2-3x-4}}$?
+(A) (-4,4)
+(B) [0,4]
+(C) (-inf, -1) U (4, inf)
+(D) (-inf, -1) U (-1, 4) U (4, inf)",C,"To determine the domain of the function \( f(x) = \frac{x+6}{\sqrt{x^2-3x-4}} \), we need to ensure that both the denominator and the expression under the square root are valid. Specifically:
+
+1. The expression inside the square root, \( x^2 - 3x - 4 \), must be greater than zero because the square root of a negative number is not defined in the real numbers.
+2. The denominator cannot be zero.
+
+Let's start by solving the inequality for the expression under the square root:
+
+\[ x^2 - 3x - 4 > 0 \]
+
+First, factorize the quadratic equation \( x^2 - 3x - 4 \):
+
+\[ x^2 - 3x - 4 = (x - 4)(x + 1) \]
+
+So, we need to solve:
+
+\[ (x - 4)(x + 1) > 0 \]
+
+To find the intervals where this inequality holds true, we determine the roots of the equation \( (x - 4)(x + 1) = 0 \), which are \( x = 4 \) and \( x = -1 \). These roots divide the real number line into three intervals: \( (-\infty, -1) \), \( (-1, 4) \), and \( (4, \infty) \).
+
+Next, we test a point from each interval to determine where the inequality is satisfied:
+
+- For \( x < -1 \): Choose \( x = -2 \)
+  \[ (-2 - 4)(-2 + 1) = (-6)(-1) = 6 > 0 \]
+  
+- For \( -1 < x < 4 \): Choose \( x = 0 \)
+  \[ (0 - 4)(0 + 1) = (-4)(1) = -4 < 0 \]
+
+- For \( x > 4 \): Choose \( x = 5 \)
+  \[ (5 - 4)(5 + 1) = (1)(6) = 6 > 0 \]
+
+Thus, the inequality \( (x - 4)(x + 1) > 0 \) is satisfied in the intervals \( (-\infty, -1) \) and \( (4, \infty) \).
+
+Therefore, the domain of the function \( f(x) = \frac{x+6}{\sqrt{x^2-3x-4}} \) is:
+
+\[ (-\infty, -1) \cup (4, \infty) \]
+
+So, the correct answer is:
+
+(C) \((-inf, -1) U (4, inf)\)",1.0,"Analyze the question deeply, use relevant concepts or calculations as needed, eliminate incorrect options based on provided information, and select the most precise answer.",14
+"Planets X, Y and Z take 360, 450 and 540 days, respectively, to rotate around the same sun. If the three planets are lined up in a ray having the sun as its endpoint, what is the minimum positive number of days before they are all in the exact same locations again?
+(A) 360
+(B) 5400
+(C) 900
+(D) 1200",B,"To solve this problem, we need to find the least common multiple (LCM) of the orbital periods of planets X, Y, and Z. The LCM is the smallest positive integer that is divisible by each of the numbers without any remainder.
+
+The given orbital periods are:
+- Planet X: 360 days
+- Planet Y: 450 days
+- Planet Z: 540 days
+
+### Step-by-step Calculation:
+
+1. **Prime Factorization**:
+   - \(360 = 2^3 \times 3^2 \times 5\)
+   - \(450 = 2 \times 3^2 \times 5^2\)
+   - \(540 = 2^2 \times 3^3 \times 5\)
+
+2. **Identify the Highest Powers of Each Prime**:
+   - For \(2\), the highest power is \(2^3\) (from 360).
+   - For \(3\), the highest power is \(3^3\) (from 540).
+   - For \(5\), the highest power is \(5^2\) (from 450).
+
+3. **Calculate LCM**:
+   \[
+   \text{LCM} = 2^3 \times 3^3 \times 5^2
+   \]
+   - Calculate each part separately:
+     - \(2^3 = 8\)
+     - \(3^3 = 27\)
+     - \(5^2 = 25\)
+
+4. **Multiply the Results**:
+   \[
+   \text{LCM} = 8 \times 27 \times 25
+   \]
+   - First, multiply 8 and 27:
+     \[
+     8 \times 27 = 216
+     \]
+   - Then, multiply the result by 25:
+     \[
+     216 \times 25 = 5400
+     \]
+
+Thus, the least common multiple of 360, 450, and 540 is 5400.
+
+### Conclusion:
+
+The minimum positive number of days before planets X, Y, and Z are all in the exact same locations again is \(5400\) days. Therefore, the correct answer is (B) 5400.",1.0,"Analyze the question deeply, use relevant concepts or calculations as needed, eliminate incorrect options based on provided information, and select the most precise answer.",14

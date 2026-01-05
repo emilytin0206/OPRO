@@ -1,0 +1,206 @@
+input,target,prediction,accuracy,instruction,step
+"A law student and two friends were at a mall peacefully handing out fliers in protest of U.S. Middle East policy. The mall owner called the police, who warned them to stop or they would be arrested. They returned the next day and continued to leaflet. The police came again and issued another warning. The law student left to avoid arrest, but the police arrested his companions for criminal trespass and loitering. The law student, in an attempt to get an advance ruling on the constitutionality of the criminal statutes, filed a declaratory judgment action in federal court asking for declaratory relief. Based on Supreme Court precedent will the federal district court dismiss the declaratory judgment action?
+(A) Yes, the declaratory relief would interfere with existing state prosecutions and would therefore be disallowed for reasons of equity and comity.
+(B) No, because a federal plaintiff may seek a declaratory judgment even if he is not threatened with a state prosecution on the state statute.
+(C) No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.
+(D) Yes, the declaratory relief would be premature because the law student's fears of a future arrest are entirely speculative on his part.",C,"To answer this question accurately, we need to consider the legal principles surrounding declaratory judgment actions, particularly in light of Supreme Court precedent. The key points to analyze include:
+
+1. **Nature of Declaratory Judgment**: A declaratory judgment is a court order that determines the rights and obligations of parties without ordering any specific action or awarding damages.
+
+2. **Supreme Court Precedent**: The most relevant case here is *O'Shea v. Littleton* (414 U.S. 488, 1974), where the Supreme Court established that a declaratory judgment should not be granted if it would interfere with ongoing state prosecutions or would otherwise disrupt the normal course of judicial proceedings.
+
+3. **Threat of Enforcement**: The law student's companions were arrested for criminal trespass and loitering, which suggests there is an existing threat of enforcement against them under these statutes. However, this does not necessarily mean that the same threat applies to the law student himself, as his actions may be different or he might have a valid defense.
+
+4. **Speculative Nature**: The law student's fear of future arrest based on prior warnings and the arrests of his companions is not entirely speculative but can still be considered premature if there are no concrete facts indicating that he will face similar charges.
+
+Given these points, let’s analyze each option:
+
+(A) **Yes, the declaratory relief would interfere with existing state prosecutions and would therefore be disallowed for reasons of equity and comity.**
+- This is a strong argument because *O'Shea v. Littleton* suggests that courts should avoid issuing declarations that might disrupt ongoing legal proceedings.
+
+(B) **No, because a federal plaintiff may seek a declaratory judgment even if he is not threatened with a state prosecution on the state statute.**
+- While this statement is technically correct in general terms, it does not address the specific circumstances of the case where there is an existing threat against his companions and prior warnings.
+
+(C) **No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.**
+- This option acknowledges the existence of a potential threat but does not address whether this threat is sufficient to justify a declaratory judgment action under *O'Shea v. Littleton*.
+
+(D) **Yes, the declaratory relief would be premature because the law student's fears of a future arrest are entirely speculative on his part.**
+- This option suggests that the fear of future arrest is too speculative and does not provide enough certainty to justify a declaratory judgment at this stage.
+
+Considering *O'Shea v. Littleton* and the need for concrete threats, the most precise answer would be:
+
+**(A) Yes, the declaratory relief would interfere with existing state prosecutions and would therefore be disallowed for reasons of equity and comity.**
+
+This option aligns best with the Supreme Court's stance on avoiding declarations that might disrupt ongoing legal proceedings or state prosecutions.",0.0,"Analyze the question in detail, apply relevant theories or calculations as needed, eliminate incorrect options logically, and select the most precise answer based on the provided information.",16
+"What is the domain of the function $f(x)=\frac{x+6}{\sqrt{x^2-3x-4}}$?
+(A) (-4,4)
+(B) [0,4]
+(C) (-inf, -1) U (4, inf)
+(D) (-inf, -1) U (-1, 4) U (4, inf)",C,"To determine the domain of the function \( f(x) = \frac{x+6}{\sqrt{x^2-3x-4}} \), we need to ensure that both the denominator and the expression under the square root are valid. Specifically:
+
+1. The expression inside the square root, \( x^2 - 3x - 4 \), must be greater than zero because the square root of a negative number is not defined in the real numbers.
+2. The denominator cannot be zero.
+
+Let's start by solving the inequality \( x^2 - 3x - 4 > 0 \).
+
+### Step 1: Factorize the quadratic expression
+First, we factorize the quadratic equation:
+\[ x^2 - 3x - 4 = (x-4)(x+1) \]
+
+### Step 2: Determine where the factors are zero
+Set each factor to zero to find the critical points:
+\[ x - 4 = 0 \implies x = 4 \]
+\[ x + 1 = 0 \implies x = -1 \]
+
+These points divide the real number line into three intervals: \( (-\infty, -1) \), \( (-1, 4) \), and \( (4, \infty) \).
+
+### Step 3: Test each interval
+We need to determine where the product \((x-4)(x+1)\) is positive. We can test a point in each interval:
+
+- For \( x \in (-\infty, -1) \), choose \( x = -2 \):
+  \[ (x-4)(x+1) = (-2-4)(-2+1) = (-6)(-1) = 6 > 0 \]
+
+- For \( x \in (-1, 4) \), choose \( x = 0 \):
+  \[ (x-4)(x+1) = (0-4)(0+1) = (-4)(1) = -4 < 0 \]
+
+- For \( x \in (4, \infty) \), choose \( x = 5 \):
+  \[ (x-4)(x+1) = (5-4)(5+1) = (1)(6) = 6 > 0 \]
+
+### Step 4: Combine the results
+The expression \( x^2 - 3x - 4 \) is positive in the intervals \( (-\infty, -1) \) and \( (4, \infty) \).
+
+### Step 5: Ensure the denominator is not zero
+We need to exclude the points where the denominator is zero. From the factorization, we see that the denominator is zero at \( x = -1 \) and \( x = 4 \). Therefore, these points must be excluded from the domain.
+
+### Conclusion
+The domain of the function \( f(x) = \frac{x+6}{\sqrt{x^2-3x-4}} \) is:
+\[ (-\infty, -1) \cup (4, \infty) \]
+
+Thus, the correct answer is:
+\[
+\boxed{C}
+\]",1.0,"Analyze the question in detail, apply relevant theories or calculations as needed, eliminate incorrect options logically, and select the most precise answer based on the provided information.",16
+"A nonconducting sphere is given a nonzero net electric charge, +Q, and then brought close to a neutral conducting sphere of the same radius. Which of the following will be true?
+(A) An electric field will be induced within the conducting sphere.
+(B) The conducting sphere will develop a net electric charge of –Q.
+(C) The spheres will experience an electrostatic attraction.
+(D) The spheres will experience an electrostatic repulsion.",C,"To analyze this question, let's break down the scenario and apply relevant principles from electrostatics.
+
+### Scenario:
+- A nonconducting sphere with a net positive charge \(+Q\) is brought close to a neutral conducting sphere of the same radius.
+
+### Key Concepts:
+
+1. **Induced Charges in Conductors:**
+   - When a charged object (in this case, the nonconducting sphere) approaches a conductor, it induces charges on the surface of the conductor. The side of the conductor closest to the charge will develop an induced negative charge, and the far side will develop an induced positive charge.
+
+2. **Electric Field in Conductors:**
+   - In a conductor at electrostatic equilibrium, the electric field inside the material is zero. This means that any external electric fields are balanced by the internal charges rearranging themselves to cancel out the field within the conductor.
+
+3. **Electrostatic Forces Between Charges:**
+   - Like charges repel each other, and opposite charges attract each other.
+
+### Analysis of Each Option:
+
+- **(A) An electric field will be induced within the conducting sphere.**
+  - This is incorrect because in a conductor at electrostatic equilibrium, the internal electric field must be zero. The rearrangement of charges on the surface creates an external electric field but not an internal one.
+
+- **(B) The conducting sphere will develop a net electric charge of –Q.**
+  - This is also incorrect. While there will be induced charges on the surface of the conductor, these charges are distributed in such a way that they do not result in a net overall charge for the entire conductor. The total charge remains zero.
+
+- **(C) The spheres will experience an electrostatic attraction.**
+  - This is correct because the nonconducting sphere with \(+Q\) will induce a negative charge on the side of the conducting sphere closest to it, and this induced negative charge will attract the positive charge on the nonconducting sphere.
+
+- **(D) The spheres will experience an electrostatic repulsion.**
+  - This is incorrect because there is no net charge on the conducting sphere that would cause a repulsive force with the nonconducting sphere's \(+Q\).
+
+### Conclusion:
+The most precise answer based on the provided information and principles of electrostatics is:
+
+**(C) The spheres will experience an electrostatic attraction.**",0.0,"Analyze the question in detail, apply relevant theories or calculations as needed, eliminate incorrect options logically, and select the most precise answer based on the provided information.",16
+"How much work is required to charge a 10 µF capacitor to a potential difference of 100 V ?
+(A) 0.005 J
+(B) 0.01 J
+(C) 0.05 J
+(D) 0.1 J",C,"To solve this problem, we need to use the formula for the energy stored in a capacitor, which is given by:
+
+\[ U = \frac{1}{2} C V^2 \]
+
+where:
+- \( U \) is the energy (or work done),
+- \( C \) is the capacitance,
+- \( V \) is the potential difference.
+
+Given:
+- Capacitance (\(C\)) = 10 µF = \(10 \times 10^{-6}\) F
+- Potential Difference (\(V\)) = 100 V
+
+Now, substitute these values into the formula:
+
+\[ U = \frac{1}{2} \times (10 \times 10^{-6}) \times (100)^2 \]
+
+First, calculate \(100^2\):
+
+\[ 100^2 = 10000 \]
+
+Then multiply by the capacitance:
+
+\[ U = \frac{1}{2} \times (10 \times 10^{-6}) \times 10000 \]
+\[ U = \frac{1}{2} \times 10 \times 10^{-3} \]
+\[ U = 5 \times 10^{-3} \text{ J} \]
+
+So, the work required to charge the capacitor is:
+
+\[ U = 0.005 \text{ J} \]
+
+Therefore, the correct answer is (A) 0.005 J.",0.0,"Analyze the question in detail, apply relevant theories or calculations as needed, eliminate incorrect options logically, and select the most precise answer based on the provided information.",16
+"Planets X, Y and Z take 360, 450 and 540 days, respectively, to rotate around the same sun. If the three planets are lined up in a ray having the sun as its endpoint, what is the minimum positive number of days before they are all in the exact same locations again?
+(A) 360
+(B) 5400
+(C) 900
+(D) 1200",B,"To solve this problem, we need to determine the least common multiple (LCM) of the orbital periods of planets X, Y, and Z. The LCM is the smallest positive integer that is divisible by each of the given numbers.
+
+The orbital periods are:
+- Planet X: 360 days
+- Planet Y: 450 days
+- Planet Z: 540 days
+
+### Step-by-step Calculation:
+
+1. **Prime Factorization**:
+   - \(360 = 2^3 \times 3^2 \times 5\)
+   - \(450 = 2 \times 3^2 \times 5^2\)
+   - \(540 = 2^2 \times 3^3 \times 5\)
+
+2. **Identify the Highest Powers of Each Prime**:
+   - For \(2\): The highest power is \(2^3\) (from 360).
+   - For \(3\): The highest power is \(3^3\) (from 540).
+   - For \(5\): The highest power is \(5^2\) (from 450).
+
+3. **Calculate the LCM**:
+   \[
+   \text{LCM} = 2^3 \times 3^3 \times 5^2
+   \]
+   - Calculate each part separately:
+     - \(2^3 = 8\)
+     - \(3^3 = 27\)
+     - \(5^2 = 25\)
+
+4. **Multiply the Results**:
+   \[
+   \text{LCM} = 8 \times 27 \times 25
+   \]
+   - First, multiply 8 and 27:
+     \[
+     8 \times 27 = 216
+     \]
+   - Then, multiply the result by 25:
+     \[
+     216 \times 25 = 5400
+     \]
+
+Thus, the minimum positive number of days before planets X, Y, and Z are all in the exact same locations again is \(5400\) days.
+
+### Conclusion:
+
+The correct answer is (B) 5400.",1.0,"Analyze the question in detail, apply relevant theories or calculations as needed, eliminate incorrect options logically, and select the most precise answer based on the provided information.",16

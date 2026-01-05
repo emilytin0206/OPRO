@@ -1,0 +1,154 @@
+input,target,prediction,accuracy,instruction,step
+"A nonconducting sphere is given a nonzero net electric charge, +Q, and then brought close to a neutral conducting sphere of the same radius. Which of the following will be true?
+(A) An electric field will be induced within the conducting sphere.
+(B) The conducting sphere will develop a net electric charge of –Q.
+(C) The spheres will experience an electrostatic attraction.
+(D) The spheres will experience an electrostatic repulsion.",C,"To analyze this question, let's break down the scenario and apply relevant concepts from electrostatics.
+
+1. **Nonconducting Sphere with +Q Charge**: This sphere has a net positive charge of +Q. When brought close to another object (in this case, a neutral conducting sphere), it will induce charges on the surface of the conducting sphere due to the electric field created by the nonconducting sphere.
+
+2. **Neutral Conducting Sphere**: A conductor's property is that its free electrons can move freely throughout the material. In response to an external electric field (such as from the +Q charge), these free electrons will rearrange themselves on the surface of the conducting sphere, creating induced charges.
+
+3. **Induced Charges in a Conductor**:
+   - When a positive charge is brought close to one side of a neutral conductor, negative charges are attracted to that side and positive charges (if any) are repelled to the opposite side.
+   - This rearrangement results in an internal electric field within the conductor being canceled out by the induced charges on its surface.
+
+4. **Options Analysis**:
+   - **(A) An electric field will be induced within the conducting sphere**: While there is a net charge distribution, the free electrons inside the conductor will move to cancel any internal electric field, so this statement is not entirely accurate.
+   - **(B) The conducting sphere will develop a net electric charge of –Q**: This is incorrect because the total charge on the system must be conserved. The nonconducting sphere has +Q and the conducting sphere starts with 0 net charge; thus, it cannot end up with exactly –Q without violating conservation of charge.
+   - **(C) The spheres will experience an electrostatic attraction**: This is correct because a positive charge (+Q) on one sphere will induce a negative charge (–Q) on the side closest to the +Q charge and a positive charge (+Q) on the opposite side. These induced charges create an attractive force between the two spheres.
+   - **(D) The spheres will experience an electrostatic repulsion**: This is incorrect because, as explained above, the induced charges will result in an attractive force.
+
+Therefore, based on the principles of electrostatics and the behavior of conductors in the presence of external electric fields, the most accurate answer is:
+
+**(C) The spheres will experience an electrostatic attraction.**",0.0,"Analyze the question or passage thoroughly, apply relevant concepts or historical context as needed, eliminate incorrect options logically, and select the most accurate answer from those provided based on the information given.",15
+"What is the domain of the function $f(x)=\frac{x+6}{\sqrt{x^2-3x-4}}$?
+(A) (-4,4)
+(B) [0,4]
+(C) (-inf, -1) U (4, inf)
+(D) (-inf, -1) U (-1, 4) U (4, inf)",C,"To determine the domain of the function \( f(x) = \frac{x+6}{\sqrt{x^2-3x-4}} \), we need to ensure that both the denominator and the expression under the square root are valid. Specifically:
+
+1. The expression inside the square root, \( x^2 - 3x - 4 \), must be greater than zero because the square root of a negative number is not defined in the real numbers.
+2. The denominator cannot be zero.
+
+Let's start by solving the inequality \( x^2 - 3x - 4 > 0 \).
+
+First, factorize the quadratic expression:
+\[ x^2 - 3x - 4 = (x-4)(x+1) \]
+
+Next, determine where this product is greater than zero. The roots of the equation \( (x-4)(x+1) = 0 \) are \( x = 4 \) and \( x = -1 \). These roots divide the real number line into three intervals: \( (-\infty, -1) \), \( (-1, 4) \), and \( (4, \infty) \).
+
+We test a point in each interval to determine where the expression is positive:
+- For \( x < -1 \): Choose \( x = -2 \). Then, \( (x-4)(x+1) = (-2-4)(-2+1) = (-6)(-1) = 6 > 0 \).
+- For \( -1 < x < 4 \): Choose \( x = 0 \). Then, \( (x-4)(x+1) = (0-4)(0+1) = (-4)(1) = -4 < 0 \).
+- For \( x > 4 \): Choose \( x = 5 \). Then, \( (x-4)(x+1) = (5-4)(5+1) = (1)(6) = 6 > 0 \).
+
+Thus, the expression \( x^2 - 3x - 4 > 0 \) is true for \( x \in (-\infty, -1) \cup (4, \infty) \).
+
+Since the denominator cannot be zero and we have already ensured that it is positive in these intervals, the domain of the function \( f(x) = \frac{x+6}{\sqrt{x^2-3x-4}} \) is:
+
+\[ (-\infty, -1) \cup (4, \infty) \]
+
+Therefore, the correct answer is:
+(C) \((-inf, -1) U (4, inf)\).",1.0,"Analyze the question or passage thoroughly, apply relevant concepts or historical context as needed, eliminate incorrect options logically, and select the most accurate answer from those provided based on the information given.",15
+"A law student and two friends were at a mall peacefully handing out fliers in protest of U.S. Middle East policy. The mall owner called the police, who warned them to stop or they would be arrested. They returned the next day and continued to leaflet. The police came again and issued another warning. The law student left to avoid arrest, but the police arrested his companions for criminal trespass and loitering. The law student, in an attempt to get an advance ruling on the constitutionality of the criminal statutes, filed a declaratory judgment action in federal court asking for declaratory relief. Based on Supreme Court precedent will the federal district court dismiss the declaratory judgment action?
+(A) Yes, the declaratory relief would interfere with existing state prosecutions and would therefore be disallowed for reasons of equity and comity.
+(B) No, because a federal plaintiff may seek a declaratory judgment even if he is not threatened with a state prosecution on the state statute.
+(C) No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.
+(D) Yes, the declaratory relief would be premature because the law student's fears of a future arrest are entirely speculative on his part.",C,"To answer this question accurately, we need to consider several legal principles, particularly those related to declaratory judgment actions and the standards for obtaining such relief. The key Supreme Court precedent here is likely derived from the Declaratory Judgment Act (D.J.A.) of 1934, which was designed to provide a means for individuals to seek clarification on their rights without having to wait until they are actually threatened with prosecution.
+
+Let's analyze each option:
+
+(A) **Yes, the declaratory relief would interfere with existing state prosecutions and would therefore be disallowed for reasons of equity and comity.**
+- This option suggests that the federal court should dismiss the action because it might interfere with ongoing state proceedings. However, this reasoning is more applicable to cases where a declaratory judgment could directly impact an ongoing criminal prosecution or administrative proceeding. In this scenario, the law student has not been prosecuted yet; his companions have.
+
+(B) **No, because a federal plaintiff may seek a declaratory judgment even if he is not threatened with a state prosecution on the state statute.**
+- This option is incorrect as it does not consider the specific circumstances of the case and the potential for interference in ongoing proceedings.
+
+(C) **No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.**
+- This option seems plausible at first glance but needs to be scrutinized further. While it is true that the law student has shown a potential threat based on the actions taken against his friends, this alone might not be sufficient for obtaining declaratory relief if there's no immediate or imminent danger of prosecution.
+
+(D) **Yes, the declaratory relief would be premature because the law student's fears of a future arrest are entirely speculative on his part.**
+- This option is based on the principle that a declaratory judgment should not be granted when the threat of enforcement is merely speculative and there isn't an immediate or imminent danger of prosecution.
+
+Given these considerations, the most accurate answer is:
+
+**(D) Yes, the declaratory relief would be premature because the law student's fears of a future arrest are entirely speculative on his part.**
+
+This option correctly identifies that while the law student has shown some basis for concern (the arrests and warnings), the fear of future prosecution is not sufficiently imminent or certain to justify seeking declaratory relief at this stage, especially in light of Supreme Court precedent which generally requires a more concrete threat before granting such relief.",0.0,"Analyze the question or passage thoroughly, apply relevant concepts or historical context as needed, eliminate incorrect options logically, and select the most accurate answer from those provided based on the information given.",15
+"How much work is required to charge a 10 µF capacitor to a potential difference of 100 V ?
+(A) 0.005 J
+(B) 0.01 J
+(C) 0.05 J
+(D) 0.1 J",C,"To solve this problem, we need to use the formula for the energy stored in a capacitor, which is given by:
+
+\[ U = \frac{1}{2} C V^2 \]
+
+where:
+- \( U \) is the energy (work done),
+- \( C \) is the capacitance,
+- \( V \) is the potential difference.
+
+Given:
+- Capacitance (\(C\)) = 10 µF = \(10 \times 10^{-6}\) F
+- Potential Difference (\(V\)) = 100 V
+
+Substituting these values into the formula:
+
+\[ U = \frac{1}{2} \times (10 \times 10^{-6}) \times (100)^2 \]
+
+First, calculate \(100^2\):
+
+\[ 100^2 = 10000 \]
+
+Now substitute this back into the equation:
+
+\[ U = \frac{1}{2} \times (10 \times 10^{-6}) \times 10000 \]
+\[ U = \frac{1}{2} \times 10 \times 10^{-6} \times 10000 \]
+\[ U = \frac{1}{2} \times 10 \times 10^{-2} \]
+\[ U = \frac{1}{2} \times 0.1 \]
+\[ U = 0.05 \, \text{J} \]
+
+Therefore, the correct answer is:
+
+(C) 0.05 J",1.0,"Analyze the question or passage thoroughly, apply relevant concepts or historical context as needed, eliminate incorrect options logically, and select the most accurate answer from those provided based on the information given.",15
+"Planets X, Y and Z take 360, 450 and 540 days, respectively, to rotate around the same sun. If the three planets are lined up in a ray having the sun as its endpoint, what is the minimum positive number of days before they are all in the exact same locations again?
+(A) 360
+(B) 5400
+(C) 900
+(D) 1200",B,"To solve this problem, we need to find the least common multiple (LCM) of the orbital periods of planets X, Y, and Z. The LCM is the smallest positive integer that is divisible by each of the numbers without any remainder.
+
+The given orbital periods are:
+- Planet X: 360 days
+- Planet Y: 450 days
+- Planet Z: 540 days
+
+Let's find the prime factorization of each number:
+
+1. **Prime Factorization**:
+   - \(360 = 2^3 \times 3^2 \times 5\)
+   - \(450 = 2 \times 3^2 \times 5^2\)
+   - \(540 = 2^2 \times 3^3 \times 5\)
+
+2. **Finding the LCM**:
+   To find the LCM, we take the highest power of each prime factor that appears in any of the numbers.
+   - The highest power of 2 is \(2^3\) (from 360).
+   - The highest power of 3 is \(3^3\) (from 540).
+   - The highest power of 5 is \(5^2\) (from 450).
+
+Therefore, the LCM is:
+\[ \text{LCM} = 2^3 \times 3^3 \times 5^2 \]
+
+Calculating this product step-by-step:
+- First, calculate \(2^3 = 8\).
+- Next, calculate \(3^3 = 27\).
+- Then, calculate \(5^2 = 25\).
+
+Now multiply these together:
+\[ 8 \times 27 = 216 \]
+\[ 216 \times 25 = 5400 \]
+
+Thus, the minimum positive number of days before planets X, Y, and Z are all in the exact same locations again is \(5400\) days.
+
+Therefore, the correct answer is:
+(B) 5400",1.0,"Analyze the question or passage thoroughly, apply relevant concepts or historical context as needed, eliminate incorrect options logically, and select the most accurate answer from those provided based on the information given.",15

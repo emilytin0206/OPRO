@@ -1,0 +1,161 @@
+input,target,prediction,accuracy,instruction,step
+"What is the domain of the function $f(x)=\frac{x+6}{\sqrt{x^2-3x-4}}$?
+(A) (-4,4)
+(B) [0,4]
+(C) (-inf, -1) U (4, inf)
+(D) (-inf, -1) U (-1, 4) U (4, inf)",C,"To determine the domain of the function \( f(x) = \frac{x+6}{\sqrt{x^2-3x-4}} \), we need to ensure that both the denominator and the expression under the square root are valid. Specifically:
+
+1. The expression inside the square root, \( x^2 - 3x - 4 \), must be greater than zero because the square root of a negative number is not defined in the real numbers.
+2. The denominator cannot be zero.
+
+Let's start by solving the inequality \( x^2 - 3x - 4 > 0 \).
+
+First, factorize the quadratic expression:
+\[ x^2 - 3x - 4 = (x-4)(x+1) \]
+
+Next, determine where this product is greater than zero. The roots of the equation \( (x-4)(x+1) = 0 \) are \( x = 4 \) and \( x = -1 \). These roots divide the real number line into three intervals: \( (-\infty, -1) \), \( (-1, 4) \), and \( (4, \infty) \).
+
+We test a point in each interval to determine where the expression is positive:
+- For \( x < -1 \): Choose \( x = -2 \). Then, \( (x-4)(x+1) = (-2-4)(-2+1) = (-6)(-1) = 6 > 0 \).
+- For \( -1 < x < 4 \): Choose \( x = 0 \). Then, \( (x-4)(x+1) = (0-4)(0+1) = (-4)(1) = -4 < 0 \).
+- For \( x > 4 \): Choose \( x = 5 \). Then, \( (x-4)(x+1) = (5-4)(5+1) = (1)(6) = 6 > 0 \).
+
+Thus, the expression \( x^2 - 3x - 4 > 0 \) is true for \( x \in (-\infty, -1) \cup (4, \infty) \).
+
+Since the denominator cannot be zero and we have already ensured that it is positive in these intervals, the domain of the function \( f(x) = \frac{x+6}{\sqrt{x^2-3x-4}} \) is:
+
+\[ (-\infty, -1) \cup (4, \infty) \]
+
+Therefore, the correct answer is:
+\[
+\boxed{C}
+\]",1.0,"Analyze the question carefully, apply relevant concepts or calculations, eliminate incorrect options logically, and select the most accurate answer based on the provided information.",3
+"How much work is required to charge a 10 µF capacitor to a potential difference of 100 V ?
+(A) 0.005 J
+(B) 0.01 J
+(C) 0.05 J
+(D) 0.1 J",C,"To determine the work required to charge a capacitor, we can use the formula for the energy stored in a capacitor:
+
+\[ U = \frac{1}{2} C V^2 \]
+
+where:
+- \( U \) is the energy (or work done),
+- \( C \) is the capacitance,
+- \( V \) is the potential difference.
+
+Given:
+- Capacitance, \( C = 10 \mu F = 10 \times 10^{-6} F \)
+- Potential difference, \( V = 100 V \)
+
+Substitute these values into the formula:
+
+\[ U = \frac{1}{2} \times (10 \times 10^{-6} F) \times (100 V)^2 \]
+
+Calculate step by step:
+\[ U = \frac{1}{2} \times 10 \times 10^{-6} \times 10000 \]
+\[ U = \frac{1}{2} \times 10 \times 10^{-2} \]
+\[ U = \frac{1}{2} \times 0.1 \]
+\[ U = 0.05 J \]
+
+Therefore, the correct answer is:
+
+(C) 0.05 J",1.0,"Analyze the question carefully, apply relevant concepts or calculations, eliminate incorrect options logically, and select the most accurate answer based on the provided information.",3
+"A law student and two friends were at a mall peacefully handing out fliers in protest of U.S. Middle East policy. The mall owner called the police, who warned them to stop or they would be arrested. They returned the next day and continued to leaflet. The police came again and issued another warning. The law student left to avoid arrest, but the police arrested his companions for criminal trespass and loitering. The law student, in an attempt to get an advance ruling on the constitutionality of the criminal statutes, filed a declaratory judgment action in federal court asking for declaratory relief. Based on Supreme Court precedent will the federal district court dismiss the declaratory judgment action?
+(A) Yes, the declaratory relief would interfere with existing state prosecutions and would therefore be disallowed for reasons of equity and comity.
+(B) No, because a federal plaintiff may seek a declaratory judgment even if he is not threatened with a state prosecution on the state statute.
+(C) No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.
+(D) Yes, the declaratory relief would be premature because the law student's fears of a future arrest are entirely speculative on his part.",C,"To answer this question accurately, we need to consider several legal principles, particularly those related to declaratory judgment actions and the standards for obtaining such relief. Let’s analyze each option:
+
+(A) **Yes, the declaratory relief would interfere with existing state prosecutions and would therefore be disallowed for reasons of equity and comity.**
+- This option suggests that a federal court should dismiss the action because it might interfere with ongoing state proceedings. However, this is not necessarily true based on Supreme Court precedent. The doctrine of ""equity and comity"" does not automatically bar declaratory relief in every case where there are pending or threatened state prosecutions.
+
+(B) **No, because a federal plaintiff may seek a declaratory judgment even if he is not threatened with a state prosecution on the state statute.**
+- This option is incorrect as it misinterprets the legal standards for seeking declaratory judgments. The availability of declaratory relief does depend on whether there is an actual or imminent threat of enforcement.
+
+(C) **No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.**
+- This option seems to align with legal principles. The Supreme Court has recognized that declaratory relief may be granted when there is a ""genuine"" or ""real and immediate"" threat of enforcement. The fact that the law student's friends were arrested and he received warnings provides evidence of such a threat.
+
+(D) **Yes, the declaratory relief would be premature because the law student's fears of a future arrest are entirely speculative on his part.**
+- This option suggests that the action should be dismissed due to the speculative nature of the law student’s fears. However, the Supreme Court has held that a plaintiff can seek declaratory relief based on a reasonable apprehension of enforcement, not just actual enforcement.
+
+Given these considerations, the most accurate answer is:
+
+**C) No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.**
+
+This option correctly applies the legal standards for obtaining declaratory relief based on the existence of a genuine threat of enforcement.",0.0,"Analyze the question carefully, apply relevant concepts or calculations, eliminate incorrect options logically, and select the most accurate answer based on the provided information.",3
+"A nonconducting sphere is given a nonzero net electric charge, +Q, and then brought close to a neutral conducting sphere of the same radius. Which of the following will be true?
+(A) An electric field will be induced within the conducting sphere.
+(B) The conducting sphere will develop a net electric charge of –Q.
+(C) The spheres will experience an electrostatic attraction.
+(D) The spheres will experience an electrostatic repulsion.",C,"To analyze this question, let's consider the principles involved in electrostatics and how they apply to the given scenario.
+
+1. **Induced Electric Field (Option A):**
+   - When a nonconducting sphere with a net positive charge +Q is brought close to a neutral conducting sphere, an electric field will indeed be induced within the conducting sphere. This is because the presence of the charged sphere will cause charges in the conducting sphere to rearrange themselves due to electrostatic forces.
+
+2. **Net Electric Charge on the Conducting Sphere (Option B):**
+   - A neutral conducting sphere will not develop a net charge of –Q when brought close to another charged object. Instead, it will redistribute its charges such that the electric field inside the conductor is zero. This means positive charges will move towards the side closer to the +Q sphere and negative charges will move to the opposite side.
+
+3. **Electrostatic Forces (Options C & D):**
+   - The spheres will experience an electrostatic force due to their charges, but this force can be either attractive or repulsive depending on the signs of the charges.
+     - Since one sphere is positively charged (+Q) and the other is initially neutral, the induced charges in the conducting sphere will result in a net positive charge on the side closer to +Q and a net negative charge on the opposite side. This setup creates an attractive force between the two spheres because like charges repel and unlike charges attract.
+
+Given these points:
+
+- Option A is correct as an electric field will be induced within the conducting sphere.
+- Option B is incorrect; the conducting sphere does not develop a net charge of –Q.
+- Options C and D both describe electrostatic forces, but since the force between a positive (+Q) and a negative (induced -Q on one side) charge is attractive, option C is correct.
+
+Therefore, the most accurate answer based on the provided information is:
+
+(C) The spheres will experience an electrostatic attraction.",1.0,"Analyze the question carefully, apply relevant concepts or calculations, eliminate incorrect options logically, and select the most accurate answer based on the provided information.",3
+"Planets X, Y and Z take 360, 450 and 540 days, respectively, to rotate around the same sun. If the three planets are lined up in a ray having the sun as its endpoint, what is the minimum positive number of days before they are all in the exact same locations again?
+(A) 360
+(B) 5400
+(C) 900
+(D) 1200",B,"To solve this problem, we need to find the least common multiple (LCM) of the orbital periods of planets X, Y, and Z. The LCM is the smallest positive integer that is divisible by each of the numbers without any remainder.
+
+The given orbital periods are:
+- Planet X: 360 days
+- Planet Y: 450 days
+- Planet Z: 540 days
+
+First, we find the prime factorization of each number:
+
+1. **Prime Factorization**:
+   - \(360 = 2^3 \times 3^2 \times 5\)
+   - \(450 = 2 \times 3^2 \times 5^2\)
+   - \(540 = 2^2 \times 3^3 \times 5\)
+
+Next, we determine the LCM by taking the highest power of each prime factor that appears in any of the factorizations:
+
+- The highest power of 2 is \(2^3\) (from 360).
+- The highest power of 3 is \(3^3\) (from 540).
+- The highest power of 5 is \(5^2\) (from 450).
+
+Thus, the LCM is:
+\[ \text{LCM} = 2^3 \times 3^3 \times 5^2 \]
+
+Now we calculate this product:
+
+\[
+2^3 = 8
+\]
+\[
+3^3 = 27
+\]
+\[
+5^2 = 25
+\]
+
+Multiplying these together:
+\[
+8 \times 27 = 216
+\]
+\[
+216 \times 25 = 5400
+\]
+
+Therefore, the minimum positive number of days before planets X, Y, and Z are all in the exact same locations again is \(5400\) days.
+
+The correct answer is:
+(B) 5400",1.0,"Analyze the question carefully, apply relevant concepts or calculations, eliminate incorrect options logically, and select the most accurate answer based on the provided information.",3

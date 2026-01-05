@@ -65,7 +65,13 @@ def load_dataset(dataset_cfg):
                 df = pd.read_csv(file_path, header=None)
                 subset_name = os.path.basename(file_path).replace(f"_{split}.csv", "")
                 
-                for _, row in df.iterrows():
+                # [Fix] 實作 train_limit 邏輯
+                limit = dataset_cfg.train_limit
+                if limit != 'all' and isinstance(limit, int):
+                    # 如果該檔案筆數不夠，df.head(limit) 會自動回傳所有筆數 (即全拿)
+                    df = df.head(limit)
+                
+                for _, row in df.iterrows():    
                     question = str(row[0])
                     options = f"(A) {str(row[1])}\n(B) {str(row[2])}\n(C) {str(row[3])}\n(D) {str(row[4])}"
                     full_input = f"{question}\n{options}"

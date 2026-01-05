@@ -1,0 +1,43 @@
+project:
+  log_dir: ./logs/OPRO_qwen2.5-7b_qwen2.5-32b_mmlu_high_school_mathematics_plus_4_100_20251231_1958
+dataset:
+  name: mmlu
+  split: test
+  subsets:
+  - high_school_mathematics
+  - high_school_world_history
+  - high_school_physics
+  - professional_law
+  - business_ethics
+  train_limit: 100
+  data_root: ./data
+scorer_model:
+  client_type: Ollama
+  model_name: qwen2.5:7b
+  api_url: http://localhost:11434/api/chat
+  temperature: 0.0
+  max_output_tokens: 1024
+optimizer_model:
+  client_type: Ollama
+  model_name: qwen2.5:32b
+  api_url: http://localhost:11434/api/chat
+  temperature: 0.7
+  max_output_tokens: 2048
+optimization:
+  num_iterations: 20
+  num_prompts_to_generate: 8
+  max_num_instructions_in_prompt: 20
+  meta_prompt_path: prompt/meta_prompt.txt
+  eval_interval: 3
+  task_name: ''
+  dataset_name: ''
+  instruction_pos: Q_begin
+  is_instruction_tuned: true
+  num_few_shot_questions: 3
+  few_shot_selection_criteria: random
+  initial_instructions:
+  - Let's think step by step.
+  - Solve this problem carefully.
+  - Provide a detailed answer.
+  - Answer the question directly.
+  old_instruction_score_threshold: 0.1

@@ -14,15 +14,17 @@ dataset:
   
   # [MMLU 專用] 指定子集。若為 'all' 則載入全部，或列表指定特定子集
   subsets: 
+  # all
+      - "high_school_mathematics"
       - "high_school_world_history"      # 歷史 (文科)
       - "high_school_physics"      # 物理 (理科)
       - "professional_law"         # 法律 (邏輯與條文)
       - "business_ethics"          # 商業 (常識判斷)
-    # - 'all' 
-  
+      
+
   # [關鍵設定] 訓練集筆數限制。設為整數 (如 50) 或 'all' (全部)
   # 這會決定從載入的資料中取出多少筆作為 OPRO 的優化訓練集
-  train_limit: 300
+  train_limit: 100
 
 # ----------------------------------------------------
 # Scorer Model

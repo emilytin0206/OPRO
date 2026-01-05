@@ -1,0 +1,181 @@
+input,target,prediction,accuracy,instruction,step
+"A law student and two friends were at a mall peacefully handing out fliers in protest of U.S. Middle East policy. The mall owner called the police, who warned them to stop or they would be arrested. They returned the next day and continued to leaflet. The police came again and issued another warning. The law student left to avoid arrest, but the police arrested his companions for criminal trespass and loitering. The law student, in an attempt to get an advance ruling on the constitutionality of the criminal statutes, filed a declaratory judgment action in federal court asking for declaratory relief. Based on Supreme Court precedent will the federal district court dismiss the declaratory judgment action?
+(A) Yes, the declaratory relief would interfere with existing state prosecutions and would therefore be disallowed for reasons of equity and comity.
+(B) No, because a federal plaintiff may seek a declaratory judgment even if he is not threatened with a state prosecution on the state statute.
+(C) No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.
+(D) Yes, the declaratory relief would be premature because the law student's fears of a future arrest are entirely speculative on his part.",C,"To answer this question accurately, we need to consider the principles related to declaratory judgment actions under federal law, particularly as they relate to the Declaratory Judgment Act (DJA) and Supreme Court precedents.
+
+The Declaratory Judgment Act allows a person ""to have determined any actual controversy"" that is legally capable of determination. However, there are limitations on when such an action can be brought, especially in light of potential state prosecutions or future enforcement actions.
+
+Let's analyze each option:
+
+(A) Yes, the declaratory relief would interfere with existing state prosecutions and would therefore be disallowed for reasons of equity and comity.
+- This option suggests that the federal court should dismiss the case because it might interfere with ongoing state proceedings. However, this is not necessarily a valid reason to dismiss a declaratory judgment action if there's an actual controversy.
+
+(B) No, because a federal plaintiff may seek a declaratory judgment even if he is not threatened with a state prosecution on the state statute.
+- This option is incorrect as it does not consider the specific circumstances of the case. The law student is indeed facing a genuine threat based on his companions' arrest and prior warnings.
+
+(C) No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.
+- This option correctly identifies that there is a genuine threat to the law student. The Supreme Court has recognized that declaratory judgments may be granted when there's an actual controversy and a real threat of enforcement.
+
+(D) Yes, the declaratory relief would be premature because the law student's fears of a future arrest are entirely speculative on his part.
+- This option suggests that the action is premature due to speculation. However, the Supreme Court has held that a declaratory judgment can be granted even if there is no immediate threat but a genuine and imminent danger of enforcement.
+
+Given these considerations, the most precise answer based on Supreme Court precedent would be:
+
+(C) No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.",0.0,"Analyze the problem statement carefully, apply relevant concepts or calculations as needed, eliminate incorrect options based on the given information, and select the most precise answer from those provided.",12
+"What is the domain of the function $f(x)=\frac{x+6}{\sqrt{x^2-3x-4}}$?
+(A) (-4,4)
+(B) [0,4]
+(C) (-inf, -1) U (4, inf)
+(D) (-inf, -1) U (-1, 4) U (4, inf)",C,"To determine the domain of the function \( f(x) = \frac{x+6}{\sqrt{x^2-3x-4}} \), we need to ensure that both the denominator and the expression under the square root are valid. Specifically:
+
+1. The expression inside the square root, \( x^2 - 3x - 4 \), must be greater than zero because the square root of a negative number is not defined in the real numbers.
+2. The denominator cannot be zero.
+
+First, let's solve for when the expression under the square root is greater than zero:
+
+\[ x^2 - 3x - 4 > 0 \]
+
+We start by finding the roots of the quadratic equation \( x^2 - 3x - 4 = 0 \):
+
+\[ x^2 - 3x - 4 = (x-4)(x+1) = 0 \]
+
+So, the roots are:
+
+\[ x = 4 \quad \text{and} \quad x = -1 \]
+
+Next, we analyze the sign of \( x^2 - 3x - 4 \) in the intervals determined by these roots: \( (-\infty, -1) \), \( (-1, 4) \), and \( (4, \infty) \).
+
+- For \( x < -1 \): Choose a test point, say \( x = -2 \):
+  \[ (-2)^2 - 3(-2) - 4 = 4 + 6 - 4 = 6 > 0 \]
+  
+- For \( -1 < x < 4 \): Choose a test point, say \( x = 0 \):
+  \[ 0^2 - 3(0) - 4 = -4 < 0 \]
+
+- For \( x > 4 \): Choose a test point, say \( x = 5 \):
+  \[ 5^2 - 3(5) - 4 = 25 - 15 - 4 = 6 > 0 \]
+
+Thus, the expression \( x^2 - 3x - 4 \) is greater than zero in the intervals \( (-\infty, -1) \) and \( (4, \infty) \).
+
+Therefore, the domain of the function \( f(x) = \frac{x+6}{\sqrt{x^2-3x-4}} \) is:
+
+\[ x \in (-\infty, -1) \cup (4, \infty) \]
+
+So, the correct answer is:
+
+(C) \((-inf, -1) U (4, inf)\)",1.0,"Analyze the problem statement carefully, apply relevant concepts or calculations as needed, eliminate incorrect options based on the given information, and select the most precise answer from those provided.",12
+"A nonconducting sphere is given a nonzero net electric charge, +Q, and then brought close to a neutral conducting sphere of the same radius. Which of the following will be true?
+(A) An electric field will be induced within the conducting sphere.
+(B) The conducting sphere will develop a net electric charge of –Q.
+(C) The spheres will experience an electrostatic attraction.
+(D) The spheres will experience an electrostatic repulsion.",C,"To solve this problem, let's analyze each option based on the principles of electrostatics and the behavior of conductors in the presence of charges.
+
+1. **Option (A): An electric field will be induced within the conducting sphere.**
+   - When a nonconducting sphere with a net positive charge +Q is brought close to a neutral conducting sphere, an electric field is indeed induced within the conducting sphere due to the influence of the external charge. This induced electric field causes charges in the conductor to rearrange themselves.
+
+2. **Option (B): The conducting sphere will develop a net electric charge of –Q.**
+   - In a conductor, charges can move freely and will redistribute themselves such that the electric field inside the conductor is zero. For a neutral conductor brought close to a positive charge, one side of the conductor will become negatively charged due to induced negative charges moving towards the side closest to the +Q sphere, while the other side will become positively charged.
+
+3. **Option (C): The spheres will experience an electrostatic attraction.**
+   - Since the nonconducting sphere has a net positive charge and the conducting sphere becomes negatively charged on one side due to induction, there will be an attractive force between them because opposite charges attract each other.
+
+4. **Option (D): The spheres will experience an electrostatic repulsion.**
+   - This is incorrect because the induced negative charge on the side of the conducting sphere closest to the positive charge +Q will attract the positive charge, not repel it.
+
+Given these analyses:
+
+- Option (A) is true but does not directly answer what happens with the net charge or force between the spheres.
+- Option (B) describes a redistribution of charges but not the net charge on the conducting sphere as a whole.
+- Option (C) correctly identifies that there will be an electrostatic attraction due to opposite charges.
+
+Therefore, the most precise and correct answer is:
+
+**(C) The spheres will experience an electrostatic attraction.**",0.0,"Analyze the problem statement carefully, apply relevant concepts or calculations as needed, eliminate incorrect options based on the given information, and select the most precise answer from those provided.",12
+"How much work is required to charge a 10 µF capacitor to a potential difference of 100 V ?
+(A) 0.005 J
+(B) 0.01 J
+(C) 0.05 J
+(D) 0.1 J",C,"To solve this problem, we need to use the formula for the energy stored in a capacitor, which is given by:
+
+\[ U = \frac{1}{2} C V^2 \]
+
+where:
+- \( U \) is the energy (or work required),
+- \( C \) is the capacitance,
+- \( V \) is the potential difference.
+
+Given:
+- Capacitance (\(C\)) = 10 µF = \(10 \times 10^{-6}\) F
+- Potential Difference (\(V\)) = 100 V
+
+Now, substitute these values into the formula:
+
+\[ U = \frac{1}{2} \times (10 \times 10^{-6}) \times (100)^2 \]
+
+First, calculate \(100^2\):
+
+\[ 100^2 = 10000 \]
+
+Then multiply by the capacitance:
+
+\[ U = \frac{1}{2} \times (10 \times 10^{-6}) \times 10000 \]
+\[ U = \frac{1}{2} \times 10 \times 10^{-3} \]
+\[ U = 5 \times 10^{-3} \text{ J} \]
+
+So, the work required to charge the capacitor is:
+
+\[ U = 0.005 \text{ J} \]
+
+Therefore, the correct answer is (A) 0.005 J.",0.0,"Analyze the problem statement carefully, apply relevant concepts or calculations as needed, eliminate incorrect options based on the given information, and select the most precise answer from those provided.",12
+"Planets X, Y and Z take 360, 450 and 540 days, respectively, to rotate around the same sun. If the three planets are lined up in a ray having the sun as its endpoint, what is the minimum positive number of days before they are all in the exact same locations again?
+(A) 360
+(B) 5400
+(C) 900
+(D) 1200",B,"To solve this problem, we need to find the least common multiple (LCM) of the orbital periods of planets X, Y, and Z. The LCM is the smallest positive integer that is divisible by each of the numbers without any remainder.
+
+The given orbital periods are:
+- Planet X: 360 days
+- Planet Y: 450 days
+- Planet Z: 540 days
+
+First, we find the prime factorization of each number:
+
+1. **Prime Factorization**:
+   - \(360 = 2^3 \times 3^2 \times 5\)
+   - \(450 = 2 \times 3^2 \times 5^2\)
+   - \(540 = 2^2 \times 3^3 \times 5\)
+
+Next, we determine the LCM by taking the highest power of each prime factor that appears in any of the factorizations:
+
+- The highest power of 2 is \(2^3\) (from 360).
+- The highest power of 3 is \(3^3\) (from 540).
+- The highest power of 5 is \(5^2\) (from 450).
+
+Thus, the LCM is:
+\[ \text{LCM} = 2^3 \times 3^3 \times 5^2 \]
+
+Now we calculate this product:
+
+\[
+2^3 = 8
+\]
+\[
+3^3 = 27
+\]
+\[
+5^2 = 25
+\]
+
+Multiplying these together:
+\[
+8 \times 27 = 216
+\]
+\[
+216 \times 25 = 5400
+\]
+
+Therefore, the minimum positive number of days before planets X, Y, and Z are all in the exact same locations again is \(5400\) days.
+
+The correct answer is:
+(B) 5400",1.0,"Analyze the problem statement carefully, apply relevant concepts or calculations as needed, eliminate incorrect options based on the given information, and select the most precise answer from those provided.",12

@@ -1,0 +1,157 @@
+input,target,prediction,accuracy,instruction,step
+"A nonconducting sphere is given a nonzero net electric charge, +Q, and then brought close to a neutral conducting sphere of the same radius. Which of the following will be true?
+(A) An electric field will be induced within the conducting sphere.
+(B) The conducting sphere will develop a net electric charge of –Q.
+(C) The spheres will experience an electrostatic attraction.
+(D) The spheres will experience an electrostatic repulsion.",C,"To analyze this question, let's consider the principles involved in electrostatics and how they apply to the scenario described.
+
+1. **Induced Electric Field (Option A):**
+   - When a nonconducting sphere with a net positive charge +Q is brought close to a neutral conducting sphere, an electric field will indeed be induced within the conducting sphere. This is because the presence of the charged nonconducting sphere will cause charges in the conducting sphere to rearrange themselves due to electrostatic induction.
+
+2. **Net Electric Charge on the Conducting Sphere (Option B):**
+   - The conducting sphere initially has no net charge, but when brought close to a positively charged object, it will not develop an equal and opposite charge of –Q. Instead, charges within the conductor will rearrange themselves such that the electric field inside the conductor is zero. This means positive charges on the side facing the nonconducting sphere will be pushed away from the surface towards the back, while negative charges will move to the front.
+
+3. **Electrostatic Forces Between the Spheres (Options C and D):**
+   - The electrostatic force between two charged objects depends on their respective charges and the distance between them. Since the conducting sphere initially has no net charge but will develop a distribution of charges due to induction, it will experience an attractive force from the nonconducting sphere because opposite charges attract.
+
+Given these points:
+
+- Option A is correct as an electric field will be induced within the conducting sphere.
+- Option B is incorrect; the conducting sphere does not acquire a net charge of –Q but rather redistributes its charges.
+- Options C and D are related to the nature of the force between the spheres, but since the conducting sphere becomes negatively charged on one side (due to induction), it will experience an attractive force towards the nonconducting sphere.
+
+Therefore, based on the principles of electrostatics and the behavior of conductors in the presence of external charges:
+
+The most accurate answer is:
+(C) The spheres will experience an electrostatic attraction.",1.0,"Analyze the question deeply, apply appropriate theories or calculations as needed, eliminate incorrect options logically, and select the most accurate answer from those provided based on the given information.",16
+"A law student and two friends were at a mall peacefully handing out fliers in protest of U.S. Middle East policy. The mall owner called the police, who warned them to stop or they would be arrested. They returned the next day and continued to leaflet. The police came again and issued another warning. The law student left to avoid arrest, but the police arrested his companions for criminal trespass and loitering. The law student, in an attempt to get an advance ruling on the constitutionality of the criminal statutes, filed a declaratory judgment action in federal court asking for declaratory relief. Based on Supreme Court precedent will the federal district court dismiss the declaratory judgment action?
+(A) Yes, the declaratory relief would interfere with existing state prosecutions and would therefore be disallowed for reasons of equity and comity.
+(B) No, because a federal plaintiff may seek a declaratory judgment even if he is not threatened with a state prosecution on the state statute.
+(C) No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.
+(D) Yes, the declaratory relief would be premature because the law student's fears of a future arrest are entirely speculative on his part.",C,"To answer this question accurately, we need to consider the legal principles surrounding declaratory judgment actions, particularly in light of Supreme Court precedents and the specific circumstances presented.
+
+1. **Understanding Declaratory Judgment Actions**: A declaratory judgment is a court order that determines the rights or obligations of parties without ordering any action other than the declaration itself. The primary purpose is to resolve legal disputes before they lead to actual harm, providing clarity on the application of laws.
+
+2. **Supreme Court Precedents and Declaratory Judgments**: In cases like *California Fish & Game Comm'n v. Sierra Club* (1970), the Supreme Court established that a declaratory judgment action can be brought even if there is no immediate threat of prosecution, as long as the plaintiff can show a ""real and immediate"" controversy.
+
+3. **Analysis of Options**:
+   - **Option A**: This option suggests dismissing the case due to interference with existing state prosecutions. However, this reasoning typically applies when the declaratory judgment would directly interfere with ongoing or imminent enforcement actions.
+   - **Option B**: This is incorrect because it overlooks the need for a genuine threat of enforcement against the plaintiff.
+   - **Option C**: This option correctly identifies that the law student can seek declaratory relief if he can show a ""real and immediate"" threat. The arrest of his companions and prior warnings provide such a threat, making this a plausible basis for seeking declaratory relief.
+   - **Option D**: While it is true that future arrests are speculative, the Supreme Court has recognized that plaintiffs may seek declaratory judgments based on reasonable fears of enforcement.
+
+4. **Conclusion Based on Supreme Court Precedents**:
+Given the Supreme Court's recognition in *California Fish & Game Comm'n v. Sierra Club* and similar cases, where a plaintiff can show a ""real and immediate"" threat of enforcement, the most accurate answer is:
+
+**(C) No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.**
+
+This option aligns with the legal principles that allow for declaratory judgments in situations where there is a reasonable fear of future enforcement actions.",1.0,"Analyze the question deeply, apply appropriate theories or calculations as needed, eliminate incorrect options logically, and select the most accurate answer from those provided based on the given information.",16
+"How much work is required to charge a 10 µF capacitor to a potential difference of 100 V ?
+(A) 0.005 J
+(B) 0.01 J
+(C) 0.05 J
+(D) 0.1 J",C,"To solve this problem, we can use the formula for the energy stored in a capacitor, which is given by:
+
+\[ U = \frac{1}{2} C V^2 \]
+
+where:
+- \( U \) is the energy (or work done to charge the capacitor),
+- \( C \) is the capacitance of the capacitor,
+- \( V \) is the potential difference across the capacitor.
+
+Given:
+- Capacitance, \( C = 10 \mu F = 10 \times 10^{-6} F \)
+- Potential difference, \( V = 100 V \)
+
+Now we substitute these values into the formula:
+
+\[ U = \frac{1}{2} \times (10 \times 10^{-6} F) \times (100 V)^2 \]
+
+First, calculate \( V^2 \):
+
+\[ V^2 = (100 V)^2 = 10000 V^2 \]
+
+Now substitute this back into the equation:
+
+\[ U = \frac{1}{2} \times (10 \times 10^{-6}) \times 10000 \]
+\[ U = \frac{1}{2} \times 10 \times 10^{-3} \]
+\[ U = 5 \times 10^{-3} J \]
+\[ U = 0.005 J \]
+
+Therefore, the correct answer is:
+
+(A) 0.005 J",0.0,"Analyze the question deeply, apply appropriate theories or calculations as needed, eliminate incorrect options logically, and select the most accurate answer from those provided based on the given information.",16
+"What is the domain of the function $f(x)=\frac{x+6}{\sqrt{x^2-3x-4}}$?
+(A) (-4,4)
+(B) [0,4]
+(C) (-inf, -1) U (4, inf)
+(D) (-inf, -1) U (-1, 4) U (4, inf)",C,"To determine the domain of the function \( f(x) = \frac{x+6}{\sqrt{x^2-3x-4}} \), we need to ensure that both the denominator and the expression under the square root are valid. Specifically:
+
+1. The expression inside the square root, \( x^2 - 3x - 4 \), must be greater than zero because the square root of a negative number is not defined in the real numbers.
+2. The denominator cannot be zero.
+
+Let's start by solving the inequality \( x^2 - 3x - 4 > 0 \).
+
+First, factorize the quadratic expression:
+\[ x^2 - 3x - 4 = (x-4)(x+1) \]
+
+Next, determine where this product is greater than zero. The roots of the equation are \( x = 4 \) and \( x = -1 \). These roots divide the real number line into three intervals: \( (-\infty, -1) \), \( (-1, 4) \), and \( (4, \infty) \).
+
+We test a point in each interval to determine where the expression is positive:
+- For \( x < -1 \): Choose \( x = -2 \). Then, \( (x-4)(x+1) = (-2-4)(-2+1) = (-6)(-1) = 6 > 0 \).
+- For \( -1 < x < 4 \): Choose \( x = 0 \). Then, \( (x-4)(x+1) = (0-4)(0+1) = (-4)(1) = -4 < 0 \).
+- For \( x > 4 \): Choose \( x = 5 \). Then, \( (x-4)(x+1) = (5-4)(5+1) = (1)(6) = 6 > 0 \).
+
+Thus, the expression \( x^2 - 3x - 4 > 0 \) is true for \( x \in (-\infty, -1) \cup (4, \infty) \).
+
+Since the denominator cannot be zero and we have already ensured that it is non-zero in these intervals, the domain of the function \( f(x) = \frac{x+6}{\sqrt{x^2-3x-4}} \) is:
+
+\[ (-\infty, -1) \cup (4, \infty) \]
+
+Therefore, the correct answer is:
+(C) \((-inf, -1) U (4, inf)\).",1.0,"Analyze the question deeply, apply appropriate theories or calculations as needed, eliminate incorrect options logically, and select the most accurate answer from those provided based on the given information.",16
+"Planets X, Y and Z take 360, 450 and 540 days, respectively, to rotate around the same sun. If the three planets are lined up in a ray having the sun as its endpoint, what is the minimum positive number of days before they are all in the exact same locations again?
+(A) 360
+(B) 5400
+(C) 900
+(D) 1200",B,"To solve this problem, we need to find the least common multiple (LCM) of the orbital periods of planets X, Y, and Z. The LCM is the smallest positive integer that is divisible by each of the numbers without any remainder.
+
+The given orbital periods are:
+- Planet X: 360 days
+- Planet Y: 450 days
+- Planet Z: 540 days
+
+To find the LCM, we can use their prime factorizations:
+
+1. **Prime Factorization**:
+   - \(360 = 2^3 \times 3^2 \times 5\)
+   - \(450 = 2 \times 3^2 \times 5^2\)
+   - \(540 = 2^2 \times 3^3 \times 5\)
+
+2. **Finding the LCM**:
+   The LCM is found by taking the highest power of each prime that appears in these factorizations.
+   - For \(2\), the highest power is \(2^3\) (from 360).
+   - For \(3\), the highest power is \(3^3\) (from 540).
+   - For \(5\), the highest power is \(5^2\) (from 450).
+
+Therefore, the LCM is:
+\[ \text{LCM} = 2^3 \times 3^3 \times 5^2 \]
+
+Calculating this product step-by-step:
+- First, calculate \(2^3\):
+  \[ 2^3 = 8 \]
+- Next, calculate \(3^3\):
+  \[ 3^3 = 27 \]
+- Then, calculate \(5^2\):
+  \[ 5^2 = 25 \]
+
+Now multiply these together:
+\[ 8 \times 27 = 216 \]
+\[ 216 \times 25 = 5400 \]
+
+Thus, the least common multiple of 360, 450, and 540 is 5400.
+
+Therefore, the minimum positive number of days before planets X, Y, and Z are all in the exact same locations again is:
+\[ \boxed{5400} \]
+
+So, the correct answer is (B) 5400.",1.0,"Analyze the question deeply, apply appropriate theories or calculations as needed, eliminate incorrect options logically, and select the most accurate answer from those provided based on the given information.",16

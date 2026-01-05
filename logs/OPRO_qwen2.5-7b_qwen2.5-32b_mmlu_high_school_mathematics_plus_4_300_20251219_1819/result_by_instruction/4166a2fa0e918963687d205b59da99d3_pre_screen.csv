@@ -1,0 +1,178 @@
+input,target,prediction,accuracy,instruction,step
+"A law student and two friends were at a mall peacefully handing out fliers in protest of U.S. Middle East policy. The mall owner called the police, who warned them to stop or they would be arrested. They returned the next day and continued to leaflet. The police came again and issued another warning. The law student left to avoid arrest, but the police arrested his companions for criminal trespass and loitering. The law student, in an attempt to get an advance ruling on the constitutionality of the criminal statutes, filed a declaratory judgment action in federal court asking for declaratory relief. Based on Supreme Court precedent will the federal district court dismiss the declaratory judgment action?
+(A) Yes, the declaratory relief would interfere with existing state prosecutions and would therefore be disallowed for reasons of equity and comity.
+(B) No, because a federal plaintiff may seek a declaratory judgment even if he is not threatened with a state prosecution on the state statute.
+(C) No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.
+(D) Yes, the declaratory relief would be premature because the law student's fears of a future arrest are entirely speculative on his part.",C,"To answer this question accurately, we need to consider the legal principles surrounding declaratory judgment actions, particularly in light of Supreme Court precedents and the specific circumstances presented.
+
+1. **Understanding Declaratory Judgment Actions**: A declaratory judgment is a court order that determines the rights of parties without ordering any action or providing relief. The primary purpose is to resolve legal disputes before they lead to more serious consequences.
+
+2. **Supreme Court Precedent**: In cases like *California Fish & Game Comm'n v. Sierra Club* (1970), the Supreme Court established that a declaratory judgment can be granted even if there's no immediate threat of prosecution, as long as the plaintiff can show a ""real and immediate"" controversy.
+
+3. **Analysis of Options**:
+   - **Option A**: This option suggests dismissing the action due to interference with existing state prosecutions. However, this is not necessarily true because declaratory judgments are generally allowed even if there's an ongoing prosecution.
+   - **Option B**: This option states that a federal plaintiff may seek a declaratory judgment regardless of whether they are threatened by a state prosecution. While this statement has some merit, it doesn't fully address the ""real and immediate"" controversy requirement.
+   - **Option C**: This option correctly identifies that the law student can show a genuine threat of enforcement against him based on the arrest of his companions and prior warnings. The Supreme Court's *California Fish & Game Comm'n v. Sierra Club* precedent supports this reasoning, as it allows for declaratory judgments when there is a ""real and immediate"" controversy.
+   - **Option D**: This option suggests dismissing the action due to premature fears being speculative. However, given the evidence of prior warnings and arrests, these fears are not entirely speculative.
+
+4. **Conclusion**:
+Based on Supreme Court precedent and the specific circumstances presented, the most accurate answer is:
+
+**(C) No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.**
+
+This option correctly identifies that the law student has a ""real and immediate"" controversy, which allows for a declaratory judgment action in federal court.",1.0,"Analyze the question and provided information thoroughly, apply relevant theories or calculations as necessary, eliminate incorrect options logically, and select the most accurate answer from those given.",5
+"What is the domain of the function $f(x)=\frac{x+6}{\sqrt{x^2-3x-4}}$?
+(A) (-4,4)
+(B) [0,4]
+(C) (-inf, -1) U (4, inf)
+(D) (-inf, -1) U (-1, 4) U (4, inf)",C,"To determine the domain of the function \( f(x) = \frac{x+6}{\sqrt{x^2-3x-4}} \), we need to ensure that both the denominator and the expression under the square root are valid. Specifically:
+
+1. The expression inside the square root, \( x^2 - 3x - 4 \), must be greater than zero because the square root of a negative number is not defined in the real numbers.
+2. The denominator cannot be zero.
+
+Let's start by solving the inequality for the expression under the square root:
+
+\[ x^2 - 3x - 4 > 0 \]
+
+First, factorize the quadratic equation \( x^2 - 3x - 4 \):
+
+\[ x^2 - 3x - 4 = (x - 4)(x + 1) \]
+
+So, we need to solve:
+
+\[ (x - 4)(x + 1) > 0 \]
+
+To find the intervals where this inequality holds true, we determine the roots of the equation \( (x - 4)(x + 1) = 0 \), which are \( x = 4 \) and \( x = -1 \). These roots divide the real number line into three intervals: \( (-\infty, -1) \), \( (-1, 4) \), and \( (4, \infty) \).
+
+Next, we test a point from each interval to determine where the inequality is satisfied:
+
+- For \( x \in (-\infty, -1) \): Choose \( x = -2 \)
+  \[ (-2 - 4)(-2 + 1) = (-6)(-1) = 6 > 0 \]
+  
+- For \( x \in (-1, 4) \): Choose \( x = 0 \)
+  \[ (0 - 4)(0 + 1) = (-4)(1) = -4 < 0 \]
+
+- For \( x \in (4, \infty) \): Choose \( x = 5 \)
+  \[ (5 - 4)(5 + 1) = (1)(6) = 6 > 0 \]
+
+Thus, the inequality \( (x - 4)(x + 1) > 0 \) is satisfied in the intervals \( (-\infty, -1) \) and \( (4, \infty) \).
+
+Since the denominator cannot be zero, we exclude the points where the expression under the square root equals zero, which are \( x = -1 \) and \( x = 4 \). Therefore, the domain of the function is:
+
+\[ (-\infty, -1) \cup (4, \infty) \]
+
+Thus, the correct answer is:
+
+(C) \( (-\infty, -1) U (4, \infty) \)",1.0,"Analyze the question and provided information thoroughly, apply relevant theories or calculations as necessary, eliminate incorrect options logically, and select the most accurate answer from those given.",5
+"How much work is required to charge a 10 µF capacitor to a potential difference of 100 V ?
+(A) 0.005 J
+(B) 0.01 J
+(C) 0.05 J
+(D) 0.1 J",C,"To solve this problem, we need to use the formula for the energy stored in a capacitor, which is given by:
+
+\[ U = \frac{1}{2} C V^2 \]
+
+where:
+- \( U \) is the energy (or work done),
+- \( C \) is the capacitance,
+- \( V \) is the potential difference.
+
+Given:
+- Capacitance (\(C\)) = 10 µF = \(10 \times 10^{-6}\) F
+- Potential Difference (\(V\)) = 100 V
+
+Now, substitute these values into the formula:
+
+\[ U = \frac{1}{2} \times (10 \times 10^{-6}) \times (100)^2 \]
+
+First, calculate \(100^2\):
+
+\[ 100^2 = 10000 \]
+
+Then multiply by the capacitance:
+
+\[ U = \frac{1}{2} \times (10 \times 10^{-6}) \times 10000 \]
+\[ U = \frac{1}{2} \times 10 \times 10^{-3} \]
+\[ U = 5 \times 10^{-3} \text{ J} \]
+
+So, the work required to charge the capacitor is:
+
+\[ U = 0.005 \text{ J} \]
+
+Therefore, the correct answer is (A) 0.005 J.",0.0,"Analyze the question and provided information thoroughly, apply relevant theories or calculations as necessary, eliminate incorrect options logically, and select the most accurate answer from those given.",5
+"A nonconducting sphere is given a nonzero net electric charge, +Q, and then brought close to a neutral conducting sphere of the same radius. Which of the following will be true?
+(A) An electric field will be induced within the conducting sphere.
+(B) The conducting sphere will develop a net electric charge of –Q.
+(C) The spheres will experience an electrostatic attraction.
+(D) The spheres will experience an electrostatic repulsion.",C,"To analyze this question, let's consider the principles involved in electrostatics and how they apply to the given scenario.
+
+1. **Nonconducting Sphere with +Q Charge**: This sphere has a net positive charge of +Q. When brought close to another object (in this case, a neutral conducting sphere), it will induce charges on the surface of the conducting sphere due to the electric field created by the nonconducting sphere.
+
+2. **Neutral Conducting Sphere**: A conductor distributes its charge such that the electric field inside is zero. This means any external electric field will cause the free electrons in the conductor to move and rearrange themselves until the internal electric field cancels out the external one.
+
+3. **Induced Charges on the Conducting Sphere**:
+   - When a positive charge (+Q) approaches, it repels the free electrons in the conducting sphere towards the side away from the nonconducting sphere.
+   - This leaves an excess of positive charges (protons or ionized atoms) on the side closer to the nonconducting sphere.
+
+4. **Electrostatic Forces**:
+   - The induced positive charge on one side of the conducting sphere will attract the +Q charge, leading to a net attractive force between the two spheres.
+   - However, the overall effect is that the neutral conducting sphere will not have an overall net charge but will experience internal rearrangement.
+
+Now let's evaluate each option:
+
+(A) **An electric field will be induced within the conducting sphere.**
+- This statement is true because when a nonconducting sphere with +Q charge approaches, it creates an external electric field that induces charges on the surface of the conducting sphere, leading to an internal redistribution of charges.
+
+(B) **The conducting sphere will develop a net electric charge of –Q.**
+- This is incorrect. The conducting sphere does not gain or lose any net charge; instead, it redistributes its free electrons. The overall charge remains zero because the system started with no net charge and there was no external addition or removal of charges.
+
+(C) **The spheres will experience an electrostatic attraction.**
+- This statement is true due to the induced positive charge on one side of the conducting sphere attracting the +Q charge from the nonconducting sphere.
+
+(D) **The spheres will experience an electrostatic repulsion.**
+- This is incorrect because there is no net charge on the conducting sphere that would cause it to repel the nonconducting sphere; instead, they attract due to the induced charges.
+
+Given these analyses, the most accurate answer is:
+
+**(C) The spheres will experience an electrostatic attraction.**",0.0,"Analyze the question and provided information thoroughly, apply relevant theories or calculations as necessary, eliminate incorrect options logically, and select the most accurate answer from those given.",5
+"Planets X, Y and Z take 360, 450 and 540 days, respectively, to rotate around the same sun. If the three planets are lined up in a ray having the sun as its endpoint, what is the minimum positive number of days before they are all in the exact same locations again?
+(A) 360
+(B) 5400
+(C) 900
+(D) 1200",B,"To solve this problem, we need to find the least common multiple (LCM) of the orbital periods of planets X, Y, and Z. The LCM is the smallest positive integer that is divisible by each of the given numbers.
+
+The orbital periods are:
+- Planet X: 360 days
+- Planet Y: 450 days
+- Planet Z: 540 days
+
+First, we find the prime factorization of each number:
+
+1. **Prime Factorization**:
+   - \(360 = 2^3 \times 3^2 \times 5\)
+   - \(450 = 2 \times 3^2 \times 5^2\)
+   - \(540 = 2^2 \times 3^3 \times 5\)
+
+Next, we determine the LCM by taking the highest power of each prime factor that appears in any of the factorizations:
+
+- For \(2\), the highest power is \(2^3\) (from 360).
+- For \(3\), the highest power is \(3^3\) (from 540).
+- For \(5\), the highest power is \(5^2\) (from 450).
+
+Thus, the LCM is:
+\[ \text{LCM} = 2^3 \times 3^3 \times 5^2 \]
+
+Now we calculate this product:
+
+1. Calculate \(2^3 = 8\)
+2. Calculate \(3^3 = 27\)
+3. Calculate \(5^2 = 25\)
+
+Then multiply these together:
+\[ 8 \times 27 = 216 \]
+\[ 216 \times 25 = 5400 \]
+
+Therefore, the minimum positive number of days before planets X, Y, and Z are all in the exact same locations again is \(5400\) days.
+
+The correct answer is:
+(B) 5400",1.0,"Analyze the question and provided information thoroughly, apply relevant theories or calculations as necessary, eliminate incorrect options logically, and select the most accurate answer from those given.",5

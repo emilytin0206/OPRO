@@ -4,7 +4,7 @@ import os
 import argparse
 import datetime
 import json
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict  # [修正 1] 引入 asdict 用於序列化設定
 from typing import List
 
 from src.utils import setup_logger
@@ -135,9 +135,9 @@ def main():
     # 4. 備份 Config
     config_backup_path = os.path.join(experiment_dir, "config_snapshot.yaml")
     with open(config_backup_path, 'w', encoding='utf-8') as f:
-        # 將 dataclass 轉回 dict 比較麻煩，這裡直接讀原始檔案再寫入一次最保險，或者用 yaml dump raw
-        # 為了簡單我們手動 dump 必要的資訊
-        pass # 此處省略，建議在 load_config 時一併回傳 raw dict 以便備份
+        # [修正 2] 將 dataclass 轉回 dict 並寫入 YAML
+        print(f"正在備份設定檔至: {config_backup_path}")
+        yaml.dump(asdict(cfg), f, allow_unicode=True, sort_keys=False, default_flow_style=False)
 
     # 5. 設定 Logger
     logger, _ = setup_logger(experiment_dir, "run")

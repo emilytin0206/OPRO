@@ -1,0 +1,160 @@
+input,target,prediction,accuracy,instruction,step
+"How much work is required to charge a 10 µF capacitor to a potential difference of 100 V ?
+(A) 0.005 J
+(B) 0.01 J
+(C) 0.05 J
+(D) 0.1 J",C,"To determine the work required to charge a capacitor, we can use the formula for the energy stored in a capacitor:
+
+\[ U = \frac{1}{2} C V^2 \]
+
+where:
+- \( U \) is the energy (or work done),
+- \( C \) is the capacitance,
+- \( V \) is the potential difference.
+
+Given:
+- Capacitance, \( C = 10 \mu F = 10 \times 10^{-6} F \)
+- Potential difference, \( V = 100 V \)
+
+Substitute these values into the formula:
+
+\[ U = \frac{1}{2} \times (10 \times 10^{-6} F) \times (100 V)^2 \]
+
+Calculate step by step:
+\[ U = \frac{1}{2} \times 10 \times 10^{-6} \times 10000 \]
+\[ U = \frac{1}{2} \times 10 \times 10^{-2} \]
+\[ U = 5 \times 10^{-2} J \]
+\[ U = 0.05 J \]
+
+Therefore, the correct answer is:
+
+(C) 0.05 J",1.0,"Analyze each option carefully, eliminate incorrect choices based on the given information, and select the most accurate answer.",2
+"A nonconducting sphere is given a nonzero net electric charge, +Q, and then brought close to a neutral conducting sphere of the same radius. Which of the following will be true?
+(A) An electric field will be induced within the conducting sphere.
+(B) The conducting sphere will develop a net electric charge of –Q.
+(C) The spheres will experience an electrostatic attraction.
+(D) The spheres will experience an electrostatic repulsion.",C,"Let's analyze each option carefully:
+
+(A) An electric field will be induced within the conducting sphere.
+- When a nonconducting sphere with a net positive charge +Q is brought close to a neutral conducting sphere, the charges in the conducting sphere will rearrange due to the influence of the external electric field. This rearrangement results in an induced electric field within the conducting sphere. Therefore, this statement is true.
+
+(B) The conducting sphere will develop a net electric charge of –Q.
+- A conducting sphere cannot have a net charge because any excess charge on a conductor distributes itself uniformly over its surface and the total charge must be zero if it were neutral initially. The charges will rearrange but not to an equal magnitude and opposite sign as +Q, so this statement is false.
+
+(C) The spheres will experience an electrostatic attraction.
+- Since one sphere has a net positive charge (+Q) and the other is induced with a negative charge (due to induction), there will be an attractive force between them. Therefore, this statement is true.
+
+(D) The spheres will experience an electrostatic repulsion.
+- Given that one sphere has a positive charge and the other has an induced negative charge, they will attract each other rather than repel. Thus, this statement is false.
+
+Based on the analysis:
+
+The most accurate answer is (C) The spheres will experience an electrostatic attraction.",1.0,"Analyze each option carefully, eliminate incorrect choices based on the given information, and select the most accurate answer.",2
+"A law student and two friends were at a mall peacefully handing out fliers in protest of U.S. Middle East policy. The mall owner called the police, who warned them to stop or they would be arrested. They returned the next day and continued to leaflet. The police came again and issued another warning. The law student left to avoid arrest, but the police arrested his companions for criminal trespass and loitering. The law student, in an attempt to get an advance ruling on the constitutionality of the criminal statutes, filed a declaratory judgment action in federal court asking for declaratory relief. Based on Supreme Court precedent will the federal district court dismiss the declaratory judgment action?
+(A) Yes, the declaratory relief would interfere with existing state prosecutions and would therefore be disallowed for reasons of equity and comity.
+(B) No, because a federal plaintiff may seek a declaratory judgment even if he is not threatened with a state prosecution on the state statute.
+(C) No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.
+(D) Yes, the declaratory relief would be premature because the law student's fears of a future arrest are entirely speculative on his part.",C,"The correct answer is (C).
+
+Explanation:
+
+- **Option A** suggests that the federal district court will dismiss the action due to interference with existing state prosecutions. However, this reasoning does not align with Supreme Court precedent regarding declaratory judgments. The doctrine of equity and comity generally allows for declaratory relief even when there are ongoing state proceedings, as long as the plaintiff can show a genuine threat of enforcement.
+
+- **Option B** is incorrect because it misinterprets the legal standards for seeking declaratory judgment. A federal plaintiff does not have to be threatened with prosecution on the same statute to seek declaratory relief; they only need to demonstrate that there is a substantial controversy between parties in adversative positions, which can include a threat of enforcement.
+
+- **Option C** correctly identifies that the law student can show a genuine threat of enforcement against him. The arrest of his companions and prior warnings from the police establish a credible risk that he could be arrested under the same statutes. This meets the requirement for a justiciable case or controversy, which is necessary to obtain declaratory relief.
+
+- **Option D** incorrectly states that the declaratory relief would be premature because the law student's fears are speculative. While it might seem speculative at first glance, the Supreme Court has recognized that a plaintiff can seek declaratory judgment based on credible threats of enforcement, as evidenced by the actions against his companions and prior warnings.
+
+Therefore, the most accurate answer is (C).",1.0,"Analyze each option carefully, eliminate incorrect choices based on the given information, and select the most accurate answer.",2
+"What is the domain of the function $f(x)=\frac{x+6}{\sqrt{x^2-3x-4}}$?
+(A) (-4,4)
+(B) [0,4]
+(C) (-inf, -1) U (4, inf)
+(D) (-inf, -1) U (-1, 4) U (4, inf)",C,"To determine the domain of the function \( f(x) = \frac{x+6}{\sqrt{x^2-3x-4}} \), we need to ensure that the expression under the square root is positive and that the denominator is not zero. Let's break this down step by step.
+
+1. **Identify where the denominator is defined:**
+   The denominator of the function is \( \sqrt{x^2 - 3x - 4} \). For the square root to be defined, the expression inside it must be greater than zero (since the square root of a non-positive number would not yield a real value in this context).
+
+2. **Solve the inequality:**
+   We need to solve \( x^2 - 3x - 4 > 0 \). First, factorize the quadratic expression:
+   \[
+   x^2 - 3x - 4 = (x - 4)(x + 1)
+   \]
+   So, we need to find where \( (x - 4)(x + 1) > 0 \).
+
+3. **Determine the intervals:**
+   The roots of the equation \( (x - 4)(x + 1) = 0 \) are \( x = 4 \) and \( x = -1 \). These roots divide the real number line into three intervals: \( (-\infty, -1) \), \( (-1, 4) \), and \( (4, \infty) \).
+
+   We test a point in each interval to determine where the expression is positive:
+   - For \( x \in (-\infty, -1) \), choose \( x = -2 \):
+     \[
+     (x - 4)(x + 1) = (-2 - 4)(-2 + 1) = (-6)(-1) = 6 > 0
+     \]
+   - For \( x \in (-1, 4) \), choose \( x = 0 \):
+     \[
+     (x - 4)(x + 1) = (0 - 4)(0 + 1) = (-4)(1) = -4 < 0
+     \]
+   - For \( x \in (4, \infty) \), choose \( x = 5 \):
+     \[
+     (x - 4)(x + 1) = (5 - 4)(5 + 1) = (1)(6) = 6 > 0
+     \]
+
+   Therefore, the expression \( x^2 - 3x - 4 > 0 \) is true for \( x \in (-\infty, -1) \cup (4, \infty) \).
+
+4. **Combine with the domain of the square root:**
+   Since the function involves a square root in the denominator, we must exclude points where the expression under the square root is zero or negative. The only values that make \( x^2 - 3x - 4 = 0 \) are \( x = -1 \) and \( x = 4 \). These points should be excluded from the domain.
+
+5. **Final domain:**
+   Combining these results, the domain of the function is:
+   \[
+   (-\infty, -1) \cup (4, \infty)
+   \]
+
+Thus, the correct answer is:
+\[
+\boxed{C}
+\]",1.0,"Analyze each option carefully, eliminate incorrect choices based on the given information, and select the most accurate answer.",2
+"Planets X, Y and Z take 360, 450 and 540 days, respectively, to rotate around the same sun. If the three planets are lined up in a ray having the sun as its endpoint, what is the minimum positive number of days before they are all in the exact same locations again?
+(A) 360
+(B) 5400
+(C) 900
+(D) 1200",B,"To determine the minimum positive number of days after which planets X, Y, and Z will be aligned again in a straight line with their sun, we need to find the least common multiple (LCM) of their orbital periods. The orbital periods are given as 360, 450, and 540 days.
+
+Let's calculate the LCM step by step:
+
+1. **Prime Factorization:**
+   - \(360 = 2^3 \times 3^2 \times 5\)
+   - \(450 = 2 \times 3^2 \times 5^2\)
+   - \(540 = 2^2 \times 3^3 \times 5\)
+
+2. **Identify the Highest Powers of Each Prime:**
+   - The highest power of 2 is \(2^3\) (from 360).
+   - The highest power of 3 is \(3^3\) (from 540).
+   - The highest power of 5 is \(5^2\) (from 450).
+
+3. **Calculate the LCM:**
+   \[
+   \text{LCM} = 2^3 \times 3^3 \times 5^2
+   \]
+   \[
+   = 8 \times 27 \times 25
+   \]
+
+4. **Perform the Multiplication:**
+   - First, multiply \(8\) and \(27\):
+     \[
+     8 \times 27 = 216
+     \]
+   - Then, multiply the result by \(25\):
+     \[
+     216 \times 25 = 5400
+     \]
+
+Thus, the least common multiple of 360, 450, and 540 is 5400.
+
+Therefore, the minimum positive number of days before planets X, Y, and Z are all in the exact same locations again is:
+
+\[
+\boxed{5400}
+\]",0.0,"Analyze each option carefully, eliminate incorrect choices based on the given information, and select the most accurate answer.",2

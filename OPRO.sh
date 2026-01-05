@@ -20,15 +20,15 @@ SCORERS=("qwen2.5:7b")
 # 注意: 如果是 GSM8K，Subset 填 train 即可 (代表使用訓練集進行優化)
 # --------------------------------------------------------
 TASKS=(
-    "mmlu high_school_mathematics"
-    "mmlu professional_law"
-    "gsm8k train" 
+    "high_school_mathematics,high_school_chemistry,high_school_physics,high_school_world_history,business_ethics" 
+
+
 )
 
 # --------------------------------------------------------
 # 3. 定義訓練資料量限制 (Train Limit)
 # --------------------------------------------------------
-LIMITS=(20 50)
+LIMITS=(100)
 
 # --------------------------------------------------------
 # 4. 固定參數 (優化器模型與其他設定)

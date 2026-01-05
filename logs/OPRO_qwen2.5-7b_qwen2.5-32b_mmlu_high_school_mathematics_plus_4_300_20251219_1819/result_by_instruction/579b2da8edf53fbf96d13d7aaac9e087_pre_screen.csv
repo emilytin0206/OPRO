@@ -1,0 +1,214 @@
+input,target,prediction,accuracy,instruction,step
+"How much work is required to charge a 10 µF capacitor to a potential difference of 100 V ?
+(A) 0.005 J
+(B) 0.01 J
+(C) 0.05 J
+(D) 0.1 J",C,"To solve this problem, we need to use the formula for the energy stored in a capacitor, which is given by:
+
+\[ U = \frac{1}{2} C V^2 \]
+
+where:
+- \( U \) is the energy (or work done),
+- \( C \) is the capacitance,
+- \( V \) is the potential difference.
+
+Given:
+- Capacitance (\(C\)) = 10 µF = \(10 \times 10^{-6}\) F
+- Potential Difference (\(V\)) = 100 V
+
+Now, substitute these values into the formula:
+
+\[ U = \frac{1}{2} \times (10 \times 10^{-6}) \times (100)^2 \]
+
+First, calculate \(100^2\):
+
+\[ 100^2 = 10000 \]
+
+Then multiply by the capacitance:
+
+\[ U = \frac{1}{2} \times (10 \times 10^{-6}) \times 10000 \]
+\[ U = \frac{1}{2} \times 10 \times 10^{-3} \]
+\[ U = 5 \times 10^{-3} \text{ J} \]
+
+So, the work required to charge the capacitor is:
+
+\[ U = 0.005 \text{ J} \]
+
+Therefore, the correct answer is (A) 0.005 J.",0.0,"Analyze the problem statement in depth, apply relevant theories or calculations as needed, eliminate incorrect options based on given information, and select the most precise answer from those provided.",14
+"A law student and two friends were at a mall peacefully handing out fliers in protest of U.S. Middle East policy. The mall owner called the police, who warned them to stop or they would be arrested. They returned the next day and continued to leaflet. The police came again and issued another warning. The law student left to avoid arrest, but the police arrested his companions for criminal trespass and loitering. The law student, in an attempt to get an advance ruling on the constitutionality of the criminal statutes, filed a declaratory judgment action in federal court asking for declaratory relief. Based on Supreme Court precedent will the federal district court dismiss the declaratory judgment action?
+(A) Yes, the declaratory relief would interfere with existing state prosecutions and would therefore be disallowed for reasons of equity and comity.
+(B) No, because a federal plaintiff may seek a declaratory judgment even if he is not threatened with a state prosecution on the state statute.
+(C) No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.
+(D) Yes, the declaratory relief would be premature because the law student's fears of a future arrest are entirely speculative on his part.",C,"To analyze this problem statement in depth, we need to consider the legal principles surrounding declaratory judgment actions, particularly as they relate to federal court jurisdiction and the standards for granting such relief. The key points to focus on include:
+
+1. **Nature of Declaratory Judgment Actions**: These are lawsuits brought by a party seeking a declaration from a court regarding their rights under existing laws or facts.
+
+2. **Supreme Court Precedent**: Specifically, we need to consider how the Supreme Court has ruled on declaratory judgment actions in relation to state prosecutions and the potential for future enforcement of criminal statutes.
+
+3. **Requirements for Granting Declaratory Relief**: The court must be satisfied that there is a genuine threat or likelihood of enforcement against the plaintiff before granting such relief.
+
+Given these points, let's analyze each option:
+
+(A) **Yes, the declaratory relief would interfere with existing state prosecutions and would therefore be disallowed for reasons of equity and comity.**
+- This option suggests that the court will dismiss the action because it interferes with ongoing state proceedings. However, this reasoning is not supported by Supreme Court precedent. The doctrine of ""equity and comity"" does not typically bar declaratory relief in such circumstances unless there are specific grounds for doing so.
+
+(B) **No, because a federal plaintiff may seek a declaratory judgment even if he is not threatened with a state prosecution on the state statute.**
+- This option is incorrect because it misinterprets the legal standards. The law student must show a genuine threat of enforcement against him to justify seeking declaratory relief.
+
+(C) **No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.**
+- This option is correct. The Supreme Court has held that a plaintiff may seek declaratory relief if they can demonstrate a ""real and immediate"" threat of enforcement. The fact that the law student's friends were arrested and he received warnings provides sufficient evidence to support this claim.
+
+(D) **Yes, the declaratory relief would be premature because the law student's fears of a future arrest are entirely speculative on his part.**
+- This option is incorrect as it suggests that the court will dismiss the action based on speculation alone. The Supreme Court has recognized that a plaintiff can seek declaratory relief even if they have not yet been directly threatened with enforcement, provided there is a genuine threat.
+
+Therefore, the most precise answer is:
+
+(C) No, because the law student can show a genuine threat of enforcement against him, as evidenced by the arrest of his companions and prior warnings.",0.0,"Analyze the problem statement in depth, apply relevant theories or calculations as needed, eliminate incorrect options based on given information, and select the most precise answer from those provided.",14
+"A nonconducting sphere is given a nonzero net electric charge, +Q, and then brought close to a neutral conducting sphere of the same radius. Which of the following will be true?
+(A) An electric field will be induced within the conducting sphere.
+(B) The conducting sphere will develop a net electric charge of –Q.
+(C) The spheres will experience an electrostatic attraction.
+(D) The spheres will experience an electrostatic repulsion.",C,"To analyze this problem, let's break it down step by step:
+
+1. **Understanding the Initial Setup**:
+   - We have a nonconducting sphere with a net electric charge +Q.
+   - A neutral conducting sphere of the same radius is brought close to the charged nonconducting sphere.
+
+2. **Electric Field and Induction in Conductors**:
+   - When a charged object (in this case, the nonconducting sphere) approaches a conductor, it induces charges on the surface of the conductor.
+   - In a conductor, free electrons can move freely under the influence of an electric field. The presence of the external charge will cause these free electrons to redistribute themselves in such a way as to cancel out the external field inside the conductor.
+
+3. **Induced Charges**:
+   - Since the nonconducting sphere has a positive charge +Q, it will induce negative charges on the side of the conducting sphere that is closest to it and positive charges on the opposite side.
+   - This induced charge distribution in the conducting sphere will create an electric field within the conductor but not outside it (since free electrons move to cancel out the external field inside).
+
+4. **Electrostatic Forces**:
+   - The electrostatic force between two charged objects is given by Coulomb's law: \( F = k \frac{q_1 q_2}{r^2} \), where \(k\) is Coulomb’s constant, \(q_1\) and \(q_2\) are the charges, and \(r\) is the distance between them.
+   - The nonconducting sphere with charge +Q will experience an attractive force towards the conducting sphere due to the induced negative charges on its side. Similarly, the conducting sphere will experience a repulsive force from the positive charges on the nonconducting sphere.
+
+5. **Net Charge of the Conducting Sphere**:
+   - While there is an induced charge distribution within the conductor, the net charge of the entire conducting sphere remains zero because free electrons can move to cancel out any external field inside the conductor.
+   
+6. **Analyzing the Options**:
+   - (A) An electric field will be induced within the conducting sphere: This is true as described above.
+   - (B) The conducting sphere will develop a net electric charge of –Q: This is incorrect because the net charge remains zero in a conductor due to electron mobility.
+   - (C) The spheres will experience an electrostatic attraction: This is partially correct but not fully precise. There will be both attractive and repulsive forces, leading to a net force that depends on the relative positions of charges.
+   - (D) The spheres will experience an electrostatic repulsion: This is incorrect because there are induced negative charges attracting the nonconducting sphere.
+
+Given this analysis, the most accurate statement based on the principles of electrostatics and induction in conductors is:
+
+**The correct answer is (A): An electric field will be induced within the conducting sphere.**
+
+This option accurately describes one of the key phenomena that occur when a charged object approaches a conductor.",0.0,"Analyze the problem statement in depth, apply relevant theories or calculations as needed, eliminate incorrect options based on given information, and select the most precise answer from those provided.",14
+"What is the domain of the function $f(x)=\frac{x+6}{\sqrt{x^2-3x-4}}$?
+(A) (-4,4)
+(B) [0,4]
+(C) (-inf, -1) U (4, inf)
+(D) (-inf, -1) U (-1, 4) U (4, inf)",C,"To determine the domain of the function \( f(x) = \frac{x+6}{\sqrt{x^2-3x-4}} \), we need to ensure that both the numerator and the denominator are defined. Specifically, for the square root in the denominator, the expression inside must be positive because the square root of a negative number is not real, and division by zero is undefined.
+
+Let's break this down step-by-step:
+
+1. **Identify where the denominator is defined:**
+   The denominator is \(\sqrt{x^2 - 3x - 4}\). For the expression under the square root to be defined (and positive), we need:
+   \[
+   x^2 - 3x - 4 > 0
+   \]
+
+2. **Solve the inequality \(x^2 - 3x - 4 > 0\):**
+   First, solve the equation \(x^2 - 3x - 4 = 0\) to find the critical points.
+   \[
+   x^2 - 3x - 4 = (x-4)(x+1) = 0
+   \]
+   So, the roots are:
+   \[
+   x = 4 \quad \text{and} \quad x = -1
+   \]
+
+3. **Determine the intervals where \(x^2 - 3x - 4 > 0\):**
+   The critical points divide the real number line into three intervals: \((-\infty, -1)\), \((-1, 4)\), and \((4, \infty)\). We need to test each interval to see where the expression is positive.
+
+   - For \(x < -1\):
+     Choose a test point, say \(x = -2\).
+     \[
+     (-2)^2 - 3(-2) - 4 = 4 + 6 - 4 = 6 > 0
+     \]
+     So, the expression is positive in \((-\infty, -1)\).
+
+   - For \(-1 < x < 4\):
+     Choose a test point, say \(x = 0\).
+     \[
+     (0)^2 - 3(0) - 4 = -4 < 0
+     \]
+     So, the expression is negative in \((-1, 4)\).
+
+   - For \(x > 4\):
+     Choose a test point, say \(x = 5\).
+     \[
+     (5)^2 - 3(5) - 4 = 25 - 15 - 4 = 6 > 0
+     \]
+     So, the expression is positive in \((4, \infty)\).
+
+   Therefore, \(x^2 - 3x - 4 > 0\) for \(x \in (-\infty, -1) \cup (4, \infty)\).
+
+4. **Combine with the domain restrictions:**
+   The function is defined where the denominator is positive and non-zero. Since the expression under the square root must be strictly greater than zero, we exclude the points where it equals zero.
+
+Thus, the domain of \( f(x) = \frac{x+6}{\sqrt{x^2-3x-4}} \) is:
+\[
+(-\infty, -1) \cup (4, \infty)
+\]
+
+Therefore, the correct answer is:
+\[
+\boxed{C}
+\]",1.0,"Analyze the problem statement in depth, apply relevant theories or calculations as needed, eliminate incorrect options based on given information, and select the most precise answer from those provided.",14
+"Planets X, Y and Z take 360, 450 and 540 days, respectively, to rotate around the same sun. If the three planets are lined up in a ray having the sun as its endpoint, what is the minimum positive number of days before they are all in the exact same locations again?
+(A) 360
+(B) 5400
+(C) 900
+(D) 1200",B,"To solve this problem, we need to determine the least common multiple (LCM) of the orbital periods of planets X, Y, and Z. The LCM is the smallest positive integer that is divisible by each of the given numbers without a remainder.
+
+The orbital periods are:
+- Planet X: 360 days
+- Planet Y: 450 days
+- Planet Z: 540 days
+
+### Step-by-step Calculation:
+
+1. **Prime Factorization**:
+   - \(360 = 2^3 \times 3^2 \times 5\)
+   - \(450 = 2 \times 3^2 \times 5^2\)
+   - \(540 = 2^2 \times 3^3 \times 5\)
+
+2. **Identify the Highest Powers of Each Prime**:
+   - For \(2\): The highest power is \(2^3\) (from 360).
+   - For \(3\): The highest power is \(3^3\) (from 540).
+   - For \(5\): The highest power is \(5^2\) (from 450).
+
+3. **Calculate the LCM**:
+   \[
+   \text{LCM} = 2^3 \times 3^3 \times 5^2
+   \]
+   - Calculate each part separately:
+     - \(2^3 = 8\)
+     - \(3^3 = 27\)
+     - \(5^2 = 25\)
+
+4. **Multiply the Results**:
+   \[
+   \text{LCM} = 8 \times 27 \times 25
+   \]
+   - First, multiply 8 and 27:
+     \[
+     8 \times 27 = 216
+     \]
+   - Then, multiply the result by 25:
+     \[
+     216 \times 25 = 5400
+     \]
+
+Thus, the minimum positive number of days before planets X, Y, and Z are all in the exact same locations again is \(5400\) days.
+
+### Conclusion:
+
+The correct answer is (B) 5400.",1.0,"Analyze the problem statement in depth, apply relevant theories or calculations as needed, eliminate incorrect options based on given information, and select the most precise answer from those provided.",14

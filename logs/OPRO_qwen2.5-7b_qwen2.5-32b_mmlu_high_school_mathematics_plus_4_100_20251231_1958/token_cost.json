@@ -1,0 +1,14 @@
+{
+    "scorer_usage": {
+        "prompt_tokens": 8198874,
+        "completion_tokens": 13435235,
+        "total_tokens": 21634109,
+        "call_count": 34700
+    },
+    "optimizer_usage": {
+        "prompt_tokens": 95424,
+        "completion_tokens": 3561,
+        "total_tokens": 98985,
+        "call_count": 80
+    }
+}
