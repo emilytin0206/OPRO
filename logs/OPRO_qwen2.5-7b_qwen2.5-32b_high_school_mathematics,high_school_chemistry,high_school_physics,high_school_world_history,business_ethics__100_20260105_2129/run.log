@@ -1,9 +1,0 @@
-2026-01-05 21:29:36,660 - OPRO - INFO - Experiment: OPRO_qwen2.5-7b_qwen2.5-32b_high_school_mathematics,high_school_chemistry,high_school_physics,high_school_world_history,business_ethics__100_20260105_2129
-2026-01-05 21:29:36,660 - OPRO - INFO - 開始 OPRO 優化任務:  on high_school_mathematics,high_school_chemistry,high_school_physics,high_school_world_history,business_ethics
-2026-01-05 21:29:36,661 - OPRO - ERROR - 執行失敗:
-Traceback (most recent call last):
-  File "/hcds_vol/private/emily/OPRO/main.py", line 152, in main
-    run_opro_optimization(
-  File "/hcds_vol/private/emily/OPRO/src/core/optimization.py", line 31, in run_opro_optimization
-    raise ValueError("沒有載入任何資料，請檢查路徑或檔案名稱。")
-ValueError: 沒有載入任何資料，請檢查路徑或檔案名稱。
