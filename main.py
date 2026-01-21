@@ -4,14 +4,13 @@ import os
 import argparse
 import datetime
 import json
-from dataclasses import dataclass, asdict  # [修正 1] 引入 asdict 用於序列化設定
-from typing import List
+from dataclasses import dataclass, asdict
+from typing import List, Union
 
 from src.utils import setup_logger
 from src.model.ollama_client import OllamaModelClient
 from src.core.optimization import run_opro_optimization
 
-# 簡單的 Config 類別定義
 @dataclass
 class ModelConfig:
     client_type: str
@@ -24,9 +23,10 @@ class ModelConfig:
 class DatasetConfig:
     name: str
     split: str
-    subsets: List[str] | str
-    train_limit: int | str
+    subsets: Union[List[str], str]
+    train_limit: Union[int, str]
     data_root: str
+    shuffle: bool = True  # 預設為 True
 
 @dataclass
 class OptimizationConfig:
@@ -72,10 +72,24 @@ def load_config(config_path: str) -> GlobalConfig:
     
     # Dataset 處理
     ds_raw = raw['dataset']
-    # 確保 subsets 是 list 或 str
-    if 'subsets' in ds_raw and isinstance(ds_raw['subsets'], list) == False and ds_raw['subsets'] != 'all':
-         if ds_raw['subsets'] is None: ds_raw['subsets'] = []
-         else: ds_raw['subsets'] = [str(ds_raw['subsets'])]
+    
+    # [修正重點] 增強 Subsets 解析邏輯，支援逗號分隔字串
+    if 'subsets' in ds_raw:
+        val = ds_raw['subsets']
+        if val is None:
+            ds_raw['subsets'] = []
+        elif isinstance(val, str):
+            if val.lower() == 'all':
+                pass  # 保持 'all' 字串
+            elif ',' in val:
+                # 如果是 "math,physics"，自動切分為 ['math', 'physics']
+                ds_raw['subsets'] = [x.strip() for x in val.split(',') if x.strip()]
+            else:
+                # 單一子集字串轉為列表
+                ds_raw['subsets'] = [val]
+    else:
+        ds_raw['subsets'] = []
+
     ds_cfg = DatasetConfig(**ds_raw)
 
     scorer_cfg = ModelConfig(**raw['scorer_model'])
@@ -83,7 +97,6 @@ def load_config(config_path: str) -> GlobalConfig:
     
     # Optimization 處理
     opt_dict = raw['optimization']
-    # 過濾多餘的 key
     known_keys = OptimizationConfig.__annotations__.keys()
     filtered_opt = {k: v for k, v in opt_dict.items() if k in known_keys}
     opt_cfg = OptimizationConfig(**filtered_opt)
@@ -99,27 +112,30 @@ def main():
     cfg = load_config(args.config)
     
     # 2. 自動生成實驗資料夾名稱
-    # 格式: OPRO_<target>_<opt>_<dataset>_<subset>_<limit>_<date>
+    # 格式: OPRO_<target>_<opt>_<dataset>_<Num>Sub_Lim<Limit>_<Shuffle/Seq>_<Date>
     target_name = clean_name(cfg.scorer_model.model_name)
     opt_name = clean_name(cfg.optimizer_model.model_name)
     ds_name = cfg.dataset.name
     
-    # 處理 subset 命名
-    if isinstance(cfg.dataset.subsets, str) and cfg.dataset.subsets.lower() == 'all':
-        sub_name = "all"
-    elif isinstance(cfg.dataset.subsets, list) and len(cfg.dataset.subsets) > 0:
-        if len(cfg.dataset.subsets) == 1:
-            sub_name = cfg.dataset.subsets[0]
-        else:
-            # 如果有多個，取第一個加後綴，避免檔名過長
-            sub_name = f"{cfg.dataset.subsets[0]}_plus_{len(cfg.dataset.subsets)-1}"
+    # 計算子集數量
+    if isinstance(cfg.dataset.subsets, list):
+        num_sub = len(cfg.dataset.subsets)
+        sub_info = f"{num_sub}Sub"
+    elif str(cfg.dataset.subsets).lower() == 'all':
+        sub_info = "AllSub"
     else:
-        sub_name = "default"
+        sub_info = "1Sub"
         
-    limit_name = str(cfg.dataset.train_limit)
-    date_str = datetime.datetime.now().strftime("%Y%m%d_%H%M")
+    limit_val = str(cfg.dataset.train_limit)
+    limit_info = f"Lim{limit_val}"
     
-    experiment_folder_name = f"OPRO_{target_name}_{opt_name}_{ds_name}_{sub_name}_{limit_name}_{date_str}"
+    # Shuffle 資訊
+    is_shuffle = getattr(cfg.dataset, 'shuffle', True)
+    shuffle_info = "Shuffle" if is_shuffle else "Seq"
+
+    date_str = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    
+    experiment_folder_name = f"OPRO_{target_name}_{opt_name}_{ds_name}_{sub_info}_{limit_info}_{shuffle_info}_{date_str}"
     
     # 完整路徑
     experiment_dir = os.path.join(cfg.project.log_dir, experiment_folder_name)
@@ -129,19 +145,18 @@ def main():
     
     print(f"建立實驗資料夾: {experiment_dir}")
 
-    # 3. 更新 Config 中的 Log Dir (讓其他模組知道寫入哪裡)
+    # 3. 更新 Config 中的 Log Dir
     cfg.project.log_dir = experiment_dir
     
     # 4. 備份 Config
     config_backup_path = os.path.join(experiment_dir, "config_snapshot.yaml")
     with open(config_backup_path, 'w', encoding='utf-8') as f:
-        # [修正 2] 將 dataclass 轉回 dict 並寫入 YAML
         print(f"正在備份設定檔至: {config_backup_path}")
         yaml.dump(asdict(cfg), f, allow_unicode=True, sort_keys=False, default_flow_style=False)
 
     # 5. 設定 Logger
     logger, _ = setup_logger(experiment_dir, "run")
-    logger.info(f"Experiment: {experiment_folder_name}")
+    logger.info(f"Experiment Folder: {experiment_folder_name}")
 
     # 6. 實例化 Client
     scorer_client = OllamaModelClient(**cfg.scorer_model.__dict__)
@@ -152,10 +167,10 @@ def main():
         run_opro_optimization(
             scorer_client=scorer_client,
             optimizer_client=optimizer_client,
-            config=cfg # 傳入整個 GlobalConfig
+            config=cfg
         )
         
-        # 8. 統計 Token Cost (簡單版)
+        # 8. 統計 Token Cost
         token_cost_data = {
             "scorer_usage": scorer_client.usage_stats,
             "optimizer_usage": optimizer_client.usage_stats

@@ -13,6 +13,7 @@ def load_dataset(dataset_cfg):
     name = dataset_cfg.name.lower()
     split = dataset_cfg.split.lower() # 'train' or 'test'
     data_root = dataset_cfg.data_root
+    # 注意：我們不在這裡做 train_limit 截斷，改由 optimization.py 處理以支援 shuffle
     raw_data = []
 
     print(f"正在載入資料集: {name} (Split: {split})")
@@ -65,11 +66,8 @@ def load_dataset(dataset_cfg):
                 df = pd.read_csv(file_path, header=None)
                 subset_name = os.path.basename(file_path).replace(f"_{split}.csv", "")
                 
-                # [Fix] 實作 train_limit 邏輯
-                limit = dataset_cfg.train_limit
-                if limit != 'all' and isinstance(limit, int):
-                    # 如果該檔案筆數不夠，df.head(limit) 會自動回傳所有筆數 (即全拿)
-                    df = df.head(limit)
+                # [關鍵修改] 移除這裡的 train_limit 截斷
+                # 讓 optimization.py 負責從"全部資料"中隨機抽取 train_limit 筆
                 
                 for _, row in df.iterrows():    
                     question = str(row[0])
@@ -88,7 +86,6 @@ def load_dataset(dataset_cfg):
 
     elif name == "gsm8k":
         # GSM8K 處理邏輯
-        # 假設檔名為 gsm_train.tsv 或 gsm_test.tsv
         file_name = f"gsm_{split}.tsv"
         file_path = os.path.join(data_root, "gsm8k", file_name)
         
@@ -109,8 +106,7 @@ def load_dataset(dataset_cfg):
             print(f"  [錯誤] 找不到 GSM8K 檔案: {file_path}")
 
     elif name == "bbh":
-        # BBH 保留原本邏輯 (略作調整以適應 new config 結構)
-        # 假設 subsets 列表的第一個當作 task name
+        # BBH 保留原本邏輯
         task_name = dataset_cfg.subsets[0] if dataset_cfg.subsets else "unknown"
         file_path = os.path.join(data_root, "BIG-Bench-Hard-data", f"{task_name}.json")
         if os.path.exists(file_path):
@@ -147,7 +143,7 @@ def setup_logger(log_dir: str, task_name: str):
     logger.setLevel(logging.INFO)
     logger.handlers = []
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    log_file = os.path.join(log_dir, "run.log") # 固定叫 run.log
+    log_file = os.path.join(log_dir, "run.log")
     fh = logging.FileHandler(log_file, encoding='utf-8')
     fh.setFormatter(formatter)
     logger.addHandler(fh)

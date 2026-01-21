@@ -11,15 +11,15 @@ dataset:
   name: 'mmlu'               # 選項: 'mmlu', 'gsm8k'
   split: 'test'              # mmlu 通常用 'test', gsm8k 常用 'train'
   data_root: './data'
+  shuffle: true  # 設定為 true 會隨機選取並打散；設定為 false 則依序選取不打散
   
   # [MMLU 專用] 指定子集。若為 'all' 則載入全部，或列表指定特定子集
-  subsets: 
-  # all
-      - "high_school_mathematics"
-      - "high_school_world_history"      # 歷史 (文科)
-      - "high_school_physics"      # 物理 (理科)
-      - "professional_law"         # 法律 (邏輯與條文)
-      - "business_ethics"          # 商業 (常識判斷)
+  subsets: all
+      # - "high_school_mathematics"
+      # - "high_school_world_history"      # 歷史 (文科)
+      # - "high_school_physics"      # 物理 (理科)
+      # - "professional_law"         # 法律 (邏輯與條文)
+      # - "business_ethics"          # 商業 (常識判斷)
       
 
   # [關鍵設定] 訓練集筆數限制。設為整數 (如 50) 或 'all' (全部)
@@ -43,7 +43,7 @@ optimizer_model:
   client_type: 'Ollama'
   model_name: 'qwen2.5:32b'
   api_url: 'http://localhost:11434/api/chat'
-  temperature: 0.7
+  temperature: 1.0
   max_output_tokens: 2048
 
 # ----------------------------------------------------
@@ -52,7 +52,7 @@ optimizer_model:
 optimization:
   train_ratio: 0.8
   eval_interval: 3  ## 每幾步執行一次驗證集檢查
-  num_iterations: 20           # 測試時建議先設小一點 (例如 20)
+  num_iterations: 50           # 測試時建議先設小一點 (例如 20)
   num_prompts_to_generate: 8
   max_num_instructions_in_prompt: 20
   

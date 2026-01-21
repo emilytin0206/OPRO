@@ -23,6 +23,7 @@ def run_opro_optimization(scorer_client: BaseModelClient, optimizer_client: Base
     train_ratio = getattr(config.optimization, 'train_ratio', 0.8)
     eval_interval = getattr(config.optimization, 'eval_interval', 3)
     num_iterations = config.optimization.num_iterations
+    do_shuffle = getattr(config.dataset, 'shuffle', True)
 
     # 1. 載入資料
     raw_dataset = load_dataset(config.dataset)
@@ -56,10 +57,11 @@ def run_opro_optimization(scorer_client: BaseModelClient, optimizer_client: Base
     
     # Step 1: 遍歷每個子集，取出指定數量 (例如 50) 加入大池子
     for sub, items in grouped_data.items():
-        random.shuffle(items) # 先打亂該子集
+        # [修改] 根據參數決定是否打散子集 (影響選取哪 100 筆)
+        if do_shuffle:
+            random.shuffle(items) 
         
         if limit_int is not None:
-            # 只取前 limit_int 筆 (例如 50)
             selected_items = items[:limit_int]
         else:
             selected_items = items
@@ -69,7 +71,9 @@ def run_opro_optimization(scorer_client: BaseModelClient, optimizer_client: Base
     logger.info(f"各子集取樣完成，混合池總筆數: {len(combined_pool)} (來自 {len(grouped_data)} 個子集)")
 
     # Step 2: 混合後進行 80/20 切分
-    random.shuffle(combined_pool) # 全局打亂
+    # [修改] 根據參數決定是否打散混合後的池子
+    if do_shuffle:
+        random.shuffle(combined_pool)
     
     n_total = len(combined_pool)
     n_train = int(n_total * train_ratio)

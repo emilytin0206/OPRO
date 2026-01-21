@@ -10,19 +10,15 @@ TEMP_CONFIG="config/config_auto_run.yaml"
 # --------------------------------------------------------
 # 1. 定義要測試的 Scorer 模型列表
 # --------------------------------------------------------
-# 您可以在這裡填入多個 Ollama 模型名稱
 SCORERS=("qwen2.5:7b") 
-# SCORERS=("qwen2.5:7b" "llama3.1:8b" "gemma2:9b")
 
 # --------------------------------------------------------
 # 2. 定義要測試的資料集與子集
-# 格式: "Dataset_Name Subset_Name"
-# 注意: 如果是 GSM8K，Subset 填 train 即可 (代表使用訓練集進行優化)
+# 格式: "Dataset_Name Subset_List" (子集間用逗號分隔，無空格)
+# 修正重點: 必須在開頭指定 mmlu，程式才能正確解析
 # --------------------------------------------------------
 TASKS=(
-    "high_school_mathematics,high_school_chemistry,high_school_physics,high_school_world_history,business_ethics" 
-
-
+    "mmlu high_school_mathematics,high_school_chemistry,high_school_physics,high_school_world_history,business_ethics"
 )
 
 # --------------------------------------------------------
@@ -31,11 +27,12 @@ TASKS=(
 LIMITS=(100)
 
 # --------------------------------------------------------
-# 4. 固定參數 (優化器模型與其他設定)
+# 4. 固定參數 (已更新為論文最佳設定)
 # --------------------------------------------------------
 OPTIMIZER="qwen2.5:32b"
-ITERATIONS=10
-PROMPTS_PER_STEP=4
+ITERATIONS=50             # 論文建議至少跑 50-100 步
+PROMPTS_PER_STEP=8        # 論文設定每步生成 8 個指令
+OPTIMIZER_TEMP=1.0        # 優化器溫度設為 1.0 以增加創意
 
 # ========================================================
 # 主執行迴圈
@@ -46,10 +43,16 @@ mkdir -p logs
 for SCORER in "${SCORERS[@]}"; do
     for TASK_INFO in "${TASKS[@]}"; do
         
-        # 解析 Dataset 和 Subset
-        read -r DATASET SUBSET <<< "$TASK_INFO"
+        # 1. 解析 Dataset 和 Raw Subsets
+        # 輸入範例: "mmlu math,physics,history"
+        read -r DATASET SUBSET_RAW <<< "$TASK_INFO"
         
-        # 判斷 Split (GSM8K 通常跑 train, MMLU 跑 test)
+        # 2. [關鍵修正] 將逗號分隔的字串轉換為 YAML 列表格式
+        # 轉換前: math,physics
+        # 轉換後: math','physics (準備放入 YAML 的 ['...'] 中)
+        SUBSET_YAML_LIST=$(echo "$SUBSET_RAW" | sed "s/,/','/g")
+
+        # 3. 判斷 Split
         SPLIT="test"
         if [ "$DATASET" == "gsm8k" ]; then
             SPLIT="train"
@@ -61,13 +64,12 @@ for SCORER in "${SCORERS[@]}"; do
             echo "----------------------------------------------------------------"
             echo "  Scorer Model : $SCORER"
             echo "  Optimizer    : $OPTIMIZER"
-            echo "  Dataset      : $DATASET ($SUBSET)"
-            echo "  Split        : $SPLIT"
-            echo "  Train Limit  : $LIMIT"
+            echo "  Dataset      : $DATASET"
+            echo "  Subsets      : $SUBSET_RAW"
+            echo "  Train Limit  : $LIMIT (per subset, shuffled)"
             echo "================================================================"
 
             # 產生暫時的 Config YAML
-            # 使用 cat <<EOF 動態寫入設定檔，這裡對應新版的 Config 結構
             cat > "$TEMP_CONFIG" <<EOF
 project:
   log_dir: './logs'
@@ -75,9 +77,11 @@ project:
 dataset:
   name: '$DATASET'
   split: '$SPLIT'
-  subsets: ['$SUBSET'] 
+  # 這裡會被展開為 subsets: ['math','physics','...']
+  subsets: ['$SUBSET_YAML_LIST'] 
   train_limit: $LIMIT
   data_root: './data'
+  shuffle: true
 
 scorer_model:
   client_type: 'Ollama'
@@ -90,15 +94,15 @@ optimizer_model:
   client_type: 'Ollama'
   model_name: '$OPTIMIZER'
   api_url: 'http://localhost:11434/api/chat'
-  temperature: 0.7
+  temperature: $OPTIMIZER_TEMP
   max_output_tokens: 2048
 
 optimization:
   num_iterations: $ITERATIONS
   num_prompts_to_generate: $PROMPTS_PER_STEP
-  max_num_instructions_in_prompt: 10
+  max_num_instructions_in_prompt: 20
   meta_prompt_path: 'prompt/meta_prompt.txt'
-  eval_interval: 3
+  eval_interval: 5
   instruction_pos: 'Q_begin'
   is_instruction_tuned: true
   num_few_shot_questions: 3
@@ -106,6 +110,7 @@ optimization:
   initial_instructions:
     - "Let's think step by step."
     - "Answer the question directly."
+    - "Solve this problem carefully."
 EOF
 
             # 執行 Python 主程式
