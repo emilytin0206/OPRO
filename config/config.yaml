@@ -5,45 +5,37 @@ project:
   log_dir: './logs'
 
 # ----------------------------------------------------
-# 資料集設定 (New!)
+# 資料集設定 (針對 Revisiting OPRO 論文實驗)
 # ----------------------------------------------------
 dataset:
-  name: 'mmlu'               # 選項: 'mmlu', 'gsm8k'
-  split: 'test'              # mmlu 通常用 'test', gsm8k 常用 'train'
+  name: 'gsm8k'
+  split: 'train'
   data_root: './data'
-  shuffle: true  # 設定為 true 會隨機選取並打散；設定為 false 則依序選取不打散
-  
-  # [MMLU 專用] 指定子集。若為 'all' 則載入全部，或列表指定特定子集
-  subsets: all
-      # - "high_school_mathematics"
-      # - "high_school_world_history"      # 歷史 (文科)
-      # - "high_school_physics"      # 物理 (理科)
-      # - "professional_law"         # 法律 (邏輯與條文)
-      # - "business_ethics"          # 商業 (常識判斷)
-      
+  shuffle: true
+  subsets: null
 
-  # [關鍵設定] 訓練集筆數限制。設為整數 (如 50) 或 'all' (全部)
-  # 這會決定從載入的資料中取出多少筆作為 OPRO 的優化訓練集
-  train_limit: 100
+  # [修正 1] 論文 Appendix A.2 指出每次迭代取 3.5% 訓練集
+  # GSM8K 訓練集總數 7473 * 3.5% ≈ 262
+  train_limit: 262
 
 # ----------------------------------------------------
-# Scorer Model
+# Scorer Model (評分模型)
 # ----------------------------------------------------
 scorer_model:
   client_type: 'Ollama'
-  model_name: 'qwen2.5:7b'
+  model_name: 'llama2:7b'   # 可依您的設備維持使用 Qwen 或更換為 Llama-2
   api_url: 'http://localhost:11434/api/chat'
   temperature: 0.0
   max_output_tokens: 1024
 
 # ----------------------------------------------------
-# Optimizer Model
+# Optimizer Model (優化器模型)
 # ----------------------------------------------------
 optimizer_model:
   client_type: 'Ollama'
-  model_name: 'qwen2.5:32b'
+  model_name: 'llama2:7b'
   api_url: 'http://localhost:11434/api/chat'
-  temperature: 1.0
+  temperature: 1.0           # OPRO 論文標準設定
   max_output_tokens: 2048
 
 # ----------------------------------------------------
@@ -51,25 +43,32 @@ optimizer_model:
 # ----------------------------------------------------
 optimization:
   train_ratio: 0.8
-  eval_interval: 3  ## 每幾步執行一次驗證集檢查
-  num_iterations: 50           # 測試時建議先設小一點 (例如 20)
+  eval_interval: 3
+  
+  # [修正 2] 論文 Appendix A.2 明確指出實驗跑 100 個迭代
+  num_iterations: 100
+  
+  # [確認正確] 論文 Appendix A.2 指出每次生成 8 個新指令
   num_prompts_to_generate: 8
+  
+  # [確認正確] 論文 Appendix A.2 指出 Meta-prompt 包含 Top 20 歷史紀錄
   max_num_instructions_in_prompt: 20
   
-  # [修正] 路徑改為 prompt (單數) 以匹配您的資料夾結構
+  # 對應論文 Text 4 的 Meta-prompt (請確認檔案內容已更新)
   meta_prompt_path: 'prompt/meta_prompt.txt'
   
-  # [新增] 支援 Scorer 的格式調整
-  instruction_pos: 'Q_begin'
+  # 指令位置：答案開頭 (符合論文 "instruction at the beginning of the answer")
+  instruction_pos: 'A_begin' 
+  
   is_instruction_tuned: true
   
-  # [新增] 支援 Optimizer 的錯誤驅動策略
+  # [確認正確] 論文 Appendix A.2 指出 Meta-prompt 包含 3 個隨機範例
   num_few_shot_questions: 3
+  
   few_shot_selection_criteria: 'random'
   old_instruction_score_threshold: 0.1
 
+  # 初始指令：適合接在 "A: " 後面的起始句
   initial_instructions:
-    - "Let's think step by step."
-    - "Solve this problem carefully."
-    - "Provide a detailed answer."
-    - "Answer the question directly."
+    - "Let's think step by step"
+    - ""

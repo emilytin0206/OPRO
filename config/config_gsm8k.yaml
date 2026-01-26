@@ -5,60 +5,69 @@ project:
   log_dir: './logs'
 
 # ----------------------------------------------------
-# 資料集設定 (對齊論文: GSM8K)
+# 資料集設定 (針對 Revisiting OPRO 論文實驗)
 # ----------------------------------------------------
 dataset:
-  name: 'gsm8k'              # [修改] 切換為 gsm8k
-  split: 'train'             # [修改] 論文使用訓練集進行優化 (測試集留給最後)
+  name: 'gsm8k'
+  split: 'train'
   data_root: './data'
   shuffle: true
-  
-  subsets: all               # gsm8k 通常沒有子集區分，設為 all 即可
+  subsets: null
 
-  # [關鍵修改] 論文提到每次迭代使用 "3.5% of training examples" 作為評分依據
-  # GSM8K 訓練集約 7473 筆，3.5% 約為 261 筆。
-  # 設定 300 左右可以模擬論文的計算負載與評分穩定度。
-  train_limit: 265 
+  # [修正 1] 論文 Appendix A.2 指出每次迭代取 3.5% 訓練集
+  # GSM8K 訓練集總數 7473 * 3.5% ≈ 262
+  train_limit: 262
 
 # ----------------------------------------------------
-# Scorer Model (評分器)
+# Scorer Model (評分模型)
 # ----------------------------------------------------
 scorer_model:
   client_type: 'Ollama'
-  model_name: 'qwen2.5:7b'   # 使用你現有的小模型，模擬論文中的 Llama-2-7b/13b 角色
+  model_name: 'llama2:7b'   # 可依您的設備維持使用 Qwen 或更換為 Llama-2
   api_url: 'http://localhost:11434/api/chat'
-  temperature: 0.0           # 論文設定評分時 temperature 為 0 (Greedy decoding)
+  temperature: 0.0
   max_output_tokens: 1024
 
 # ----------------------------------------------------
-# Optimizer Model (優化器)
+# Optimizer Model (優化器模型)
 # ----------------------------------------------------
 optimizer_model:
   client_type: 'Ollama'
-  model_name: 'qwen2.5:32b'  # 使用你較強的模型來擔任 Optimizer
+  model_name: 'llama2:7b'
   api_url: 'http://localhost:11434/api/chat'
-  temperature: 1.0           # [重要] 論文設定 Optimizer 需有創造力，Temp 設為 1.0 (Source 416 implicit)
+  temperature: 1.0           # OPRO 論文標準設定
   max_output_tokens: 2048
 
 # ----------------------------------------------------
-# OPRO 優化參數 (對齊論文 Page 7, A.2)
+# OPRO 優化參數
 # ----------------------------------------------------
 optimization:
-  train_ratio: 0.8           # 保持不變，切分出驗證集
-  eval_interval: 3           # 每 3 步驗證一次
+  train_ratio: 0.8
+  eval_interval: 3
   
-  num_iterations: 100        # [修改] 論文設定跑 100 個 steps (Source 416)
-                             # 如果只想快速驗證環境，可先改為 10 或 20
+  # [修正 2] 論文 Appendix A.2 明確指出實驗跑 100 個迭代
+  num_iterations: 100
   
-  num_prompts_to_generate: 8 # [確認] 論文設定每步生成 8 個新指令 (Source 418)
+  # [確認正確] 論文 Appendix A.2 指出每次生成 8 個新指令
+  num_prompts_to_generate: 8
   
-  max_num_instructions_in_prompt: 20 # [確認] Meta-prompt 包含 Top 20 歷史紀錄 (Source 419)
+  # [確認正確] 論文 Appendix A.2 指出 Meta-prompt 包含 Top 20 歷史紀錄
+  max_num_instructions_in_prompt: 20
   
-  meta_prompt_path: 'prompt/meta_prompt.txt' # 你的 Meta-prompt 內容已符合論文 Text 4
+  # 對應論文 Text 4 的 Meta-prompt (請確認檔案內容已更新)
+  meta_prompt_path: 'prompt/meta_prompt.txt'
   
-  instruction_pos: 'Q_begin' # GSM8K 通常是將 Prompt 放在問題最前面
+  # 指令位置：答案開頭 (符合論文 "instruction at the beginning of the answer")
+  instruction_pos: 'A_begin' 
   
-  # 初始指令 (論文使用 "Let's think step by step" 作為起點之一)
+  is_instruction_tuned: true
+  
+  # [確認正確] 論文 Appendix A.2 指出 Meta-prompt 包含 3 個隨機範例
+  num_few_shot_questions: 3
+  
+  few_shot_selection_criteria: 'random'
+  old_instruction_score_threshold: 0.1
+
+  # 初始指令：適合接在 "A: " 後面的起始句
   initial_instructions:
-    - "Let's think step by step."
-    - "Take a deep breath and work on this problem step-by-step."
+    - "Let's think step by step"
