@@ -59,15 +59,30 @@ def load_dataset(dataset_cfg):
                 if not found:
                     print(f"  [警告] 找不到子集檔案: {sub} ({split})")
 
+        # ==========================================
+        # [關鍵修改] 計算 MMLU 每個子集該取多少筆
+        # ==========================================
+        try:
+            total_limit = int(dataset_cfg.train_limit)
+        except (ValueError, TypeError):
+            total_limit = 999999  # 如果沒有設定限制，給予極大值全取
+
+        num_subsets = len(files_to_load)
+        # 根據找到的子集數量，平均分配題數
+        per_subset_limit = total_limit // num_subsets if num_subsets > 0 else total_limit
+        print(f"  準備讀取 {num_subsets} 個 MMLU 子集，每個子集固定取前 {per_subset_limit} 筆。")
+
         # 開始讀取
         for file_path in files_to_load:
             try:
                 # MMLU CSV 無 header: [Question, A, B, C, D, Answer]
                 df = pd.read_csv(file_path, header=None)
-                subset_name = os.path.basename(file_path).replace(f"_{split}.csv", "")
                 
-                # [關鍵修改] 移除這裡的 train_limit 截斷
-                # 讓 optimization.py 負責從"全部資料"中隨機抽取 train_limit 筆
+                # [關鍵修改] 每個子集固定取「最前面」的指定筆數
+                # 註：如果子集本身的資料量小於 per_subset_limit，df.head() 會安全地全取而不會報錯
+                df = df.head(per_subset_limit)
+                
+                subset_name = os.path.basename(file_path).replace(f"_{split}.csv", "")
                 
                 for _, row in df.iterrows():    
                     question = str(row[0])
@@ -89,11 +104,23 @@ def load_dataset(dataset_cfg):
         file_name = f"gsm_{split}.tsv"
         file_path = os.path.join(data_root, "gsm8k", file_name)
         
+        # ==========================================
+        # [關鍵修改] 取得 GSM8K 要取的總筆數
+        # ==========================================
+        try:
+            total_limit = int(dataset_cfg.train_limit)
+        except (ValueError, TypeError):
+            total_limit = 999999
+
         if os.path.exists(file_path):
             try:
                 # 假設 TSV 格式: [Question, Answer]
                 df = pd.read_csv(file_path, sep="\t", header=None)
-                print(f"  讀取 GSM8K 檔案: {file_path}")
+                
+                # [關鍵修改] GSM8K 只有單一資料集，直接取前 total_limit 筆
+                df = df.head(total_limit)
+                
+                print(f"  讀取 GSM8K 檔案: {file_path}，已截斷至前 {len(df)} 筆。")
                 for _, row in df.iterrows():
                     raw_data.append({
                         'input': str(row[0]),
@@ -104,7 +131,6 @@ def load_dataset(dataset_cfg):
                 print(f"  [錯誤] 讀取 GSM8K 失敗: {e}")
         else:
             print(f"  [錯誤] 找不到 GSM8K 檔案: {file_path}")
-
     elif name == "bbh":
         # BBH 保留原本邏輯
         task_name = dataset_cfg.subsets[0] if dataset_cfg.subsets else "unknown"

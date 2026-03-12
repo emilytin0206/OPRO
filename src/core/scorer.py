@@ -1,5 +1,6 @@
 import logging
-import pandas as pd  # 記得要 import pandas
+import pandas as pd
+import re
 from src.model.base_client import BaseModelClient
 
 logger = logging.getLogger("OPRO")
@@ -35,7 +36,7 @@ class Scorer:
             if is_correct:
                 correct_count += 1
             
-            # [修正點] 將每題結果存入列表
+            # 將每題結果存入列表
             results.append({
                 'input': input_text,
                 'target': target_text,
@@ -45,8 +46,7 @@ class Scorer:
                 
         score = correct_count / total if total > 0 else 0.0
         
-        # [修正點] 回傳字典，包含分數與詳細結果 DataFrame
-        # 這樣 optimization.py 呼叫 res['detailed_dataframe'] 時才不會報錯
+        # 回傳字典，包含分數與詳細結果 DataFrame
         return {
             'score': score,
             'detailed_dataframe': pd.DataFrame(results)
@@ -54,34 +54,51 @@ class Scorer:
 
     def _evaluate_prediction(self, prediction: str, target: str) -> bool:
         """
-        GSM8K 評分邏輯: 檢查是否包含正確答案
+        參考官方 OPRO (metrics.py) 的答案提取邏輯
         """
-        pred_clean = prediction.lower().strip()
-        targ_clean = target.lower().strip()
+        # 基礎清理
+        pred_clean = prediction.strip()
+        targ_clean = target.strip()
         
-        # 1. 直接字串比對
-        if targ_clean in pred_clean:
-            return True
-            
-        # 2. 數字提取比對 (針對 GSM8K)
+        # ==========================================
+        # 處理單選題 (MMLU / BBH 等，答案為 A, B, C, D)
+        # ==========================================
+        if len(targ_clean) == 1 and targ_clean.upper() in ['A', 'B', 'C', 'D', 'E']:
+            # 尋找獨立的 A, B, C, D 字母。
+            # 涵蓋 "A", "(A)", "Answer: A", "A." 等常見情況
+            matches = re.findall(r'\b([A-E])\b', pred_clean.upper())
+            if matches:
+                # 取最後一個出現的字母，因為模型往往在最後給出結論
+                extracted_ans = matches[-1] 
+                return extracted_ans == targ_clean.upper()
+            return False
+
+        # ==========================================
+        # 處理數學題 (GSM8K，答案為數值)
+        # ==========================================
         try:
-            target_num = self._extract_number(targ_clean)
-            pred_nums = self._extract_all_numbers(pred_clean)
-            if target_num is not None and target_num in pred_nums:
-                return True
-        except:
+            # 清理千分位逗號
+            target_num_str = targ_clean.replace(',', '')
+            target_num = float(target_num_str) if '.' in target_num_str else int(target_num_str)
+            
+            pred_clean_no_comma = pred_clean.replace(',', '')
+            # 提取模型輸出中的所有數字 (包含正負號與小數點)
+            pred_nums_str = re.findall(r'-?\d*\.?\d+', pred_clean_no_comma)
+            
+            if pred_nums_str:
+                # 取最後一個數字作為最終預測結果
+                pred_last_num = float(pred_nums_str[-1]) if '.' in pred_nums_str[-1] else int(pred_nums_str[-1])
+                if pred_last_num == target_num:
+                    return True
+                
+                # 容錯處理：如果最後一個不是，但倒數第二個等其他地方有精準命中也算對
+                pred_nums = [float(n) if '.' in n else int(n) for n in pred_nums_str]
+                if target_num in pred_nums:
+                     return True
+        except Exception as e:
             pass
             
-        return False
-
-    def _extract_number(self, text):
-        import re
-        matches = re.findall(r'-?\d{1,3}(?:,\d{3})*(?:\.\d+)?', text)
-        if matches:
-            return float(matches[-1].replace(',', ''))
-        return None
-
-    def _extract_all_numbers(self, text):
-        import re
-        matches = re.findall(r'-?\d{1,3}(?:,\d{3})*(?:\.\d+)?', text)
-        return [float(m.replace(',', '')) for m in matches]
+        # ==========================================
+        # 退回嚴格的全字串比對 (兜底邏輯)
+        # ==========================================
+        return targ_clean.lower() == pred_clean.lower()

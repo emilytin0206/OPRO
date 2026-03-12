@@ -1,87 +1,64 @@
 #!/bin/bash
 
 # ========================================================
-# OPRO 批量實驗自動化腳本
+# OPRO 批量實驗自動化腳本 (前 N 筆截斷版)
 # ========================================================
 
-# 設定暫存 Config 路徑 (腳本會自動產生這個檔案)
-TEMP_CONFIG="config/config_gsm8k.yaml"
+TEMP_CONFIG="config/config_auto_run.yaml"
 
-# --------------------------------------------------------
-# 1. 定義要測試的 Scorer 模型列表
-# --------------------------------------------------------
-SCORERS=("llama2:7b") 
+# 1. 基礎設定
+SCORERS=("qwen2.5:7b") 
+OPTIMIZER="qwen2.5:32b"
 
-# --------------------------------------------------------
-# 2. 定義要測試的資料集與子集
-# 格式: "Dataset_Name Subset_List" (子集間用逗號分隔，無空格)
-# 修正重點: 必須在開頭指定 mmlu，程式才能正確解析
-# --------------------------------------------------------
-# TASKS=(
-#     "mmlu high_school_mathematics,high_school_chemistry,high_school_physics,high_school_world_history,business_ethics"
-# )
+# 2. 定義你的子集 (用逗號分隔，中間不要有空白)
+DATASET="mmlu"
+SUBSETS="high_school_mathematics,high_school_world_history,high_school_physics,professional_law,business_ethics"  # 5 科
 
-# --------------------------------------------------------
-# 3. 定義訓練資料量限制 (Train Limit)
-# --------------------------------------------------------
-# LIMITS=(100)
+# 3. 題數與資料控制設定
+PER_SUBSET_LIMIT=100  # 每個子集要取的最前面幾筆
 
-# # --------------------------------------------------------
-# # 4. 固定參數 (已更新為論文最佳設定)
-# # --------------------------------------------------------
-# OPTIMIZER="qwen2.5:32b"
-# ITERATIONS=50             # 論文建議至少跑 50-100 步
-# PROMPTS_PER_STEP=8        # 論文設定每步生成 8 個指令
-# OPTIMIZER_TEMP=1.0        # 優化器溫度設為 1.0 以增加創意
+# 自動計算總數量 (計算逗號數量 + 1 即為子集數量)
+NUM_SUBSETS=$(echo "$SUBSETS" | tr -cd ',' | wc -c)
+NUM_SUBSETS=$((NUM_SUBSETS + 1))
+TOTAL_LIMIT=$((PER_SUBSET_LIMIT * NUM_SUBSETS)) # 例如 100 * 5 = 500
+
+SHUFFLE_DATA="true"   # true: 將這 500 筆徹底打散再訓練 / false: 依科目順序訓練
+
+# 4. 固定參數
+ITERATIONS=50            
+PROMPTS_PER_STEP=8       
+OPTIMIZER_TEMP=1.0       
 
 # ========================================================
 # 主執行迴圈
-# ========================================================
-
-mkdir -p logs
-
 for SCORER in "${SCORERS[@]}"; do
-    for TASK_INFO in "${TASKS[@]}"; do
-        
-        # 1. 解析 Dataset 和 Raw Subsets
-        # 輸入範例: "mmlu math,physics,history"
-        read -r DATASET SUBSET_RAW <<< "$TASK_INFO"
-        
-        # 2. [關鍵修正] 將逗號分隔的字串轉換為 YAML 列表格式
-        # 轉換前: math,physics
-        # 轉換後: math','physics (準備放入 YAML 的 ['...'] 中)
-        SUBSET_YAML_LIST=$(echo "$SUBSET_RAW" | sed "s/,/','/g")
+    
+    SUBSET_YAML_LIST=$(echo "$SUBSETS" | sed "s/,/','/g")
+    SPLIT="test"
 
-        # 3. 判斷 Split
-        SPLIT="test"
-        if [ "$DATASET" == "gsm8k" ]; then
-            SPLIT="train"
-        fi
+    echo "================================================================"
+    echo " Scorer Model : $SCORER"
+    echo " Optimizer    : $OPTIMIZER"
+    echo " Dataset      : $DATASET"
+    echo " Subsets      : $SUBSETS ($NUM_SUBSETS 科)"
+    echo " Per Subset   : $PER_SUBSET_LIMIT 筆 (取最前面)"
+    echo " Total Limit  : $TOTAL_LIMIT 筆"
+    echo " Shuffle Data : $SHUFFLE_DATA"
+    echo "================================================================"
 
-        for LIMIT in "${LIMITS[@]}"; do
-            echo "================================================================"
-            echo "正在執行實驗 (Running Experiment)"
-            echo "----------------------------------------------------------------"
-            echo "  Scorer Model : $SCORER"
-            echo "  Optimizer    : $OPTIMIZER"
-            echo "  Dataset      : $DATASET"
-            echo "  Subsets      : $SUBSET_RAW"
-            echo "  Train Limit  : $LIMIT (per subset, shuffled)"
-            echo "================================================================"
+    mkdir -p config
 
-            # 產生暫時的 Config YAML
-            cat > "$TEMP_CONFIG" <<EOF
+    cat > "$TEMP_CONFIG" <<EOF
 project:
   log_dir: './logs'
 
 dataset:
   name: '$DATASET'
   split: '$SPLIT'
-  # 這裡會被展開為 subsets: ['math','physics','...']
-  subsets: ['$SUBSET_YAML_LIST'] 
-  train_limit: $LIMIT
+  subsets: ['$SUBSET_YAML_LIST']
+  train_limit: $TOTAL_LIMIT
   data_root: './data'
-  shuffle: true
+  shuffle: $SHUFFLE_DATA
 
 scorer_model:
   client_type: 'Ollama'
@@ -109,27 +86,21 @@ optimization:
   few_shot_selection_criteria: 'random'
   initial_instructions:
     - "Let's think step by step."
-    - "Answer the question directly."
-    - "Solve this problem carefully."
+    - Solve this problem carefully.
+    - Provide a detailed answer.
+    - Answer the question directly.
 EOF
 
-            # 執行 Python 主程式
-            python main.py --config "$TEMP_CONFIG"
+    python main.py --config "$TEMP_CONFIG"
 
-            # 檢查執行結果
-            if [ $? -eq 0 ]; then
-                echo "✅ 實驗完成"
-            else
-                echo "❌ 實驗發生錯誤"
-            fi
-            
-            echo ""
-            # 休息 3 秒讓 GPU 降溫或釋放資源
-            sleep 3
-        done
-    done
+    if [ $? -eq 0 ]; then
+        echo "✅ 實驗完成"
+    else
+        echo "❌ 實驗發生錯誤"
+    fi
+
+    echo "等待 3 秒釋放資源..."
+    sleep 3
 done
 
-# 清理暫存檔
-rm "$TEMP_CONFIG"
-echo "所有實驗已結束。"
+rm -f "$TEMP_CONFIG"
